@@ -1,0 +1,143 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YUI RESET - Copyright (c) 2010, Yahoo! Inc. All rights reserved. // Code licensed under the BSD License: // http://developer.yahoo.com/yui/license.html // version: 2.8.1 */
+
+html{color:#000;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+*:focus,a:focus,img:focus,input:focus{outline-style:none;}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TYPOGRAPHY */
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/book/gotham-book-webfont.eot');
+    src: url('../fonts/gotham/book/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham/book/gotham-book-webfont.woff') format('woff'),
+         url('../fonts/gotham/book/gotham-book-webfont.ttf') format('truetype'),
+         url('../fonts/gotham/book/gotham-book-webfont.svg#GothamRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot');
+    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.woff') format('woff'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.ttf') format('truetype'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.svg#GothamRegular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/*~~ basics */
+.clr {
+    clear: both;
+}
+
+/*~~ typography */
+h1 {
+    font-size: 22px;
+    color: #333;
+    margin: 0 0 20px 0;
+    text-transform: capitalize;
+}
+h2 {
+    font-size: 0.9em;
+    color: #666;
+    margin:0 0 10px 0;
+}
+.left h2 {
+    padding-left: 10px;
+}
+p {
+    margin: 20px 0;
+    color: #666;
+    line-height: 2em;
+    font-size: 12px;
+}
+a {
+    color: #0066A4;
+    text-decoration: none;
+}
+a:hover {
+    color:#0E3460;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LAYOUT */
+
+body {
+    background: #a1c3d9;
+    font-family: 'Gotham';
+}
+.wrapper {
+    width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #999;
+}
+.header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 40px;
+}
+.left {
+    width: 220px;
+    float: left;
+    padding: 30px;
+}
+.content {
+    margin-left: 280px;
+    border-left: 1px solid #ccc;
+    padding: 40px;
+}
+.footer {
+    padding: 20px 40px;
+    font-size: 0.75em;
+    color: #333;
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 6px 6px;
+    clear: both;
+}
+/*main nav*/
+a.logo {
+    display: block;
+    float: left;
+}
+
+.main-nav {
+    float: right;
+    padding-top: 20px;
+}
+    .main-nav ul li {
+        float: left;
+    }
+    .main-nav ul li a {
+        float: left;
+        display: block;
+        margin-left: 20px;
+    }
+    
+/*sidebar*/
+.sidebar-widget {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}    
+/*recent articles*/
+.recent-articles {
+    font-size: 0.9em;
+}
+    .recent-articles ul li {
+        padding: 2px 0;
+    }
+        .recent-articles ul li a {
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+        .recent-articles ul li a:hover {
+            background: #eaf2f7;
+        }
+        .recent-articles ul li .date {
+            font-size: 0.7em;
+            color: #666;
+            margin: 6px 0 0 0;
+        }
