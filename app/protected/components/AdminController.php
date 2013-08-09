@@ -39,4 +39,9 @@ class AdminController extends CController
     {
        return $data->status == 1 ? "<span class=\"icon check\"></span>Published" : "Unpublished";
     }
+    
+    protected function getSlug($data, $row)
+    {
+       return CHtml::link(Yii::app()->request->getServerName()."/".$data->slug, "http://".Yii::app()->request->getServerName()."/".$data->slug, array("target"=>"_blank"));
+    }
 }

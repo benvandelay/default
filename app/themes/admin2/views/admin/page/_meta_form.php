@@ -1,5 +1,5 @@
 <div class="title-info">
-    Page Info
+    Meta Data
 </div>
 
 <?php 
@@ -38,6 +38,20 @@
                 <div class="clear"></div>
             </div>
         </div> 
+    </div>
+    
+    <div class="meta-left">
+        <div class="input text">
+            <?php echo $form->labelEx($model,'meta_keywords'); ?>
+            <?php echo $form->textField($model,'meta_keywords',array('rows'=>6, 'cols'=>50)); ?>
+        </div>
+        <?php echo $form->error($model,'meta_keywords'); ?>
+        
+        <div class="input textarea">
+            <?php echo $form->labelEx($model,'meta_description'); ?>
+            <?php echo $form->textArea($model,'meta_description',array('rows'=>6, 'cols'=>50)); ?>
+        </div>
+        <?php echo $form->error($model,'meta_description'); ?>
     </div>
     
     <div class="clr-r"></div>

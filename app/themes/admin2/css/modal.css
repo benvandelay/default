@@ -97,10 +97,6 @@
     width: 800px;
     position: relative;
 }
-.modal-wrapper.new-image .inner {
-    min-height: 333px;
-}
-
 .modal-wrapper.new-image .row.buttons {
     position: absolute;
     bottom: 55px;

@@ -61,10 +61,6 @@ CClientScript::POS_READY
                 <?php echo $form->error($model,'body'); ?>
                 
                 <div class="row buttons">
-                    <div class="status">
-                        <?php echo $form->labelEx($model,'status'); ?>
-                        <?php echo $form->radioButtonList($model,'status', array('0'=>'not published', '1'=>'published'), array('separator'=>false)); ?>
-                    </div>
                     <?php echo CHtml::submitButton('Save', array('class'=>'btn')); ?>
                     <?php $this->endWidget(); ?>
                 </div>

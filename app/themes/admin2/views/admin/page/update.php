@@ -6,12 +6,12 @@
 
 <div class="inner-content">
     
-    <div class="dates">Created: <?php echo $model->date; ?></div>
+    <div class="dates"><?php echo $model->page_type->name; ?>Created: <?php echo $model->date; ?></div>
     
     <ul class="update-nav">
         <li id="content" data-show="content" class="active">Page Content</li>
         <li id="images" data-show="images">Images</li>
-        <li id="meta" data-show="meta">Page Info</li>
+        <li id="meta" data-show="meta">Meta Data</li>
     </ul>
   
     <div class="form">
@@ -21,7 +21,7 @@
         </div>
         
         <div class="edit images" id="images">
-            <?php echo $this->renderPartial('_image_form', array('imageDataProvider'=>$imageDataProvider, 'model'=>$model)); ?>
+            <?php echo $this->renderPartial('_gallery_form', array('imageDataProvider'=>$imageDataProvider, 'model'=>$model)); ?>
         </div>
         
         <div class="edit meta" id="meta">

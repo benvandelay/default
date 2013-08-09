@@ -4,19 +4,11 @@ class PageController extends AdminController
 {
     public $name = 'Site Content';
     
-    protected function getType($data, $row)
-    {
-       return $data->page_type->name == 'Child' ? $data->parent_page->title . " Subpage" : $data->page_type->name;
-    }
     
     public function menu()
     {
         return array(
-            array('label'=>'<b>'.self::getCount(false).'</b>All Pages', 'url'=>array('admin/page/index', 'scope'=>'all')),  
-            array('label'=>'<b>'.self::getCount('parent').'</b>Main Pages', 'url'=>array('admin/page/index', 'scope'=>'parent')),
-            array('label'=>'<b>'.self::getCount('child').'</b>Sub Pages', 'url'=>array('admin/page/index', 'scope'=>'child')),
-            array('label'=>'<b>'.self::getCount('article').'</b>Blog Articles', 'url'=>array('admin/page/index', 'scope'=>'article')),    
-            
+            array('label'=>'<b>'.self::getCount(false).'</b>All Pages', 'url'=>array('admin/page/index')),  
         );
     } 
     
@@ -85,7 +77,7 @@ class PageController extends AdminController
     {
         $model=$this->loadModel($id);
         
-        $this->title = 'Update ' . $model->page_type->name . ' Page';
+        $this->title = 'Update Page';
         
         $imageDataProvider = $this->imageDataProvider($id);    
 
@@ -162,11 +154,8 @@ class PageController extends AdminController
     }
 
 
-    public function actionIndex($scope = false)
-    {
-        if($scope == '') $this->redirect(array('/admin/page/index', 'scope'=>'all'));
-        if($scope == 'all') $scope = false;
-        
+    public function actionIndex()
+    {   
         $this->title = 'View Pages';
         
         $model=new Page;
@@ -176,7 +165,6 @@ class PageController extends AdminController
 
         $this->render('index',array(
             'model'=>$model,
-            'scope'=>$scope,
         ));
     }
 

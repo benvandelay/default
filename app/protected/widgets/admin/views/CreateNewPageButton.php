@@ -18,24 +18,9 @@ CClientScript::POS_READY
     
     <h1>Create a New Page</h1>
     <div class="inner">
-        <div class="toggle-box">
-            <a data-id="child-page" href="javascript:void(0);" class="toggle-btn active">Child Page</a>
-            <a data-id="article" href="javascript:void(0);" class="toggle-btn">Article</a>
-            <div class="clear"></div>
-        </div>
         
-        <div id="child-page" class="toggle-item first">
-            <div class="explain">
-                <p>Create a subpage of a parent page. Parent pages appear on your sitewide navigation.</p>
-            </div>
-            <?php $this->render('_new_child_page_form', array('model'=>new Page));?>
-        </div>
-        
-        <div id="article" class="toggle-item">
-            <div class="explain">
-                <p>Create a blog article.</p>
-            </div>
-            <?php $this->render('_new_article_form', array('model'=>new Page));?>
+        <div id="child-page">
+            <?php $this->render('_new_page_form', array('model'=>new Page));?>
         </div>
 
         <div class="clear"></div>
