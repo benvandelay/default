@@ -1,18 +1,6 @@
 <?php
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/modal.css');
 Yii::app()->clientScript->registerScriptFile('/js/admin/modal.js');
-Yii::app()->clientScript->registerScript('Create New Page Button', 
-'
-$("a.btn.new").click(function(){
-    $(".modal-wrapper.new-page").modal({
-        overlayClose: true,
-        position: ["100px"],
-        closeClass: "modal-close",
-    });
-});
-',
-CClientScript::POS_READY
-);
 ?>
 <div class="modal-wrapper new-page">
     
@@ -31,4 +19,4 @@ CClientScript::POS_READY
          <div class="clear"></div>
     </div>
 </div>
-<a class="btn new" href="#"><span class="icon plus"></span>New Page</a>
+<a class="btn new launch-modal" data-modal="new-page" href="#"><span class="icon plus"></span>New Page</a>

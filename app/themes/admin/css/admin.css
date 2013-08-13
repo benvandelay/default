@@ -31,6 +31,7 @@ h3 {
 }
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 a b {
     float: right;
@@ -151,11 +152,11 @@ input.btn:hover {
     padding: 10px 20px;
     border-radius: 0 0 3px 3px;
     border-top: 0;
-    margin: 0 auto;
+    margin-left: -90px;
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    z-index: 1000;
+    z-index: 100000;
 }
 .flash.error {
     border-color: #ffe6e6;
@@ -837,41 +838,7 @@ label {
     font-weight: normal;
     display: block;
 }
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ gallery images */
-.gallery-admin-wrap {
-    padding: 20px;
-    border-bottom: 1px solid #B3B3B3;
-}
-.gallery-image-item {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 2px;
-    vertical-align: bottom;
-    float: left;
-    border: 1px solid #f7f7f7;
-    width: 200px;
-}
-.gallery-image-item img{
-    width: 200px;
-    height: auto;
-    border: 1px solid #ccc;
-}
-.gallery-image-item h2 {
-    font-size: 0.8em;
-    margin: 4px 0;
-}
-.gallery-image-item .date {
-    color: #666;
-    font-size: 0.7em;
-}
-.gallery-image-item a {
-    display: block;
-}
-.gallery-image-item:hover {
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 4px #ccc; 
-    background: #fff;
-}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ IMAGE UPLOAD */
 .image-upload-wrap {

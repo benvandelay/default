@@ -9,22 +9,21 @@
     <div class="dates">Created: <?php echo $model->date; ?></div>
     
     <ul class="update-nav">
-        <li id="content" data-show="content" class="active">Page Content</li>
-        <li id="images" data-show="images">Images</li>
-        <li id="meta" data-show="meta">Page Info</li>
+        <li class="launch-modal" data-modal="image">Images</li>
+        <li class="launch-modal" data-modal="page-info">Page Info</li>
     </ul>
   
     <div class="form">
        
-        <div class="edit content" id="content">
+        <div class="content">
             <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
         </div>
         
-        <div class="edit images" id="images">
-            <?php echo $this->renderPartial('_image_form', array('imageDataProvider'=>$imageDataProvider, 'model'=>$model)); ?>
+        <div class="modal-wrapper image">
+            <?php echo $this->renderPartial('_image_form', array('imageDataProvider'=>$imageDataProvider, 'model'=>$model, 'image'=>$image)); ?>
         </div>
         
-        <div class="edit meta" id="meta">
+        <div class="modal-wrapper page-info" >
             <?php echo $this->renderPartial('_meta_form', array('model'=>$model)); ?>
         </div>
     

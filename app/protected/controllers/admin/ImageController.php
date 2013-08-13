@@ -74,7 +74,7 @@ class ImageController extends AdminController
             
             if($model->save()){
                 Yii::app()->user->setFlash('success', "Image Created!");
-                $this->redirect(array('/admin/page/'.$page_id.'#images'));
+                $this->redirect(array('/admin/page/'.$page_id.'#image'));
             }
         }
         
@@ -98,7 +98,7 @@ class ImageController extends AdminController
 
         if($model->save()){
             Yii::app()->user->setFlash('success', "Image Updated!");
-            $this->redirect(array('/admin/page/'.$model->page.'#images'));
+            $this->redirect(array('/admin/page/'.$model->page.'#image'));
         }else{
             echo 'did not save'; exit;
         }

@@ -36,10 +36,6 @@ Yii::app()->clientScript->registerScriptFile('/js/admin/uploadify/uploadify.min.
     
     
     <div class="row buttons">
-        <div class="status warning">
-            <?php echo $form->labelEx($model,'status'); ?>
-            <?php echo $form->radioButtonList($model,'status', array('0'=>'not published', '1'=>'published'), array('separator'=>false)); ?>
-        </div>
         <?php echo CHtml::link('Cancel', array('/admin/page/'.$model->page), array('class'=>'btn')); ?>
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn')); ?>
         

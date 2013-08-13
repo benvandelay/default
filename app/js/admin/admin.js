@@ -14,39 +14,11 @@ var admin = (function(){
             self.prefill();
             self.uploadify();
             self.fadeOutFlash();
-            if($("#show-gallery").length > 0) self.showGalleryImages();
             self.newCategory();
             self.toggleBox();
-            self.editView();
-            $('a#gallery-image-item').click(function(){
-                  $('#Image_id').val($(this).data('id'));  
-                  $('#Image_title').val($(this).data('title'));  
-                  $('#Image_body').val($(this).data('body'));  
-                  $('#Image_filename').val($(this).data('filename'));
-                  $('#Image_status_'+$(this).data('status')).attr('checked','checked');
-                  $('.image-upload-wrap img').attr('src', $(this).data('filepath'));
-                  self.launchImageModal();
-            });
-        },
-
-        showGalleryImages: function(){
-            $('#show-gallery').click(function(){
-                if(('.gallery-images').length < 0) { 
-                    alert('Please save the page before adding images'); 
-                    return false;
-                }
-                $('.gallery-images').show();
-                $('.content-form').hide();
-                $('#show-content').removeClass('active');
-                $(this).addClass('active');
-            });
+            self.modalView();
+            self.imagesView();
             
-            $('#show-content').click(function(){
-                $('.gallery-images').hide();
-                $('.content-form').show();
-                $('#show-gallery').removeClass('active');
-                $(this).addClass('active');
-            });
         },
         
         toggleBox: function(){
@@ -65,24 +37,25 @@ var admin = (function(){
             }
         },
         
-        editView: function(){
-            if($(".update-nav").length > 0){
+        modalView: function(){
+            if($(".launch-modal").length > 0){
                 
-                if(hash){   
-                    $('.edit').hide();
-                    $('.edit'+hash).show();
-                    $('.update-nav li').removeClass('active');
-                    $('.update-nav li'+hash).addClass('active');
-                }
-                
-                $('.update-nav li').click(function(){
-                    $('.edit').hide();
-                    $('.edit#'+$(this).data('show')).show();
-                    $('.update-nav li').removeClass('active');
-                    $(this).addClass('active');
+                $(".launch-modal").on('click', function(){
+                    self.launchModal($(this).data('modal'));
                 });
-                 
+                
+                if(hash){
+                    self.launchModal(hash.replace('#',""));
+                }
             }
+        },
+        
+        launchModal: function(modal){
+            $(".modal-wrapper." + modal).modal({
+                overlayClose: true,
+                position: ["100px"],
+                closeClass: "modal-close",
+            });
         },
         
         generateSlug: function(){
@@ -159,13 +132,36 @@ var admin = (function(){
             }
         },
         
-        launchImageModal: function(){
-                //launch the modal
-                $(".modal-wrapper.new-image").modal({
-                    overlayClose: true,
-                    position: ["100px"],
-                    closeClass: "modal-close",
-                });
+        resetImageForm: function(){
+            $('.image-upload-wrap img').attr('src', '/images/admin/blank.jpg');
+            $('#Image_filename').val('');
+            $('#image-form')[0].reset();
+        },
+        
+        imagesView: function(){
+            
+            $('.gallery-image-item').on('click',function(){
+                  $('#Image_id').val($(this).data('id'));  
+                  $('#Image_title').val($(this).data('title'));  
+                  $('#Image_body').val($(this).data('body'));  
+                  $('#Image_filename').val($(this).data('filename'));
+                  $('.image-upload-wrap img').attr('src', $(this).data('filepath'));
+                  
+                  $('.image-list-wrap').hide();
+                  $('.add-image-wrap').fadeIn();
+            });
+            
+            $('.add-new-image').on('click', function(){
+                self.resetImageForm();
+                $('.image-list-wrap').hide();
+                $('.add-image-wrap').fadeIn();
+            });
+            
+            $('.cancel-add-image').on('click', function(){
+                $('.add-image-wrap').hide();
+                $('.image-list-wrap').fadeIn();
+            });
+            
 
         }
 

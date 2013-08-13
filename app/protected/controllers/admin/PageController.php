@@ -77,6 +77,8 @@ class PageController extends AdminController
     {
         $model=$this->loadModel($id);
         
+        $image = new Image;
+        
         $this->title = 'Update Page';
         
         $imageDataProvider = $this->imageDataProvider($id);    
@@ -115,6 +117,7 @@ class PageController extends AdminController
 
         $this->render('update',array(
             'model'=>$model,
+            'image'=>$image,
             'imageDataProvider'=>$imageDataProvider,
         ));
     }

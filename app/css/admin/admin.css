@@ -29,6 +29,7 @@ h3 {
 }
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GENERAL */
 
