@@ -4,7 +4,7 @@
 
 <?php 
     $form=$this->beginWidget('CActiveForm', array(
-        'id'=>'category-form',
+        'id'=>'meta-form',
         'enableAjaxValidation'=>true,
         'enableClientValidation'=>true,
         'clientOptions' => array(
@@ -12,6 +12,23 @@
         ),
     )); 
 ?>
+
+<div class="title-info">
+
+    <div class="input text">
+        <?php echo $form->labelEx($model,'title'); ?>
+        <?php echo $form->textField($model,'title',array('rows'=>6, 'cols'=>50)); ?>
+    </div>
+    <?php echo $form->error($model,'title'); ?>
+    
+    <div class="input">
+        <?php echo $form->labelEx($model,'slug'); ?>
+        <?php echo Yii::app()->request->getServerName(); ?>/
+        <?php echo $form->textField($model,'slug',array('rows'=>6, 'cols'=>50)); ?>
+    </div>
+    <?php echo $form->error($model,'slug'); ?>
+    
+</div>
 
 <div class="two-column-wrap">
     <div class="meta-right">

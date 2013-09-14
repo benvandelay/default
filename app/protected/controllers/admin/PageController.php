@@ -192,7 +192,7 @@ class PageController extends AdminController
     protected function performAjaxValidation($model)
     {
         
-        if(isset($_POST['ajax']) && ($_POST['ajax']==='page-form' || $_POST['ajax']==='article-page-form' || $_POST['ajax']==='gallery-page-form' || $_POST['ajax']==='child-page-form'))
+        if(isset($_POST['ajax']) && ($_POST['ajax']==='page-form' || $_POST['ajax']==='meta-form'))
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();

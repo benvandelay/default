@@ -19,7 +19,6 @@ return array(
 		'application.helpers.*',
 		'application.widgets.admin.*',
 		'application.widgets.*',
-		
 	),
 
 	'modules'=>array(
@@ -42,8 +41,14 @@ return array(
 			'class'=>'AdminUser',
 			'loginUrl'=>array('login'),
 		),
-		// uncomment the following to enable URLs in path-format
 		
+
+        'assetManager' => array(
+            'linkAssets' => true,
+        ),
+
+		// uncomment the following to enable URLs in path-format
+
 		'urlManager'=>array(
 		    'showScriptName'=>false,
 			'urlFormat'=>'path',

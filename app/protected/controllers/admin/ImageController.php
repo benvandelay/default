@@ -4,16 +4,6 @@ class ImageController extends AdminController
 {
     public $name = 'Site Content';
     
-    public function menu()
-    {
-        return array(
-            array('label'=>'All Pages', 'url'=>array('admin/page/index', 'scope'=>'all')),  
-            array('label'=>'Articles', 'url'=>array('admin/page/index', 'scope'=>'article')),  
-            array('label'=>'Galleries', 'url'=>array('admin/page/index', 'scope'=>'gallery')),  
-            array('label'=>'Contact Info', 'url'=>array('#')),
-        );
-    } 
-    
     /**
      * @return array action filters
      */
