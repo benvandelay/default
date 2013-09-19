@@ -24,16 +24,10 @@ class AdminController extends CController
     /**
      * return menu items
      */
-    public function menu()
+    public static function menu()
     {
         return array();
     }
-    /**
-     * @var array the breadcrumbs of the current page. The value of this property will
-     * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
-     * for more details on how to specify this property.
-     */
-    public $breadcrumbs=array();
     
     protected function getStatus($data, $row)
     {

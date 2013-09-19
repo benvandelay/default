@@ -5,7 +5,7 @@ class ContactController extends AdminController
 
     public $name = 'Contacts';
     
-    public function menu()
+    public static function menu()
     {
         return array(
             array('type'=>'raw', 'label'=>'<b>'.self::getCount('new').'</b>New', 'url'=>array('admin/contact/index', 'scope'=>'new')), 
@@ -132,7 +132,7 @@ class ContactController extends AdminController
         }
     }
     
-    public function getCount($scope){
+    public static function getCount($scope){
         if($scope)
             return Contact::model()->$scope()->count();
         else

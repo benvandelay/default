@@ -5,7 +5,7 @@ class PageController extends AdminController
     public $name = 'Site Content';
     
     
-    public function menu()
+    public static function menu()
     {
         return array(
             array('label'=>'<b>'.self::getCount(false).'</b>All Pages', 'url'=>array('admin/page/index')),  
@@ -199,7 +199,7 @@ class PageController extends AdminController
         }
     }
 
-    public function getCount($scope){
+    public static function getCount($scope){
         if($scope)
             return Page::model()->$scope()->count();
         else

@@ -1,15 +1,15 @@
 <?php
 class ImageHelper {
     
-    function resize($filename, $size) {
+    public static function resize($filename, $size) {
         return CHtml::image(Yii::app()->params['image']['uploadPath']."/".$size."_".$filename);
     }
     
-    function original($filename) {
+    public static function original($filename) {
         return CHtml::image(Yii::app()->params['image']['uploadPath']."/".$filename);
     }
     
-    function filepath($filename) {
+    public static function filepath($filename) {
         return Yii::app()->params['image']['uploadPath']."/".$filename;
     }
 }
