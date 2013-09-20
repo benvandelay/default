@@ -16,7 +16,7 @@ class AdminController extends CController
     public $name = '';
     
     public function init(){
-        Yii::app()->theme = 'admin';
+        Yii::app()->theme = 'admin2';
         
         parent::init();
     }

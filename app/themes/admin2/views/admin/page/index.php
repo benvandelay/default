@@ -22,7 +22,7 @@
 </div>    
     <?php $this->widget('AdminGridView', array(
         'id'=>'user-grid',
-        'dataProvider'=>$model->search($scope),
+        'dataProvider'=>$model->search(),
         'rowCssClassExpression'=>'$data->status == 0 ? "unpublished" : "published"',
         'rowDataLinkExpression'=>'"/admin/page/" . $data->id',
         'columns'=>array(
@@ -33,10 +33,6 @@
             array(
                 'name'=>'title',
                 'htmlOptions'=>array('class'=>'title')
-            ),
-            array(
-                'name'=>'page_type.name',
-                'value'=>array($this,'getType'),
             ),
             array(
                 'name'=>'slug',
