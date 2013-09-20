@@ -7,3 +7,4 @@ UPGRADE
 app/assets/*
 app/protected/config/main.php
 /index.php
+**/.sass-cache/*
