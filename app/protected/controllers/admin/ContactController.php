@@ -5,13 +5,13 @@ class ContactController extends AdminController
 
     public $name = 'Contacts';
     
-    public static function menu()
+    public function menu()
     {
         return array(
-            array('type'=>'raw', 'label'=>'<b>'.self::getCount('new').'</b>New', 'url'=>array('admin/contact/index', 'scope'=>'new')), 
-            array('label'=>'<b>'.self::getCount(false).'</b>All', 'url'=>array('admin/contact/index', 'scope'=>'all')),   
-            array('label'=>'<b>'.self::getCount('read').'</b>Read', 'url'=>array('admin/contact/index', 'scope'=>'read')),  
-            array('label'=>'<b>'.self::getCount('deleted').'</b>Deleted', 'url'=>array('admin/contact/index', 'scope'=>'deleted')),
+            array('type'=>'raw', 'label'=>'<b>'.$this->getCount('new').'</b>New', 'url'=>array('admin/contact/index', 'scope'=>'new')), 
+            array('label'=>'<b>'.$this->getCount(false).'</b>All', 'url'=>array('admin/contact/index', 'scope'=>'all')),   
+            array('label'=>'<b>'.$this->getCount('read').'</b>Read', 'url'=>array('admin/contact/index', 'scope'=>'read')),  
+            array('label'=>'<b>'.$this->getCount('deleted').'</b>Deleted', 'url'=>array('admin/contact/index', 'scope'=>'deleted')),
         );
     } 
     
@@ -132,7 +132,7 @@ class ContactController extends AdminController
         }
     }
     
-    public static function getCount($scope){
+    public function getCount($scope){
         if($scope)
             return Contact::model()->$scope()->count();
         else

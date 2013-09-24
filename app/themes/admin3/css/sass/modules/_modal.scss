@@ -1,0 +1,43 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ modals */
+.modal-wrapper {
+    display: none;
+    width: 800px;
+    background: #333;
+    padding: 5px;
+    border-radius: 2px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 1px 2px #000;
+   
+   h2 {
+        text-transform: capitalize;
+        padding: 5px 0 10px 10px;
+        color: #ccc;
+    }
+    .content-wrap {
+        background: #fff;
+        border-radius: 2px 2px 0 0;
+    }
+        .controls {
+            background: #f7f7f7;
+            border-top: 1px solid #eaeaea;
+            padding: 10px;
+            border-radius: 0 0 2px 2px;
+        }
+}
+    
+/*~~~~~~~~~~~~~~ simplemodal*/
+#simplemodal-overlay {
+    display: none;
+    opacity: 0.8!important;
+    background: #999;
+    z-index: 100;
+}
+.simplemodal-close {
+    position: absolute;
+    top: 11px;
+    right: 8px;
+}

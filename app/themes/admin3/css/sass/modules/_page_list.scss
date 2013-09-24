@@ -1,0 +1,109 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ article list */
+.search {
+    background: #fff;
+    height: 59px;
+    margin-bottom: 10px;
+    position: fixed;
+    left: 250px;
+    top: 0px;
+    z-index: 2;
+    padding-top: 40px;
+    
+    .icon {
+            cursor: default;
+            font-size: 28px;
+            width: 28px;
+            height: 28px;
+            color: #eaeaea;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            padding: 14px 0;
+    }
+        
+    input {
+            color: #666;
+            font-size: 32px;
+            font-weight: normal;
+            width: 710px;
+            border-bottom: 2px solid #ddd;
+            padding: 5px 10px 8px 40px;
+            background: #fff;
+    }
+    
+}
+
+.articles {
+    margin-top: 20px; 
+    
+    .article {
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0 45px 0;
+        min-height: 80px;
+        position: relative;
+        margin: 20px 0;
+        display: block;
+        
+        img {
+            float: left;
+            border-radius: 3px; 
+            margin: 5px 0 0 0;
+        }
+        
+        .title {
+          margin-left: 60px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #000;
+      }
+    
+        .byline {
+            font-size: 12px;
+            color: #333;
+            margin: 4px 0 0 60px;
+        }
+    
+        p {
+            font-size: 14px;
+            color: #333;
+            margin: 10px 0;
+            line-height: 24px;
+        }
+    }
+}
+ 
+    .article ul.info {
+        position: absolute;
+        bottom: 15px;
+        height: 20px;
+        padding: 5px 0;
+        left: 0;
+    }
+        .article ul.info li {
+            float: left;
+            background: #eee;
+            color: #999;
+            border-radius: 10px;
+            font-size: 10px;
+            padding: 3px 12px 3px 24px;
+            margin-right: 6px;
+            position: relative;
+        }
+        .article ul.info li .icon {
+            position: absolute;
+            left: 4px;
+            top: 2px;
+            color: #999;
+        }
+        .article ul.info li.active .icon,
+        .article ul.info li.active {
+            color: #fff;
+        }
+        .article ul.info li.status.active {
+            background: #57ad68;
+            color: #fff;
+        }
+        
+.waiting {
+    opacity: 0.4;
+}

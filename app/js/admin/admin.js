@@ -11,6 +11,7 @@ var admin = (function(){
             self = this;
             newCategoryCount = 0;
             hash = window.location.hash;
+            self.setUpNav();
             self.prefill();
             self.uploadify();
             self.fadeOutFlash();
@@ -19,6 +20,43 @@ var admin = (function(){
             self.modalView();
             self.imagesView();
             
+        },
+        
+        search: function(){
+            var ajaxUpdateTimeout;
+            var ajaxRequest;
+            
+            $('input#search').keyup(function(){
+                
+                ajaxRequest = $(this).serialize();
+                clearTimeout(ajaxUpdateTimeout);
+                
+                if($(this).val()!=''){
+                    $('#article-list').addClass('waiting');
+                }
+                ajaxUpdateTimeout = setTimeout(function () {
+                
+                    $.fn.yiiListView.update(
+                        'article-list',
+                        {data: ajaxRequest}
+                    )
+                },300);
+            });
+        },
+        
+        beforeArticlesUpdate: function(){
+            $('#article-list').removeClass('waiting');
+        },
+        
+        setUpNav: function(){
+            $('.main-nav .active').on('click', function(e){
+                e.preventDefault();
+                $('.main-nav').toggleClass('open');
+            });
+            
+            $('.left-controls').hover(false, function(){
+                $('.main-nav').removeClass('open');
+            });
         },
         
         toggleBox: function(){
@@ -40,7 +78,8 @@ var admin = (function(){
         modalView: function(){
             if($(".launch-modal").length > 0){
                 
-                $(".launch-modal").on('click', function(){
+                $(".launch-modal").on('click', function(e){
+                    e.preventDefault();
                     self.launchModal($(this).data('modal'));
                 });
                 

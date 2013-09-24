@@ -1,0 +1,26 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ editor */
+.content-body {
+    width: 760px;
+    position: relative;
+    left: 0px;
+    padding-left: 250px;
+    padding-top: 80px;
+}
+.content-body textarea {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+    border: 0;
+    height: 800px;
+    font-size: 18px;
+    line-height: 32px;
+    color: #444;
+}
+.content-body input {
+    font-size: 38px;
+    border: 0;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+}

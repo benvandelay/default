@@ -58,7 +58,7 @@ return array(
 				'/admin/page/create'=>'admin/page/create',
 				'/admin/image/uploadify'=>'admin/image/uploadify',
 				'/admin/<controller:\w+>/create'=>'admin/<controller>/create',
-				'/admin/<controller:\w+>/<scope:\w+>'=>'admin/<controller>/index',
+				'/admin/<controller:\w+>'=>'admin/<controller>/index',
 				'/admin/image/create/<page_id:\d+>'=>'admin/image/create',
 				'/admin'=>'admin/site/index',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

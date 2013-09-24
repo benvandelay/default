@@ -1,0 +1,197 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    background: #fff;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ header */
+.header-wrap {
+    height: 60px;
+    background: #303030;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.left-controls {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    z-index: 100;
+    background: #f2f2f2;
+    
+    ul.submenu {
+        padding: 0;
+        
+        li {
+            
+            a {
+                font-size: 14px;
+                display: block;
+                padding: 20px 5px 20px 75px;
+                color: #666;
+                width: 120px;
+                cursor: pointer;
+                position: relative;
+                height: 20px;
+                
+                .icon {
+                    color: #666;
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    padding: 24px;
+                    left: 0;
+                    top: 0; 
+                }
+                
+                &:hover,
+                &:hover .icon {
+                    color: #000;
+                }
+            }
+        }
+        
+        li.active {
+            
+            a {
+                border-bottom: 3px solid #ddd;
+                color: #333;
+                background: #fff;
+                
+                .icon {
+                    color: #57ad68;
+                    border-right: 1px dotted #ddd;
+                }
+            }
+        }
+    }
+}
+  
+  
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ nav */
+.main-nav {
+    height: 60px;
+    width: 200px;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: relative;
+    top: 0;
+    left: 0;
+    @include single-transition(height, 0.2s, ease);
+      
+    li {
+        position: absolute;
+        background: #333;
+        height: 60px;
+        top: 0;
+        left: 0;
+        z-index: 101;
+        @include single-transition(top, 0.2s, ease);
+        
+        a {
+            display: block;
+            height: 39px;
+            width: 126px;
+            padding: 21px 0 0 74px;
+            color: #eaeaea;
+            
+            .icon {
+                font-size: 20px;
+                width: 20px;
+                padding: 12px;
+                margin: 7px;
+                border-radius: 3px;
+                height: 20px;
+                color: #666;
+                background: transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        
+        &:hover {
+            background: #484848;
+            
+            .icon {
+                color: #ccc;
+            }
+        }
+        
+        &.active {
+            z-index: 1002;
+            display: block;
+            border-bottom: 0;
+            background: #333;
+            
+            a {
+                height: 38px;
+                width: 124px;
+                padding: 22px 0 0 76px;
+                
+                .icon {
+                    background: #df6363;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.main-nav.open {
+    height: 300px;
+    @include single-transition(height, 0.2s, ease);
+      
+      li {
+          position: absolute;
+          top: 0;
+          left: 0;
+          @include single-transition(top, 0.2s, ease);
+          
+          &.dashboard {
+              top: 0;
+          }
+          &.setup {
+              top: 60px;
+          }
+          &.content {
+              top: 120px;
+          }
+          &.messages {
+              top: 180px;
+          }
+          &.people {
+              top: 240px;
+          }
+      }
+      
+}
+    
+.login-info {
+    background: #dadada;
+    width: 180px;
+    height: 60px;
+    padding: 0 20px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    z-index: 20;
+}
+    .login-info img {
+        margin: 6px 20px 6px 6px;
+        border-radius: 3px;
+        float: left;
+     }
+    .login-info span {
+        display: inline-block;
+        color: #999;
+        padding-top: 20px;
+    }
+  

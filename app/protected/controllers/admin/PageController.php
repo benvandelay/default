@@ -5,10 +5,12 @@ class PageController extends AdminController
     public $name = 'Site Content';
     
     
-    public static function menu()
+    public function menu()
     {
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         return array(
-            array('label'=>'<b>'.self::getCount(false).'</b>All Pages', 'url'=>array('admin/page/index')),  
+            array('label'=>'<span class="icon icon-pencil"></span>  Add Content', 'url' => array('admin/page/update', 'id'=>$id), 'itemOptions' => array('class' => 'launch-modal', 'data-modal' => 'new-page' )),
+            array('label'=>'<span class="icon icon-search"></span>  Find Content' . $this->getCount(), 'url' => array('admin/page/index')),  
         );
     } 
     
@@ -163,8 +165,8 @@ class PageController extends AdminController
         
         $model=new Page;
         $model->unsetAttributes();  // clear any default values
-        if(isset($_POST['search']))
-            $model->search=$_POST['search'];
+        if(isset($_GET['search']))
+            $model->search=$_GET['search'];
 
         $this->render('index',array(
             'model'=>$model,
@@ -199,11 +201,8 @@ class PageController extends AdminController
         }
     }
 
-    public static function getCount($scope){
-        if($scope)
-            return Page::model()->$scope()->count();
-        else
-            return Page::model()->count();
+    public function getCount(){
+        return Page::model()->count();
     }
     
 

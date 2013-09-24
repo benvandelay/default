@@ -49,7 +49,7 @@ class Page extends CActiveRecord
         return array(
             array('slug, title', 'required'),
            
-            array('date, body, status, categories, author_id, meta_keywords, meta_description', 'safe'),
+            array('date, body, status, categories, user_id, meta_keywords, meta_description', 'safe'),
             array('slug', 'unique', 'className'=> 'Page'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
@@ -67,6 +67,7 @@ class Page extends CActiveRecord
         return array(
             'categories'=>array(self::MANY_MANY, 'Category',
                 'page_category(page_id, category_id)','index'=>'id'),
+            'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
         );
     }
     

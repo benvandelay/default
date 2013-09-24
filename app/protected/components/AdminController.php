@@ -24,7 +24,7 @@ class AdminController extends CController
     /**
      * return menu items
      */
-    public static function menu()
+    public function menu()
     {
         return array();
     }
