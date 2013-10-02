@@ -12,7 +12,6 @@ var admin = (function(){
             newCategoryCount = 0;
             hash = window.location.hash;
             self.setUpNav();
-            self.prefill();
             self.uploadify();
             self.fadeOutFlash();
             self.newCategory();
@@ -20,34 +19,15 @@ var admin = (function(){
             self.modalView();
             self.imagesView();
             
-        },
-        
-        search: function(){
-            var ajaxUpdateTimeout;
-            var ajaxRequest;
+            if($('#Page_body').length){
+                $('#Page_body').redactor({});
+            }
             
-            $('input#search').keyup(function(){
-                
-                ajaxRequest = $(this).serialize();
-                clearTimeout(ajaxUpdateTimeout);
-                
-                if($(this).val()!=''){
-                    $('#article-list').addClass('waiting');
-                }
-                ajaxUpdateTimeout = setTimeout(function () {
-                
-                    $.fn.yiiListView.update(
-                        'article-list',
-                        {data: ajaxRequest}
-                    )
-                },300);
-            });
+            if($('.modal-wrapper.new-page').length){
+                self.generateSlug();
+            }
         },
-        
-        beforeArticlesUpdate: function(){
-            $('#article-list').removeClass('waiting');
-        },
-        
+
         setUpNav: function(){
             $('.main-nav .active').on('click', function(e){
                 e.preventDefault();
@@ -119,26 +99,6 @@ var admin = (function(){
             return categoryInput;
         },
         
-        //clear prefill values
-        prefill: function() {
-            if($('.input').length > 0){
-                $('.input').each(function(){
-                    $(this).click(function(){
-                        $(this).find('input, textarea').focus();
-                    });
-
-
-
-                    $(this).find('input, textarea').focus(function(){
-                        $(this).parent().addClass('focus');
-                    });
-                    $(this).find('input, textarea').blur(function(){
-                        $(this).parent().removeClass('focus');
-                    });
-                });
-            }
-        },
-
         uploadify: function(){
             if($('#uploadify').length > 0){
                 $('#uploadify').uploadify({
@@ -164,7 +124,6 @@ var admin = (function(){
              }
         },
         
-  
         fadeOutFlash: function(){
             if($('.flash').length > 0){
                 setTimeout(function(){ $('.flash').fadeOut('slow')}, 5000);

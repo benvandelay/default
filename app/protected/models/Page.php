@@ -14,6 +14,7 @@
 class Page extends CActiveRecord
 {
     public $search;
+    public $page = 0;
     public $categoryIds;
     
     /**
@@ -47,10 +48,9 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('slug, title', 'required'),
-           
-            array('date, body, status, categories, user_id, meta_keywords, meta_description', 'safe'),
-            array('slug', 'unique', 'className'=> 'Page'),
+            array('date, body, status, categories, user_id, meta_keywords, meta_description, slug', 'safe'),
+            array('title, slug', 'required'),
+            array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('slug, date, body, status, title', 'safe', 'on'=>'search'),
@@ -83,14 +83,13 @@ class Page extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'slug'=>'URL',
+            'slug'=>'Url',
             'categoryIds'=>'Category',
         );
     }
 
     public function afterFind()
     {
-        $this->date = date('M d Y', strtotime($this->date));
         $this->categoryIds = array_keys($this->categories);
         parent::afterFind();
     } 
@@ -116,27 +115,24 @@ class Page extends CActiveRecord
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-
+        $limit = 10;
+        
         $criteria=new CDbCriteria;
 
         $criteria->compare('title',$this->search,true, 'OR');
         $criteria->compare('date',$this->search,true, 'OR');
+        $criteria->limit = $limit;
+        $criteria->offset = $this->page * $limit;
         
         $sort = new CSort();
-        $sort->attributes = array(
-            'date'=>array(
-                'asc'=>'date ASC',
-                'desc'=>'date DESC', 
-            ),
-            
-            '*', // this adds all of the other columns as sortable
-        );
+        
         $sort->defaultOrder = array(
             'date'=>'id DESC',
         );
         
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
+            'pagination' => false,
             'sort'=>$sort,
         ));
     }

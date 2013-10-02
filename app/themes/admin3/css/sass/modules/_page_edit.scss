@@ -4,23 +4,79 @@
     position: relative;
     left: 0px;
     padding-left: 250px;
-    padding-top: 80px;
+    padding-top: 0;
+    
+    input[type="text"] {
+        font-size: 38px;
+        border: 0;
+        font-weight: bold;
+        width: 100%;
+        padding: 10px 0;
+    }
+    textarea.expanding {
+        font-size: 38px;
+        border: 0;
+        font-weight: bold;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .byline {
+        font-size: 11px;
+        color: #999;
+        height: 30px;
+        padding: 10px 0 0 0;
+    }
+    
+    .header-image-wrap {
+        width: 758px;
+        height: 345px;
+        text-align: center;
+        
+        .empty-image {
+            width: 736px;
+            height: 323px;
+            text-align: center;
+            background: #fff;
+            border: 11px dashed #eee;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+    
+    .row.buttons {
+        position: fixed;
+        bottom: 0;
+        left: 250px;
+        width: 760px;
+        height: 37px;
+        padding: 8px 0;
+        background: rgba(255, 255, 255, 0.9);
+        
+        .status {
+            float: left;
+            border-radius: 16px;
+            background-color: $grey;
+            color: $darkgrey;
+            font-size: 12px;
+            margin-top: 4px;
+            padding: 6px 14px;
+            
+            input {
+                display: none;
+            }
+        }
+        
+        .save-wrap {
+            float: right;
+        }
+    }
 }
-.content-body textarea {
-    width: 100%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding: 10px;
-    border: 0;
-    height: 800px;
-    font-size: 18px;
-    line-height: 32px;
-    color: #444;
-}
-.content-body input {
-    font-size: 38px;
-    border: 0;
-    font-weight: bold;
-    width: 100%;
-    padding: 10px;
-}
+
+
+

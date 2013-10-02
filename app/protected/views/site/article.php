@@ -1,5 +1,5 @@
 <div class="left">
-    <?php $this->widget('RecentArticles'); ?>
+    <?php //$this->widget('RecentArticles'); ?>
 </div>  
 
 <div class="content">

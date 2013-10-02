@@ -55,6 +55,7 @@ return array(
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',
+				'/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
 				'/admin/page/create'=>'admin/page/create',
 				'/admin/image/uploadify'=>'admin/image/uploadify',
 				'/admin/<controller:\w+>/create'=>'admin/<controller>/create',

@@ -1,3 +1,16 @@
+
+/* colors */
+$background: #f2f2f2;
+
+$grey      : #eee;
+$darkgrey  : #999;
+
+$red       : #df6363;
+$darkred   : #df6363;
+
+$green     : #57ad68;
+$darkgreen : #48a15a;
+
 a {
     text-decoration: none;
     color: #333;
@@ -17,3 +30,41 @@ a {
 :-ms-input-placeholder {  
    color: #f2f2f2;  
 }
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.btn {
+    border-radius: 2px;
+    padding: 6px 20px;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    border-bottom: 2px solid #ccc;
+    background: #eee;
+    @include single-transition(background, 0.3s, ease);
+    
+    &.save {
+        background: $green;
+        color: #fff;
+        border-color: $darkgreen;
+        
+        &:hover {
+            background: $darkgreen;
+        }
+    }
+    
+    &.cancel {
+        color: #333;
+        background: transparent;
+        border-color: transparent;
+        font-size: 12px;
+    }
+    
+    &:hover {
+        @include single-transition(background, 0.3s, ease);
+    }
+}
+

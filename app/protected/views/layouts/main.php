@@ -27,7 +27,7 @@
         <div class="wrapper">
             <div class="header">
                 <a href="/" class="logo">Logo</a>
-                <?php $this->widget('SiteNav'); ?>
+                <?php //$this->widget('SiteNav'); ?>
                 <div class="clr"></div>
             </div>
             

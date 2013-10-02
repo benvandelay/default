@@ -1,15 +1,16 @@
-<h1>Edit Page <b><?php echo $model->title; ?></b></h1>
+<div class="byline">
+    <div class="left"><?php echo Yii::app()->request->getServerName() . '/' . $model->slug; ?></div>
+    <div class="right"><?php echo StringHelper::displayDate($model->date); ?></div>
+</div>
 
-<div class="inner-content">
+    <!-- <div class="dates">Created: <?php echo $model->date; ?></div> -->
     
-    <div class="dates">Created: <?php echo $model->date; ?></div>
-    
-    <ul class="update-nav">
+    <!-- <ul class="update-nav">
         <li class="launch-modal" data-modal="image">Images</li>
         <li class="launch-modal" data-modal="page-info">Page Info</li>
-    </ul>
+    </ul> -->
   
-    <div class="form">
+
        
         <div class="content">
             <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
@@ -23,5 +24,4 @@
             <?php echo $this->renderPartial('_meta_form', array('model'=>$model)); ?>
         </div>
     
-    </div><!-- form -->
-</div>
+

@@ -9,18 +9,24 @@ html{color:#000;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fiel
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display: block;}
 *:focus,a:focus,img:focus,input:focus{outline-style:none;}
 
+
 @import "compass/css3";
 
-//layout
-@import "modules/layout";
 
 //general
 @import "modules/icons";
 @import "modules/general";
 
+
+//layout
+@import "modules/layout";
+
+
 //pages
 @import "modules/page_edit";
 @import "modules/page_list";
 
+
 //utilities
 @import "modules/modal";
+@import "modules/redactor";

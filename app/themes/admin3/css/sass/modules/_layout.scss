@@ -1,7 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
-    background: #fff;
+    background: $background;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ header */
@@ -23,7 +23,7 @@ body {
     left: 0;
     width: 200px;
     z-index: 100;
-    background: #f2f2f2;
+    background: #444;
     
     ul.submenu {
         padding: 0;
@@ -34,14 +34,14 @@ body {
                 font-size: 14px;
                 display: block;
                 padding: 20px 5px 20px 75px;
-                color: #666;
+                color: #dadada;
                 width: 120px;
                 cursor: pointer;
                 position: relative;
                 height: 20px;
                 
                 .icon {
-                    color: #666;
+                    color: #dadada;
                     position: absolute;
                     width: 12px;
                     height: 12px;
@@ -52,7 +52,8 @@ body {
                 
                 &:hover,
                 &:hover .icon {
-                    color: #000;
+                    color: #fff;
+                    @include single-transition(color, 0.3s, ease);
                 }
             }
         }
@@ -62,7 +63,7 @@ body {
             a {
                 border-bottom: 3px solid #ddd;
                 color: #333;
-                background: #fff;
+                background: $background;
                 
                 .icon {
                     color: #57ad68;
@@ -195,3 +196,30 @@ body {
         padding-top: 20px;
     }
   
+.flash {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
+    color: #000;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    z-index: 100;
+    text-align: center;
+    
+    &.error {
+        background: $red;
+        border-color: #FF7373;
+    }
+    
+    &.success {
+        background: $green;
+        border-color: $darkgreen;
+        opacity: 0.8;
+        color: #fff;
+    }
+    
+}

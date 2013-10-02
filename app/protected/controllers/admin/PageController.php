@@ -34,7 +34,7 @@ class PageController extends AdminController
         return array(
 
             array('allow', 
-                'actions'=>array('create','update','delete','index'),
+                'actions'=>array('create','update','delete','index','GetArticlesJson'),
                 'expression'=>'Yii::app()->user->isAdmin()',
             ),
             array('allow', 
@@ -59,7 +59,7 @@ class PageController extends AdminController
         {
 
             $model->attributes=$_POST['Page'];
-            $model->slug = StringHelper::toAscii($model->title);
+            //$model->slug = StringHelper::toAscii($model->title);
 
             if($model->save()){
                 
@@ -69,7 +69,7 @@ class PageController extends AdminController
             } else {
                 
                 Yii::app()->user->setFlash('error', "Error Creating Page");
-                $this->redirect(array('admin/page/all'));
+                $this->redirect(array('admin/page'));
             } 
         } else throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 
@@ -101,7 +101,6 @@ class PageController extends AdminController
             }
             //echo '<pre>';print_r($_POST['Page']); exit;
             $model->attributes=$_POST['Page'];
-            unset($model->date);
             
             if(isset($_POST['Page']['categoryIds'])){
                 $model->categories=$_POST['Page']['categoryIds'];
@@ -114,7 +113,6 @@ class PageController extends AdminController
             else
                 Yii::app()->user->setFlash('error', "Page Not Saved"); 
             
-            $this->redirect(array('all'));
         }
 
         $this->render('update',array(
@@ -164,13 +162,36 @@ class PageController extends AdminController
         $this->title = 'View Pages';
         
         $model=new Page;
-        $model->unsetAttributes();  // clear any default values
-        if(isset($_GET['search']))
-            $model->search=$_GET['search'];
 
         $this->render('index',array(
             'model'=>$model,
         ));
+    }
+    
+    public function actionGetArticlesJson()
+    {
+        header('Content-type: application/json');
+         
+        $model=new Page;
+        $model->unsetAttributes();  // clear any default values
+
+            $model->search = $_GET['term'];
+            $model->page   = $_GET['page'];
+        
+        $results = array();
+        
+        foreach($model->search()->getData() as $i => $data){
+            $results[$i]['title']  = $data->title;
+            $results[$i]['body']   = StringHelper::getExcerpt($data->body);
+            $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
+            $results[$i]['date']   = StringHelper::displayDate($data->date);
+            $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;
+            $results[$i]['status'] = $data->status ? ' active' : '';
+        }
+        
+        echo CJSON::encode($results);
+        
+        Yii::app()->end();
     }
 
     /**
@@ -194,7 +215,7 @@ class PageController extends AdminController
     protected function performAjaxValidation($model)
     {
         
-        if(isset($_POST['ajax']) && ($_POST['ajax']==='page-form' || $_POST['ajax']==='meta-form'))
+        if(isset($_POST['ajax']) && ($_POST['ajax']==='page-form' || $_POST['ajax']==='update-page-form' || $_POST['ajax']==='meta-form'))
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();

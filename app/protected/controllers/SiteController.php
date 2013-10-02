@@ -78,7 +78,7 @@ class SiteController extends Controller
         
         $this->pageTitle=Yii::app()->name . ' | ' . $model->title;
         
-        $this->render($model->page_type->name, 
+        $this->render('article', 
             array(
                 'model'=>$model,
             )
