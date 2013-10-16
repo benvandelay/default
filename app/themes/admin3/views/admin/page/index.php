@@ -1,4 +1,3 @@
-<?php // search ?>
 <div class="search">
 
     <span class="icon icon-search"></span>
@@ -10,11 +9,9 @@
 <div class="articles" id="articles">
     
 </div>
+<div class="loading">Loading More...</div>
 
 <?php // article list template 
-Yii::app()->clientScript->registerScriptFile('/js/admin/underscore.js');
 Yii::app()->clientScript->registerScriptFile('/js/admin/search.js');
-$this->renderPartial('_article', array('model' => $model));
-$this->renderPartial('_new_page_modal', array('model' => $model));
-
+$this->renderPartial('_article');
 ?>

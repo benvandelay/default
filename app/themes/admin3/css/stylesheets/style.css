@@ -311,9 +311,13 @@ body {
   color: #333;
   background: #f2f2f2;
 }
+/* line 7, ../sass/modules/_layout.scss */
+body.create, body.update {
+  background: url("/images/admin/bg.jpg") 200px top repeat-y #f2f2f2;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ header */
-/* line 8, ../sass/modules/_layout.scss */
+/* line 13, ../sass/modules/_layout.scss */
 .header-wrap {
   height: 60px;
   background: #303030;
@@ -325,7 +329,7 @@ body {
   z-index: 1000;
 }
 
-/* line 19, ../sass/modules/_layout.scss */
+/* line 24, ../sass/modules/_layout.scss */
 .left-controls {
   height: 100%;
   position: fixed;
@@ -335,11 +339,11 @@ body {
   z-index: 100;
   background: #444;
 }
-/* line 28, ../sass/modules/_layout.scss */
+/* line 33, ../sass/modules/_layout.scss */
 .left-controls ul.submenu {
   padding: 0;
 }
-/* line 33, ../sass/modules/_layout.scss */
+/* line 38, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a {
   font-size: 14px;
   display: block;
@@ -350,7 +354,7 @@ body {
   position: relative;
   height: 20px;
 }
-/* line 43, ../sass/modules/_layout.scss */
+/* line 48, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a .icon {
   color: #dadada;
   position: absolute;
@@ -360,7 +364,7 @@ body {
   left: 0;
   top: 0;
 }
-/* line 54, ../sass/modules/_layout.scss */
+/* line 59, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a:hover, .left-controls ul.submenu li a:hover .icon {
   color: #fff;
   -webkit-transition: color 0.3s ease;
@@ -368,20 +372,20 @@ body {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
-/* line 63, ../sass/modules/_layout.scss */
+/* line 68, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li.active a {
   border-bottom: 3px solid #ddd;
   color: #333;
   background: #f2f2f2;
 }
-/* line 68, ../sass/modules/_layout.scss */
+/* line 73, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li.active a .icon {
   color: #57ad68;
   border-right: 1px dotted #ddd;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ nav */
-/* line 79, ../sass/modules/_layout.scss */
+/* line 84, ../sass/modules/_layout.scss */
 .main-nav {
   height: 60px;
   width: 200px;
@@ -395,7 +399,7 @@ body {
   -o-transition: height 0.2s ease;
   transition: height 0.2s ease;
 }
-/* line 89, ../sass/modules/_layout.scss */
+/* line 94, ../sass/modules/_layout.scss */
 .main-nav li {
   position: absolute;
   background: #333;
@@ -408,7 +412,7 @@ body {
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 98, ../sass/modules/_layout.scss */
+/* line 103, ../sass/modules/_layout.scss */
 .main-nav li a {
   display: block;
   height: 39px;
@@ -416,7 +420,7 @@ body {
   padding: 21px 0 0 74px;
   color: #eaeaea;
 }
-/* line 105, ../sass/modules/_layout.scss */
+/* line 110, ../sass/modules/_layout.scss */
 .main-nav li a .icon {
   font-size: 20px;
   width: 20px;
@@ -430,34 +434,34 @@ body {
   top: 0;
   left: 0;
 }
-/* line 120, ../sass/modules/_layout.scss */
+/* line 125, ../sass/modules/_layout.scss */
 .main-nav li:hover {
   background: #484848;
 }
-/* line 123, ../sass/modules/_layout.scss */
+/* line 128, ../sass/modules/_layout.scss */
 .main-nav li:hover .icon {
   color: #ccc;
 }
-/* line 128, ../sass/modules/_layout.scss */
+/* line 133, ../sass/modules/_layout.scss */
 .main-nav li.active {
   z-index: 1002;
   display: block;
   border-bottom: 0;
   background: #333;
 }
-/* line 134, ../sass/modules/_layout.scss */
+/* line 139, ../sass/modules/_layout.scss */
 .main-nav li.active a {
   height: 38px;
   width: 124px;
   padding: 22px 0 0 76px;
 }
-/* line 139, ../sass/modules/_layout.scss */
+/* line 144, ../sass/modules/_layout.scss */
 .main-nav li.active a .icon {
   background: #df6363;
   color: #fff;
 }
 
-/* line 148, ../sass/modules/_layout.scss */
+/* line 153, ../sass/modules/_layout.scss */
 .main-nav.open {
   height: 300px;
   -webkit-transition: height 0.2s ease;
@@ -465,7 +469,7 @@ body {
   -o-transition: height 0.2s ease;
   transition: height 0.2s ease;
 }
-/* line 152, ../sass/modules/_layout.scss */
+/* line 157, ../sass/modules/_layout.scss */
 .main-nav.open li {
   position: absolute;
   top: 0;
@@ -475,28 +479,28 @@ body {
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 158, ../sass/modules/_layout.scss */
+/* line 163, ../sass/modules/_layout.scss */
 .main-nav.open li.dashboard {
   top: 0;
 }
-/* line 161, ../sass/modules/_layout.scss */
+/* line 166, ../sass/modules/_layout.scss */
 .main-nav.open li.setup {
   top: 60px;
 }
-/* line 164, ../sass/modules/_layout.scss */
+/* line 169, ../sass/modules/_layout.scss */
 .main-nav.open li.content {
   top: 120px;
 }
-/* line 167, ../sass/modules/_layout.scss */
+/* line 172, ../sass/modules/_layout.scss */
 .main-nav.open li.messages {
   top: 180px;
 }
-/* line 170, ../sass/modules/_layout.scss */
+/* line 175, ../sass/modules/_layout.scss */
 .main-nav.open li.people {
   top: 240px;
 }
 
-/* line 177, ../sass/modules/_layout.scss */
+/* line 182, ../sass/modules/_layout.scss */
 .login-info {
   background: #dadada;
   width: 180px;
@@ -509,21 +513,21 @@ body {
   z-index: 20;
 }
 
-/* line 188, ../sass/modules/_layout.scss */
+/* line 193, ../sass/modules/_layout.scss */
 .login-info img {
   margin: 6px 20px 6px 6px;
   border-radius: 3px;
   float: left;
 }
 
-/* line 193, ../sass/modules/_layout.scss */
+/* line 198, ../sass/modules/_layout.scss */
 .login-info span {
   display: inline-block;
   color: #999;
   padding-top: 20px;
 }
 
-/* line 199, ../sass/modules/_layout.scss */
+/* line 204, ../sass/modules/_layout.scss */
 .flash {
   position: absolute;
   top: 0;
@@ -538,12 +542,12 @@ body {
   z-index: 100;
   text-align: center;
 }
-/* line 213, ../sass/modules/_layout.scss */
+/* line 218, ../sass/modules/_layout.scss */
 .flash.error {
   background: #df6363;
   border-color: #FF7373;
 }
-/* line 218, ../sass/modules/_layout.scss */
+/* line 223, ../sass/modules/_layout.scss */
 .flash.success {
   background: #57ad68;
   border-color: #48a15a;
@@ -557,39 +561,39 @@ body {
   width: 760px;
   position: relative;
   left: 0px;
-  padding-left: 250px;
+  margin-left: 250px;
   padding-top: 0;
 }
-/* line 9, ../sass/modules/_page_edit.scss */
-.content-body input[type="text"] {
+/* line 11, ../sass/modules/_page_edit.scss */
+.content-body .editor-form input[type="text"] {
   font-size: 38px;
   border: 0;
   font-weight: bold;
   width: 100%;
   padding: 10px 0;
 }
-/* line 16, ../sass/modules/_page_edit.scss */
-.content-body textarea.expanding {
+/* line 18, ../sass/modules/_page_edit.scss */
+.content-body .editor-form textarea.expanding {
   font-size: 38px;
   border: 0;
   font-weight: bold;
   width: 100%;
   padding: 10px 0;
 }
-/* line 24, ../sass/modules/_page_edit.scss */
+/* line 26, ../sass/modules/_page_edit.scss */
 .content-body .byline {
   font-size: 11px;
   color: #999;
   height: 30px;
-  padding: 10px 0 0 0;
+  padding: 60px 0 0 0;
 }
-/* line 31, ../sass/modules/_page_edit.scss */
+/* line 33, ../sass/modules/_page_edit.scss */
 .content-body .header-image-wrap {
   width: 758px;
   height: 345px;
   text-align: center;
 }
-/* line 36, ../sass/modules/_page_edit.scss */
+/* line 38, ../sass/modules/_page_edit.scss */
 .content-body .header-image-wrap .empty-image {
   width: 736px;
   height: 323px;
@@ -599,12 +603,12 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-/* line 46, ../sass/modules/_page_edit.scss */
+/* line 48, ../sass/modules/_page_edit.scss */
 .content-body .header-image-wrap img {
   height: 100%;
   width: auto;
 }
-/* line 52, ../sass/modules/_page_edit.scss */
+/* line 54, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons {
   position: fixed;
   bottom: 0;
@@ -614,7 +618,7 @@ body {
   padding: 8px 0;
   background: rgba(255, 255, 255, 0.9);
 }
-/* line 61, ../sass/modules/_page_edit.scss */
+/* line 63, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .status {
   float: left;
   border-radius: 16px;
@@ -624,13 +628,48 @@ body {
   margin-top: 4px;
   padding: 6px 14px;
 }
-/* line 70, ../sass/modules/_page_edit.scss */
+/* line 72, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .status input {
   display: none;
 }
-/* line 75, ../sass/modules/_page_edit.scss */
+/* line 77, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .save-wrap {
   float: right;
+}
+/* line 82, ../sass/modules/_page_edit.scss */
+.content-body .editor-nav {
+  height: 40px;
+  width: 860px;
+  background: #F2F2F2;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  z-index: 100;
+}
+/* line 91, ../sass/modules/_page_edit.scss */
+.content-body .editor-nav span {
+  padding: 12px 20px 12px 17px;
+  height: 16px;
+  font-size: 12px;
+  display: block;
+  float: left;
+  cursor: pointer;
+  border-right: 3px solid #f2f2f2;
+  font-weight: bold;
+  color: #666;
+}
+/* line 102, ../sass/modules/_page_edit.scss */
+.content-body .editor-nav span:hover {
+  color: #333;
+}
+/* line 106, ../sass/modules/_page_edit.scss */
+.content-body .editor-nav span.active {
+  background: #fff;
+  border-right: 3px solid #ddd;
+}
+/* line 115, ../sass/modules/_page_edit.scss */
+.content-body .editor.page-info {
+  display: none;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ article list */
@@ -663,6 +702,7 @@ body {
   font-size: 32px;
   font-weight: normal;
   width: 690px;
+  border: 0;
   border-bottom: 2px solid #eee;
   border-radius: 2px;
   padding: 5px 10px 8px 60px;
@@ -670,11 +710,11 @@ body {
   box-shadow: 1px 1px 1px #eee;
 }
 
-/* line 38, ../sass/modules/_page_list.scss */
+/* line 39, ../sass/modules/_page_list.scss */
 .articles {
   margin-top: 115px;
 }
-/* line 41, ../sass/modules/_page_list.scss */
+/* line 42, ../sass/modules/_page_list.scss */
 .articles .article {
   border-radius: 2px;
   border-bottom: 2px solid #eee;
@@ -686,33 +726,33 @@ body {
   background: #fff;
   box-shadow: 1px 1px 1px #eee;
 }
-/* line 52, ../sass/modules/_page_list.scss */
+/* line 53, ../sass/modules/_page_list.scss */
 .articles .article img {
   float: left;
   border-radius: 3px;
   margin: 5px 0 0 0;
 }
-/* line 58, ../sass/modules/_page_list.scss */
+/* line 59, ../sass/modules/_page_list.scss */
 .articles .article .title {
   margin-left: 60px;
   font-size: 20px;
   font-weight: bold;
   color: #000;
 }
-/* line 65, ../sass/modules/_page_list.scss */
+/* line 66, ../sass/modules/_page_list.scss */
 .articles .article .byline {
   font-size: 12px;
   color: #333;
   margin: 4px 0 0 60px;
 }
-/* line 71, ../sass/modules/_page_list.scss */
+/* line 72, ../sass/modules/_page_list.scss */
 .articles .article p {
   font-size: 14px;
   color: #333;
   margin: 10px 0;
   line-height: 24px;
 }
-/* line 79, ../sass/modules/_page_list.scss */
+/* line 80, ../sass/modules/_page_list.scss */
 .articles .empty {
   display: block;
   padding: 60px 0;
@@ -720,7 +760,7 @@ body {
   color: #df6363;
 }
 
-/* line 87, ../sass/modules/_page_list.scss */
+/* line 88, ../sass/modules/_page_list.scss */
 .article ul.info {
   position: absolute;
   bottom: 15px;
@@ -729,7 +769,7 @@ body {
   left: 20px;
 }
 
-/* line 94, ../sass/modules/_page_list.scss */
+/* line 95, ../sass/modules/_page_list.scss */
 .article ul.info li {
   float: left;
   background: #eee;
@@ -741,7 +781,7 @@ body {
   position: relative;
 }
 
-/* line 104, ../sass/modules/_page_list.scss */
+/* line 105, ../sass/modules/_page_list.scss */
 .article ul.info li .icon {
   position: absolute;
   left: 4px;
@@ -749,21 +789,53 @@ body {
   color: #999;
 }
 
-/* line 111, ../sass/modules/_page_list.scss */
+/* line 112, ../sass/modules/_page_list.scss */
 .article ul.info li.active .icon,
 .article ul.info li.active {
   color: #fff;
 }
 
-/* line 114, ../sass/modules/_page_list.scss */
+/* line 115, ../sass/modules/_page_list.scss */
 .article ul.info li.status.active {
   background: #57ad68;
   color: #fff;
 }
 
-/* line 119, ../sass/modules/_page_list.scss */
-.waiting {
-  opacity: 0.4;
+/* line 120, ../sass/modules/_page_list.scss */
+.loading {
+  border-radius: 2px;
+  border-bottom: 2px solid #eee;
+  padding: 20px;
+  margin: 20px 0;
+  background: #fff;
+  box-shadow: 1px 1px 1px #eee;
+  text-align: center;
+}
+
+/* line 3, ../sass/modules/_forms.scss */
+.user-form .input {
+  position: relative;
+  height: 80px;
+  font-size: 14px;
+}
+/* line 8, ../sass/modules/_forms.scss */
+.user-form .input label {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  color: #999;
+  font-size: 16px;
+}
+/* line 15, ../sass/modules/_forms.scss */
+.user-form .input input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  background: #fff;
+  padding: 10px;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ modals */

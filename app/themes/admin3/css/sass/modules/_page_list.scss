@@ -26,6 +26,7 @@
             font-size: 32px;
             font-weight: normal;
             width: 690px;
+            border: 0;
             border-bottom: 2px solid #eee;
             border-radius: 2px;
             padding: 5px 10px 8px 60px;
@@ -116,6 +117,12 @@
             color: #fff;
         }
         
-.waiting {
-    opacity: 0.4;
+.loading {
+    border-radius: 2px;
+    border-bottom: 2px solid #eee;
+    padding: 20px;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 1px 1px 1px #eee;
+    text-align: center;
 }

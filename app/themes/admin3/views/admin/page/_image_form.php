@@ -24,7 +24,6 @@
 </div>
 
 <?php 
-    Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/uploadify.css');
     Yii::app()->clientScript->registerScriptFile('/js/admin/modal.js');
     Yii::app()->clientScript->registerScriptFile('/js/admin/uploadify/uploadify.min.js', CClientScript::POS_HEAD);
 ?>

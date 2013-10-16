@@ -3,29 +3,31 @@
     width: 760px;
     position: relative;
     left: 0px;
-    padding-left: 250px;
+    margin-left: 250px;
     padding-top: 0;
     
-    input[type="text"] {
-        font-size: 38px;
-        border: 0;
-        font-weight: bold;
-        width: 100%;
-        padding: 10px 0;
-    }
-    textarea.expanding {
-        font-size: 38px;
-        border: 0;
-        font-weight: bold;
-        width: 100%;
-        padding: 10px 0;
-    }
-    
+    .editor-form {
+      
+        input[type="text"] {
+            font-size: 38px;
+            border: 0;
+            font-weight: bold;
+            width: 100%;
+            padding: 10px 0;
+        }
+        textarea.expanding {
+            font-size: 38px;
+            border: 0;
+            font-weight: bold;
+            width: 100%;
+            padding: 10px 0;
+        }
+    } 
     .byline {
         font-size: 11px;
         color: #999;
         height: 30px;
-        padding: 10px 0 0 0;
+        padding: 60px 0 0 0;
     }
     
     .header-image-wrap {
@@ -74,6 +76,44 @@
         
         .save-wrap {
             float: right;
+        }
+    }
+    
+    .editor-nav {
+        height: 40px;
+        width: 860px;
+        background: #F2F2F2;
+        position: fixed;
+        top: 0;
+        left: 200px;
+        z-index: 100;
+        
+        span {
+           padding: 12px 20px 12px 17px;
+           height: 16px;
+           font-size: 12px;
+           display: block;
+           float: left;
+           cursor: pointer;
+           border-right: 3px solid #f2f2f2;
+           font-weight: bold;
+           color: #666;
+           
+           &:hover {
+              color: #333;
+           }
+           
+           &.active {
+              background: #fff;
+              border-right: 3px solid #ddd;
+           }
+        }
+    }
+    
+    .editor {
+        
+        &.page-info {
+            display: none;
         }
     }
 }

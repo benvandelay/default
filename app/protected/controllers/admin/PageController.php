@@ -9,8 +9,8 @@ class PageController extends AdminController
     {
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         return array(
-            array('label'=>'<span class="icon icon-pencil"></span>  Add Content', 'url' => array('admin/page/update', 'id'=>$id), 'itemOptions' => array('class' => 'launch-modal', 'data-modal' => 'new-page' )),
-            array('label'=>'<span class="icon icon-search"></span>  Find Content' . $this->getCount(), 'url' => array('admin/page/index')),  
+            array('label'=>'<span class="icon icon-pencil"></span>  Create New', 'url' => array('admin/page/create')),
+            array('label'=>'<span class="icon icon-search"></span>  Find Content', 'url' => array('admin/page/index')),  
         );
     } 
     
@@ -55,38 +55,62 @@ class PageController extends AdminController
         
         $this->performAjaxValidation($model);
 
-        if(isset($_POST['Page']))
-        {
-
-            $model->attributes=$_POST['Page'];
-            //$model->slug = StringHelper::toAscii($model->title);
-
-            if($model->save()){
-                
-                Yii::app()->user->setFlash('success', "Page Created!");
-                $this->redirect(array('admin/page/'.$model->id));
-                
-            } else {
-                
-                Yii::app()->user->setFlash('error', "Error Creating Page");
-                $this->redirect(array('admin/page'));
-            } 
-        } else throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+        $this->savePage($model);
+        
+        $this->render('create',array(
+            'model'=>$model
+        ));
 
     }
     
     public function actionUpdate($id)
     {
-        $model=$this->loadModel($id);
-        
-        $image = new Image;
-        
         $this->title = 'Update Page';
         
-        $imageDataProvider = $this->imageDataProvider($id);    
-
+        //get models
+        $model   = $this->loadModel($id);
+        $version = Version::model()->findByPk($model->version); 
+        
         $this->performAjaxValidation($model);
 
+        $this->savePage($model);
+        
+        $this->saveVersion($model);
+
+        //get models again after save
+        $model   = $this->loadModel($id);
+        $version = Version::model()->findByPk($model->version);
+
+        $this->render('update',array(
+            'model'=>$model,
+            'version'=> $version
+        ));
+    }
+    
+    private function saveVersion($model)
+    {
+        if(isset($_POST['Version']))
+        {
+            $version = new Version;
+            $version->attributes = $_POST['Version'];
+            $version->page_id = $model->id;
+            
+            if($version->save()){
+                
+                $model->version = $version->id;
+                if($model->save()){
+                    Yii::app()->user->setFlash('success', "Page Updated!");
+                }
+            }
+ 
+            else
+                Yii::app()->user->setFlash('error', "Page Not Saved"); 
+        }
+    }
+    
+    private function savePage($model)
+    {
+        //submissions
         if(isset($_POST['Page']))
         {
             if(isset($_POST['Page']['new_category'])) 
@@ -99,27 +123,37 @@ class PageController extends AdminController
                     $_POST['Page']['categoryIds'][] = $category->id;
                 }
             }
-            //echo '<pre>';print_r($_POST['Page']); exit;
-            $model->attributes=$_POST['Page'];
-            
+
+            $model->attributes = $_POST['Page'];
+
             if(isset($_POST['Page']['categoryIds'])){
                 $model->categories=$_POST['Page']['categoryIds'];
             }else{
                 $model->categories = -1;
             }
             
-            if($model->save())
+            //do new record stuff
+            if($model->isNewRecord){
+                if($model->save()){
+                    $version = new Version;
+                    $version->page_id  = $model->id;
+                    
+                    if($version->save()){
+                        $model->version = $version->id;
+                        $model->save();
+                        $this->redirect(array($model->id));
+                    }
+                }
+            }
+            
+            if($model->save()){
+                
                 Yii::app()->user->setFlash('success', "Page Updated!");
+            } 
             else
                 Yii::app()->user->setFlash('error', "Page Not Saved"); 
             
         }
-
-        $this->render('update',array(
-            'model'=>$model,
-            'image'=>$image,
-            'imageDataProvider'=>$imageDataProvider,
-        ));
     }
     
     private function imageDataProvider($page_id)
@@ -160,19 +194,15 @@ class PageController extends AdminController
     public function actionIndex()
     {   
         $this->title = 'View Pages';
-        
-        $model=new Page;
 
-        $this->render('index',array(
-            'model'=>$model,
-        ));
+        $this->render('index');
     }
     
     public function actionGetArticlesJson()
     {
         header('Content-type: application/json');
          
-        $model=new Page;
+        $model = new Page;
         $model->unsetAttributes();  // clear any default values
 
             $model->search = $_GET['term'];
@@ -182,7 +212,7 @@ class PageController extends AdminController
         
         foreach($model->search()->getData() as $i => $data){
             $results[$i]['title']  = $data->title;
-            $results[$i]['body']   = StringHelper::getExcerpt($data->body);
+            $results[$i]['body']   = StringHelper::getExcerpt($data->content->body);
             $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
             $results[$i]['date']   = StringHelper::displayDate($data->date);
             $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;
@@ -201,7 +231,7 @@ class PageController extends AdminController
      */
     public function loadModel($id)
     {
-        $model=Page::model()->findByPk($id);
+        $model=Page::model()->with('content')->findByPk($id);
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
         return $model;
@@ -214,7 +244,7 @@ class PageController extends AdminController
      */
     protected function performAjaxValidation($model)
     {
-        
+
         if(isset($_POST['ajax']) && ($_POST['ajax']==='page-form' || $_POST['ajax']==='update-page-form' || $_POST['ajax']==='meta-form'))
         {
             echo CActiveForm::validate($model);

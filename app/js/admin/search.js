@@ -6,6 +6,8 @@ var search = (function(){
         page,
         endScroll,
         template,
+        loadingText,
+        doneText,
         mod;
 
     return {
@@ -18,6 +20,8 @@ var search = (function(){
             page      = 0;
             endScroll = false;
             
+            loadingText = 'Loading More...';
+            doneText    = 'There Are No More Results';
             
             template  = {
                 article : _.template($( "script#article" ).html())
@@ -85,7 +89,7 @@ var search = (function(){
         //grabs articles based on page number and term 
         //and appends them to the index page
         updateArticles: function(term){
-            console.log('update');
+
             $.getJSON('/admin/page/getArticlesJson', 
                 {
                     page: page,
@@ -105,10 +109,14 @@ var search = (function(){
                     cont.append(template.article(article));
                 });
                 
-                $('.article.new').hide().fadeIn('slow');
-                $('.article.new').removeClass('new');
-                
-            });
+                $('.article.new').hide().fadeIn('slow').removeClass('new');
+                        
+                if(endScroll)
+                    $('.loading').text(doneText);
+                else
+                    $('.loading').text(loadingText);
+
+                });
         },
         
         

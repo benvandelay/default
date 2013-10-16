@@ -9,13 +9,14 @@
         Yii::app()->clientScript->registerCssFile('/themes/admin3/css/stylesheets/style.css');
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerCoreScript('jquery.ui');
+        Yii::app()->clientScript->registerScriptFile('/js/admin/underscore.js');
         Yii::app()->clientScript->registerScriptFile('/js/admin/uploadify/uploadify.min.js', CClientScript::POS_HEAD);
         Yii::app()->clientScript->registerScriptFile('/js/admin/modal.js', CClientScript::POS_HEAD);
         Yii::app()->clientScript->registerScriptFile('/js/admin/admin.js', CClientScript::POS_HEAD);
     ?>
 
 </head>
-<body>
+<body class="<?php echo Yii::app()->controller->action->id; ?>">
     <?php
           foreach(Yii::app()->user->getFlashes() as $key => $message) {
             echo '<div class="flash '. $key . '">' . $message . "</div>";

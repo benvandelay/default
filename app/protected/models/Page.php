@@ -1,16 +1,4 @@
 <?php
-
-/**
- * This is the model class for table "prints".
- *
- * The followings are the available columns in table 'prints':
- * @property string $id
- * @property string $title
- * @property string $slug
- * @property string $body
- * @property string $created
- * @property string $created
- */
 class Page extends CActiveRecord
 {
     public $search;
@@ -48,12 +36,12 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('date, body, status, categories, user_id, meta_keywords, meta_description, slug', 'safe'),
+            array('date, status, categories, content, title, user, slug', 'safe'),
             array('title, slug', 'required'),
             array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('slug, date, body, status, title', 'safe', 'on'=>'search'),
+            array('slug, date, body, version, title', 'safe', 'on'=>'search'),
         );
     }
 
@@ -67,7 +55,8 @@ class Page extends CActiveRecord
         return array(
             'categories'=>array(self::MANY_MANY, 'Category',
                 'page_category(page_id, category_id)','index'=>'id'),
-            'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
+            'author'=>array(self::BELONGS_TO, 'User', 'user'),
+            'content'=>array(self::BELONGS_TO, 'Version', 'version')
         );
     }
     
@@ -100,8 +89,7 @@ class Page extends CActiveRecord
          //$this->modified = new CDbExpression('NOW()');
          //$this->modifier_id = Yii::app()->user->id;
          if($this->isNewRecord) {
-             $this->author_id = Yii::app()->user->id;
-             $this->categories = -1;
+             $this->user = Yii::app()->user->id;
          }
         return true;
     } 

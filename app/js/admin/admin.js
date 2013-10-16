@@ -19,13 +19,14 @@ var admin = (function(){
             self.modalView();
             self.imagesView();
             
-            if($('#Page_body').length){
-                $('#Page_body').redactor({});
+            if($('#Version_body').length){
+                $('#Version_body').redactor({});
             }
             
-            if($('.modal-wrapper.new-page').length){
+            if($('.modal-wrapper.new-page').length) {
                 self.generateSlug();
             }
+            
         },
 
         setUpNav: function(){

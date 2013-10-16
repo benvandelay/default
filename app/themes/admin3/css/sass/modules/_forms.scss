@@ -1,0 +1,31 @@
+.user-form {
+  
+    .input {
+        position: relative;
+        height: 80px;
+        font-size: 14px;
+        
+        label {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            color: #999;
+            font-size: 16px;
+        }
+        input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            border: 1px solid #dadada;
+            border-radius: 2px;
+            background: #fff;
+            padding: 10px;
+        }
+    }
+    
+    .textarea {
+        
+    }
+    
+}
