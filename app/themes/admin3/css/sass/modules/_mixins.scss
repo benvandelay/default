@@ -1,0 +1,19 @@
+/* colors */
+$background: #f2f2f2;
+
+$grey      : #eee;
+$darkgrey  : #999;
+
+$red       : #df6363;
+$darkred   : #df6363;
+
+$green     : #57ad68;
+$darkgreen : #48a15a;
+
+@mixin box(){
+    border-radius: 2px;
+    border-bottom: 2px solid $grey;
+    background: #fff;
+    box-shadow: 1px 1px 1px $grey;
+    padding: 20px;
+}

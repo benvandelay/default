@@ -101,6 +101,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   outline-style: none;
 }
 
+/* colors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ icons */
 @font-face {
   font-family: 'icomoon';
@@ -227,46 +228,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   content: "\e012";
 }
 
-/* colors */
-/* line 14, ../sass/modules/_general.scss */
+/* line 1, ../sass/modules/_general.scss */
 a {
   text-decoration: none;
   color: #333;
 }
 
-/* line 18, ../sass/modules/_general.scss */
+/* line 5, ../sass/modules/_general.scss */
 ::-webkit-input-placeholder {
   color: #f2f2f2;
 }
 
-/* line 22, ../sass/modules/_general.scss */
+/* line 9, ../sass/modules/_general.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   color: #f2f2f2;
 }
 
-/* line 26, ../sass/modules/_general.scss */
+/* line 13, ../sass/modules/_general.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: #f2f2f2;
 }
 
-/* line 30, ../sass/modules/_general.scss */
+/* line 17, ../sass/modules/_general.scss */
 :-ms-input-placeholder {
   color: #f2f2f2;
 }
 
-/* line 33, ../sass/modules/_general.scss */
+/* line 20, ../sass/modules/_general.scss */
+.clb {
+  clear: both;
+}
+
+/* line 23, ../sass/modules/_general.scss */
 .left {
   float: left;
 }
 
-/* line 36, ../sass/modules/_general.scss */
+/* line 26, ../sass/modules/_general.scss */
 .right {
   float: right;
 }
 
-/* line 39, ../sass/modules/_general.scss */
+/* line 29, ../sass/modules/_general.scss */
 .btn {
   border-radius: 2px;
   padding: 6px 20px;
@@ -280,24 +285,24 @@ a {
   -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
-/* line 49, ../sass/modules/_general.scss */
+/* line 39, ../sass/modules/_general.scss */
 .btn.save {
   background: #57ad68;
   color: #fff;
   border-color: #48a15a;
 }
-/* line 54, ../sass/modules/_general.scss */
+/* line 44, ../sass/modules/_general.scss */
 .btn.save:hover {
   background: #48a15a;
 }
-/* line 59, ../sass/modules/_general.scss */
+/* line 49, ../sass/modules/_general.scss */
 .btn.cancel {
   color: #333;
   background: transparent;
   border-color: transparent;
   font-size: 12px;
 }
-/* line 66, ../sass/modules/_general.scss */
+/* line 56, ../sass/modules/_general.scss */
 .btn:hover {
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
@@ -558,10 +563,10 @@ body.create, body.update {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ editor */
 /* line 2, ../sass/modules/_page_edit.scss */
 .content-body {
-  width: 760px;
+  width: 860px;
   position: relative;
   left: 0px;
-  margin-left: 250px;
+  margin-left: 200px;
   padding-top: 0;
 }
 /* line 11, ../sass/modules/_page_edit.scss */
@@ -585,40 +590,34 @@ body.create, body.update {
   font-size: 11px;
   color: #999;
   height: 30px;
-  padding: 60px 0 0 0;
+  padding: 60px 50px 0 50px;
 }
 /* line 33, ../sass/modules/_page_edit.scss */
 .content-body .header-image-wrap {
   width: 758px;
   height: 345px;
   text-align: center;
+  position: relative;
 }
-/* line 38, ../sass/modules/_page_edit.scss */
-.content-body .header-image-wrap .empty-image {
-  width: 736px;
-  height: 323px;
-  text-align: center;
-  background: #fff;
-  border: 11px dashed #eee;
-  border-radius: 10px;
-  cursor: pointer;
-}
-/* line 48, ../sass/modules/_page_edit.scss */
+/* line 39, ../sass/modules/_page_edit.scss */
 .content-body .header-image-wrap img {
   height: 100%;
   width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-/* line 54, ../sass/modules/_page_edit.scss */
+/* line 48, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons {
   position: fixed;
   bottom: 0;
-  left: 250px;
+  left: 200px;
   width: 760px;
   height: 37px;
-  padding: 8px 0;
+  padding: 8px 50px;
   background: rgba(255, 255, 255, 0.9);
 }
-/* line 63, ../sass/modules/_page_edit.scss */
+/* line 57, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .status {
   float: left;
   border-radius: 16px;
@@ -628,15 +627,15 @@ body.create, body.update {
   margin-top: 4px;
   padding: 6px 14px;
 }
-/* line 72, ../sass/modules/_page_edit.scss */
+/* line 66, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .status input {
   display: none;
 }
-/* line 77, ../sass/modules/_page_edit.scss */
+/* line 71, ../sass/modules/_page_edit.scss */
 .content-body .row.buttons .save-wrap {
   float: right;
 }
-/* line 82, ../sass/modules/_page_edit.scss */
+/* line 76, ../sass/modules/_page_edit.scss */
 .content-body .editor-nav {
   height: 40px;
   width: 860px;
@@ -646,7 +645,7 @@ body.create, body.update {
   left: 200px;
   z-index: 100;
 }
-/* line 91, ../sass/modules/_page_edit.scss */
+/* line 85, ../sass/modules/_page_edit.scss */
 .content-body .editor-nav span {
   padding: 12px 20px 12px 17px;
   height: 16px;
@@ -658,18 +657,34 @@ body.create, body.update {
   font-weight: bold;
   color: #666;
 }
-/* line 102, ../sass/modules/_page_edit.scss */
+/* line 96, ../sass/modules/_page_edit.scss */
 .content-body .editor-nav span:hover {
   color: #333;
 }
-/* line 106, ../sass/modules/_page_edit.scss */
+/* line 100, ../sass/modules/_page_edit.scss */
 .content-body .editor-nav span.active {
   background: #fff;
   border-right: 3px solid #ddd;
 }
-/* line 115, ../sass/modules/_page_edit.scss */
+/* line 108, ../sass/modules/_page_edit.scss */
+.content-body .editor.page-content {
+  padding: 0 50px 20px 50px;
+}
+/* line 112, ../sass/modules/_page_edit.scss */
 .content-body .editor.page-info {
   display: none;
+  padding-bottom: 80px;
+}
+/* line 116, ../sass/modules/_page_edit.scss */
+.content-body .editor.page-info .left-col {
+  width: 599px;
+  float: left;
+  border-right: 1px solid #ccc;
+}
+/* line 121, ../sass/modules/_page_edit.scss */
+.content-body .editor.page-info .right-col {
+  width: 260px;
+  float: right;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ article list */
@@ -713,46 +728,56 @@ body.create, body.update {
 /* line 39, ../sass/modules/_page_list.scss */
 .articles {
   margin-top: 115px;
+  padding: 0 50px;
 }
-/* line 42, ../sass/modules/_page_list.scss */
+/* line 43, ../sass/modules/_page_list.scss */
 .articles .article {
   border-radius: 2px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #eeeeee;
+  background: #fff;
+  box-shadow: 1px 1px 1px #eeeeee;
+  padding: 20px;
   padding: 20px 20px 45px 20px;
   min-height: 100px;
   position: relative;
   margin: 20px 0;
   display: block;
-  background: #fff;
-  box-shadow: 1px 1px 1px #eee;
 }
-/* line 53, ../sass/modules/_page_list.scss */
-.articles .article img {
+/* line 52, ../sass/modules/_page_list.scss */
+.articles .article img,
+.articles .article .blank {
   float: left;
   border-radius: 3px;
   margin: 5px 0 0 0;
 }
-/* line 59, ../sass/modules/_page_list.scss */
+/* line 58, ../sass/modules/_page_list.scss */
+.articles .article .blank {
+  background: #eee;
+  height: 40px;
+  width: 40px;
+}
+/* line 64, ../sass/modules/_page_list.scss */
 .articles .article .title {
   margin-left: 60px;
   font-size: 20px;
   font-weight: bold;
   color: #000;
 }
-/* line 66, ../sass/modules/_page_list.scss */
+/* line 71, ../sass/modules/_page_list.scss */
 .articles .article .byline {
   font-size: 12px;
   color: #333;
   margin: 4px 0 0 60px;
+  padding: 0;
 }
-/* line 72, ../sass/modules/_page_list.scss */
+/* line 78, ../sass/modules/_page_list.scss */
 .articles .article p {
   font-size: 14px;
   color: #333;
   margin: 10px 0;
   line-height: 24px;
 }
-/* line 80, ../sass/modules/_page_list.scss */
+/* line 86, ../sass/modules/_page_list.scss */
 .articles .empty {
   display: block;
   padding: 60px 0;
@@ -760,7 +785,7 @@ body.create, body.update {
   color: #df6363;
 }
 
-/* line 88, ../sass/modules/_page_list.scss */
+/* line 94, ../sass/modules/_page_list.scss */
 .article ul.info {
   position: absolute;
   bottom: 15px;
@@ -769,7 +794,7 @@ body.create, body.update {
   left: 20px;
 }
 
-/* line 95, ../sass/modules/_page_list.scss */
+/* line 101, ../sass/modules/_page_list.scss */
 .article ul.info li {
   float: left;
   background: #eee;
@@ -781,7 +806,7 @@ body.create, body.update {
   position: relative;
 }
 
-/* line 105, ../sass/modules/_page_list.scss */
+/* line 111, ../sass/modules/_page_list.scss */
 .article ul.info li .icon {
   position: absolute;
   left: 4px;
@@ -789,53 +814,144 @@ body.create, body.update {
   color: #999;
 }
 
-/* line 112, ../sass/modules/_page_list.scss */
+/* line 118, ../sass/modules/_page_list.scss */
 .article ul.info li.active .icon,
 .article ul.info li.active {
   color: #fff;
 }
 
-/* line 115, ../sass/modules/_page_list.scss */
+/* line 121, ../sass/modules/_page_list.scss */
 .article ul.info li.status.active {
   background: #57ad68;
   color: #fff;
 }
 
-/* line 120, ../sass/modules/_page_list.scss */
+/* line 126, ../sass/modules/_page_list.scss */
 .loading {
   border-radius: 2px;
   border-bottom: 2px solid #eee;
   padding: 20px;
-  margin: 20px 0;
+  margin: 20px 50px;
   background: #fff;
   box-shadow: 1px 1px 1px #eee;
   text-align: center;
 }
 
-/* line 3, ../sass/modules/_forms.scss */
-.user-form .input {
-  position: relative;
-  height: 80px;
-  font-size: 14px;
+/* line 1, ../sass/modules/_forms.scss */
+span.required {
+  display: none;
 }
-/* line 8, ../sass/modules/_forms.scss */
-.user-form .input label {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  color: #999;
-  font-size: 16px;
+
+/* line 4, ../sass/modules/_forms.scss */
+.errorMessage {
+  color: #fff;
+  background: #df6363;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  margin: 4px 0 0 0;
 }
-/* line 15, ../sass/modules/_forms.scss */
-.user-form .input input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 500px;
-  border: 1px solid #dadada;
+
+/* line 12, ../sass/modules/_forms.scss */
+.login-form {
   border-radius: 2px;
+  border-bottom: 2px solid #eeeeee;
   background: #fff;
+  box-shadow: 1px 1px 1px #eeeeee;
+  padding: 20px;
+  width: 400px;
+  margin: 60px auto 0 auto;
+  padding: 0;
+  position: relative;
+}
+/* line 19, ../sass/modules/_forms.scss */
+.login-form h2 {
+  background: #404040;
+  padding: 20px 40px;
+  color: #fff;
+  border-radius: 2px 2px 0 0;
+}
+/* line 26, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap {
+  padding: 0 0 80px 0;
+}
+/* line 30, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap .input {
+  border-bottom: 1px solid #eee;
+}
+/* line 33, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap .input label {
+  display: block;
+  font-size: 12px;
+  margin: 10px 20px 0 20px;
+}
+/* line 40, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap .remember-me {
+  font-size: 12px;
   padding: 10px;
+  background: #eeeeee;
+  width: 157px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 2px;
+}
+/* line 51, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap .btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+/* line 58, ../sass/modules/_forms.scss */
+.login-form .inner-form-wrap input[type="text"],
+.login-form .inner-form-wrap input[type="password"] {
+  width: 360px;
+  border: 0;
+  padding: 10px 20px;
+}
+
+/* line 70, ../sass/modules/_forms.scss */
+.user-form h2 {
+  padding: 10px 20px;
+  background: #ccc;
+  color: #000;
+}
+/* line 75, ../sass/modules/_forms.scss */
+.user-form .check-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+  display: block;
+  color: #666;
+}
+/* line 82, ../sass/modules/_forms.scss */
+.user-form .check-list-item.selected {
+  color: #57ad68;
+  font-weight: bold;
+}
+/* line 87, ../sass/modules/_forms.scss */
+.user-form .check-list-item input {
+  display: none;
+}
+/* line 92, ../sass/modules/_forms.scss */
+.user-form .input {
+  border-bottom: 1px solid #ccc;
+}
+/* line 95, ../sass/modules/_forms.scss */
+.user-form .input label {
+  padding: 10px 50px 0 50px;
+  font-size: 12px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+}
+/* line 103, ../sass/modules/_forms.scss */
+.user-form .input input {
+  padding: 10px 50px;
+  width: 499px;
+  border: 0;
+  color: #666;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ modals */
@@ -1857,4 +1973,82 @@ body .redactor_toolbar li a.redactor_btn_alignment {
 .redactor_dropareabox.drop {
   background: #f4f4ee;
   border-color: #e0e5d6;
+}
+
+/* line 1, ../sass/modules/_uploadify.scss */
+.uploadifive-button {
+  position: absolute !important;
+  width: 736px;
+  height: 323px;
+  border: 11px dashed #fff;
+  border-radius: 10px;
+  -webkit-transition: border-color 0.3s ease;
+  -moz-transition: border-color 0.3s ease;
+  -o-transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
+}
+/* line 9, ../sass/modules/_uploadify.scss */
+.uploadifive-button input[type="file"] {
+  font-size: 0 !important;
+  width: 758px;
+  height: 345px;
+  top: -11px !important;
+  right: -11px !important;
+  cursor: pointer;
+}
+
+/* line 19, ../sass/modules/_uploadify.scss */
+.empty-image .uploadifive-button {
+  width: 736px;
+  height: 323px;
+  text-align: center;
+  background: #fff;
+  border: 11px dashed #eee;
+  border-radius: 10px;
+}
+
+/* line 29, ../sass/modules/_uploadify.scss */
+.uploadifive-button:hover {
+  border-color: #ddd;
+  -webkit-transition: border-color 0.3s ease;
+  -moz-transition: border-color 0.3s ease;
+  -o-transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
+}
+
+/* line 33, ../sass/modules/_uploadify.scss */
+.uploadifive-queue-item {
+  background-color: #F5F5F5;
+  border-bottom: 1px dotted #D5D5D5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font: 12px Arial, Helvetica, Sans-serif;
+  margin-top: 3px;
+  padding: 15px;
+}
+
+/* line 43, ../sass/modules/_uploadify.scss */
+.uploadifive-queue-item .close {
+  background: url("uploadifive-cancel.png") 0 0 no-repeat;
+  display: block;
+  float: right;
+  height: 16px;
+  text-indent: -9999px;
+  width: 16px;
+}
+
+/* line 51, ../sass/modules/_uploadify.scss */
+.uploadifive-queue-item .progress {
+  border: 1px solid #D0D0D0;
+  height: 3px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+/* line 57, ../sass/modules/_uploadify.scss */
+.uploadifive-queue-item .progress-bar {
+  background-color: #0072BC;
+  height: 3px;
+  width: 0;
 }

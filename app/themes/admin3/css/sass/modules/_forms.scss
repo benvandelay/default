@@ -1,26 +1,110 @@
+span.required {
+    display: none;
+}
+.errorMessage {
+    color: #fff;
+    background: $red;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin: 4px 0 0 0;
+}
+.login-form {
+    @include box;
+    width: 400px;
+    margin: 60px auto 0 auto;
+    padding: 0;
+    position: relative;
+    
+    h2 {
+        background: #404040;
+        padding: 20px 40px;
+        color: #fff;
+        border-radius: 2px 2px 0 0;
+    }
+    
+    .inner-form-wrap {
+        padding: 0 0 80px 0;
+        
+        
+        .input {
+            border-bottom: 1px solid #eee;
+            
+            label {
+                display: block;
+                font-size: 12px;
+                margin: 10px 20px 0 20px;
+            }
+        }
+        
+        .remember-me {
+            font-size: 12px;
+            padding: 10px;
+            background: $grey;
+            width: 157px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            border-radius: 2px;
+        }
+        
+        .btn {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+          width: 360px;
+          border: 0;
+          padding: 10px 20px;
+        }
+    }
+    
+    
+}
+
 .user-form {
   
+    h2 {
+        padding: 10px 20px;
+        background: #ccc;
+        color: #000;
+    }
+    .check-list-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 12px;
+        display: block;
+        color: #666;
+        
+        &.selected {
+            color: $green;
+            font-weight: bold;
+        }
+        
+        input {
+            display: none;
+        }
+    }
+  
     .input {
-        position: relative;
-        height: 80px;
-        font-size: 14px;
+        border-bottom: 1px solid #ccc;
         
         label {
-            position: absolute;
-            top: 4px;
-            left: 0;
-            color: #999;
-            font-size: 16px;
+           padding: 10px 50px 0 50px; 
+           font-size: 12px;
+           display: block;
+           text-transform: uppercase;
+           font-weight: bold;
+           color: #000;
         }
         input {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 500px;
-            border: 1px solid #dadada;
-            border-radius: 2px;
-            background: #fff;
-            padding: 10px;
+            padding: 10px 50px;
+            width: 499px;
+            border: 0;
+            color: #666;
         }
     }
     

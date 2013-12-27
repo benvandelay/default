@@ -12,15 +12,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 
 @import "compass/css3";
 
+//mixins
+@import "modules/mixins";
 
 //general
 @import "modules/icons";
 @import "modules/general";
 
-
 //layout
 @import "modules/layout";
-
 
 //pages
 @import "modules/page_edit";
@@ -32,3 +32,4 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 //utilities
 @import "modules/modal";
 @import "modules/redactor";
+@import "modules/uploadify";

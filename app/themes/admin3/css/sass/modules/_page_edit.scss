@@ -1,9 +1,9 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ editor */
 .content-body {
-    width: 760px;
+    width: 860px;
     position: relative;
     left: 0px;
-    margin-left: 250px;
+    margin-left: 200px;
     padding-top: 0;
     
     .editor-form {
@@ -27,37 +27,31 @@
         font-size: 11px;
         color: #999;
         height: 30px;
-        padding: 60px 0 0 0;
+        padding: 60px 50px 0 50px;
     }
     
     .header-image-wrap {
         width: 758px;
         height: 345px;
         text-align: center;
-        
-        .empty-image {
-            width: 736px;
-            height: 323px;
-            text-align: center;
-            background: #fff;
-            border: 11px dashed #eee;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+        position: relative;
         
         img {
             height: 100%;
             width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
     
     .row.buttons {
         position: fixed;
         bottom: 0;
-        left: 250px;
+        left: 200px;
         width: 760px;
         height: 37px;
-        padding: 8px 0;
+        padding: 8px 50px;
         background: rgba(255, 255, 255, 0.9);
         
         .status {
@@ -111,9 +105,25 @@
     }
     
     .editor {
+        &.page-content {
+            padding: 0 50px 20px 50px;
+        }
         
         &.page-info {
             display: none;
+            padding-bottom: 80px;
+            
+            .left-col {
+                width: 599px;
+                float: left;
+                border-right: 1px solid #ccc;
+            }
+            .right-col {
+                
+                width: 260px;
+                float: right;
+                
+            }
         }
     }
 }

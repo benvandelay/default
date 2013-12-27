@@ -107,8 +107,8 @@ return array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
-                'large'=>array('width'=>800, 'height'=>600),
-                'thumb' =>array('width'=>200, 'height'=>160),
+                'admin_large'=>array('width'=>758, 'height'=>345),
+                'admin_thumb' =>array('width'=>40, 'height'=>40),
             ),
         ),
         'GAVerify'=>'',

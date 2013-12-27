@@ -7,7 +7,7 @@ var admin = (function(){
     return {
 
         init: function(){
-
+alert('asdfd');
             self = this;
             newCategoryCount = 0;
             hash = window.location.hash;
@@ -23,7 +23,7 @@ var admin = (function(){
                 $('#Version_body').redactor({});
             }
             
-            if($('.modal-wrapper.new-page').length) {
+            if($('body.create').length) {
                 self.generateSlug();
             }
             

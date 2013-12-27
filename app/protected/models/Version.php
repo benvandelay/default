@@ -25,7 +25,21 @@ class Version extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('body, header, sub_header', 'safe')
+            array('body, header, sub_header, image_id', 'safe')
+        );
+    }
+    
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            
+            'image'=>array(self::BELONGS_TO, 'image', 'image_id')
+            
         );
     }
 }

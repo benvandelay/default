@@ -42,8 +42,8 @@ class Image extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('filename, title', 'length', 'max'=>200),
-			array('filename, title', 'required'),
-			array('date, body', 'safe'),
+			array('filename', 'required'),
+			array('date, filename, body', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, filename, title, date', 'safe', 'on'=>'search'),
@@ -56,7 +56,7 @@ class Image extends CActiveRecord
         {
             if($this->isNewRecord || $this->doCrop){
 
-                $targetFile = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . Yii::app()->params['image']['uploadPath'] . '/' . $this->filename;
+                $targetFile = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . Yii::app()->params['image']['uploadPath'] . '/' . $this->filename;
                 $cropper = new CropImage;
                 foreach(Yii::app()->params['image']['size'] as $size=>$dem)
                 {

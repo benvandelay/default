@@ -1,6 +1,6 @@
 <script type="text/template" id="article">
     <a href="<%= url %>" class="article new">
-        <img src="http://www.placekitten.com/40/40" />
+        <%= image %>
         <div class="title"><%= title %></div>
         <div class="byline"><%= date %> | <%= author %></div>
         <p><%= body %></p>

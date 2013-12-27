@@ -1,6 +1,5 @@
-<?php Yii::app()->clientScript->registerScriptFile('/js/admin/redactor.min.js', CClientScript::POS_HEAD); ?>
-<?php Yii::app()->clientScript->registerScriptFile('/js/admin/expand.js', CClientScript::POS_HEAD); ?>
-
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/redactor.min.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/expand.js', CClientScript::POS_HEAD); ?>
 <?php 
 
     $form = $this->beginWidget('CActiveForm', array(
@@ -19,15 +18,17 @@
 
     <?php echo $form->errorSummary($version); ?>
        
-    <div class="header-image-wrap">
-        <div class="empty-image"></div>
+    <div class="header-image-wrap<?php echo !$version->image ? ' empty-image' : ''?>">
+        <input type="file" id="uploadify" />
+        <?php echo $version->image ? ImageHelper::resize($version->image->filename, 'admin_large') : ''; ?>
+        <?php echo $form->hiddenField($version, 'image_id'); ?>
     </div>
        
-    <?php echo $form->textArea($version,'header', array('class' => 'expanding')); ?>
-    <?php echo $form->error($version,'header'); ?>
+    <?php echo $form->textArea($version, 'header', array('class' => 'expanding')); ?>
+    <?php echo $form->error($version, 'header'); ?>
        
-    <?php echo $form->textArea($version,'body'); ?>
-    <?php echo $form->error($version,'body'); ?>
+    <?php echo $form->textArea($version, 'body'); ?>
+    <?php echo $form->error($version, 'body'); ?>
         
     <div class="row buttons">
         

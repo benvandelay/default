@@ -6,13 +6,12 @@
     
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <?php
-        Yii::app()->clientScript->registerCssFile('/themes/admin3/css/stylesheets/style.css');
+        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/stylesheets/style.css');
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerCoreScript('jquery.ui');
-        Yii::app()->clientScript->registerScriptFile('/js/admin/underscore.js');
-        Yii::app()->clientScript->registerScriptFile('/js/admin/uploadify/uploadify.min.js', CClientScript::POS_HEAD);
-        Yii::app()->clientScript->registerScriptFile('/js/admin/modal.js', CClientScript::POS_HEAD);
-        Yii::app()->clientScript->registerScriptFile('/js/admin/admin.js', CClientScript::POS_HEAD);
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/underscore.js');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/uploadify/uploadifive.min.js', CClientScript::POS_HEAD);
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/admin.js', CClientScript::POS_HEAD);
     ?>
 
 </head>

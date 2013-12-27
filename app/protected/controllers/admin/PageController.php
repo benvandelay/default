@@ -200,6 +200,8 @@ class PageController extends AdminController
     
     public function actionGetArticlesJson()
     {
+        
+          
         header('Content-type: application/json');
          
         $model = new Page;
@@ -211,8 +213,10 @@ class PageController extends AdminController
         $results = array();
         
         foreach($model->search()->getData() as $i => $data){
+            //print_r($data->version); exit;
             $results[$i]['title']  = $data->title;
             $results[$i]['body']   = StringHelper::getExcerpt($data->content->body);
+            $results[$i]['image']  = $data->content->image ? ImageHelper::resize($data->content->image->filename, 'admin_thumb') : '<div class="blank"></div>';
             $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
             $results[$i]['date']   = StringHelper::displayDate($data->date);
             $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;

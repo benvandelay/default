@@ -57,6 +57,7 @@ class Page extends CActiveRecord
                 'page_category(page_id, category_id)','index'=>'id'),
             'author'=>array(self::BELONGS_TO, 'User', 'user'),
             'content'=>array(self::BELONGS_TO, 'Version', 'version')
+            
         );
     }
     
@@ -106,7 +107,6 @@ class Page extends CActiveRecord
         $limit = 10;
         
         $criteria=new CDbCriteria;
-
         $criteria->compare('title',$this->search,true, 'OR');
         $criteria->compare('date',$this->search,true, 'OR');
         $criteria->limit = $limit;

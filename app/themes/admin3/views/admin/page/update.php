@@ -1,4 +1,5 @@
-<?php Yii::app()->clientScript->registerScriptFile('/js/admin/edit-content.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/edit-content.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/edit-info.js', CClientScript::POS_HEAD); ?>
 <div class="editor-nav">
     <span class="active" data-show="page-content">Page Content</span>
     <span data-show="page-info">Page Info</span>

@@ -1,16 +1,3 @@
-
-/* colors */
-$background: #f2f2f2;
-
-$grey      : #eee;
-$darkgrey  : #999;
-
-$red       : #df6363;
-$darkred   : #df6363;
-
-$green     : #57ad68;
-$darkgreen : #48a15a;
-
 a {
     text-decoration: none;
     color: #333;
@@ -29,6 +16,9 @@ a {
 
 :-ms-input-placeholder {  
    color: #f2f2f2;  
+}
+.clb {
+    clear: both;
 }
 .left {
     float: left;
