@@ -32,10 +32,6 @@
         
     <div class="row buttons">
         
-        <div class="status<?php echo $model->status != 0 ? ' published' : ''; ?>">
-            <?php echo $form->radioButtonList($model,'status', array('0'=>'unpublished', '1'=>'published'), array('separator'=>false)); ?>
-        </div>
-        
         <div class="save-wrap">
             <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
             <?php echo CHtml::submitButton($version->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>

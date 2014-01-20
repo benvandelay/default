@@ -2,11 +2,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
     background: $background;
-    
-    &.create,
-    &.update {
-        background: url('/images/admin/bg.jpg') 200px top repeat-y $background;
-    }
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ header */

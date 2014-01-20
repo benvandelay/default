@@ -136,7 +136,8 @@ class PageController extends AdminController
             if($model->isNewRecord){
                 if($model->save()){
                     $version = new Version;
-                    $version->page_id  = $model->id;
+                    $version->page_id = $model->id;
+                    $version->header  = $model->title;
                     
                     if($version->save()){
                         $model->version = $version->id;

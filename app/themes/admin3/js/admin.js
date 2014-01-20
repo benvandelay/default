@@ -8,11 +8,9 @@ var admin = (function(){
 
         init: function(){
             self = this;
-            newCategoryCount = 0;
             hash = window.location.hash;
             self.setUpNav();
             self.fadeOutFlash();
-            self.newCategory();
             self.toggleBox();
             
             if($('#Version_body').length){
@@ -60,21 +58,6 @@ var admin = (function(){
             });
         },
 
-        newCategory: function(){
-            $('#new-category').click(function(){
-                $('#new-category-wrap').append(self.createCategoryInput());
-                newCategoryCount++;
-            });  
-        },
-
-        createCategoryInput: function(){
-            var categoryInput = $('<input type="text" />');
-            categoryInput.attr('name', 'Page[new_category][' + newCategoryCount + ']');
-            
-            return categoryInput;
-        },
-        
-        
         fadeOutFlash: function(){
             if($('.flash').length > 0){
                 setTimeout(function(){ $('.flash').fadeOut('slow')}, 5000);
