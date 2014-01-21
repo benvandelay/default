@@ -5,6 +5,14 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
+$db = array(
+    'host' => isset($_SERVER['DB_HOST']) ? $_SERVER['DB_HOST'] : '127.0.0.1',
+    'name' => isset($_SERVER['DB_NAME']) ? $_SERVER['DB_NAME'] : 'default',
+    'user' => isset($_SERVER['DB_USER']) ? $_SERVER['DB_USER'] : 'root',
+    'pass' => isset($_SERVER['DB_PASS']) ? $_SERVER['DB_PASS'] : 'root',
+);
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Default Site',
@@ -71,10 +79,10 @@ return array(
 		),
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=default',
+			'connectionString' => 'mysql:host=' . $db['host'] . ';dbname=' . $db['name'],
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
+			'username' => $db['user'],
+			'password' => $db['pass'],
 			'charset' => 'utf8',
 		),
 		

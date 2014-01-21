@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.1.61)
+# Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: default
-# Generation Time: 2013-02-06 15:48:12 -0500
+# Generation Time: 2014-01-21 23:06:38 +0000
 # ************************************************************
 
 
@@ -34,19 +34,15 @@ CREATE TABLE `category` (
 
 
 
-# Dump of table contact
+# Dump of table gallery
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `contact`;
+DROP TABLE IF EXISTS `gallery`;
 
-CREATE TABLE `contact` (
+CREATE TABLE `gallery` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL DEFAULT '',
-  `email` varchar(200) NOT NULL DEFAULT '',
-  `phone` varchar(10) DEFAULT NULL,
-  `body` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int(1) NOT NULL DEFAULT '0',
+  `title` text,
+  `body` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,12 +55,28 @@ DROP TABLE IF EXISTS `image`;
 
 CREATE TABLE `image` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `page` int(3) NOT NULL,
   `filename` varchar(200) NOT NULL DEFAULT '',
   `title` varchar(200) DEFAULT NULL,
   `body` mediumtext,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table message
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `message`;
+
+CREATE TABLE `message` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `email` varchar(200) NOT NULL DEFAULT '',
+  `phone` varchar(10) DEFAULT NULL,
+  `body` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -77,19 +89,12 @@ DROP TABLE IF EXISTS `page`;
 
 CREATE TABLE `page` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `page_type_id` int(11) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
-  `header` mediumtext,
   `slug` varchar(100) NOT NULL DEFAULT '',
-  `body` text,
-  `meta_description` mediumtext,
-  `meta_keywords` mediumtext,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `author_id` int(11) DEFAULT NULL,
-  `modified` timestamp NULL DEFAULT NULL,
-  `modifier_id` int(11) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `user` int(11) DEFAULT NULL,
+  `version` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,30 +114,6 @@ CREATE TABLE `page_category` (
 
 
 
-# Dump of table page_type
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `page_type`;
-
-CREATE TABLE `page_type` (
-  `page_type_id` int(11) unsigned NOT NULL,
-  `name` varchar(200) NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `page_type` WRITE;
-/*!40000 ALTER TABLE `page_type` DISABLE KEYS */;
-
-INSERT INTO `page_type` (`page_type_id`, `name`)
-VALUES
-	(0,'Parent'),
-	(1,'Child'),
-	(2,'Article');
-
-/*!40000 ALTER TABLE `page_type` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
 # Dump of table site
 # ------------------------------------------------------------
 
@@ -143,7 +124,7 @@ CREATE TABLE `site` (
   `param_name` varchar(100) NOT NULL DEFAULT '',
   `param_value` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -158,17 +139,6 @@ CREATE TABLE `status` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `status` WRITE;
-/*!40000 ALTER TABLE `status` DISABLE KEYS */;
-
-INSERT INTO `status` (`id`, `status`)
-VALUES
-	(0,'Unpublished'),
-	(1,'Published'),
-	(2,'Deleted');
-
-/*!40000 ALTER TABLE `status` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table user
@@ -189,15 +159,23 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `permission`, `first_name`, `last_name`, `date`, `active`)
-VALUES
-	(1,'admin','youwish@nope.com','admin',0,'admin','admin','2012-09-29 22:45:47',1);
 
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+# Dump of table version
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `version`;
+
+CREATE TABLE `version` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int(11) NOT NULL,
+  `body` text,
+  `header` text,
+  `sub_header` text,
+  `image_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 
 

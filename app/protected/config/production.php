@@ -19,7 +19,6 @@ return array(
         'application.helpers.*',
         'application.widgets.admin.*',
         'application.widgets.*',
-        
     ),
 
     'modules'=>array(
@@ -42,18 +41,25 @@ return array(
             'class'=>'AdminUser',
             'loginUrl'=>array('login'),
         ),
-        // uncomment the following to enable URLs in path-format
         
+
+        'assetManager' => array(
+            'linkAssets' => true,
+        ),
+
+        // uncomment the following to enable URLs in path-format
+
         'urlManager'=>array(
             'showScriptName'=>false,
             'urlFormat'=>'path',
             'rules'=>array(
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
                 '/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',
+                '/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
                 '/admin/page/create'=>'admin/page/create',
                 '/admin/image/uploadify'=>'admin/image/uploadify',
                 '/admin/<controller:\w+>/create'=>'admin/<controller>/create',
-                '/admin/<controller:\w+>/<scope:\w+>'=>'admin/<controller>/index',
+                '/admin/<controller:\w+>'=>'admin/<controller>/index',
                 '/admin/image/create/<page_id:\d+>'=>'admin/image/create',
                 '/admin'=>'admin/site/index',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -65,7 +71,7 @@ return array(
         ),
         
         'db'=>array(
-            'connectionString' => 'mysql:host=127.0.0.1;dbname=default',
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=bwdev',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root',
@@ -101,8 +107,8 @@ return array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
-                'large'=>array('width'=>800, 'height'=>600),
-                'thumb' =>array('width'=>200, 'height'=>160),
+                'admin_large'=>array('width'=>758, 'height'=>345),
+                'admin_thumb' =>array('width'=>40, 'height'=>40),
             ),
         ),
         'GAVerify'=>'',
