@@ -38,7 +38,7 @@ class Version extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             
-            'image'=>array(self::BELONGS_TO, 'image', 'image_id')
+            'image'=>array(self::BELONGS_TO, 'Image', 'image_id')
             
         );
     }
