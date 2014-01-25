@@ -50,6 +50,19 @@ return array(
 			'loginUrl'=>array('login'),
 		),
 		
+        'clientScript'=>array(
+        
+            'packages'=>array(
+                'jquery'=>array(
+                    'baseUrl'=>'/themes/admin3/js/',
+                    'js' => array('jquery.js', 'jquery.migrate.js'),
+                ),
+                // 'jquery.ui'=>array(
+                    // 'baseUrl'=>'/themes/vice/statics/js/',
+                    // 'js' => array('jquery-ui-1.10.3.custom.min.js'),
+                // )
+            ),
+        ),
 
         'assetManager' => array(
             'linkAssets' => true,

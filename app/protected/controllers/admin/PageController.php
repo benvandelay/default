@@ -74,7 +74,7 @@ class PageController extends AdminController
         $this->performAjaxValidation($model);
 
         $this->savePage($model);
-        
+
         $this->saveVersion($model);
 
         //get models again after save
@@ -96,8 +96,8 @@ class PageController extends AdminController
             $version->page_id = $model->id;
             
             if($version->save()){
-                
                 $model->version = $version->id;
+                $model->categories = -1;
                 if($model->save()){
                     Yii::app()->user->setFlash('success', "Page Updated!");
                 }

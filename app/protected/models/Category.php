@@ -37,6 +37,7 @@ class Category extends CActiveRecord
         return array(
             array('name', 'required'),
             array('name', 'safe'),
+            array('name', 'unique', 'className'=>'Category'),
         );
     }
 

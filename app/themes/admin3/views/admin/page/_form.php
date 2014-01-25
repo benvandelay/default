@@ -1,4 +1,4 @@
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/redactor.min.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/redactor9.1.4.min.js', CClientScript::POS_HEAD); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/expand.js', CClientScript::POS_HEAD); ?>
 <?php 
 
@@ -29,7 +29,7 @@
        
     <?php echo $form->textArea($version, 'body'); ?>
     <?php echo $form->error($version, 'body'); ?>
-        
+    
     <div class="row buttons">
         
         <div class="save-wrap">

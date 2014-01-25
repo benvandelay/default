@@ -14,7 +14,26 @@ var admin = (function(){
             self.toggleBox();
             
             if($('#Version_body').length){
-                $('#Version_body').redactor({});
+                $('#Version_body').redactor(
+                    {
+                    buttons : ['html', 'formatting', 'bold', 'italic', 'deleted','unorderedlist', 'orderedlist', 'outdent', 'indent','image', 'video', 'table', 'link', 'alignment', 'horizontalrule'],
+                    
+                    imageUpload : '/admin/image/redactorFileUpload',
+                    imageUploadErrorCallback : function(json){
+                            alert(json.error);
+                        }
+                    
+                    // callback: function(){
+//                         
+                        // $(window).on('scroll', function(){
+                            // console.log($('.redactor_toolbar').scrollTop());
+                        // });
+                        // $('.redactor-toolbar').addClass('fixed');
+                    // }
+                        
+                    });
+                
+                $()
             }
             
             if($('body.create').length) {

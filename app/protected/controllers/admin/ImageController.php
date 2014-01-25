@@ -24,7 +24,7 @@ class ImageController extends AdminController
         return array(
 
             array('allow', 
-                'actions'=>array('create','update','delete','index'),
+                'actions'=>array('create','update','delete','index','redactorFileUpload'),
                 'expression'=>'Yii::app()->user->isAdmin()',
             ),
             array('allow', 
@@ -214,6 +214,7 @@ class ImageController extends AdminController
                     'error' => 0,
                     'filename' => $newName,
                     'filepath' => $targetFolder . '/admin_large_' . $newName,
+                    'filelink' => $targetFolder . '/admin_large_' . $newName, //for redactor TODO update to filelink everywhere
                     'image_id' => $image->id,
                 );
             }else{
@@ -226,6 +227,68 @@ class ImageController extends AdminController
             echo json_encode($json);
         }
 
+    }
+
+    public function actionRedactorFileUpload() {
+        $targetFolder = Yii::app()->params['image']['uploadPath']; // Relative to the root
+        $minWidth     = Yii::app()->params['image']['size']['admin_large']['width'];
+        $minHeight    = Yii::app()->params['image']['size']['admin_large']['height'];
+        $maxSize      = 4; //in mb
+        $error        = array();
+        
+        if (!empty($_FILES)) {
+            $tempFile = $_FILES['file']['tmp_name'];
+
+            $size   = getimagesize($tempFile);
+            $width  = $size[0];
+            $height = $size[1];
+
+            $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+            
+            $fileParts = explode('.', $_FILES['file']['name']);
+            
+            $newName = date("YmdHis") . preg_replace('/[^a-z0-9]+/i', '_', $fileParts[0]) . '.' . $fileParts[1];
+            $targetFile = rtrim($targetPath,'/') . '/' . $newName;
+            
+            // Validate the file type
+            $fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+            $fileParts = pathinfo($_FILES['file']['name']);
+            
+            if (!in_array($fileParts['extension'] , $fileTypes)) {
+                $error[] = 'Invalid file type.';
+            }elseif($width < $minWidth) {
+                $error[] = 'File must be at least ' . $minWidth . 'px wide';
+            }elseif($height < $minHeight) {
+                $error[] = 'File must be at least ' . $minHeight . 'px in height';
+            }elseif($_FILES['file']['size'] > $maxSize * 1048576){
+                $error[] = 'File must be ' . $this->max_size . 'Mb or less!';
+            }else{
+               move_uploaded_file($tempFile,$targetFile);
+            }
+            
+            if(empty($error)){
+                //now save the image model if there are no errors yet
+                $image = new Image;
+                $image->filename = $newName;
+                $image->doCrop = true;
+                if($image->save()){}else{
+                    $error[] = 'File did not save.';
+                }
+            }
+            
+            if(empty($error)){//no upload error
+                $json = array(
+                    'filelink' => $targetFolder . '/admin_large_' . $newName, //for redactor TODO update to filelink everywhere
+                );
+            }else{
+                $json = array(
+                    'error'=>$error[0],
+                );
+            }
+            
+            //send message
+            echo json_encode($json);
+        }
     }
 
 }

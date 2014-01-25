@@ -49,9 +49,15 @@ var editInfo = (function(){
         publishedStatus: function(){
             if($('.buttons .status').length){
                 
-            
+                var value = $('#Page_status').val();
+                
+                if(value == 1){
+                    $('.buttons .status').addClass('published');
+                }
                 $('.buttons .status').on('click', function(){
-                    
+                    value = value == 1 ? 0 : 1;
+                    $('#Page_status').val(value);
+                    $(this).toggleClass('published');
                 });
             }
             
