@@ -184,7 +184,7 @@ class ImageController extends AdminController
             $targetFile = rtrim($targetPath,'/') . '/' . $newName;
             
             // Validate the file type
-            $fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+            $fileTypes = array('jpg','jpeg','gif','png', 'JPG'); // File extensions
             $fileParts = pathinfo($_FILES['Filedata']['name']);
             
             if (!in_array($fileParts['extension'] , $fileTypes)) {
@@ -238,7 +238,6 @@ class ImageController extends AdminController
         
         if (!empty($_FILES)) {
             $tempFile = $_FILES['file']['tmp_name'];
-
             $size   = getimagesize($tempFile);
             $width  = $size[0];
             $height = $size[1];
@@ -251,7 +250,7 @@ class ImageController extends AdminController
             $targetFile = rtrim($targetPath,'/') . '/' . $newName;
             
             // Validate the file type
-            $fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+            $fileTypes = array('jpg','jpeg','gif','png','JPG'); // File extensions
             $fileParts = pathinfo($_FILES['file']['name']);
             
             if (!in_array($fileParts['extension'] , $fileTypes)) {

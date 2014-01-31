@@ -9,11 +9,11 @@ class StringHelper {
         return $clean;
     }
     
-    public function displayDate($date) {
+    public static function displayDate($date) {
         return date('M d Y', strtotime($date));
     }
     
-    public function getExcerpt($text = "", $length = 200, $allowedTags = FALSE) {
+    public static function getExcerpt($text = "", $length = 200, $allowedTags = FALSE) {
         $endChars = array(".","!","?");
         $ellipsis = true;
         $tags     = '';
@@ -22,9 +22,9 @@ class StringHelper {
         }
         
         //limit excerpt to specified size
-        $text = trim(mb_substr($text, 0, $length, 'UTF-8')); //use multibyte func w/utf8 encodings (#2877)
+        $text = trim(substr($text, 0, $length)); //use multibyte func w/utf8 encodings (#2877)
 
-        if(mb_strlen($text) < $length) $ellipsis = false; //kill '...' if short enough
+        if(strlen($text) < $length) $ellipsis = false; //kill '...' if short enough
 
         //format text by replacing quotes and stripping tags
         $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
