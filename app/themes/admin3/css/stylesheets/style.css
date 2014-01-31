@@ -338,7 +338,7 @@ body {
   left: 0;
   width: 200px;
   z-index: 100;
-  background: #444;
+  background: #222;
 }
 /* line 28, ../sass/modules/_layout.scss */
 .left-controls ul.submenu {
@@ -448,7 +448,7 @@ body {
   z-index: 1002;
   display: block;
   border-bottom: 0;
-  background: #333;
+  background: #2d6ea3;
 }
 /* line 134, ../sass/modules/_layout.scss */
 .main-nav li.active a {
@@ -458,8 +458,8 @@ body {
 }
 /* line 139, ../sass/modules/_layout.scss */
 .main-nav li.active a .icon {
-  background: #df6363;
-  color: #fff;
+  background: #eeeeee;
+  color: #2d6ea3;
 }
 
 /* line 148, ../sass/modules/_layout.scss */

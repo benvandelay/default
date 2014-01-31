@@ -23,7 +23,7 @@ body {
     left: 0;
     width: 200px;
     z-index: 100;
-    background: #444;
+    background: #222;
     
     ul.submenu {
         padding: 0;
@@ -129,7 +129,7 @@ body {
             z-index: 1002;
             display: block;
             border-bottom: 0;
-            background: #333;
+            background: $blue;
             
             a {
                 height: 38px;
@@ -137,8 +137,8 @@ body {
                 padding: 22px 0 0 76px;
                 
                 .icon {
-                    background: #df6363;
-                    color: #fff;
+                    background: $grey;
+                    color: $blue;
                 }
             }
         }
