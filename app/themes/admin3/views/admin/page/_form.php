@@ -31,7 +31,7 @@
     <?php echo $form->error($version, 'body'); ?>
     
     <div class="row buttons">
-        
+        <div class="redactor-toolbar-cont"></div>
         <div class="save-wrap">
             <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
             <?php echo CHtml::submitButton($version->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>

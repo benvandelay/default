@@ -85,7 +85,7 @@ body .redactor_box_fullscreen {
 .redactor_editor:focus {
   position: relative;
   overflow: auto;
-  margin: 0 !important;
+  margin: 0 0 40px 0!important;
   padding-bottom: 5px;
   outline: none;
   background: none;
@@ -274,6 +274,11 @@ body .redactor_box_fullscreen {
 /*
   TOOLBAR
 */
+.redactor-toolbar-cont {
+    width: 422px;
+    float: left;
+    margin-top: 5px;
+}
 .redactor_toolbar {
   position: relative;
   top: 0;
@@ -281,17 +286,6 @@ body .redactor_box_fullscreen {
   margin: 0 !important;
   padding: 0 !important;
   padding-left: 2px !important;
-  border: 1px solid #ddd;
-  border-bottom-color: #b8b8b8;
-  background: #fafafa;
-  background: -moz-linear-gradient(top,  #fafafa 0%, #e5e5e5 94%, #d3d3d3 94%, #d3d3d3 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(94%,#e5e5e5), color-stop(94%,#d3d3d3), color-stop(100%,#d3d3d3));
-  background: -webkit-linear-gradient(top,  #fafafa 0%,#e5e5e5 94%,#d3d3d3 94%,#d3d3d3 100%);
-  background: -o-linear-gradient(top,  #fafafa 0%,#e5e5e5 94%,#d3d3d3 94%,#d3d3d3 100%);
-  background: -ms-linear-gradient(top,  #fafafa 0%,#e5e5e5 94%,#d3d3d3 94%,#d3d3d3 100%);
-  background: linear-gradient(to bottom,  #fafafa 0%,#e5e5e5 94%,#d3d3d3 94%,#d3d3d3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#d3d3d3',GradientType=0 );
-
   list-style: none !important;
   font-size: 0;
   font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
@@ -307,7 +301,6 @@ body .redactor_box_fullscreen {
 }
 .redactor_box .redactor_toolbar {
   border: none;
-  border-bottom: 1px solid #b8b8b8;
 }
 .redactor_toolbar.toolbar_fixed_box {
   border: 1px solid #ddd;
@@ -371,15 +364,12 @@ only screen and (                min-resolution: 2dppx) {
 }
 .redactor_toolbar li a:hover {
   outline: none;
-  border-color: #98a6ba;
-  border-color: rgba(162, 185, 208, .8);
-  background-color: #d4dce9;
-  background-color: rgba(176, 199, 223, .5);
+  background-color: #eee;
 }
 .redactor_toolbar li a:active,
 .redactor_toolbar li a.redactor_act {
   outline: none;
-  border-color: #b5b5b5;
+  border-radius: 2px;
   background-color: #ddd;
 }
 .redactor_button_disabled {
@@ -483,7 +473,8 @@ body .redactor_toolbar li a.redactor_btn_pre        { background-position: -875p
 */
 .redactor_dropdown {
   position: absolute;
-  top: 28px;
+  top: auto!important;
+  bottom: 28px!important;
   left: 0;
   z-index: 2004;
   padding: 10px;

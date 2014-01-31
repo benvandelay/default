@@ -9,6 +9,7 @@ var editContent = (function(){
             self = this;
             self.toggleView();
             self.uploadify();
+            self.redactor();
         },
 
         toggleView: function(){
@@ -22,6 +23,19 @@ var editContent = (function(){
                 pane.show();
             });
                
+        },
+        
+        redactor: function(){
+
+            $('#Version_body').redactor(
+                {
+                buttons         : ['html', 'formatting', 'bold', 'italic', 'deleted','unorderedlist', 'orderedlist', 'outdent', 'indent','image', 'video', 'table', 'link', 'alignment', 'horizontalrule'],
+                toolbarExternal : '.redactor-toolbar-cont',
+                imageUpload     : '/admin/image/redactorFileUpload',
+                imageUploadErrorCallback : function(json){
+                        alert(json.error);
+                    }
+                }); 
         },
         
         uploadify: function(){

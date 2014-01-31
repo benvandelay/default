@@ -45,10 +45,6 @@
         }
     }
     
-    .redactor-toolbar {
-        
-    }
-    
     .row.buttons {
         position: fixed;
         bottom: 0;
@@ -56,7 +52,9 @@
         width: 760px;
         height: 37px;
         padding: 8px 50px;
-        background: rgba(255, 255, 255, 0.9);
+        background: #fff;
+        border-top: 2px solid #ddd;
+        z-index: 3px;
         
         .status {
             float: left;
