@@ -6,5 +6,6 @@ UPGRADE
 .settings/
 app/assets/*
 app/protected/config/main.php
+app/protected/runtime/*
 /index.php
 **/.sass-cache/*
