@@ -175,8 +175,9 @@ body {
 }
     
 .login-info {
-    background: #dadada;
-    width: 180px;
+    background: #141414;
+    border-left: 6px solid $blue;
+    width: 174px;
     height: 60px;
     padding: 0 20px 0 0;
     position: absolute;
@@ -186,14 +187,21 @@ body {
     z-index: 20;
 }
     .login-info img {
-        margin: 6px 20px 6px 6px;
+        margin: 6px 10px 6px 6px;
         border-radius: 3px;
         float: left;
      }
-    .login-info span {
-        display: inline-block;
+    .login-info a.name {
+        display: block;
         color: #999;
-        padding-top: 20px;
+        padding-top: 4px;
+        
+        &:hover {
+            color: #fff;
+        }
+    }
+    .login-info a.logout {
+        color: #666;
     }
   
 .flash {

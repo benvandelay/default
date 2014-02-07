@@ -2,11 +2,17 @@
 
 class UserController extends AdminController
 {
-
-    public $name = 'Users';
     /**
      * @return array action filters
      */
+    public function menu()
+    {
+        return array(
+            array('label'=>'<span class="icon icon-plus"></span>  Create User', 'url' => array('admin/user/create')),
+            array('label'=>'<span class="icon icon-search"></span>  Find User', 'url' => array('admin/user/index')),  
+        );
+    }
+     
     public function filters()
     {
         return array(
@@ -58,8 +64,7 @@ class UserController extends AdminController
         
         $model=new User;
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if(isset($_POST['User']))
         {
@@ -91,9 +96,15 @@ class UserController extends AdminController
         if(isset($_POST['User']))
         {
             $model->attributes=$_POST['User'];
-            if($model->save())
+            if($model->save()){
                 Yii::app()->user->setFlash('success', "User Updated!");
-                $this->redirect(array('index'));
+                if(Yii::app()->user->id == $model->id){
+                    $UserIdentity = new AdminUser;
+                    $UserIdentity->resetUserInfo();
+                }
+                
+            }
+            $this->redirect(array('index'));
         }
 
         $this->render('update',array(

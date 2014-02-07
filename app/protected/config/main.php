@@ -79,15 +79,15 @@ return array(
 				'/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
 				'/admin/page/create'=>'admin/page/create',
 				'/admin/image/uploadify'=>'admin/image/uploadify',
+				'/admin/image/uploadify/<src:\w+>'=>'admin/image/uploadify',
 				'/admin/<controller:\w+>/create'=>'admin/<controller>/create',
 				'/admin/<controller:\w+>'=>'admin/<controller>/index',
 				'/admin/image/create/<page_id:\d+>'=>'admin/image/create',
-				'/admin'=>'admin/site/index',
+				'/admin'=>'admin/page/index',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'/login'=>'admin/user/login',
 				'/logout'=>'admin/user/logout',
 				'/<slug>'=>'site/page',
-				
 			),
 		),
 		
@@ -128,8 +128,9 @@ return array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
-                'admin_large'=>array('width'=>758, 'height'=>345),
-                'admin_thumb' =>array('width'=>40, 'height'=>40),
+                'admin_large' => array('width' => 758, 'height' => 345),
+                'admin_thumb' => array('width' => 40,  'height' => 40),
+                'admin_user'  => array('width' => 260, 'height' => 260),
             ),
         ),
         'GAVerify'=>'',

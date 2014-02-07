@@ -13,25 +13,27 @@
     )); 
 ?>
 
-    <?php echo $form->errorSummary($model); ?>
+    
 
     <div class="left-col">
+        
+        <?php echo $form->errorSummary($model); ?>
 
         <h2>Page Labels</h2>
 
         <div class="input text">
             <?php echo $form->labelEx($model,'title'); ?>
             <?php echo $form->textField($model,'title',array('rows'=>6, 'cols'=>50)); ?>
-            <?php echo $form->error($model,'title'); ?>
         </div>
+        <?php echo $form->error($model,'title'); ?>
         
         
         <div class="input">
             <?php echo $form->labelEx($model,'slug'); ?>
             <?php //echo Yii::app()->request->getServerName(); ?>
             <?php echo $form->textField($model,'slug',array('rows'=>6, 'cols'=>50)); ?>
-            <?php echo $form->error($model,'slug'); ?>
         </div>
+        <?php echo $form->error($model,'slug'); ?>
         
     </div> 
     

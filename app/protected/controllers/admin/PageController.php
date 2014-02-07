@@ -7,7 +7,6 @@ class PageController extends AdminController
     
     public function menu()
     {
-        $id = isset($_GET['id']) ? $_GET['id'] : '';
         return array(
             array('label'=>'<span class="icon icon-pencil"></span>  Create New', 'url' => array('admin/page/create')),
             array('label'=>'<span class="icon icon-search"></span>  Find Content', 'url' => array('admin/page/index')),  

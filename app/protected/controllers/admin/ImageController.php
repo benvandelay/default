@@ -161,12 +161,12 @@ class ImageController extends AdminController
         }
     }
     
-    public function actionUploadify(){
+    public function actionUploadify($src = 'page'){
         // Define a destination TODO make an app param out of this
         $targetFolder = Yii::app()->params['image']['uploadPath']; // Relative to the root
         $minWidth     = Yii::app()->params['image']['size']['admin_large']['width'];
         $minHeight    = Yii::app()->params['image']['size']['admin_large']['height'];
-        $maxSize      = 4; //in mb
+        $maxSize      = 10; //in mb
         $error        = array();
         
         if (!empty($_FILES)) {
@@ -203,7 +203,12 @@ class ImageController extends AdminController
                 //now save the image model if there are no errors yet
                 $image = new Image;
                 $image->filename = $newName;
-                $image->doCrop = true;
+                if($src == 'user'){
+                    $image->crop('admin_user');
+                }else{
+                    $image->crop();
+                }
+                
                 if($image->save()){}else{
                     $error[] = 'File did not save.';
                 }
@@ -213,8 +218,7 @@ class ImageController extends AdminController
                 $json = array(
                     'error' => 0,
                     'filename' => $newName,
-                    'filepath' => $targetFolder . '/admin_large_' . $newName,
-                    'filelink' => $targetFolder . '/admin_large_' . $newName, //for redactor TODO update to filelink everywhere
+                    'filepath' => $src == 'user' ? $targetFolder . '/admin_user_' . $newName : $targetFolder . '/admin_large_' . $newName,
                     'image_id' => $image->id,
                 );
             }else{
@@ -233,7 +237,7 @@ class ImageController extends AdminController
         $targetFolder = Yii::app()->params['image']['uploadPath']; // Relative to the root
         $minWidth     = Yii::app()->params['image']['size']['admin_large']['width'];
         $minHeight    = Yii::app()->params['image']['size']['admin_large']['height'];
-        $maxSize      = 4; //in mb
+        $maxSize      = 10; //in mb
         $error        = array();
         
         if (!empty($_FILES)) {
@@ -269,7 +273,7 @@ class ImageController extends AdminController
                 //now save the image model if there are no errors yet
                 $image = new Image;
                 $image->filename = $newName;
-                $image->doCrop = true;
+                $image->crop();
                 if($image->save()){}else{
                     $error[] = 'File did not save.';
                 }

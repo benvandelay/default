@@ -1,7 +1,10 @@
 <?php
 class ImageHelper {
     
-    public static function resize($filename, $size) {
+    public static function resize($filename, $size, $path = false) {
+        if($path){
+            return Yii::app()->params['image']['uploadPath']."/".$size."_".$filename;
+        }
         return CHtml::image(Yii::app()->params['image']['uploadPath']."/".$size."_".$filename);
     }
     

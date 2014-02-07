@@ -1,11 +1,5 @@
 <?php
-
-/**
- * ContactForm class.
- * ContactForm is the data structure for keeping
- * contact form data. It is used by the 'contact' action of 'SiteController'.
- */
-class Contact extends CActiveRecord
+class Message extends CActiveRecord
 {
 	public $search;
     public $verifyCode;
@@ -21,7 +15,7 @@ class Contact extends CActiveRecord
 
     public function tableName()
     {
-        return 'contact';
+        return 'message';
     }
 
 	/**
