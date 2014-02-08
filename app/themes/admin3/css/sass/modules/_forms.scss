@@ -140,5 +140,67 @@ span.required {
     .textarea {
         
     }
+
+	.status {
+        float: left;
+        width: 300px;
+        position: relative;
+
+        .label {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .toggle-btn {
+            position: absolute;
+            left: 100px;
+            top: 0;
+            width: 62px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .inner {
+            background: $red;
+            position: relative;
+            width: 88px;
+            height: 36px;
+            border-radius: 2px;
+            left: -26px;
+            
+            .on {
+                position: absolute;
+                left: 7px;
+                top: 7px;
+                font-size: 14px;
+                color: #fff;
+                
+            }
+            .handle {
+                position: absolute;
+                top: 2px;
+                left: 28px;
+                border-radius: 2px;
+                width: 32px;
+                height: 32px;
+                background: #fff;
+                display: block;
+            }
+            .off {
+                position: absolute;
+                left: 64px;
+                top: 7px;
+                font-size: 14px;
+                color: #fff;
+            }
+        }
+        
+        &.published {
+            .inner {
+                background: $green;
+                left: 0px;
+            }
+        }
+        
+    }
     
 }
