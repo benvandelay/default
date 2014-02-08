@@ -13,25 +13,27 @@
     ));
 ?>
 
-    <?php echo $form->errorSummary($model); ?>
+    
 
     <div class="left-col">
+        
+        <?php echo $form->errorSummary($model); ?>
 
         <h2>Page Labels</h2>
 
         <div class="input text">
             <?php echo $form->labelEx($model,'title'); ?>
             <?php echo $form->textField($model,'title',array('rows'=>6, 'cols'=>50)); ?>
-            <?php echo $form->error($model,'title'); ?>
         </div>
+        <?php echo $form->error($model,'title'); ?>
         
         
         <div class="input">
             <?php echo $form->labelEx($model,'slug'); ?>
             <?php //echo Yii::app()->request->getServerName(); ?>
             <?php echo $form->textField($model,'slug',array('rows'=>6, 'cols'=>50)); ?>
-            <?php echo $form->error($model,'slug'); ?>
         </div>
+        <?php echo $form->error($model,'slug'); ?>
         
     </div> 
     
@@ -73,15 +75,16 @@
         </div>
         
     </div>
+    
     <div class="clb"></div>
 
 	<div class="row buttons">
     
-    <div class="save-wrap">
-        <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
-    </div>
-    <div class="clear"></div>
-</div>  
+    	<div class="save-wrap">
+	        <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
+	        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
+	    </div>
+	    <div class="clear"></div>
+	</div>
     
 <?php $this->endWidget(); ?>

@@ -25,7 +25,7 @@ class CropImage
     // }
     
     
-    protected function load($filename) {
+   protected function load($filename) {
       $image_info = getimagesize($filename);
       $this->image_type = $image_info[2];
       if( $this->image_type == IMAGETYPE_JPEG ) {

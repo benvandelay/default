@@ -26,12 +26,13 @@ class UserIdentity extends CUserIdentity
             $this->setState('permission', $user->permission);
             $this->setState('first_name', $user->first_name);
             $this->setState('last_name', $user->last_name);
+            $this->setState('avatar', $user->image->filename);
             
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;
     }
- 
+    
     public function getId()
     {
         return $this->_id;

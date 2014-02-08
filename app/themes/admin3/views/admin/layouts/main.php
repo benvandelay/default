@@ -29,8 +29,8 @@
                     array('label'=>'<span class="icon icon-home"></span> Dashboard', 'url'=>array('admin/site/index'), 'itemOptions' => array('class' => 'dashboard')),
                     array('label'=>'<span class="icon icon-cog"></span> Setup', 'url'=>array('admin/config/index'), 'itemOptions' => array('class' => 'setup')),
                     array('label'=>'<span class="icon icon-file"></span> Content', 'url'=>array('admin/page/index'), 'itemOptions' => array('class' => 'content'), 'active' => Yii::app()->controller->id=='admin/page'),
-                    array('label'=>'<span class="icon icon-bubbles"></span> Messages', 'url'=>array('admin/contact/index'), 'itemOptions' => array('class' => 'messages')),
-                    array('label'=>'<span class="icon icon-users"></span> People', 'url'=>array('admin/user/index'), 'itemOptions' => array('class' => 'people'))
+                    array('label'=>'<span class="icon icon-bubbles"></span> Messages', 'url'=>array('admin/message/index'), 'itemOptions' => array('class' => 'messages')),
+                    array('label'=>'<span class="icon icon-users"></span> People', 'url'=>array('admin/user/index'), 'itemOptions' => array('class' => 'people'), 'active' => Yii::app()->controller->id=='admin/user')
                 ), 
                 'activeCssClass' => 'active', 
                 'htmlOptions' => array('class' => 'main-nav'),
@@ -41,8 +41,9 @@
         <?php $this->widget('AdminSubMenu'); ?>
         
         <div class="login-info">
-            <img src="http://www.placekitten.com/48/48" /> 
-            <span><?php echo Yii::app()->user->first_name; ?> <?php echo Yii::app()->user->last_name; ?></span>
+            <?php echo CHtml::link(CHtml::image(ImageHelper::resize(Yii::app()->user->avatar, 'admin_user', true), Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('width'=>50, 'height'=>50)), array('admin/user/update', 'id'=>Yii::app()->user->id)); ?>
+            <?php echo CHtml::link(Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('admin/user/update', 'id'=>Yii::app()->user->id), array('class'=>'name')); ?>
+            <?php echo CHtml::link('logout', array('admin/user/logout'), array('class'=>'logout')); ?>
         </div>
     </div>
     

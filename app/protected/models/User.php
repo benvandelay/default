@@ -28,7 +28,8 @@ class User extends CActiveRecord
         return array(
 
             array('username, email, password, permission, first_name, last_name', 'required'),
-           
+            array('username, email, password, permission, first_name, last_name, image_id', 'safe'),
+            array('username', 'unique'),
             
         );
     }
@@ -41,6 +42,20 @@ class User extends CActiveRecord
     public function attributeLabels()
     {
 
+    }
+    
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            
+            'image'=>array(self::BELONGS_TO, 'Image', 'image_id')
+            
+        );
     }
     
     /**

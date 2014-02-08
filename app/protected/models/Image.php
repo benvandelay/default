@@ -13,7 +13,6 @@
 class Image extends CActiveRecord
 {
     public $search;
-    public $doCrop = false;
     
 	/**
 	 * Returns the static model of the specified AR class.
@@ -50,24 +49,37 @@ class Image extends CActiveRecord
 		);
 	}
 
+    public function crop($size = 'all')
+    {
+        
+        $targetFile = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . Yii::app()->params['image']['uploadPath'] . '/' . $this->filename;
+        $cropper = new CropImage;
+                
+        if($size == 'all'){
+            foreach(Yii::app()->params['image']['size'] as $size=>$dem)
+            {
+                $cropper->process(
+                    $targetFile, 
+                    $dem['width'], 
+                    $dem['height'], 
+                    rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . Yii::app()->params['image']['uploadPath'] . '/' . $size.'_'.$this->filename
+                );
+            }
+        }else{
+            $cropper->process(
+                $targetFile, 
+                Yii::app()->params['image']['size'][$size]['width'], 
+                Yii::app()->params['image']['size'][$size]['height'], 
+                rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . Yii::app()->params['image']['uploadPath'] . '/' . $size.'_'.$this->filename
+            );
+        }
+    }
+
     public function beforeSave()
     {
         if(parent::beforeSave())
         {
-            if($this->isNewRecord || $this->doCrop){
-
-                $targetFile = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . Yii::app()->params['image']['uploadPath'] . '/' . $this->filename;
-                $cropper = new CropImage;
-                foreach(Yii::app()->params['image']['size'] as $size=>$dem)
-                {
-                    $cropper->process($targetFile, $dem['width'], $dem['height'], rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . Yii::app()->params['image']['uploadPath'] . '/' . $size.'_'.$this->filename);
-                }
-                
-            }
-            
             if(!$this->isNewRecord) unset($this->date);
-
-            
         }
         return true;
      }

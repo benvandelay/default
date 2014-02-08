@@ -503,8 +503,9 @@ body {
 
 /* line 177, ../sass/modules/_layout.scss */
 .login-info {
-  background: #dadada;
-  width: 180px;
+  background: #141414;
+  border-left: 6px solid #2d6ea3;
+  width: 174px;
   height: 60px;
   padding: 0 20px 0 0;
   position: absolute;
@@ -514,21 +515,30 @@ body {
   z-index: 20;
 }
 
-/* line 188, ../sass/modules/_layout.scss */
+/* line 189, ../sass/modules/_layout.scss */
 .login-info img {
-  margin: 6px 20px 6px 6px;
+  margin: 6px 10px 6px 6px;
   border-radius: 3px;
   float: left;
 }
 
-/* line 193, ../sass/modules/_layout.scss */
-.login-info span {
-  display: inline-block;
+/* line 194, ../sass/modules/_layout.scss */
+.login-info a.name {
+  display: block;
   color: #999;
-  padding-top: 20px;
+  padding-top: 4px;
+}
+/* line 199, ../sass/modules/_layout.scss */
+.login-info a.name:hover {
+  color: #fff;
 }
 
-/* line 199, ../sass/modules/_layout.scss */
+/* line 203, ../sass/modules/_layout.scss */
+.login-info a.logout {
+  color: #666;
+}
+
+/* line 207, ../sass/modules/_layout.scss */
 .flash {
   position: absolute;
   top: 0;
@@ -543,12 +553,12 @@ body {
   z-index: 100;
   text-align: center;
 }
-/* line 213, ../sass/modules/_layout.scss */
+/* line 221, ../sass/modules/_layout.scss */
 .flash.error {
   background: #df6363;
   border-color: #FF7373;
 }
-/* line 218, ../sass/modules/_layout.scss */
+/* line 226, ../sass/modules/_layout.scss */
 .flash.success {
   background: #57ad68;
   border-color: #48a15a;
@@ -830,6 +840,88 @@ body {
   text-align: center;
 }
 
+/* line 1, ../sass/modules/_user.scss */
+.users-list {
+  padding: 30px 50px;
+}
+/* line 4, ../sass/modules/_user.scss */
+.users-list .user {
+  border-radius: 2px;
+  border-bottom: 2px solid #eeeeee;
+  background: #fff;
+  box-shadow: 1px 1px 1px #eeeeee;
+  padding: 20px;
+  display: block;
+  margin: 20px 0;
+  padding: 20px 20px 20px 90px;
+  position: relative;
+  min-height: 50px;
+}
+/* line 12, ../sass/modules/_user.scss */
+.users-list .user img {
+  border-radius: 2px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+/* line 18, ../sass/modules/_user.scss */
+.users-list .user .blank-user-image {
+  background: #eee;
+  border-radius: 2px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 50px;
+  width: 50px;
+}
+/* line 27, ../sass/modules/_user.scss */
+.users-list .user .delete {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+/* line 32, ../sass/modules/_user.scss */
+.users-list .user .delete:hover {
+  color: #333;
+}
+/* line 38, ../sass/modules/_user.scss */
+.users-list .user-info {
+  font-size: 11px;
+  color: #999;
+}
+
+/* line 44, ../sass/modules/_user.scss */
+.single-user {
+  margin-top: 10px;
+}
+/* line 47, ../sass/modules/_user.scss */
+.single-user .left-col {
+  width: 559px;
+  float: left;
+  padding-left: 20px;
+}
+/* line 53, ../sass/modules/_user.scss */
+.single-user .right-col {
+  width: 260px;
+  float: right;
+}
+/* line 58, ../sass/modules/_user.scss */
+.single-user .user-image-wrap {
+  width: 260px;
+  height: 260px;
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+}
+/* line 65, ../sass/modules/_user.scss */
+.single-user .user-image-wrap img {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /* line 1, ../sass/modules/_forms.scss */
 span.required {
   display: none;
@@ -846,6 +938,15 @@ span.required {
 }
 
 /* line 12, ../sass/modules/_forms.scss */
+.errorSummary {
+  background: #df6363;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+/* line 19, ../sass/modules/_forms.scss */
 .login-form {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -857,28 +958,28 @@ span.required {
   padding: 0;
   position: relative;
 }
-/* line 19, ../sass/modules/_forms.scss */
+/* line 26, ../sass/modules/_forms.scss */
 .login-form h2 {
   background: #404040;
   padding: 20px 40px;
   color: #fff;
   border-radius: 2px 2px 0 0;
 }
-/* line 26, ../sass/modules/_forms.scss */
+/* line 33, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap {
   padding: 0 0 80px 0;
 }
-/* line 30, ../sass/modules/_forms.scss */
+/* line 37, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap .input {
   border-bottom: 1px solid #eee;
 }
-/* line 33, ../sass/modules/_forms.scss */
+/* line 40, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap .input label {
   display: block;
   font-size: 12px;
   margin: 10px 20px 0 20px;
 }
-/* line 40, ../sass/modules/_forms.scss */
+/* line 47, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap .remember-me {
   font-size: 12px;
   padding: 10px;
@@ -889,13 +990,13 @@ span.required {
   left: 20px;
   border-radius: 2px;
 }
-/* line 51, ../sass/modules/_forms.scss */
+/* line 58, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap .btn {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 58, ../sass/modules/_forms.scss */
+/* line 65, ../sass/modules/_forms.scss */
 .login-form .inner-form-wrap input[type="text"],
 .login-form .inner-form-wrap input[type="password"] {
   width: 360px;
@@ -903,12 +1004,16 @@ span.required {
   padding: 10px 20px;
 }
 
-/* line 70, ../sass/modules/_forms.scss */
+/* line 76, ../sass/modules/_forms.scss */
+.user-form h1 {
+  padding: 5px 20px;
+}
+/* line 80, ../sass/modules/_forms.scss */
 .user-form h2 {
   padding: 5px 0;
   color: #000;
 }
-/* line 74, ../sass/modules/_forms.scss */
+/* line 84, ../sass/modules/_forms.scss */
 .user-form .category-list {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -920,28 +1025,28 @@ span.required {
   height: 200px;
   overflow-y: scroll;
 }
-/* line 81, ../sass/modules/_forms.scss */
+/* line 91, ../sass/modules/_forms.scss */
 .user-form .check-list-item {
   font-size: 16px;
   display: block;
   color: #999;
 }
-/* line 86, ../sass/modules/_forms.scss */
+/* line 96, ../sass/modules/_forms.scss */
 .user-form .check-list-item.selected {
   color: #fff;
   background: #57ad68;
 }
-/* line 90, ../sass/modules/_forms.scss */
+/* line 100, ../sass/modules/_forms.scss */
 .user-form .check-list-item label {
   padding: 10px 15px;
   border-bottom: 1px solid #ddd;
   display: block;
 }
-/* line 95, ../sass/modules/_forms.scss */
+/* line 105, ../sass/modules/_forms.scss */
 .user-form .check-list-item input {
   display: none;
 }
-/* line 100, ../sass/modules/_forms.scss */
+/* line 110, ../sass/modules/_forms.scss */
 .user-form #new-category-wrap input {
   border: 0;
   border-radius: 2px;
@@ -953,7 +1058,7 @@ span.required {
   width: 240px;
   margin: 0 0 4px 0;
 }
-/* line 108, ../sass/modules/_forms.scss */
+/* line 118, ../sass/modules/_forms.scss */
 .user-form a.new-category {
   font-size: 14px;
   padding: 8px;
@@ -964,7 +1069,7 @@ span.required {
   width: 14px;
   height: 14px;
 }
-/* line 119, ../sass/modules/_forms.scss */
+/* line 129, ../sass/modules/_forms.scss */
 .user-form .input {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -974,7 +1079,7 @@ span.required {
   padding: 0;
   margin: 10px 0;
 }
-/* line 124, ../sass/modules/_forms.scss */
+/* line 134, ../sass/modules/_forms.scss */
 .user-form .input label {
   padding: 10px 20px 0 20px;
   font-size: 14px;
@@ -982,7 +1087,7 @@ span.required {
   text-transform: uppercase;
   color: #999;
 }
-/* line 131, ../sass/modules/_forms.scss */
+/* line 141, ../sass/modules/_forms.scss */
 .user-form .input input {
   padding: 4px 20px 10px 20px;
   width: 499px;
@@ -2270,6 +2375,17 @@ body .redactor_toolbar li a.redactor_btn_pre {
 }
 
 /* line 19, ../sass/modules/_uploadify.scss */
+.user-image-wrap .uploadifive-button {
+  width: 236px;
+  height: 236px;
+}
+/* line 23, ../sass/modules/_uploadify.scss */
+.user-image-wrap .uploadifive-button input[type="file"] {
+  width: 260px;
+  height: 260px;
+}
+
+/* line 29, ../sass/modules/_uploadify.scss */
 .empty-image .uploadifive-button {
   width: 736px;
   height: 323px;
@@ -2279,7 +2395,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   border-radius: 10px;
 }
 
-/* line 29, ../sass/modules/_uploadify.scss */
+/* line 39, ../sass/modules/_uploadify.scss */
 .uploadifive-button:hover {
   border-color: #ddd;
   -webkit-transition: border-color 0.3s ease;
@@ -2288,7 +2404,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   transition: border-color 0.3s ease;
 }
 
-/* line 33, ../sass/modules/_uploadify.scss */
+/* line 43, ../sass/modules/_uploadify.scss */
 .uploadifive-queue-item {
   background-color: #F5F5F5;
   border-bottom: 1px dotted #D5D5D5;
@@ -2300,7 +2416,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   padding: 15px;
 }
 
-/* line 43, ../sass/modules/_uploadify.scss */
+/* line 53, ../sass/modules/_uploadify.scss */
 .uploadifive-queue-item .close {
   background: url("uploadifive-cancel.png") 0 0 no-repeat;
   display: block;
@@ -2310,7 +2426,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   width: 16px;
 }
 
-/* line 51, ../sass/modules/_uploadify.scss */
+/* line 61, ../sass/modules/_uploadify.scss */
 .uploadifive-queue-item .progress {
   border: 1px solid #D0D0D0;
   height: 3px;
@@ -2318,7 +2434,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   width: 100%;
 }
 
-/* line 57, ../sass/modules/_uploadify.scss */
+/* line 67, ../sass/modules/_uploadify.scss */
 .uploadifive-queue-item .progress-bar {
   background-color: #0072BC;
   height: 3px;

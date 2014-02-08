@@ -1,0 +1,73 @@
+.users-list {
+    padding: 30px 50px;
+
+    .user {
+        @include box();
+        display: block;
+        margin: 20px 0;
+        padding: 20px 20px 20px 90px;
+        position: relative;
+        min-height: 50px;
+        
+        img {
+            border-radius: 2px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .blank-user-image {
+            background: #eee;
+            border-radius: 2px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 50px;
+            width: 50px;
+        }
+        .delete {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            
+            &:hover {
+                color: #333;
+            }
+        }
+    }
+    
+    .user-info {
+        font-size: 11px;
+        color: #999;
+    }
+}
+
+.single-user {
+    margin-top: 10px;
+    
+    .left-col {
+        width: 559px;
+        float: left;
+        padding-left: 20px;
+    }
+    
+    .right-col {
+        width: 260px;
+        float: right;
+    }
+    
+    .user-image-wrap {
+        width: 260px;
+        height: 260px;
+        text-align: center;
+        position: relative; 
+        margin-top: 10px;
+        
+        img {
+            height: 100%;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

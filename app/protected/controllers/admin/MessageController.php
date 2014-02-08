@@ -1,17 +1,17 @@
 <?php
 
-class ContactController extends AdminController
+class MessageController extends AdminController
 {
 
-    public $name = 'Contacts';
+    public $name = 'Messages';
     
     public function menu()
     {
         return array(
-            array('type'=>'raw', 'label'=>'<b>'.$this->getCount('new').'</b>New', 'url'=>array('admin/contact/index', 'scope'=>'new')), 
-            array('label'=>'<b>'.$this->getCount(false).'</b>All', 'url'=>array('admin/contact/index', 'scope'=>'all')),   
-            array('label'=>'<b>'.$this->getCount('read').'</b>Read', 'url'=>array('admin/contact/index', 'scope'=>'read')),  
-            array('label'=>'<b>'.$this->getCount('deleted').'</b>Deleted', 'url'=>array('admin/contact/index', 'scope'=>'deleted')),
+            array('type'=>'raw', 'label'=>'<b>'.$this->getCount('new').'</b>New', 'url'=>array('admin/message/index', 'scope'=>'new')), 
+            array('label'=>'<b>'.$this->getCount(false).'</b>All', 'url'=>array('admin/message/index', 'scope'=>'all')),   
+            array('label'=>'<b>'.$this->getCount('read').'</b>Read', 'url'=>array('admin/message/index', 'scope'=>'read')),  
+            array('label'=>'<b>'.$this->getCount('deleted').'</b>Deleted', 'url'=>array('admin/message/index', 'scope'=>'deleted')),
         );
     } 
     
@@ -46,7 +46,7 @@ class ContactController extends AdminController
   
     public function actionDelete($id)
     {
-        $this->title = 'Delete Contact';
+        $this->title = 'Delete message';
         
         if(Yii::app()->request->isPostRequest)
         {
@@ -67,12 +67,12 @@ class ContactController extends AdminController
     public function actionIndex($scope = false)
     {
         
-        $this->title = 'View Contacts';
+        $this->title = 'View messages';
         
-        if($scope == '') $this->redirect(array('/admin/contact/index', 'scope'=>'all'));
+        if($scope == '') $this->redirect(array('/admin/message/index', 'scope'=>'all'));
         if($scope == 'all') $scope = false;
         
-        $model=new Contact;
+        $model=new Message;
         $model->unsetAttributes();  // clear any default values
         if(isset($_POST['search']))
             $model->search=$_POST['search'];
@@ -90,15 +90,15 @@ class ContactController extends AdminController
     
     public function actionView($id)
     {
-        $this->title = 'View Contact';
+        $this->title = 'View message';
         
         $model=$this->loadModel($id);
         
         if($model->status == 0){
-            $contact = $this->loadModal($id);
-            $contact->status = 1;
-            unset($contact->date);
-            $contact->save();
+            $message = $this->loadModal($id);
+            $message->status = 1;
+            unset($message->date);
+            $message->save();
         }
 
         $this->render('view',array(
@@ -113,7 +113,7 @@ class ContactController extends AdminController
      */
     public function loadModel($id)
     {
-        $model=Contact::model()->findByPk($id);
+        $model=Message::model()->findByPk($id);
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
         return $model;
@@ -134,9 +134,9 @@ class ContactController extends AdminController
     
     public function getCount($scope){
         if($scope)
-            return Contact::model()->$scope()->count();
+            return Message::model()->$scope()->count();
         else
-            return Contact::model()->count();
+            return Message::model()->count();
     }
 
 }

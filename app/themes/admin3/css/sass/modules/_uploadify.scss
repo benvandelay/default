@@ -16,6 +16,16 @@
     }
 }
 
+.user-image-wrap .uploadifive-button {
+    width: 236px;
+    height: 236px;
+    
+    input[type="file"] {
+        width: 260px;
+        height: 260px;
+    }
+}
+
 .empty-image .uploadifive-button {
       width: 736px;
       height: 323px;
