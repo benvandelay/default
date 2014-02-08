@@ -62,29 +62,31 @@
         </div>
         
     </div>
-    <div class="clb"></div>
-<div class="row buttons">
     
-    <?php if(!$model->isNewRecord): ?>
-        <div class="status<?php echo $model->status != 0 ? ' published' : ''; ?>">
-            <?php echo $form->hiddenField($model,'status'); ?>
-            
-            <span class="label">Published</span>
-            <div class="toggle-btn">
-                <div class="inner">
-                    <span class="on">on</span>
-                    <span class="handle"></span>
-                    <span class="off">off</span>
+    <div class="clb"></div>
+    
+    <div class="row buttons">
+        
+        <?php if(!$model->isNewRecord): ?>
+            <div class="status<?php echo $model->status != 0 ? ' published' : ''; ?>">
+                <?php echo $form->hiddenField($model,'status'); ?>
+                
+                <span class="label">Published</span>
+                <div class="toggle-btn">
+                    <div class="inner">
+                        <span class="on">on</span>
+                        <span class="handle"></span>
+                        <span class="off">off</span>
+                    </div>
                 </div>
             </div>
+        <?php endif; ?>
+        
+        <div class="save-wrap">
+            <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
         </div>
-    <?php endif; ?>
-    
-    <div class="save-wrap">
-        <?php echo CHtml::link('Cancel', array('admin/page'), array('class'=>'btn cancel')); ?>
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
-    </div>
-    <div class="clear"></div>
-</div>  
+        <div class="clear"></div>
+    </div>  
     
 <?php $this->endWidget(); ?>

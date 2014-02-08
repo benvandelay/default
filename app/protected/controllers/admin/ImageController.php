@@ -169,6 +169,11 @@ class ImageController extends AdminController
         $maxSize      = 10; //in mb
         $error        = array();
         
+        if($src == 'user'){
+            $minWidth     = Yii::app()->params['image']['size']['admin_user']['width'];
+            $minHeight    = Yii::app()->params['image']['size']['admin_user']['height'];
+        }
+        
         if (!empty($_FILES)) {
             $tempFile = $_FILES['Filedata']['tmp_name'];
 
