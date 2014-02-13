@@ -57,12 +57,14 @@ body .redactor_box_fullscreen {
   display: block;
   overflow: auto;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  line-height: 1.5em;
   width: 100%;
   outline: none;
   outline: none;
   border: none;
-  background-color: #222;
+  background-color: #444;
   box-shadow: none;
   color: #ff00f0;
   font-size: 12px;

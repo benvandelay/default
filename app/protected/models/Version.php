@@ -5,6 +5,7 @@
  */
 class Version extends CActiveRecord
 {
+    public $version_count = 0;
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -41,5 +42,13 @@ class Version extends CActiveRecord
             'image'=>array(self::BELONGS_TO, 'Image', 'image_id')
             
         );
+    }
+    
+    public function getCount()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->select = 'COUNT(page_id) as version_count';
+        $criteria->condition = ('page_id = ' . $this->page_id);
+        return self::model()->find($criteria)->version_count;
     }
 }

@@ -36,7 +36,7 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('date, status, categories, content, title, user, slug', 'safe'),
+            array('date, status, categories, content, title, user, slug, excerpt, updated', 'safe'),
             array('title, slug', 'required'),
             array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
@@ -92,6 +92,9 @@ class Page extends CActiveRecord
          if($this->isNewRecord) {
              $this->user = Yii::app()->user->id;
          }
+         
+         $this->modified = new CDbExpression('NOW()');
+         
         return true;
     } 
     

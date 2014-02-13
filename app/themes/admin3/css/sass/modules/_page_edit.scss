@@ -54,7 +54,7 @@
         padding: 8px 50px;
         background: #fff;
         border-top: 2px solid #ddd;
-        z-index: 3px;
+        z-index: 10000;
 
         .save-wrap {
             float: right;
@@ -62,33 +62,72 @@
     }
     
     .editor-nav {
-        height: 40px;
-        width: 860px;
-        background: #F2F2F2;
+        height: 50px;
+        width: 760px;
+        background: rgba(255,255,255,0.95);
         position: fixed;
         top: 0;
-        left: 200px;
+        left: 240px;
         z-index: 1000;
+        padding: 10px 50px 0 10px;
         
         span {
            padding: 12px 20px 12px 17px;
            height: 16px;
+           border-radius: 2px;
            font-size: 12px;
            display: block;
            float: left;
            cursor: pointer;
-           border-right: 3px solid #f2f2f2;
-           font-weight: bold;
            color: #666;
+           background: $grey;
+           margin-right: 10px;
            
            &:hover {
               color: #333;
            }
            
            &.active {
-              background: #fff;
-              border-right: 3px solid #ddd;
+              background: $blue;
+              color: #fff;
            }
+        }
+        
+        .save-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: $yellow;
+            font-size: 12px;
+            padding: 4px 8px;
+            color: #666;
+            
+            .saved {
+                display: block;
+                
+                em {
+                    font-weight: normal;
+                }
+            }
+            .unsaved {
+                display: none;
+            }
+            
+            &.unsaved {
+                background: $red;
+                color: #fff;
+                
+                .saved {
+                    display: none;
+                }
+                .unsaved {
+                    display: block;
+                }
+            }
+            
+            &.page-info {
+                display: none;
+            }
         }
     }
     
@@ -96,27 +135,44 @@
         padding-top: 60px;
         
         &.page-content {
-            padding: 60px 50px 20px 50px;
+            padding: 90px 50px 20px 50px;
             background: #fff;
         }
         
         &.page-info {
             display: none;
             padding-bottom: 80px;
+            padding-top: 80px;
             
             &.show {
                 display: block;
             }
             
             .left-col {
-                width: 559px;
+                width: 530px;
                 float: left;
-                padding-left: 20px;
+                padding-left: 40px;
                 
             }
             .right-col {
                 width: 260px;
                 float: right;
+            }
+        }
+        
+        &.create-page {
+            padding-top: 20px;
+            margin: 0 50px;
+            
+            .row.buttons {
+                position: relative;
+                bottom: auto;
+                background: none;
+                left: auto;
+                border: 0;
+                width: auto;
+                padding: 0;
+                margin: 20px 0;
             }
         }
     }

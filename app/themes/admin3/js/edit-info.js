@@ -12,6 +12,7 @@ var editInfo = (function(){
             self.checkListItems();
             self.newCategory();
             self.publishedStatus();
+            self.checkForUpdates();
         },
 
         checkListItems: function(){
@@ -47,21 +48,43 @@ var editInfo = (function(){
         },
         
         publishedStatus: function(){
-            if($('.buttons .status').length){
+            if($('.status').length){
                 
                 var value = $('#Page_status').val();
                 
                 if(value == 1){
-                    $('.buttons .status').addClass('published');
+                    $('.status').addClass('published');
                 }
-                $('.buttons .status').on('click', function(){
+                $('.status').on('click', function(){
                     value = value == 1 ? 0 : 1;
                     $('#Page_status').val(value);
                     $(this).toggleClass('published');
+                    
+                    $(this).removeClass('ready').on('mouseleave', function(){
+                        $(this).addClass('ready')
+                    });
                 });
             }
-            
-        }
+        },
+        
+        checkForUpdates: function(){
+            $('#meta-form').formChange({
+                pollInterval   : 2000,
+                pollCallback   : function(form, change){
+                    if(change){
+                        $('.save-status.page-info').addClass('unsaved');
+                        form.find('.btn.save').removeClass('disabled');
+                    }else{
+                        $('.save-status.page-info').removeClass('unsaved');
+                        form.find('.btn.save').addClass('disabled');
+                    }
+                },
+                submitCallback : function(form, change, event){
+                    if(!change)
+                        event.preventDefault();
+                }
+            });
+        },
 
     };
 

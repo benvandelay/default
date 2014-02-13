@@ -20,38 +20,39 @@
         <div class="input text">
             <?php echo $form->labelEx($model,'first_name'); ?>
             <?php echo $form->textField($model,'first_name',array('rows'=>6, 'cols'=>50)); ?>
+            <?php echo $form->error($model,'first_name'); ?>
         </div>
-        <?php echo $form->error($model,'first_name'); ?>
     
         <div class="input text">
             <?php echo $form->labelEx($model,'last_name'); ?>
             <?php echo $form->textField($model,'last_name',array('rows'=>6, 'cols'=>50)); ?>
+            <?php echo $form->error($model,'last_name'); ?>
         </div>
-        <?php echo $form->error($model,'last_name'); ?>
     
         <div class="input text">
             <?php echo $form->labelEx($model,'email'); ?>
             <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
+            <?php echo $form->error($model,'email'); ?>
         </div>
-        <?php echo $form->error($model,'email'); ?>
     
         <div class="input text">
             <?php echo $form->labelEx($model,'username'); ?>
             <?php echo $form->textField($model,'username',array('size'=>40,'maxlength'=>40)); ?>
+            <?php echo $form->error($model,'username'); ?>
         </div>
-        <?php echo $form->error($model,'username'); ?>
     
         <div class="input text">
             <?php echo $form->labelEx($model,'password'); ?>
-            <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>   
+            <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>  
+            <?php echo $form->error($model,'password'); ?> 
         </div>
-        <?php echo $form->error($model,'password'); ?>
         
         <div class="input text">
             <?php echo $form->labelEx($model,'permission'); ?>
             <?php echo $form->textField($model,'permission'); ?>
+            <?php echo $form->error($model,'permission'); ?>
         </div>
-        <?php echo $form->error($model,'permission'); ?>
+        
     
         
     </div>

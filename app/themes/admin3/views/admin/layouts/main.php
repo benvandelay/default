@@ -11,6 +11,7 @@
         Yii::app()->clientScript->registerCoreScript('jquery.ui');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/underscore.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/uploadify/uploadifive.min.js', CClientScript::POS_HEAD);
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.formChange.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/admin.js', CClientScript::POS_HEAD);
     ?>
 

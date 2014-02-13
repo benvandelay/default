@@ -2,12 +2,11 @@ span.required {
     display: none;
 }
 .errorMessage {
-    color: #fff;
-    background: $red;
-    padding: 4px 10px;
+    color: $red;
     font-size: 12px;
-    border-radius: 3px;
-    margin: 4px 0 0 0;
+    position: absolute;
+    right: 10px;
+    top: 8px;
 }
 .errorSummary {
     background: $red;
@@ -15,6 +14,11 @@ span.required {
     font-size: 12px;
     border-radius: 3px;
     padding: 10px;
+    
+    p {
+        font-size: 16px;
+        margin: 0 0 5px 0;
+    }
 }
 .login-form {
     @include box;
@@ -81,29 +85,43 @@ span.required {
         padding: 5px 0;
         color: #000;
     }
+    .categories {
+        margin: 20px 0;
+    }
     .category-list {
-        @include box;
         margin: 10px 0;
         padding: 0;
-        height: 200px;
-        overflow-y: scroll;
     }
     .check-list-item {
+        margin: 10px 0;
+        @include box;
+        padding: 0;
         font-size: 16px;
         display: block;
-        color: #999;
-        
-        &.selected {
-            color: #fff;
-            background: $green;
-        }
+        color: #ccc;
+        position: relative;
+
         label {
             padding: 10px 15px;
-            border-bottom: 1px solid #ddd;
             display: block;
+            cursor: pointer;
         }
         input {
             display: none;
+        }
+        .icon {
+            position: absolute;
+            right: 10px;
+            top: 13px;
+            display: none;
+            color: $green;
+        }
+        &.selected {
+            color: #000;
+            
+            .icon {
+                display: block;
+            }
         }
     }
     #new-category-wrap {
@@ -130,20 +148,26 @@ span.required {
         @include box;
         padding: 0;
         margin: 10px 0;
+        position: relative;
         
         label {
            padding: 10px 20px 0 20px; 
-           font-size: 14px;
+           font-size: 12px;
            display: block;
            text-transform: uppercase;
            color: #999;
         }
-        input {
+        input, 
+        textarea {
             padding: 4px 20px 10px 20px;
-            width: 499px;
+            width: 490px;
             border: 0;
             color: #202020;
-            font-size: 24px;
+            font-size: 20px;
+        }
+        textarea {
+            height: 120px;
+            font-size: 18px;
         }
     }
     
@@ -151,66 +175,104 @@ span.required {
         
     }
 
-	.status {
-        float: left;
-        width: 300px;
+    .status {
+        background: $red;
+        color: #fff;
         position: relative;
-
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 2px;
+        cursor: pointer;
+        @include transition(background 0.2s ease);
+          
+        .icon {
+            position: absolute;
+            top: 21px;
+            font-size: 16px;
+            right: 20px;
+            height: 16px;
+            width: 16px;
+            color: #fff;
+        }
+        
         .label {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        .toggle-btn {
-            position: absolute;
-            left: 100px;
-            top: 0;
-            width: 62px;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .inner {
-            background: $red;
-            position: relative;
-            width: 88px;
-            height: 36px;
-            border-radius: 2px;
-            left: -26px;
             
-            .on {
-                position: absolute;
-                left: 7px;
-                top: 7px;
-                font-size: 14px;
-                color: #fff;
-                
-            }
-            .handle {
-                position: absolute;
-                top: 2px;
-                left: 28px;
-                border-radius: 2px;
-                width: 32px;
-                height: 32px;
-                background: #fff;
+        }
+        
+        .on {
+            display: none;
+            .icon {
                 display: block;
             }
-            .off {
-                position: absolute;
-                left: 64px;
-                top: 7px;
-                font-size: 14px;
-                color: #fff;
+            .true {
+                display: block;
+            }
+            .false {
+                display: none;
+            }
+        }
+        
+        .off {
+            display: block;
+            .icon {
+                display: none;
+            }
+            .true {
+                display: none;
             }
         }
         
         &.published {
-            .inner {
-                background: $green;
-                left: 0px;
+            color: #fff;
+            background: $green;
+            @include transition(background 0.2s ease);
+            
+            .label {
+              
+            }
+            
+            .on {
+                display: none;
+                .icon {
+                    color: #fff;
+                }
+                .true {
+                    display: none;
+                }
+                .false {
+                    display: block;
+                }
+            }
+            
+            .off {
+                display: block;
+                
+                .icon {
+                    color: #fff;
+                    display: block;
+                }
+                .true {
+                    display: block;
+                }
+                .false {
+                    display: none;
+                }
             }
         }
         
+        &.ready:hover {
+            background: $lightgreen;
+            @include transition(background 0.2s ease);
+            &.published {
+                background: $lightred;
+                color: #fff;
+            }
+            .on {
+                display: block;
+            }
+            .off {
+                display: none;
+            }
+        }
     }
-    
 }

@@ -3,19 +3,19 @@ a {
     color: #333;
 }
 ::-webkit-input-placeholder {
-   color: #f2f2f2;
+   color: #e5e5e5;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #f2f2f2; 
+   color: #e5e5e5; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #f2f2f2;  
+   color: #e5e5e5;  
 }
 
 :-ms-input-placeholder {  
-   color: #f2f2f2;  
+   color: #e5e5e5;  
 }
 .clb {
     clear: both;
@@ -28,11 +28,10 @@ a {
 }
 .btn {
     border-radius: 2px;
-    padding: 6px 20px;
+    padding: 8px 20px;
     display: inline-block;
     cursor: pointer;
     border: 0;
-    border-bottom: 2px solid #ccc;
     background: #eee;
     @include single-transition(background, 0.3s, ease);
     
@@ -43,6 +42,11 @@ a {
         
         &:hover {
             background: $darkgreen;
+        }
+        
+        &.disabled {
+            background: $grey;
+            color: #999;
         }
     }
     

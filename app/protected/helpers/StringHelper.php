@@ -13,6 +13,10 @@ class StringHelper {
         return date('M d Y', strtotime($date));
     }
     
+    public static function toTime($date) {
+        return date('M d Y, g:i a', strtotime($date));
+    }
+    
     public static function getExcerpt($text = "", $length = 200, $allowedTags = FALSE) {
         $endChars = array(".","!","?");
         $ellipsis = true;

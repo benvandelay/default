@@ -4,18 +4,23 @@
 <div class="editor-nav">
     <span class="active" data-show="page-content">Page Content</span>
     <span data-show="page-info">Page Info</span>
-</div>
-<div class="editor page-content">
-    <div class="byline">
-        <div class="left"><?php echo Yii::app()->request->getServerName() . '/' . $model->slug; ?></div>
-        <div class="right"><?php echo StringHelper::displayDate($model->date); ?></div>
+    
+    <div class="save-status page-content">
+        <b class="saved">Version <?php echo $version->getCount(); ?> | <em><?php echo StringHelper::toTime($version->date); ?></em></b> 
+        <b class="unsaved">Version <?php echo $version->getCount() + 1; ?> | Unsaved</b>
     </div>
+    
+    <div class="save-status page-info">
+        <b class="saved">Last Saved <?php echo StringHelper::toTime($model->modified); ?></b> 
+        <b class="unsaved">Unsaved Changes</b> 
+    </div>
+    
+</div>
+
+<div class="editor page-content">
     <?php echo $this->renderPartial('_form', array('version'=>$version, 'model'=>$model)); ?>
 </div>
 
 <div class="editor page-info">
     <?php echo $this->renderPartial('_meta_form', array('model'=>$model)); ?>
 </div>
-
-
-<?php //echo $this->renderPartial('_form', array('version'=>$version, 'model'=>$model)); ?>

@@ -10,6 +10,8 @@ var editContent = (function(){
             self.toggleView();
             self.uploadify();
             self.redactor();
+            self.checkForUpdates();
+            
         },
 
         toggleView: function(){
@@ -20,6 +22,7 @@ var editContent = (function(){
                 $(this).addClass('active');
                 var pane = $('.' + $(this).data('show'));
                 $('.editor').hide();
+                $('.save-status').hide();
                 pane.show();
             });
                
@@ -35,7 +38,26 @@ var editContent = (function(){
                 imageUploadErrorCallback : function(json){
                         alert(json.error);
                     }
-                }); 
+                });
+        },
+        
+        checkForUpdates: function(){
+            $('#update-page-form').formChange({
+                pollInterval   : 2000,
+                pollCallback   : function(form, change){
+                    if(change){
+                        $('.save-status.page-content').addClass('unsaved');
+                        form.find('.btn.save').removeClass('disabled');
+                    }else{
+                        $('.save-status.page-content').removeClass('unsaved');
+                        form.find('.btn.save').addClass('disabled');
+                    }
+                },
+                submitCallback : function(form, change, event){
+                    if(!change)
+                        event.preventDefault();
+                }
+            });
         },
         
         uploadify: function(){

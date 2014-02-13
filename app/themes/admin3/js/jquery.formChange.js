@@ -1,0 +1,91 @@
+(function($){
+
+    $.fn.formChange = function(options){
+
+        var self    = this,
+            changes = false;
+        
+        var defaults = {
+            
+            checkEvent      : 'poll',
+            pollInterval    : 1000,
+            pollCallback    : function(){},
+            submitCallback  : function() {}
+        }
+        
+        var defaultValues = {};
+
+        var settings = $.extend({}, defaults, options);
+        
+        var init = function(){
+            
+            setDefaults();
+            
+            if(settings.checkEvent == 'poll'){
+                
+                var poll = setInterval(function(){
+                    check();
+                    console.log(changes);
+                    settings.pollCallback(self, changes);
+                }, settings.pollInterval);
+                
+            }else if(settings.checkEvent == 'change'){
+                
+                self.find(":input").change(function() {
+                    check();
+                });
+                
+            }else if(settings.checkEvent == 'keyup') {
+                
+                self.find(":input").on('keyup',function() {
+                    check();
+                });
+                
+            }
+            
+            self.submit(function(event){
+                settings.submitCallback(self, changes, event);
+            });
+            
+        };
+        
+        var setDefaults = function(){
+            
+            self.find('input[type="file"], input[type="text"], input[type="email"], input[type="hidden"], textarea, [contenteditable]').each(function(i){
+                    defaultValues[i] = this.value;
+            }); 
+            
+            console.log(defaultValues);
+            
+        };
+        
+        var check = function(){
+            
+            changes = false;
+            
+            self.find('input[type="file"], input[type="text"], input[type="email"], input[type="hidden"], textarea, [contenteditable]').each(function(i){
+                if(this.value != defaultValues[i]){
+                    console.log(this);
+                    changes = true;
+                }
+            });
+            
+            self.find('input[type="checkbox"]').each(function(){
+                if(this.checked != this.defaultChecked){
+                    console.log(this);
+                    changes = true;
+                }
+            });
+            
+            self.find('select').each(function(){
+                if(!this.options[this.selectedIndex].defaultSelected){
+                    console.log(this);
+                    changes = true;
+                }
+            });
+        };
+        
+        init();
+        
+    }
+})(jQuery);

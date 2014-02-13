@@ -213,19 +213,16 @@ body {
     padding: 20px;
     color: #000;
     background: #f9f9f9;
-    border: 1px solid #ccc;
     border-radius: 2px;
-    z-index: 100;
+    z-index: 10000;
     text-align: center;
     
     &.error {
-        background: $red;
-        border-color: #FF7373;
+        background: $lightred;
     }
     
     &.success {
         background: $green;
-        border-color: $darkgreen;
         opacity: 0.8;
         color: #fff;
     }

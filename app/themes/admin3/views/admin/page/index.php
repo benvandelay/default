@@ -12,6 +12,6 @@
 <div class="loading">Loading More...</div>
 
 <?php // article list template 
-Yii::app()->clientScript->registerScriptFile('/js/admin/search.js');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl .'/js/search.js');
 $this->renderPartial('_article');
 ?>
