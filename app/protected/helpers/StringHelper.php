@@ -13,6 +13,10 @@ class StringHelper {
         return date('M d Y', strtotime($date));
     }
     
+    public static function displayTime($date) {
+        return date('g:i a', strtotime($date));
+    }
+    
     public static function toTime($date) {
         return date('M d Y, g:i a', strtotime($date));
     }
@@ -36,6 +40,11 @@ class StringHelper {
         
 
         return $text;
+    }
+    
+    public static function getMessageStatus($id){
+        $status = array(0 => 'unread', 1 => 'read', 2 => 'deleted');
+        return $status[$id];
     }
 }
 ?>

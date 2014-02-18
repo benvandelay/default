@@ -1,11 +1,12 @@
 <?php 
     $form=$this->beginWidget('CActiveForm', array(
-        'id'=>'meta-form',
+        'id'=>'page-form',
         'enableAjaxValidation'=>true,
         'action'=>$model->isNewRecord ? '/admin/page/create/' : '/admin/page/' . $model->id,
         'enableClientValidation'=>true,
         'clientOptions' => array(
             'validateOnChange' => true,
+            'validateOnSubmit' => true,
         ),
         'htmlOptions' => array(
             'class' => 'user-form',
@@ -13,8 +14,6 @@
     ));
 ?>
 
-
-    <h2>Create A New Page</h2>
     <?php echo $form->errorSummary($model); ?>
 
     <div class="input text">

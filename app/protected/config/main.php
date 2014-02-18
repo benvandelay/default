@@ -77,6 +77,7 @@ return array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',
 				'/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
+				'/admin/message/getMessagesJson/<scope:\w+>'=>'admin/message/getMessagesJson',
 				'/admin/page/create'=>'admin/page/create',
 				'/admin/image/uploadify'=>'admin/image/uploadify',
 				'/admin/image/uploadify/<src:\w+>'=>'admin/image/uploadify',

@@ -40,7 +40,7 @@ body {
                 position: relative;
                 height: 20px;
                 
-                .icon {
+                .icon, span {
                     color: #dadada;
                     position: absolute;
                     width: 12px;
@@ -49,9 +49,11 @@ body {
                     left: 0;
                     top: 0; 
                 }
-                
+                &:hover {
+                    background: #171717;
+                }
                 &:hover,
-                &:hover .icon {
+                &:hover .icon, &:hover span {
                     color: #fff;
                     @include single-transition(color, 0.3s, ease);
                 }
@@ -137,10 +139,12 @@ body {
                 padding: 22px 0 0 76px;
                 
                 .icon {
-                    background: $grey;
+                    background: #fff;
                     color: $blue;
                 }
             }
+            
+            
         }
     }
 }
@@ -205,17 +209,7 @@ body {
     }
   
 .flash {
-    position: absolute;
-    top: 0;
-    width: 150px;
-    right: 20px;
-    top: 20px;
-    padding: 20px;
-    color: #000;
-    background: #f9f9f9;
-    border-radius: 2px;
-    z-index: 10000;
-    text-align: center;
+    @include notification();
     
     &.error {
         background: $lightred;
@@ -223,7 +217,6 @@ body {
     
     &.success {
         background: $green;
-        opacity: 0.8;
         color: #fff;
     }
     

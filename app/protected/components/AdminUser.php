@@ -3,6 +3,10 @@
 class AdminUser extends CWebUser
 {
     public function isAdmin() {
+        return $this->permission == 0;
+    }
+    
+    public function isLoggedIn() {
         return $this->id;
     }
     

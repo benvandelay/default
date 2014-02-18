@@ -1,0 +1,260 @@
+.left-controls ul.submenu {
+    li.message-filter {
+      
+        a {
+            padding-left: 60px;
+            width: 135px;
+            
+            span {
+                font-size: 10px;
+                padding: 6px 10px;
+                top: 16px;
+                left: 14px;
+                width: auto;
+                height: 16px;
+                color: #ccc;
+                background: #333;
+                border-radius: 2px;
+                text-align: center;
+                
+                &.new {
+                    background: $red;
+                }
+            }
+        }
+        
+        &.active {
+            a span {
+                background: $grey;
+            }
+        }
+        
+        &.has-new {
+            a span {
+                background: $red;
+                color: #fff;
+            }
+        }
+    }
+}
+.content-body .messages {
+    margin-top: 115px; 
+    padding: 0 50px;
+    
+    a {
+        color: $blue;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    .message {
+        @include box;
+        padding: 0;
+        position: relative;
+        margin: 5px 0;
+        display: block;
+        
+        .header{
+            height: 21px;
+            padding: 10px;
+            cursor: pointer;
+            
+            .arrow {
+                @include css-triangle('right', 6px, $blue);
+                position: absolute;
+                left: 10px;
+                top: 15px;
+            }
+            
+            .name {
+                position: absolute;
+                left: 110px;
+                top: 10px;
+                width: 150px;
+                color: #333;
+            }
+            
+            .date {
+                position: absolute;
+                left: 28px;
+                top: 9px;
+                font-size: 11px;
+                background: #f7f7f7;
+                padding: 4px 6px;
+                color: #666;
+                border-radius: 2px;
+            }
+            
+            p {
+                width: 360px;
+                position: absolute;
+                left: 270px;
+                font-size: 12px;
+                color: #666;
+                top: 12px;
+            }
+            
+            .status {
+                position: absolute;
+                right: 35px;
+                font-size: 12px;
+                top: 8px;
+                padding: 4px 10px;
+                background: $green;
+                border-radius: 2px;
+                color: #fff;
+                width: 64px;
+                text-align: center;
+                @include transition(background 0.2s ease);
+            }
+            
+            .icon-close {
+                position: absolute;
+                top: 13px;
+                right: 10px;
+                
+                &:hover {
+                    color: $red;
+                }
+            }
+       }
+        
+        &:hover {
+            .name,
+            .date{
+                color: #000;
+            }
+            .date {
+                background: $grey;
+                @include transition(background, color 0.2s ease);
+            }
+            p {
+                color: #333;
+            }
+        }
+        
+        &.read {
+            
+            .date {
+                background: #fff;
+                color: #ccc;
+            }
+            
+            .name {
+                color: #999;
+            }
+            
+            .status {
+                background: $lightgreen;
+                @include transition(background 0.2s ease);
+            }
+            
+            p {
+                color: #ccc;
+            }
+            .arrow {
+                @include css-triangle('right', 6px, #ccc);
+            }
+            
+        }
+        
+        &.deleted {
+            
+            .date {
+                background: #fff;
+                color: #ccc;
+            }
+            
+            .icon-close {
+                display: none;
+            }
+            
+            .status {
+                background: $red;
+                right: 10px;
+                @include transition(background 0.2s ease);
+            }
+            .arrow {
+                @include css-triangle('right', 6px, #ccc);
+            }
+            
+        }
+        
+        .detail {
+            display: none;
+            padding: 20px 0 0 0;
+            border-top: 1px solid #ddd;
+            padding: 20px 20px 20px 30px;
+            
+            .head {
+                font-size: 12px;
+            }
+            
+            p {
+                width: 100%;
+                position: relative;
+                font-size: 14px;
+                color: #333;
+                left: auto;
+                top: auto;
+                margin: 10px 0;
+                line-height: 26px;
+            }
+        }
+        
+         &.open {
+            background: #fff;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #ddd;
+            
+            .arrow {
+                @include css-triangle('down', 6px, $blue);
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+            
+            .date {
+                background: $blue;
+                color: #fff;
+            }
+            .name {
+                color: #000;
+            }
+            
+            p {
+                display: none;
+            }
+            
+            .detail {
+                display: block;
+                
+                p {
+                    display: block;
+                }
+                
+                .info {
+                    font-size: 12px;
+                    height: 20px;
+                    margin: 20px 0 0 0;
+                    
+                    li {
+                        float: left;
+                        margin: 0 10px 0 0;
+                    }
+                }
+                
+                
+            }
+        }
+    }
+    
+    .empty {
+        display: block;
+        padding: 60px 0;
+        text-align: center;
+        color: $red;
+    }
+}

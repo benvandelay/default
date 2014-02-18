@@ -30,28 +30,23 @@ class UserController extends AdminController
         return array(
 
             array('allow', 
-                'actions'=>array('create','update','admin','delete','index','view','logout'),
+                'actions'=>array('create'),
                 'expression'=>'Yii::app()->user->isAdmin()',
-            ), 
+            ),
+            array('allow', 
+                'actions'=>array('update'),
+                'expression'=>'Yii::app()->user->isAdmin() || Yii::app()->user->id == $_GET["id"]',
+            ),
+            array('allow', 
+                'actions'=>array('delete','index','view','logout'),
+                'expression'=>'Yii::app()->user->isLoggedIn()',
+            ),
             array('allow', 
                 'actions'=>array('login'),
                 'users'=>array('*'),
             ), 
             array('deny'),    
         );
-    }
-
-    /**
-     * Displays a particular model.
-     * @param integer $id the ID of the model to be displayed
-     */
-    public function actionView($id)
-    {
-        $this->title = 'View User';
-        
-        $this->render('view',array(
-            'model'=>$this->loadModel($id),
-        ));
     }
 
     /**
@@ -86,6 +81,7 @@ class UserController extends AdminController
      */
     public function actionUpdate($id)
     {
+
         $this->title = 'Update User';
         
         $model=$this->loadModel($id);

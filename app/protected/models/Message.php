@@ -3,6 +3,7 @@ class Message extends CActiveRecord
 {
 	public $search;
     public $verifyCode;
+    public $page = 0;
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -63,7 +64,10 @@ class Message extends CActiveRecord
     
     public function scopes() {
         return array(
-            'new'=>array(
+            'all'=>array(
+                'condition'=>'t.status != 2',
+            ),
+            'unread'=>array(
                 'condition'=>'t.status = 0',
             ),
             'read'=>array(
@@ -82,12 +86,17 @@ class Message extends CActiveRecord
 
         $criteria=new CDbCriteria;
 
+        $limit = 10;
+
         if($scope) $criteria->scopes= $scope;
 
-        $criteria->compare('name',$this->search);
+        $criteria->compare('name',$this->search,true, 'OR');
         $criteria->compare('email',$this->search,true, 'OR');
         $criteria->compare('body',$this->search,true, 'OR');
         $criteria->compare('phone',$this->search,true, 'OR');
+        
+        $criteria->limit = $limit;
+        $criteria->offset = $this->page * $limit;
 
         $sort = new CSort();
 
@@ -97,11 +106,8 @@ class Message extends CActiveRecord
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
+            'pagination' => false,
             'sort'=>$sort,
-            'pagination'=>array(
-                'pageSize'=>10,
-            
-            ),
         ));
     }
 }

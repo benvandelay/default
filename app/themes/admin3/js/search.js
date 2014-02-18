@@ -18,6 +18,7 @@ var search = (function(){
             input     = $('input#search');
             cont      = $('#articles');
             page      = 0;
+            limit     = 10;
             endScroll = false;
             
             loadingText = 'Loading More...';
@@ -97,7 +98,8 @@ var search = (function(){
                 }
             ).done(function(r) {
                 
-                endScroll = _.isEmpty(r);
+                endScroll = (r.length < limit);
+                //endScroll = _.isEmpty(r);
                 
                 if(page == 0){
                     window.scrollTo(0,0);

@@ -1,33 +1,38 @@
 .users-list {
-    padding: 30px 50px;
+    padding: 10px 10px 0 50px;
 
     .user {
         @include box();
         display: block;
         margin: 20px 0;
-        padding: 20px 20px 20px 90px;
+        padding: 15px 15px 15px 80px;
         position: relative;
         min-height: 50px;
         
         img {
             border-radius: 2px;
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
+        }
+        .title {
+            font-size: 20px;
+            margin-bottom: 6px;
         }
         .blank-user-image {
             background: #eee;
             border-radius: 2px;
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
             height: 50px;
             width: 50px;
         }
         .delete {
             position: absolute;
-            right: 20px;
-            top: 20px;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
             
             &:hover {
                 color: #333;
@@ -36,8 +41,8 @@
     }
     
     .user-info {
-        font-size: 11px;
-        color: #999;
+        font-size: 12px;
+        color: #333;
     }
 }
 
@@ -45,9 +50,10 @@
     margin-top: 10px;
     
     .left-col {
-        width: 559px;
+        width: 530px;
         float: left;
-        padding-left: 20px;
+        padding-left: 50px;
+        
     }
     
     .right-col {

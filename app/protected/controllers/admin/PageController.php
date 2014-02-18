@@ -31,15 +31,10 @@ class PageController extends AdminController
     public function accessRules()
     {
         return array(
-
             array('allow', 
                 'actions'=>array('create','update','delete','index','GetArticlesJson'),
-                'expression'=>'Yii::app()->user->isAdmin()',
+                'expression'=>'Yii::app()->user->isLoggedIn()',
             ),
-            array('allow', 
-                'actions'=>array('uploadify'),
-                'users'=>array('*'),
-            ), 
             array('deny'),    
         );
     }
@@ -123,7 +118,11 @@ class PageController extends AdminController
                 }
             }
 
+            $originalStatus = $model->status;
+            
             $model->attributes = $_POST['Page'];
+
+            $model->status = Yii::app()->user->isAdmin() ? $model->status : $originalStatus;
 
             if(isset($_POST['Page']['categoryIds'])){
                 $model->categories=$_POST['Page']['categoryIds'];

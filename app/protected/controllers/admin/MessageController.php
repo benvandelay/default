@@ -8,10 +8,10 @@ class MessageController extends AdminController
     public function menu()
     {
         return array(
-            array('type'=>'raw', 'label'=>'<b>'.$this->getCount('new').'</b>New', 'url'=>array('admin/message/index', 'scope'=>'new')), 
-            array('label'=>'<b>'.$this->getCount(false).'</b>All', 'url'=>array('admin/message/index', 'scope'=>'all')),   
-            array('label'=>'<b>'.$this->getCount('read').'</b>Read', 'url'=>array('admin/message/index', 'scope'=>'read')),  
-            array('label'=>'<b>'.$this->getCount('deleted').'</b>Deleted', 'url'=>array('admin/message/index', 'scope'=>'deleted')),
+            array('itemOptions' => array('class'=>'message-filter active', 'data-status-name' => 'all'), 'label'=>'<span>'.$this->getCount('all').'</span>Inbox', 'url' => ""), 
+            array('itemOptions' => array('class'=>'message-filter', 'data-status-name' => 'unread'), 'type'=>'raw', 'label'=>'<span>'.$this->getCount('unread').'</span>New', 'url' => ""),   
+            array('itemOptions' => array('class'=>'message-filter', 'data-status-name' => 'read'), 'label'=>'<span>'.$this->getCount('read').'</span>Read', 'url' => ""),  
+            array('itemOptions' => array('class'=>'message-filter', 'data-status-name' => 'deleted'), 'label'=>'<span>'.$this->getCount('deleted').'</span>Deleted', 'url' => ""),
         );
     } 
     
@@ -36,7 +36,7 @@ class MessageController extends AdminController
         return array(
 
             array('allow', 
-                'actions'=>array('index', 'view', 'update', 'delete'),
+                'actions'=>array('index', 'view', 'update', 'delete', 'getMessagesJson', 'updateStatus'),
                 'expression'=>'Yii::app()->user->isAdmin()',
             ), 
             array('deny'),    
@@ -64,46 +64,52 @@ class MessageController extends AdminController
     }
 
 
-    public function actionIndex($scope = false)
+    public function actionIndex()
     {
-        
-        $this->title = 'View messages';
-        
-        if($scope == '') $this->redirect(array('/admin/message/index', 'scope'=>'all'));
-        if($scope == 'all') $scope = false;
-        
-        $model=new Message;
+
+        $this->render('index');
+    }
+
+    public function actionUpdateStatus() {
+        header('Content-type: application/json');
+
+            $model = $this->loadModel($_GET['mid']);
+            $model->status = $_GET['status'];
+            
+            echo $model->save() ? CJSON::encode(1) : 0;
+            
+            Yii::app()->end();
+    }
+    
+    public function actionGetMessagesJson($scope = false)
+    {
+ 
+        header('Content-type: application/json');
+         
+        $model = new Message;
         $model->unsetAttributes();  // clear any default values
-        if(isset($_POST['search']))
-            $model->search=$_POST['search'];
 
-        $this->render('index',array(
-            'model'=>$model,
-            'scope'=>$scope,
-        ));
-    }
-    
-    public function actionUpdate($id)
-    {
-            $this->redirect(array('view', 'id'=>$id));
-    }
-    
-    public function actionView($id)
-    {
-        $this->title = 'View message';
+            $model->search = $_GET['term'];
+            $model->page   = $_GET['page'];
         
-        $model=$this->loadModel($id);
+        $results = array();
         
-        if($model->status == 0){
-            $message = $this->loadModal($id);
-            $message->status = 1;
-            unset($message->date);
-            $message->save();
+        foreach($model->search($scope)->getData() as $i => $data){
+            $results[$i]['id']       = $data->id;
+            $results[$i]['name']     = $data->name;
+            $results[$i]['email']    = $data->email;
+            $results[$i]['phone']    = $data->phone;
+            $results[$i]['status_id']= $data->status;
+            $results[$i]['status']   = StringHelper::getMessageStatus($data->status);
+            $results[$i]['date']     = StringHelper::displayDate($data->date);
+            $results[$i]['time']     = StringHelper::displayTime($data->date);
+            $results[$i]['excerpt']  = StringHelper::getExcerpt($data->body, 60) . '...';
+            $results[$i]['body']     = $data->body;
         }
-
-        $this->render('view',array(
-            'model'=>$model,
-        ));
+        
+        echo CJSON::encode($results);
+        
+        Yii::app()->end();
     }
 
     /**

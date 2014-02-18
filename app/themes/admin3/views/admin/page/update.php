@@ -11,7 +11,7 @@
     </div>
     
     <div class="save-status page-info">
-        <b class="saved">Last Saved <?php echo StringHelper::toTime($model->modified); ?></b> 
+        <b class="saved"><em><?php echo StringHelper::toTime($model->modified); ?></em></b> 
         <b class="unsaved">Unsaved Changes</b> 
     </div>
     
