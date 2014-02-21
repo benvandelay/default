@@ -98,17 +98,30 @@ class Page extends CActiveRecord
         return true;
     } 
     
+    
+    public function scopes() {
+        return array(
+            'all'=>array(
+                'condition'=>'t.status != 2',
+            ),
+            'published'=>array(
+                'condition'=>'t.status = 1',
+            ),
+            'unpublished'=>array(
+                'condition'=>'t.status = 0',
+            ),
+        );
+    }
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search()
+    public function search($limit = 10)
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-        $limit = 10;
-        
+
         $criteria=new CDbCriteria;
         $criteria->compare('title',$this->search,true, 'OR');
         $criteria->compare('date',$this->search,true, 'OR');

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>SiteName</title>
+    <title><?php echo Yii::app()->name; ?> Admin</title>
     
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
     <?php
@@ -27,7 +27,7 @@
         <?php $this->widget('zii.widgets.CMenu', 
             array(
                 'items'=>array(
-                    array('label'=>'<span class="icon icon-home"></span> Dashboard', 'url'=>array('admin/site/index'), 'itemOptions' => array('class' => 'dashboard')),
+                    array('label'=>'<span class="icon icon-home"></span> Dashboard', 'url'=>array('admin/site/index'), 'itemOptions' => array('class' => 'dashboard'), 'active' => Yii::app()->controller->id=='admin/site'),
                     array('label'=>'<span class="icon icon-cog"></span> Setup', 'url'=>array('admin/config/index'), 'itemOptions' => array('class' => 'setup')),
                     array('label'=>'<span class="icon icon-file"></span> Content', 'url'=>array('admin/page/index'), 'itemOptions' => array('class' => 'content'), 'active' => Yii::app()->controller->id=='admin/page'),
                     array('label'=>'<span class="icon icon-bubbles"></span> Messages', 'url'=>array('admin/message/index'), 'itemOptions' => array('class' => 'messages')),

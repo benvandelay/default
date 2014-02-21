@@ -1,1 +1,1 @@
-hello
+<h1><?php echo Yii::app()->name; ?> Configuration</h1>

@@ -8,6 +8,7 @@ var editUser = (function(){
 
             self = this;
             self.uploadify();
+            self.activeStatus();
         },
 
         uploadify: function(){
@@ -40,7 +41,27 @@ var editUser = (function(){
                     }
                  });
              }
-        }
+        },
+        
+        activeStatus: function(){
+            if($('.status').length){
+                
+                var value = $('#User_active').val();
+                
+                if(value == 1){
+                    $('.status').addClass('published');
+                }
+                $('.status').on('click', function(){
+                    value = value == 1 ? 0 : 1;
+                    $('#User_active').val(value);
+                    $(this).toggleClass('published');
+                    
+                    $(this).removeClass('ready').on('mouseleave', function(){
+                        $(this).addClass('ready')
+                    });
+                });
+            }
+        },
 
     };
 

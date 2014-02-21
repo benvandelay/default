@@ -23,6 +23,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 @import "modules/layout";
 
 //pages
+@import "modules/dashboard/dashboard";
 @import "modules/page/page_edit";
 @import "modules/page/page_list";
 @import "modules/user/user";

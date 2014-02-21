@@ -32,7 +32,7 @@ class ConfigController extends AdminController
 
             array('allow', 
                 'actions'=>array('index'),
-                'expression'=>'Yii::app()->user->isAdmin()',
+                'expression'=>'Yii::app()->user->isLoggedIn()',
             ), 
             array('deny'),    
         );

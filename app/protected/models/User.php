@@ -27,8 +27,8 @@ class User extends CActiveRecord
     {
         return array(
 
-            array('username, email, password, permission, first_name, last_name', 'required'),
-            array('username, email, password, permission, first_name, last_name, image_id', 'safe'),
+            array('username, email, password, permission, first_name, last_name, active', 'required'),
+            array('username, email, password, permission, first_name, last_name, image_id, active', 'safe'),
             array('username', 'unique'),
             
         );

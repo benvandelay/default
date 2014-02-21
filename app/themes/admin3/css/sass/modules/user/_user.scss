@@ -28,26 +28,44 @@
             height: 50px;
             width: 50px;
         }
-        .delete {
+        
+        .user-info {
+            font-size: 12px;
+            color: #333;
+        }
+        
+        .icon-pencil {
+            display: none;
             position: absolute;
-            right: 15px;
-            top: 15px;
-            cursor: pointer;
-            
-            &:hover {
-                color: #333;
+            right: 26px;
+            top: 28px;    
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        &.inactive {
+            img {
+                opacity: 0.3;
+            }
+            .title {
+                color: #999;
+            }
+            .user-info {
+                color: #ccc;
             }
         }
-    }
-    
-    .user-info {
-        font-size: 12px;
-        color: #333;
+        
+        &:hover {
+            .icon-pencil {
+                display: block;
+            }
+        }
     }
 }
 
 .single-user {
-    margin-top: 10px;
+    margin: 10px 0;
     
     .left-col {
         width: 530px;
@@ -74,6 +92,16 @@
             position: absolute;
             top: 0;
             left: 0;
+        }
+    }
+    
+    .buttons {
+        padding: 20px 0;
+        margin: 20px 0 20px 50px;
+        border-top: 3px solid #ddd;
+        
+        .btn {
+            float: right;
         }
     }
 }

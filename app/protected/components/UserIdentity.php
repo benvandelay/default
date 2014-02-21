@@ -8,7 +8,8 @@
 class UserIdentity extends CUserIdentity
 {
     private $_id;
- 
+    const ERROR_NOT_ACTIVATED = 3;
+    
     public function authenticate()
     {
         $user=User::model()->findByAttributes(array('username'=>$this->username));
@@ -18,19 +19,23 @@ class UserIdentity extends CUserIdentity
         //else if($user->password!==md5($this->password))
         else if($user->password!==$this->password)
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        elseif(!$user->active)
+            $this->errorCode=self::ERROR_NOT_ACTIVATED;
         else
         {
             $this->_id = $user->id;
+            
+            $avatar = $user->image ? $user->image->filename : '';
             
             //save the following user info in session
             $this->setState('permission', $user->permission);
             $this->setState('first_name', $user->first_name);
             $this->setState('last_name', $user->last_name);
-            $this->setState('avatar', $user->image->filename);
+            $this->setState('avatar', $avatar);
             
             $this->errorCode = self::ERROR_NONE;
         }
-        return !$this->errorCode;
+        return $this->errorCode;
     }
     
     public function getId()

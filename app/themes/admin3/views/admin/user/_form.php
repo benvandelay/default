@@ -47,13 +47,16 @@
             <?php echo $form->error($model,'password'); ?> 
         </div>
         
-        <div class="input text">
+        <?php if(Yii::app()->user->isAdmin()): ?>
+        
+        <div class="input dropdown">
+            <div class="arrow"></div>
             <?php echo $form->labelEx($model,'permission'); ?>
-            <?php echo $form->textField($model,'permission'); ?>
+            <?php echo CHtml::activeDropDownList($model, 'permission', array(0=>'Admin', 99=>'Author')); ?>
             <?php echo $form->error($model,'permission'); ?>
         </div>
         
-    
+        <?php endif; ?>
         
     </div>
     
@@ -64,13 +67,33 @@
             <?php echo $form->hiddenField($model, 'image_id'); ?>
             <?php echo $form->error($model,'image_id'); ?>
         </div>
+        
+        <?php if(Yii::app()->user->isAdmin()): ?>
+            
+        <div class="ready status<?php echo $model->active != 0 ? ' published' : ''; ?>">
+            
+            <div class="off">
+                <div class="label true">Active <span class="icon icon-checkmark"></span></div>
+                <div class="label false">Inactive <span class="icon icon-close"></span></div>
+            </div>
+            
+            <div class="on">
+                <div class="label true">Activate User? <span class="icon icon-checkmark"></span></div>
+                <div class="label false">Inactivate User? <span class="icon icon-close"></span></div>
+            </div>
+            
+            <?php echo $form->hiddenField($model,'active'); ?>
+        </div>
+
+        <?php endif; ?>
+        
     </div>
     
-    <div class="row buttons">
-        <div class="save-wrap">
-            <?php echo CHtml::link('Cancel', array('index'), array('class'=>'btn cancel')); ?>
-            <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
-        </div>
+    <div class="clb"></div>
+
+    <div class="buttons">
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
+        <?php echo CHtml::link('Cancel', array('index'), array('class'=>'btn cancel')); ?>
     </div>
 
     <?php $this->endWidget(); ?>

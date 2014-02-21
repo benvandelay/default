@@ -24,8 +24,8 @@ class SiteController extends AdminController
         return array(
 
             array('allow', 
-                'actions'=>array('index'),
-                'expression'=>'Yii::app()->user->isAdmin()',
+                'actions'=>array('index', 'error'),
+                'expression'=>'Yii::app()->user->isLoggedIn()',
             ), 
             array('deny'),    
         );
@@ -33,9 +33,30 @@ class SiteController extends AdminController
 
     public function actionIndex()
     {
-        
-        $this->title = 'DashBoard';
 
-        $this->render('index');
+        $this->render('index', array(
+            'content'       => Page::model()->search(6)->getData(),
+            'content_count' => array(
+                'all'         => Page::model()->count(),
+                'published'   => Page::model()->published()->count(),
+                'unpublished' => Page::model()->unpublished()->count()
+            ),
+            'message_count' => array(
+                'inbox'  => Message::model()->all()->count(),
+                'unread' => Message::model()->unread()->count(),
+                'read'   => Message::model()->read()->count()
+            )
+        ));
+    }
+    
+    public function actionError()
+    {
+        if($error = Yii::app()->errorHandler->error)
+        {
+            if(Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
     }
 }

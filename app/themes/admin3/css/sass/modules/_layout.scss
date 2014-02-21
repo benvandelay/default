@@ -221,3 +221,21 @@ body {
     }
     
 }
+
+.error-page {
+    @include box();
+    background: #fff;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 2px;
+    
+    h2 {
+        font-size: 34px;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+    
+    p {
+        margin: 20px 0;
+    }
+}

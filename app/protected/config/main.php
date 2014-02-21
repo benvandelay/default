@@ -15,7 +15,7 @@ $db = array(
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Default Site',
+	'name'=>'Bens Website',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

@@ -37,7 +37,7 @@ class MessageController extends AdminController
 
             array('allow', 
                 'actions'=>array('index', 'view', 'update', 'delete', 'getMessagesJson', 'updateStatus'),
-                'expression'=>'Yii::app()->user->isAdmin()',
+                'expression'=>'Yii::app()->user->isLoggedIn()',
             ), 
             array('deny'),    
         );

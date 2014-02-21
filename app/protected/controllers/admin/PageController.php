@@ -155,18 +155,6 @@ class PageController extends AdminController
         }
     }
     
-    private function imageDataProvider($page_id)
-    {
-        $criteria=new CDbCriteria;
-
-        $criteria->condition = 'page = '.$page_id;
-        
-        return new CActiveDataProvider('Image', array(
-            'criteria'=>$criteria,
-            'pagination'=>false,
-        ));
-    }
-    
     /**
      * Deletes a particular model.
      * If deletion is successful, the browser will be redirected to the 'admin' page.
