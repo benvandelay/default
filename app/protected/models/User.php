@@ -28,8 +28,8 @@ class User extends CActiveRecord
         return array(
 
             array('username, email, password, permission, first_name, last_name, active', 'required'),
+            array('username', 'unique', 'attributeName' => 'username', 'className' => 'User'),
             array('username, email, password, permission, first_name, last_name, image_id, active', 'safe'),
-            array('username', 'unique'),
             
         );
     }

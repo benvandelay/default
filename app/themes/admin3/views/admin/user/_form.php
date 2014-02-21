@@ -3,10 +3,11 @@
 
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'user-form',
+        'enableAjaxValidation'=>true,
         'enableClientValidation'=>true,
-        //'enableAjaxValidation'=>true,
         'clientOptions' => array(
-            'validateOnSubmit'=>true,
+            'validateOnChange' => true,
+            'validateOnSubmit' => true,
         ),
         'htmlOptions' => array(
             'class' => 'user-form',
