@@ -7,7 +7,6 @@
         
         <ul class="info">
             <li class="status<%= status %>"><span class="icon icon-checkmark"></span> Published</li>
-            <li class="nav-item"><span class="icon icon-menu"></span> Nav</li>
         </ul> 
     </a>
 </script>
