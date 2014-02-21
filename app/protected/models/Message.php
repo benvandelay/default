@@ -39,12 +39,6 @@ class Message extends CActiveRecord
 		);
 	}
 
-
-    public function afterFind()
-    {
-        $this->date = date('M d Y', strtotime($this->date));
-        parent::afterFind();
-    } 
 	/**
 	 * Declares customized attribute labels.
 	 * If not declared here, an attribute would have a label that is
