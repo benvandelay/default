@@ -166,7 +166,7 @@ CREATE TABLE `user` (
 
 
 INSERT INTO `user` (username, email, password, permission, first_name, last_name, image_id, active)
-VALUES ("admin", admin@admin.com, "admin", 0, "ad", "min", 0, 1);
+VALUES ("admin", "admin@admin.com", "admin", 0, "ad", "min", 0, 1);
 
 
 # Dump of table version
