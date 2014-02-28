@@ -20,13 +20,13 @@
     
         <div class="input text">
             <?php echo $form->labelEx($model,'first_name'); ?>
-            <?php echo $form->textField($model,'first_name',array('rows'=>6, 'cols'=>50)); ?>
+            <?php echo $form->textField($model,'first_name'); ?>
             <?php echo $form->error($model,'first_name'); ?>
         </div>
     
         <div class="input text">
             <?php echo $form->labelEx($model,'last_name'); ?>
-            <?php echo $form->textField($model,'last_name',array('rows'=>6, 'cols'=>50)); ?>
+            <?php echo $form->textField($model,'last_name'); ?>
             <?php echo $form->error($model,'last_name'); ?>
         </div>
     
