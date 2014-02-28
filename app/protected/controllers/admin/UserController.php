@@ -87,20 +87,20 @@ class UserController extends AdminController
         $model=$this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if(isset($_POST['User']))
         {
             $model->attributes=$_POST['User'];
             if($model->save()){
-                Yii::app()->user->setFlash('success', "User Updated!");
+                
                 if(Yii::app()->user->id == $model->id){
                     $UserIdentity = new AdminUser;
                     $UserIdentity->resetUserInfo();
                 }
-                
+                Yii::app()->user->setFlash('success', "User Updated!");
             }
-            $this->redirect(array('index'));
+            
         }
 
         $this->render('update',array(
