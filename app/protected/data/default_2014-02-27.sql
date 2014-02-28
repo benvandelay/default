@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: default
-# Generation Time: 2014-01-21 23:06:38 +0000
+# Generation Time: 2014-02-28 02:11:13 +0000
 # ************************************************************
 
 
@@ -75,6 +75,7 @@ CREATE TABLE `message` (
   `email` varchar(200) NOT NULL DEFAULT '',
   `phone` varchar(10) DEFAULT NULL,
   `body` text NOT NULL,
+  `page_id` int(11) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -91,7 +92,9 @@ CREATE TABLE `page` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) DEFAULT NULL,
   `slug` varchar(100) NOT NULL DEFAULT '',
+  `excerpt` text,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `version` int(11) NOT NULL DEFAULT '0',
   `status` int(11) DEFAULT NULL,
@@ -154,11 +157,16 @@ CREATE TABLE `user` (
   `permission` int(2) NOT NULL DEFAULT '99',
   `first_name` varchar(100) NOT NULL DEFAULT '',
   `last_name` varchar(100) NOT NULL DEFAULT '',
+  `image_id` int(11) DEFAULT NULL,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+INSERT INTO `user` (username, email, password, permission, first_name, last_name, image_id, active)
+VALUES ("admin", admin@admin.com, "admin", 0, "ad", "min", 0, 1);
 
 
 # Dump of table version
@@ -173,6 +181,7 @@ CREATE TABLE `version` (
   `header` text,
   `sub_header` text,
   `image_id` int(11) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
