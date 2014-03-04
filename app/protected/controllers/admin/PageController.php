@@ -63,7 +63,7 @@ class PageController extends AdminController
         
         //get models
         $model   = $this->loadModel($id);
-        $version = Version::model()->findByPk($model->version); 
+        //$version = Version::model()->findByPk($model->version); 
         
         $this->performAjaxValidation($model);
 

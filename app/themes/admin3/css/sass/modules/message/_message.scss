@@ -2,19 +2,21 @@
     li.message-filter {
       
         a {
-            padding-left: 60px;
-            width: 135px;
+            padding: 21px 60px 18px 20px;
+            width: 120px;
             
             span {
                 font-size: 10px;
-                padding: 6px 10px;
-                top: 16px;
-                left: 14px;
-                width: auto;
+                padding: 2px 8px;
+                width: 25px;
+                top: 21px;
+                right: 14px;
+                left: auto;
+                /* width: auto; */
                 height: 16px;
                 color: #ccc;
                 background: #333;
-                border-radius: 2px;
+                border-radius: 4px;
                 text-align: center;
                 
                 &.new {
@@ -25,7 +27,8 @@
         
         &.active {
             a span {
-                background: $grey;
+                background: #ddd;
+                color: #666;
             }
         }
         

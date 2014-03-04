@@ -356,9 +356,9 @@ body {
 }
 /* line 33, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a {
-  font-size: 14px;
+  font-size: 13px;
   display: block;
-  padding: 20px 5px 20px 75px;
+  padding: 21px 5px 19px 75px;
   color: #dadada;
   width: 120px;
   cursor: pointer;
@@ -556,7 +556,7 @@ body {
 .flash {
   position: fixed;
   width: 240px;
-  left: 790px;
+  left: 800px;
   top: 10px;
   padding: 12px 10px;
   color: #000;
@@ -576,7 +576,12 @@ body {
   color: #fff;
 }
 
-/* line 225, ../sass/modules/_layout.scss */
+/* line 224, ../sass/modules/_layout.scss */
+.page.update .flash {
+  left: 790px;
+}
+
+/* line 226, ../sass/modules/_layout.scss */
 .error-page {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -592,13 +597,13 @@ body {
 .error-page:hover {
   border-color: #ddd;
 }
-/* line 232, ../sass/modules/_layout.scss */
+/* line 233, ../sass/modules/_layout.scss */
 .error-page h2 {
   font-size: 34px;
   font-weight: bold;
   margin: 0 0 10px 0;
 }
-/* line 238, ../sass/modules/_layout.scss */
+/* line 239, ../sass/modules/_layout.scss */
 .error-page p {
   margin: 20px 0;
 }
@@ -831,6 +836,7 @@ body {
   height: 16px;
   border-radius: 2px;
   font-size: 12px;
+  font-weight: bold;
   display: block;
   float: left;
   cursor: pointer;
@@ -838,20 +844,20 @@ body {
   background: #eeeeee;
   margin-right: 10px;
 }
-/* line 86, ../sass/modules/page/_page_edit.scss */
+/* line 87, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav span:hover {
   color: #333;
 }
-/* line 90, ../sass/modules/page/_page_edit.scss */
+/* line 91, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav span.active {
   background: #2d6ea3;
   color: #fff;
 }
-/* line 96, ../sass/modules/page/_page_edit.scss */
+/* line 97, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status {
   position: fixed;
   width: 240px;
-  left: 790px;
+  left: 800px;
   top: 10px;
   padding: 12px 10px;
   color: #000;
@@ -860,79 +866,80 @@ body {
   z-index: 10000;
   font-size: 12px;
   text-align: center;
+  left: 790px;
   padding: 12px 10px;
   background: #f8f4b1;
   cursor: pointer;
 }
-/* line 102, ../sass/modules/page/_page_edit.scss */
+/* line 104, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status .saved {
   display: block;
 }
-/* line 105, ../sass/modules/page/_page_edit.scss */
+/* line 107, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status .saved em {
   font-weight: normal;
 }
-/* line 109, ../sass/modules/page/_page_edit.scss */
+/* line 111, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status .unsaved {
   display: none;
 }
-/* line 113, ../sass/modules/page/_page_edit.scss */
+/* line 115, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status.unsaved {
   background: #df6363;
   color: #fff;
 }
-/* line 117, ../sass/modules/page/_page_edit.scss */
+/* line 119, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status.unsaved .saved {
   display: none;
 }
-/* line 120, ../sass/modules/page/_page_edit.scss */
+/* line 122, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status.unsaved .unsaved {
   display: block;
 }
-/* line 125, ../sass/modules/page/_page_edit.scss */
+/* line 127, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status.page-info {
   display: none;
 }
-/* line 129, ../sass/modules/page/_page_edit.scss */
+/* line 131, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-nav .save-status:hover {
   background: #f8f28a;
 }
-/* line 136, ../sass/modules/page/_page_edit.scss */
+/* line 138, ../sass/modules/page/_page_edit.scss */
 .content-body .editor {
   padding-top: 60px;
 }
-/* line 139, ../sass/modules/page/_page_edit.scss */
+/* line 141, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-content {
   padding: 90px 50px 20px 50px;
   background: #fff;
 }
-/* line 144, ../sass/modules/page/_page_edit.scss */
+/* line 146, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info {
   display: none;
   padding-bottom: 80px;
   padding-top: 80px;
 }
-/* line 149, ../sass/modules/page/_page_edit.scss */
+/* line 151, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info.show {
   display: block;
 }
-/* line 153, ../sass/modules/page/_page_edit.scss */
+/* line 155, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .left-col {
   width: 530px;
   float: left;
   padding-left: 40px;
 }
-/* line 159, ../sass/modules/page/_page_edit.scss */
+/* line 161, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .right-col {
   width: 260px;
   float: right;
 }
-/* line 165, ../sass/modules/page/_page_edit.scss */
+/* line 167, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page {
   padding-top: 20px;
   margin: 0 10px 0 50px;
 }
-/* line 169, ../sass/modules/page/_page_edit.scss */
+/* line 171, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page .row.buttons {
   position: relative;
   bottom: auto;
@@ -942,6 +949,15 @@ body {
   width: auto;
   padding: 0;
   margin: 20px 0;
+}
+
+/* line 185, ../sass/modules/page/_page_edit.scss */
+.white-bg {
+  position: fixed;
+  height: 100%;
+  background: #fff;
+  width: 860px;
+  left: 200px;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ article list */
@@ -1207,7 +1223,7 @@ body {
 /* line 98, ../sass/modules/user/_user.scss */
 .single-user .buttons {
   padding: 20px 0;
-  margin: 20px 0 20px 50px;
+  margin: 20px 0 0 50px;
   border-top: 3px solid #ddd;
 }
 /* line 103, ../sass/modules/user/_user.scss */
@@ -1217,50 +1233,53 @@ body {
 
 /* line 4, ../sass/modules/message/_message.scss */
 .left-controls ul.submenu li.message-filter a {
-  padding-left: 60px;
-  width: 135px;
+  padding: 21px 60px 18px 20px;
+  width: 120px;
 }
 /* line 8, ../sass/modules/message/_message.scss */
 .left-controls ul.submenu li.message-filter a span {
   font-size: 10px;
-  padding: 6px 10px;
-  top: 16px;
-  left: 14px;
-  width: auto;
+  padding: 2px 8px;
+  width: 25px;
+  top: 21px;
+  right: 14px;
+  left: auto;
+  /* width: auto; */
   height: 16px;
   color: #ccc;
   background: #333;
-  border-radius: 2px;
+  border-radius: 4px;
   text-align: center;
 }
-/* line 20, ../sass/modules/message/_message.scss */
+/* line 22, ../sass/modules/message/_message.scss */
 .left-controls ul.submenu li.message-filter a span.new {
   background: #df6363;
 }
-/* line 27, ../sass/modules/message/_message.scss */
+/* line 29, ../sass/modules/message/_message.scss */
 .left-controls ul.submenu li.message-filter.active a span {
-  background: #eeeeee;
+  background: #ddd;
+  color: #666;
 }
-/* line 33, ../sass/modules/message/_message.scss */
+/* line 36, ../sass/modules/message/_message.scss */
 .left-controls ul.submenu li.message-filter.has-new a span {
   background: #df6363;
   color: #fff;
 }
 
-/* line 40, ../sass/modules/message/_message.scss */
+/* line 43, ../sass/modules/message/_message.scss */
 .content-body .messages {
   margin-top: 115px;
   padding: 0 50px;
 }
-/* line 44, ../sass/modules/message/_message.scss */
+/* line 47, ../sass/modules/message/_message.scss */
 .content-body .messages a {
   color: #2d6ea3;
 }
-/* line 47, ../sass/modules/message/_message.scss */
+/* line 50, ../sass/modules/message/_message.scss */
 .content-body .messages a:hover {
   text-decoration: underline;
 }
-/* line 52, ../sass/modules/message/_message.scss */
+/* line 55, ../sass/modules/message/_message.scss */
 .content-body .messages .message {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -1276,13 +1295,13 @@ body {
 .content-body .messages .message:hover {
   border-color: #ddd;
 }
-/* line 59, ../sass/modules/message/_message.scss */
+/* line 62, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header {
   height: 21px;
   padding: 10px;
   cursor: pointer;
 }
-/* line 64, ../sass/modules/message/_message.scss */
+/* line 67, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .arrow {
   width: 0;
   height: 0;
@@ -1294,7 +1313,7 @@ body {
   left: 10px;
   top: 15px;
 }
-/* line 71, ../sass/modules/message/_message.scss */
+/* line 74, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .name {
   position: absolute;
   left: 110px;
@@ -1304,7 +1323,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 81, ../sass/modules/message/_message.scss */
+/* line 84, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .date {
   position: absolute;
   left: 28px;
@@ -1315,7 +1334,7 @@ body {
   color: #666;
   border-radius: 2px;
 }
-/* line 92, ../sass/modules/message/_message.scss */
+/* line 95, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header p {
   width: 360px;
   position: absolute;
@@ -1324,7 +1343,7 @@ body {
   color: #666;
   top: 12px;
 }
-/* line 101, ../sass/modules/message/_message.scss */
+/* line 104, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .status {
   position: absolute;
   right: 35px;
@@ -1341,22 +1360,22 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 115, ../sass/modules/message/_message.scss */
+/* line 118, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .icon-close {
   position: absolute;
   top: 13px;
   right: 10px;
 }
-/* line 120, ../sass/modules/message/_message.scss */
+/* line 123, ../sass/modules/message/_message.scss */
 .content-body .messages .message .header .icon-close:hover {
   color: #df6363;
 }
-/* line 128, ../sass/modules/message/_message.scss */
+/* line 131, ../sass/modules/message/_message.scss */
 .content-body .messages .message:hover .name,
 .content-body .messages .message:hover .date {
   color: #000;
 }
-/* line 131, ../sass/modules/message/_message.scss */
+/* line 134, ../sass/modules/message/_message.scss */
 .content-body .messages .message:hover .date {
   background: #eeeeee;
   -webkit-transition: background, color 0.2s ease;
@@ -1364,20 +1383,20 @@ body {
   -o-transition: background, color 0.2s ease;
   transition: background, color 0.2s ease;
 }
-/* line 135, ../sass/modules/message/_message.scss */
+/* line 138, ../sass/modules/message/_message.scss */
 .content-body .messages .message:hover p {
   color: #333;
 }
-/* line 142, ../sass/modules/message/_message.scss */
+/* line 145, ../sass/modules/message/_message.scss */
 .content-body .messages .message.read .date {
   background: #fff;
   color: #ccc;
 }
-/* line 147, ../sass/modules/message/_message.scss */
+/* line 150, ../sass/modules/message/_message.scss */
 .content-body .messages .message.read .name {
   color: #999;
 }
-/* line 151, ../sass/modules/message/_message.scss */
+/* line 154, ../sass/modules/message/_message.scss */
 .content-body .messages .message.read .status {
   background: #a3e0af;
   -webkit-transition: background 0.2s ease;
@@ -1385,11 +1404,11 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 156, ../sass/modules/message/_message.scss */
+/* line 159, ../sass/modules/message/_message.scss */
 .content-body .messages .message.read p {
   color: #ccc;
 }
-/* line 159, ../sass/modules/message/_message.scss */
+/* line 162, ../sass/modules/message/_message.scss */
 .content-body .messages .message.read .arrow {
   width: 0;
   height: 0;
@@ -1398,16 +1417,16 @@ body {
   border-bottom: 6px solid transparent;
   border-top: 6px solid transparent;
 }
-/* line 167, ../sass/modules/message/_message.scss */
+/* line 170, ../sass/modules/message/_message.scss */
 .content-body .messages .message.deleted .date {
   background: #fff;
   color: #ccc;
 }
-/* line 172, ../sass/modules/message/_message.scss */
+/* line 175, ../sass/modules/message/_message.scss */
 .content-body .messages .message.deleted .icon-close {
   display: none;
 }
-/* line 176, ../sass/modules/message/_message.scss */
+/* line 179, ../sass/modules/message/_message.scss */
 .content-body .messages .message.deleted .status {
   background: #df6363;
   right: 10px;
@@ -1416,7 +1435,7 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 181, ../sass/modules/message/_message.scss */
+/* line 184, ../sass/modules/message/_message.scss */
 .content-body .messages .message.deleted .arrow {
   width: 0;
   height: 0;
@@ -1425,18 +1444,18 @@ body {
   border-bottom: 6px solid transparent;
   border-top: 6px solid transparent;
 }
-/* line 187, ../sass/modules/message/_message.scss */
+/* line 190, ../sass/modules/message/_message.scss */
 .content-body .messages .message .detail {
   display: none;
   padding: 20px 0 0 0;
   border-top: 1px solid #ddd;
   padding: 20px 20px 20px 30px;
 }
-/* line 193, ../sass/modules/message/_message.scss */
+/* line 196, ../sass/modules/message/_message.scss */
 .content-body .messages .message .detail .head {
   font-size: 12px;
 }
-/* line 197, ../sass/modules/message/_message.scss */
+/* line 200, ../sass/modules/message/_message.scss */
 .content-body .messages .message .detail p {
   width: 100%;
   position: relative;
@@ -1447,13 +1466,13 @@ body {
   margin: 10px 0;
   line-height: 26px;
 }
-/* line 209, ../sass/modules/message/_message.scss */
+/* line 212, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open {
   background: #fff;
   border: 1px solid #eee;
   border-bottom: 2px solid #ddd;
 }
-/* line 214, ../sass/modules/message/_message.scss */
+/* line 217, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .arrow {
   width: 0;
   height: 0;
@@ -1465,39 +1484,39 @@ body {
   left: 10px;
   top: 18px;
 }
-/* line 221, ../sass/modules/message/_message.scss */
+/* line 224, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .date {
   background: #2d6ea3;
   color: #fff;
 }
-/* line 225, ../sass/modules/message/_message.scss */
+/* line 228, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .name {
   color: #000;
 }
-/* line 229, ../sass/modules/message/_message.scss */
+/* line 232, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open p {
   display: none;
 }
-/* line 233, ../sass/modules/message/_message.scss */
+/* line 236, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .detail {
   display: block;
 }
-/* line 236, ../sass/modules/message/_message.scss */
+/* line 239, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .detail p {
   display: block;
 }
-/* line 240, ../sass/modules/message/_message.scss */
+/* line 243, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .detail .info {
   font-size: 12px;
   height: 20px;
   margin: 20px 0 0 0;
 }
-/* line 245, ../sass/modules/message/_message.scss */
+/* line 248, ../sass/modules/message/_message.scss */
 .content-body .messages .message.open .detail .info li {
   float: left;
   margin: 0 10px 0 0;
 }
-/* line 256, ../sass/modules/message/_message.scss */
+/* line 259, ../sass/modules/message/_message.scss */
 .content-body .messages .empty {
   display: block;
   padding: 60px 0;

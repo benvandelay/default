@@ -80,7 +80,7 @@
             
             <div class="on">
                 <div class="label true">Activate User? <span class="icon icon-checkmark"></span></div>
-                <div class="label false">Inactivate User? <span class="icon icon-close"></span></div>
+                <div class="label false">Deactivate User? <span class="icon icon-close"></span></div>
             </div>
             
             <?php echo $form->hiddenField($model,'active'); ?>
@@ -95,6 +95,8 @@
     <div class="buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn save')); ?>
         <?php echo CHtml::link('Cancel', array('index'), array('class'=>'btn cancel')); ?>
+        
+        <div class="clb">
     </div>
 
     <?php $this->endWidget(); ?>

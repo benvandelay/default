@@ -31,9 +31,9 @@ body {
         li {
             
             a {
-                font-size: 14px;
+                font-size: 13px;
                 display: block;
-                padding: 20px 5px 20px 75px;
+                padding: 21px 5px 19px 75px;
                 color: #dadada;
                 width: 120px;
                 cursor: pointer;
@@ -219,8 +219,9 @@ body {
         background: $green;
         color: #fff;
     }
-    
 }
+
+.page.update .flash { left: 790px; }
 
 .error-page {
     @include box();

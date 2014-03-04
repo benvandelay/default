@@ -76,6 +76,7 @@
            height: 16px;
            border-radius: 2px;
            font-size: 12px;
+           font-weight: bold;
            display: block;
            float: left;
            cursor: pointer;
@@ -95,6 +96,7 @@
         
         .save-status {
             @include notification();
+            left: 790px;
             padding: 12px 10px;
             background: $yellow;
             cursor: pointer;
@@ -180,5 +182,12 @@
     }
 }
 
+.white-bg {
+    position: fixed;
+    height: 100%;
+    background: #fff;
+    width: 860px;
+    left: 200px;
+}
 
 

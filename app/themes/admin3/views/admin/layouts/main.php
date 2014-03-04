@@ -16,7 +16,7 @@
     ?>
 
 </head>
-<body class="<?php echo Yii::app()->controller->action->id; ?>">
+<body class="<?php echo Yii::app()->controller->action->id; ?> <?php echo substr(Yii::app()->controller->id, 6); ?>">
     <?php
           foreach(Yii::app()->user->getFlashes() as $key => $message) {
             echo '<div class="flash '. $key . '">' . $message . "</div>";

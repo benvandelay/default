@@ -2,8 +2,9 @@
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/edit-info.js', CClientScript::POS_HEAD); ?>
 
 <div class="editor-nav">
-    <span class="active" data-show="page-content">Page Content</span>
-    <span data-show="page-info">Page Info</span>
+    <span class="active" data-show="page-content">Content</span>
+    <span data-show="page-info">Info</span>
+    <span data-show="preview">preview</span>
     
     <div class="save-status page-content">
         <b class="saved">Version <?php echo $version->getCount(); ?> | <em><?php echo StringHelper::toTime($version->date); ?></em></b> 
@@ -18,6 +19,7 @@
 </div>
 
 <div class="editor page-content">
+    <div class="white-bg"></div>
     <?php echo $this->renderPartial('_form', array('version'=>$version, 'model'=>$model)); ?>
 </div>
 

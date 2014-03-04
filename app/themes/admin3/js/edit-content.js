@@ -34,6 +34,7 @@ var editContent = (function(){
                 {
                 buttons         : ['html', 'formatting', 'bold', 'italic', 'deleted','unorderedlist', 'orderedlist', 'outdent', 'indent','image', 'video', 'table', 'link', 'alignment', 'horizontalrule'],
                 toolbarExternal : '.redactor-toolbar-cont',
+                minHeight       : 200,
                 imageUpload     : '/admin/image/redactorFileUpload',
                 imageUploadErrorCallback : function(json){
                         alert(json.error);
