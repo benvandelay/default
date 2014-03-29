@@ -1,0 +1,48 @@
+.tagit-hidden-field {
+    display: none;
+}
+.ui-autocomplete-input {
+    border: 0;
+    @include box;
+    padding: 10px;
+    width: 240px;
+    margin: 0 0 4px 0;
+}
+.tagit-choice {
+    margin: 10px 0;
+    @include box;
+    padding: 10px 35px 10px 35px;
+    font-size: 16px;
+    display: block;
+    color: #000;
+    position: relative;
+    
+    &:hover {
+        border-color: #eee;
+    }
+    
+    .icon {
+        position: absolute;
+        left: 10px;
+        top: 13px;
+        color: $green;
+    }
+    
+    .text-icon {
+        display: none;
+    }
+    
+    .ui-icon {
+        position: absolute;
+        right: 10px;
+        top: 13px;
+        cursor: pointer;
+        @include transition(color 0.2s ease);
+        
+        &:hover {
+            color: #000;
+            @include transition(color 0.2s ease);
+        }
+    }
+}
+

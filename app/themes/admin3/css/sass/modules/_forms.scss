@@ -85,65 +85,7 @@ span.required {
         padding: 5px 0;
         color: #000;
     }
-    .categories {
-        margin: 20px 0;
-    }
-    .category-list {
-        margin: 10px 0;
-        padding: 0;
-    }
-    .check-list-item {
-        margin: 10px 0;
-        @include box;
-        padding: 0;
-        font-size: 16px;
-        display: block;
-        color: #ccc;
-        position: relative;
-
-        label {
-            padding: 10px 15px;
-            display: block;
-            cursor: pointer;
-        }
-        input {
-            display: none;
-        }
-        .icon {
-            position: absolute;
-            right: 10px;
-            top: 13px;
-            display: none;
-            color: $green;
-        }
-        &.selected {
-            color: #000;
-            
-            .icon {
-                display: block;
-            }
-        }
-    }
-    #new-category-wrap {
-        input {
-            border: 0;
-            @include box;
-            padding: 10px;
-            width: 240px;
-            margin: 0 0 4px 0;
-        }
-    }
-    a.new-category {
-        font-size: 14px;
-        padding: 8px;
-        border-radius: 1px;
-        border: 1px solid #ddd;
-        background: #fff;
-        color: #999;
-        width: 14px;
-        height: 14px;
-    }
-  
+    
     .input {
         @include box;
         padding: 0;

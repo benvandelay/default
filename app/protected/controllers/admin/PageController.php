@@ -32,7 +32,7 @@ class PageController extends AdminController
     {
         return array(
             array('allow', 
-                'actions'=>array('create','update','delete','index','GetArticlesJson'),
+                'actions'=>array('create','update','delete','index','GetArticlesJson', 'getCategories'),
                 'expression'=>'Yii::app()->user->isLoggedIn()',
             ),
             array('deny'),    
@@ -57,6 +57,24 @@ class PageController extends AdminController
 
     }
     
+    public function actionGetCategories()
+    {
+        
+        $categories = array();
+        
+        $exclude = explode(',', urldecode($_GET['exclude']));
+
+        $limit = (3 + count($exclude));
+        
+        foreach(Category::model()->search($_GET['term'], $limit)->getData() as $i => $data) {
+            $categories[] = $data->name;
+        }
+        
+        $categories = array_splice(array_diff($categories, $exclude), 0, 3);
+
+        echo json_encode(array_values($categories));
+    }
+    
     public function actionUpdate($id)
     {
         $this->title = 'Update Page';
@@ -72,12 +90,13 @@ class PageController extends AdminController
         $this->saveVersion($model);
 
         //get models again after save
-        $model   = $this->loadModel($id);
-        $version = Version::model()->findByPk($model->version);
+        $model      = $this->loadModel($id);
+        $version    = Version::model()->findByPk($model->version);
+        
 
         $this->render('update',array(
-            'model'=>$model,
-            'version'=> $version
+            'model'      => $model,
+            'version'    => $version
         ));
     }
     
@@ -107,14 +126,21 @@ class PageController extends AdminController
         //submissions
         if(isset($_POST['Page']))
         {
-            if(isset($_POST['Page']['new_category'])) 
+            if(isset($_POST['Page']['categories'])) 
             {
-                foreach($_POST['Page']['new_category'] as $i=>$newCategory) 
+                foreach($_POST['Page']['categories'] as $i=>$category) 
                 {
-                    $category = new Category;
-                    $category->name = $newCategory;
-                    $category->save();
-                    $_POST['Page']['categoryIds'][] = $category->id;
+                    //if it already exists
+                    $existingCat = Category::model()->findByAttributes(array('name' => $category));
+                    if($existingCat){
+                        $_POST['Page']['categoryIds'][] = $existingCat->id;
+                    }else{
+                        //if it doesnt exist
+                        $cmodel = new Category;
+                        $cmodel->name = $category;
+                        $cmodel->save();
+                        $_POST['Page']['categoryIds'][] = $cmodel->id;
+                    }
                 }
             }
 

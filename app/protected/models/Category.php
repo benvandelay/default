@@ -40,6 +40,20 @@ class Category extends CActiveRecord
             array('name', 'unique', 'className'=>'Category'),
         );
     }
+    
+    public function search($term, $limit = 10)
+    {
+
+        $criteria=new CDbCriteria;
+        $criteria->compare('name', $term, true);
+        $criteria->limit = $limit;
+
+        
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'pagination' => false,
+        ));
+    }
 
 
 }

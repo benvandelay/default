@@ -61,78 +61,42 @@
         }
     }
     
-    .editor-nav {
-        height: 50px;
-        width: 760px;
-        background: rgba(255,255,255,0.95);
-        position: fixed;
-        top: 0;
-        left: 240px;
-        z-index: 1000;
-        padding: 10px 50px 0 10px;
-        
-        span {
-           padding: 12px 20px 12px 17px;
-           height: 16px;
-           border-radius: 2px;
-           font-size: 12px;
-           font-weight: bold;
-           display: block;
-           float: left;
-           cursor: pointer;
-           color: #666;
-           background: $grey;
-           margin-right: 10px;
-           
-           &:hover {
-              color: #333;
-           }
-           
-           &.active {
-              background: $blue;
-              color: #fff;
-           }
+    .save-status {
+        @include notification();
+        left: 547px;
+        padding: 12px 10px;
+        top: 24px;
+        background: $yellow;
+        cursor: pointer;
+        position: absolute;
+
+        .saved {
+            display: block;
+            
+            em {
+                font-weight: normal;
+            }
+        }
+        .unsaved {
+            display: none;
         }
         
-        .save-status {
-            @include notification();
-            left: 790px;
-            padding: 12px 10px;
-            background: $yellow;
-            cursor: pointer;
-
+        &.unsaved {
+            background: $red;
+            color: #fff;
+            
             .saved {
-                display: block;
-                
-                em {
-                    font-weight: normal;
-                }
+                display: none;
             }
             .unsaved {
-                display: none;
+                display: block;
             }
-            
-            &.unsaved {
-                background: $red;
-                color: #fff;
-                
-                .saved {
-                    display: none;
-                }
-                .unsaved {
-                    display: block;
-                }
-            }
-            
-            &.page-info {
-                display: none;
-            }
-            
-            &:hover {
-                background: $darkyellow;
-            }
-            
         }
+        
+        &:hover {
+            background: $darkyellow;
+        }
+        
     }
     
     .editor {
@@ -141,12 +105,12 @@
         &.page-content {
             padding: 90px 50px 20px 50px;
             background: #fff;
+            position: relative;
         }
         
         &.page-info {
-            display: none;
-            padding-bottom: 80px;
-            padding-top: 80px;
+            padding: 10px 0 0 0;
+            background: #f2f2f2;
             
             &.show {
                 display: block;
@@ -190,4 +154,13 @@
     left: 200px;
 }
 
+.info-buttons {
+    height: 38px;
+    padding: 10px;
+    border-bottom: 3px solid $blue;
+    
+    .btn {
+        float: right;
+    }
+}
 

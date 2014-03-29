@@ -58,7 +58,7 @@ return array(
                     'js' => array('jquery.js', 'jquery.migrate.js'),
                 ),
                 // 'jquery.ui'=>array(
-                    // 'baseUrl'=>'/themes/vice/statics/js/',
+                    // 'baseUrl'=>'/themes/admin3/js/',
                     // 'js' => array('jquery-ui-1.10.3.custom.min.js'),
                 // )
             ),

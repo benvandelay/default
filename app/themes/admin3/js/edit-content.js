@@ -7,25 +7,10 @@ var editContent = (function(){
         init: function(){
 
             self = this;
-            self.toggleView();
             self.uploadify();
             self.redactor();
             self.checkForUpdates();
             
-        },
-
-        toggleView: function(){
-            $('.editor-nav').on('click', 'span', function(){
-                //TODO scroll to top
-                
-                $('.editor-nav span').removeClass('active');
-                $(this).addClass('active');
-                var pane = $('.' + $(this).data('show'));
-                $('.editor').hide();
-                $('.save-status').hide();
-                pane.show();
-            });
-               
         },
         
         redactor: function(){
@@ -47,10 +32,10 @@ var editContent = (function(){
                 pollInterval   : 2000,
                 pollCallback   : function(form, change){
                     if(change){
-                        $('.save-status.page-content').addClass('unsaved');
+                        $('.save-status').addClass('unsaved');
                         form.find('.btn.save').removeClass('disabled');
                     }else{
-                        $('.save-status.page-content').removeClass('unsaved');
+                        $('.save-status').removeClass('unsaved');
                         form.find('.btn.save').addClass('disabled');
                     }
                 },
