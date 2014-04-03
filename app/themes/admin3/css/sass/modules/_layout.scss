@@ -21,9 +21,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 194px;
     z-index: 100;
     background: #222;
+    border-right: 6px solid #000;
     
     ul.submenu {
         padding: 0;
@@ -63,7 +64,7 @@ body {
         li.active {
             
             a {
-                border-bottom: 3px solid #ddd;
+                border-bottom: 2px solid #000;
                 color: #333;
                 background: $background;
                 

@@ -347,15 +347,16 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 194px;
   z-index: 100;
   background: #222;
+  border-right: 6px solid #000;
 }
-/* line 28, ../sass/modules/_layout.scss */
+/* line 29, ../sass/modules/_layout.scss */
 .left-controls ul.submenu {
   padding: 0;
 }
-/* line 33, ../sass/modules/_layout.scss */
+/* line 34, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a {
   font-size: 14px;
   display: block;
@@ -366,7 +367,7 @@ body {
   position: relative;
   height: 20px;
 }
-/* line 43, ../sass/modules/_layout.scss */
+/* line 44, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a .icon, .left-controls ul.submenu li a span {
   color: #dadada;
   position: absolute;
@@ -376,11 +377,11 @@ body {
   left: 0;
   top: 0;
 }
-/* line 52, ../sass/modules/_layout.scss */
+/* line 53, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a:hover {
   background: #171717;
 }
-/* line 56, ../sass/modules/_layout.scss */
+/* line 57, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li a:hover, .left-controls ul.submenu li a:hover .icon, .left-controls ul.submenu li a:hover span {
   color: #fff;
   -webkit-transition: color 0.3s ease;
@@ -388,20 +389,20 @@ body {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
-/* line 65, ../sass/modules/_layout.scss */
+/* line 66, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li.active a {
-  border-bottom: 3px solid #ddd;
+  border-bottom: 2px solid #000;
   color: #333;
   background: #f2f2f2;
 }
-/* line 70, ../sass/modules/_layout.scss */
+/* line 71, ../sass/modules/_layout.scss */
 .left-controls ul.submenu li.active a .icon {
   color: #57ad68;
   border-right: 1px dotted #ddd;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ nav */
-/* line 81, ../sass/modules/_layout.scss */
+/* line 82, ../sass/modules/_layout.scss */
 .main-nav {
   height: 60px;
   width: 200px;
@@ -416,7 +417,7 @@ body {
   -o-transition: height 0.2s ease;
   transition: height 0.2s ease;
 }
-/* line 92, ../sass/modules/_layout.scss */
+/* line 93, ../sass/modules/_layout.scss */
 .main-nav li {
   position: absolute;
   background: #333;
@@ -429,7 +430,7 @@ body {
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 101, ../sass/modules/_layout.scss */
+/* line 102, ../sass/modules/_layout.scss */
 .main-nav li a {
   display: block;
   height: 39px;
@@ -437,7 +438,7 @@ body {
   padding: 20px 0 0 67px;
   color: #eaeaea;
 }
-/* line 108, ../sass/modules/_layout.scss */
+/* line 109, ../sass/modules/_layout.scss */
 .main-nav li a .icon {
   font-size: 20px;
   width: 20px;
@@ -451,34 +452,34 @@ body {
   top: 0;
   left: 0;
 }
-/* line 123, ../sass/modules/_layout.scss */
+/* line 124, ../sass/modules/_layout.scss */
 .main-nav li:hover {
   background: #484848;
 }
-/* line 126, ../sass/modules/_layout.scss */
+/* line 127, ../sass/modules/_layout.scss */
 .main-nav li:hover .icon {
   color: #fff;
 }
-/* line 131, ../sass/modules/_layout.scss */
+/* line 132, ../sass/modules/_layout.scss */
 .main-nav li.active {
   z-index: 1002;
   display: block;
   border-bottom: 0;
   background: #2d6ea3;
 }
-/* line 137, ../sass/modules/_layout.scss */
+/* line 138, ../sass/modules/_layout.scss */
 .main-nav li.active a {
   height: 38px;
   width: 133px;
   padding: 20px 0 0 67px;
 }
-/* line 142, ../sass/modules/_layout.scss */
+/* line 143, ../sass/modules/_layout.scss */
 .main-nav li.active a .icon {
   background: #fff;
   color: #2d6ea3;
 }
 
-/* line 153, ../sass/modules/_layout.scss */
+/* line 154, ../sass/modules/_layout.scss */
 .main-nav.open {
   height: 300px;
   -webkit-transition: height 0.2s ease;
@@ -486,7 +487,7 @@ body {
   -o-transition: height 0.2s ease;
   transition: height 0.2s ease;
 }
-/* line 157, ../sass/modules/_layout.scss */
+/* line 158, ../sass/modules/_layout.scss */
 .main-nav.open li {
   position: absolute;
   top: 0;
@@ -496,28 +497,28 @@ body {
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 163, ../sass/modules/_layout.scss */
+/* line 164, ../sass/modules/_layout.scss */
 .main-nav.open li.dashboard {
   top: 0;
 }
-/* line 166, ../sass/modules/_layout.scss */
+/* line 167, ../sass/modules/_layout.scss */
 .main-nav.open li.setup {
   top: 60px;
 }
-/* line 169, ../sass/modules/_layout.scss */
+/* line 170, ../sass/modules/_layout.scss */
 .main-nav.open li.content {
   top: 120px;
 }
-/* line 172, ../sass/modules/_layout.scss */
+/* line 173, ../sass/modules/_layout.scss */
 .main-nav.open li.messages {
   top: 180px;
 }
-/* line 175, ../sass/modules/_layout.scss */
+/* line 176, ../sass/modules/_layout.scss */
 .main-nav.open li.people {
   top: 240px;
 }
 
-/* line 182, ../sass/modules/_layout.scss */
+/* line 183, ../sass/modules/_layout.scss */
 .login-info {
   background: #141414;
   border-left: 6px solid #2d6ea3;
@@ -531,30 +532,30 @@ body {
   z-index: 20;
 }
 
-/* line 194, ../sass/modules/_layout.scss */
+/* line 195, ../sass/modules/_layout.scss */
 .login-info img {
   margin: 6px 10px 6px 6px;
   border-radius: 3px;
   float: left;
 }
 
-/* line 199, ../sass/modules/_layout.scss */
+/* line 200, ../sass/modules/_layout.scss */
 .login-info a.name {
   display: block;
   color: #999;
   padding-top: 4px;
 }
-/* line 204, ../sass/modules/_layout.scss */
+/* line 205, ../sass/modules/_layout.scss */
 .login-info a.name:hover {
   color: #fff;
 }
 
-/* line 208, ../sass/modules/_layout.scss */
+/* line 209, ../sass/modules/_layout.scss */
 .login-info a.logout {
   color: #666;
 }
 
-/* line 212, ../sass/modules/_layout.scss */
+/* line 213, ../sass/modules/_layout.scss */
 .flash {
   position: fixed;
   width: 240px;
@@ -568,22 +569,22 @@ body {
   font-size: 12px;
   text-align: center;
 }
-/* line 215, ../sass/modules/_layout.scss */
+/* line 216, ../sass/modules/_layout.scss */
 .flash.error {
   background: #f2aeae;
 }
-/* line 219, ../sass/modules/_layout.scss */
+/* line 220, ../sass/modules/_layout.scss */
 .flash.success {
   background: #57ad68;
   color: #fff;
 }
 
-/* line 225, ../sass/modules/_layout.scss */
+/* line 226, ../sass/modules/_layout.scss */
 .page.update .flash {
   left: 790px;
 }
 
-/* line 227, ../sass/modules/_layout.scss */
+/* line 228, ../sass/modules/_layout.scss */
 .error-page {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -599,13 +600,13 @@ body {
 .error-page:hover {
   border-color: #ddd;
 }
-/* line 234, ../sass/modules/_layout.scss */
+/* line 235, ../sass/modules/_layout.scss */
 .error-page h2 {
   font-size: 34px;
   font-weight: bold;
   margin: 0 0 10px 0;
 }
-/* line 240, ../sass/modules/_layout.scss */
+/* line 241, ../sass/modules/_layout.scss */
 .error-page p {
   margin: 20px 0;
 }
