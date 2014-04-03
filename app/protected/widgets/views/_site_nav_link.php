@@ -1,1 +1,0 @@
-<li><?php echo CHtml::link($data->title, array('/'.$data->slug));?></li>
