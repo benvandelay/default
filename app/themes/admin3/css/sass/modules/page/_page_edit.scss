@@ -106,11 +106,18 @@
             padding: 90px 50px 20px 50px;
             background: #fff;
             position: relative;
+            top: 0;
+            border-top: 4px solid #222;
+            @include transition(top 0.2s ease);
         }
         
         &.page-info {
             padding: 10px 0 0 0;
-            background: #f2f2f2;
+            height: 410px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 860px;
             
             &.show {
                 display: block;
@@ -144,20 +151,41 @@
             }
         }
     }
+    
+    &.open-info {
+        .editor.page-content {
+            top: 420px;
+            @include transition(top 0.2s ease);
+        }
+    }
+    
+    .show-edit-info {
+        position: absolute;
+        height: 17px;
+        width: 98px;
+        top: 0;
+        left: 50px;
+        border-radius: 0 0 4px 4px;
+        background: #222;
+        padding: 10px;
+        font-size: 17px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+    }
 }
 
 .white-bg {
-    position: fixed;
+    position: absolute;
     height: 100%;
     background: #fff;
     width: 860px;
-    left: 200px;
+    left: 0;
 }
 
 .info-buttons {
     height: 38px;
     padding: 10px;
-    border-bottom: 3px solid $blue;
     
     .btn {
         float: right;

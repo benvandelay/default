@@ -30,7 +30,7 @@ var editContent = (function(){
         checkForUpdates: function(){
             $('#update-page-form').formChange({
                 pollInterval   : 2000,
-                pollCallback   : function(form, change){
+                updateCallback   : function(form, change){
                     if(change){
                         $('.save-status').addClass('unsaved');
                         form.find('.btn.save').removeClass('disabled');

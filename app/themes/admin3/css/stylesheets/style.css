@@ -879,33 +879,43 @@ body {
   padding: 90px 50px 20px 50px;
   background: #fff;
   position: relative;
+  top: 0;
+  border-top: 4px solid #222;
+  -webkit-transition: top 0.2s ease;
+  -moz-transition: top 0.2s ease;
+  -o-transition: top 0.2s ease;
+  transition: top 0.2s ease;
 }
-/* line 111, ../sass/modules/page/_page_edit.scss */
+/* line 114, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info {
   padding: 10px 0 0 0;
-  background: #f2f2f2;
+  height: 410px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 860px;
 }
-/* line 115, ../sass/modules/page/_page_edit.scss */
+/* line 122, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info.show {
   display: block;
 }
-/* line 119, ../sass/modules/page/_page_edit.scss */
+/* line 126, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .left-col {
   width: 530px;
   float: left;
   padding-left: 40px;
 }
-/* line 125, ../sass/modules/page/_page_edit.scss */
+/* line 132, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .right-col {
   width: 260px;
   float: right;
 }
-/* line 131, ../sass/modules/page/_page_edit.scss */
+/* line 138, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page {
   padding-top: 20px;
   margin: 0 10px 0 50px;
 }
-/* line 135, ../sass/modules/page/_page_edit.scss */
+/* line 142, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page .row.buttons {
   position: relative;
   bottom: auto;
@@ -916,23 +926,45 @@ body {
   padding: 0;
   margin: 20px 0;
 }
+/* line 156, ../sass/modules/page/_page_edit.scss */
+.content-body.open-info .editor.page-content {
+  top: 420px;
+  -webkit-transition: top 0.2s ease;
+  -moz-transition: top 0.2s ease;
+  -o-transition: top 0.2s ease;
+  transition: top 0.2s ease;
+}
+/* line 162, ../sass/modules/page/_page_edit.scss */
+.content-body .show-edit-info {
+  position: absolute;
+  height: 17px;
+  width: 98px;
+  top: 0;
+  left: 50px;
+  border-radius: 0 0 4px 4px;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
 
-/* line 149, ../sass/modules/page/_page_edit.scss */
+/* line 178, ../sass/modules/page/_page_edit.scss */
 .white-bg {
-  position: fixed;
+  position: absolute;
   height: 100%;
   background: #fff;
   width: 860px;
-  left: 200px;
+  left: 0;
 }
 
-/* line 157, ../sass/modules/page/_page_edit.scss */
+/* line 186, ../sass/modules/page/_page_edit.scss */
 .info-buttons {
   height: 38px;
   padding: 10px;
-  border-bottom: 3px solid #2d6ea3;
 }
-/* line 162, ../sass/modules/page/_page_edit.scss */
+/* line 190, ../sass/modules/page/_page_edit.scss */
 .info-buttons .btn {
   float: right;
 }
@@ -1777,6 +1809,11 @@ span.required {
 /* line 237, ../sass/modules/_forms.scss */
 .user-form .status.ready:hover .off {
   display: none;
+}
+
+/* line 244, ../sass/modules/_forms.scss */
+.expandingText {
+  margin: 10px 0;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ modals */

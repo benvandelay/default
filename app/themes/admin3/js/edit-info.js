@@ -12,6 +12,7 @@ var editInfo = (function(){
             newCategoryCount = 0;
             existingTags     = '';
             self.tagit();
+            self.showEditInfo();
         },
         
         createCategoryInput: function(){
@@ -20,6 +21,12 @@ var editInfo = (function(){
             categoryInput.attr('placeholder', 'New Category');
             
             return categoryInput;
+        },
+        
+        showEditInfo: function(){
+            $('.show-edit-info').on('click', function(){
+                $('#content-body').toggleClass('open-info');
+            });
         },
         
         tagit: function(){

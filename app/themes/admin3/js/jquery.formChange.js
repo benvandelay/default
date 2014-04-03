@@ -9,7 +9,7 @@
             
             checkEvent      : 'poll',
             pollInterval    : 1000,
-            pollCallback    : function(){},
+            updateCallback  : function(){},
             submitCallback  : function() {}
         }
         
@@ -25,20 +25,22 @@
                 
                 var poll = setInterval(function(){
                     check();
-                    console.log(changes);
-                    settings.pollCallback(self, changes);
+                    //console.log(changes);
+                    settings.updateCallback(self, changes);
                 }, settings.pollInterval);
                 
             }else if(settings.checkEvent == 'change'){
                 
                 self.find(":input").change(function() {
                     check();
+                    settings.updateCallback(self, changes);
                 });
                 
             }else if(settings.checkEvent == 'keyup') {
                 
                 self.find(":input").on('keyup',function() {
                     check();
+                    settings.updateCallback(self, changes);
                 });
                 
             }
@@ -55,7 +57,7 @@
                     defaultValues[i] = this.value;
             }); 
             
-            console.log(defaultValues);
+            //console.log(defaultValues);
             
         };
         
@@ -65,21 +67,21 @@
             
             self.find('input[type="file"], input[type="text"], input[type="email"], input[type="hidden"], textarea, [contenteditable]').each(function(i){
                 if(this.value != defaultValues[i]){
-                    console.log(this);
+                    //console.log(this);
                     changes = true;
                 }
             });
             
             self.find('input[type="checkbox"]').each(function(){
                 if(this.checked != this.defaultChecked){
-                    console.log(this);
+                    //console.log(this);
                     changes = true;
                 }
             });
             
             self.find('select').each(function(){
                 if(!this.options[this.selectedIndex].defaultSelected){
-                    console.log(this);
+                    //console.log(this);
                     changes = true;
                 }
             });

@@ -8,6 +8,8 @@
 
 <div class="editor page-content">
     
+    <div class="show-edit-info icon icon-pencil"> &nbsp;Edit Page Info</div>
+    
     <div class="save-status">
         <b class="saved">Version <?php echo $version->getCount(); ?> | <em><?php echo StringHelper::toTime($version->date); ?></em></b> 
         <b class="unsaved">Version <?php echo $version->getCount() + 1; ?> | Unsaved</b>
