@@ -1,7 +1,6 @@
 var editInfo = (function(){
 
     var self,
-        newCategoryCount,
         existingTags;
 
     return {
@@ -9,25 +8,11 @@ var editInfo = (function(){
         init: function(){
 
             self             = this;
-            newCategoryCount = 0;
             existingTags     = '';
             self.tagit();
-            self.showEditInfo();
         },
         
-        createCategoryInput: function(){
-            var categoryInput = $('<input type="text" />');
-            categoryInput.attr('name', 'Page[new_category][' + newCategoryCount + ']');
-            categoryInput.attr('placeholder', 'New Category');
-            
-            return categoryInput;
-        },
         
-        showEditInfo: function(){
-            $('.show-edit-info').on('click', function(){
-                $('#content-body').toggleClass('open-info');
-            });
-        },
         
         tagit: function(){
             

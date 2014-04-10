@@ -17,12 +17,7 @@
 
 </head>
 <body class="<?php echo Yii::app()->controller->action->id; ?> <?php echo substr(Yii::app()->controller->id, 6); ?>">
-    <?php
-          foreach(Yii::app()->user->getFlashes() as $key => $message) {
-            echo '<div class="flash '. $key . '">' . $message . "</div>";
-          }
-    ?>
-
+    
     <div class="left-controls">
         <?php $this->widget('zii.widgets.CMenu', 
             array(
@@ -40,6 +35,12 @@
         ?>
         
         <?php $this->widget('AdminSubMenu'); ?>
+        
+        <?php
+            foreach(Yii::app()->user->getFlashes() as $key => $message) {
+                echo '<div class="flash '. $key . '">' . $message . "</div>";
+            }
+        ?>
         
         <div class="login-info">
             <?php echo CHtml::link(CHtml::image(ImageHelper::resize(Yii::app()->user->avatar, 'admin_user', true), Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('width'=>50, 'height'=>50)), array('admin/user/update', 'id'=>Yii::app()->user->id)); ?>

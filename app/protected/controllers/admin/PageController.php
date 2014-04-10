@@ -32,7 +32,7 @@ class PageController extends AdminController
     {
         return array(
             array('allow', 
-                'actions'=>array('create','update','delete','index','GetArticlesJson', 'getCategories'),
+                'actions'=>array('create','update','delete','index','GetArticlesJson', 'getCategories', 'setPublishedVersion'),
                 'expression'=>'Yii::app()->user->isLoggedIn()',
             ),
             array('deny'),    
@@ -75,7 +75,7 @@ class PageController extends AdminController
         echo json_encode(array_values($categories));
     }
     
-    public function actionUpdate($id)
+    public function actionUpdate($id, $version_id = false)
     {
         $this->title = 'Update Page';
         
@@ -91,12 +91,24 @@ class PageController extends AdminController
 
         //get models again after save
         $model      = $this->loadModel($id);
-        $version    = Version::model()->findByPk($model->version);
         
+        //get the version requested here or the most recent version
+        if(!$version_id){
+            //get latest version
+            $version_id = Version::model()->getLatestId($id);
+        }
+        $version = Version::model()->findByPk($version_id);
+        
+        if(!$version || $version->page_id != $id){
+            throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+        }
+        
+        $versions = Version::model()->getIds($id);
 
         $this->render('update',array(
             'model'      => $model,
-            'version'    => $version
+            'version'    => $version,
+            'versions'   => $versions,
         ));
     }
     
@@ -113,6 +125,7 @@ class PageController extends AdminController
                 $model->categories = -1;
                 if($model->save()){
                     Yii::app()->user->setFlash('success', "Page Updated!");
+                    $this->redirect(array($model->id));
                 }
             }
  
@@ -144,11 +157,11 @@ class PageController extends AdminController
                 }
             }
 
-            $originalStatus = $model->status;
+            //$originalStatus = $model->status;
             
             $model->attributes = $_POST['Page'];
 
-            $model->status = Yii::app()->user->isAdmin() ? $model->status : $originalStatus;
+            //$model->status = Yii::app()->user->isAdmin() ? $model->status : $originalStatus;
 
             if(isset($_POST['Page']['categoryIds'])){
                 $model->categories=$_POST['Page']['categoryIds'];
@@ -233,12 +246,27 @@ class PageController extends AdminController
             $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
             $results[$i]['date']   = StringHelper::displayDate($data->date);
             $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;
-            $results[$i]['status'] = $data->status ? ' active' : '';
+            $results[$i]['status'] = $data->published_version ? ' active' : '';
         }
         
         echo CJSON::encode($results);
         
         Yii::app()->end();
+    }
+
+    public function actionSetPublishedVersion()
+    {
+        if(isset($_POST['model']) && isset($_POST['version'])){
+            if($model = $this->loadModel($_POST['model'])){
+                $model->published_version = $_POST['version'];
+                $model->categories = -1;
+                if($model->save()){
+                    echo 1;
+                }else{
+                    echo 0;
+                }
+            }
+        }
     }
 
     /**

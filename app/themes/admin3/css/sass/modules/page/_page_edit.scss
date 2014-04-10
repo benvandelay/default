@@ -1,10 +1,12 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ editor */
+.update.page .content-body {
+    padding-top: 40px;
+}
 .content-body {
     width: 860px;
     position: relative;
     left: 0px;
     margin-left: 200px;
-    padding-top: 0;
     
     .editor-form {
       
@@ -55,78 +57,301 @@
         background: #fff;
         border-top: 2px solid #ddd;
         z-index: 10000;
-
+        
         .save-wrap {
             float: right;
         }
     }
     
-    .save-status {
-        @include notification();
-        left: 547px;
-        padding: 12px 10px;
-        top: 24px;
-        background: $yellow;
-        cursor: pointer;
-        position: absolute;
-
-        .saved {
-            display: block;
-            
-            em {
-                font-weight: normal;
-            }
-        }
-        .unsaved {
-            display: none;
-        }
+    .editor-header {
+        height: 60px;
+        top: 0;
+        position: fixed;
+        width: 860px;
+        left: 200px;
+        background: #fff;
+        margin-bottom: 20px;
+        z-index: 10000;
+        border-bottom: 2px solid $grey;
         
-        &.unsaved {
-            background: $red;
-            color: #fff;
-            
+        .save-status {
+            width: 240px;
+            right: 62px;
+            color: #000;
+            border-radius: 2px;
+            font-size: 12px;
+            text-align: center;
+            padding: 12px 0;
+            top: 10px;
+            background: $yellow;
+            cursor: pointer;
+            position: absolute;
+            font-weight: bold;
+            z-index: 10000;
+    
             .saved {
-                display: none;
+                display: block;
+                
+                em {
+                    font-weight: normal;
+                }
             }
             .unsaved {
-                display: block;
+                display: none;
+            }
+            
+            &.unsaved {
+                background: $red;
+                color: #fff;
+                
+                .saved {
+                    display: none;
+                }
+                .unsaved {
+                    display: block;
+                }
+            }
+            
+            &:hover {
+                background: $darkyellow;
             }
         }
         
-        &:hover {
-            background: $darkyellow;
+        .published-status {
+            position: absolute;
+            right: 10px;
+            top: 9px;
+            cursor: pointer;
+            background: $grey;
+            color: #ccc;
+            border-radius: 2px;
+            @include transition(background 0.2s ease);
+            
+            .icon {
+                border-radius: 2px;
+                display: block;
+                padding: 12px;
+                height: 18px;
+                width: 18px;
+                font-size: 18px;
+                font-weight: bold;
+                float: left;
+                @include transition(color 0.2s ease);
+                display: none;
+            }
+            
+            &.published {
+                background: $green;
+                @include transition(background 0.2s ease);
+                
+                .icon.published {
+                    display: block;
+                    color: #fff;
+                    @include transition(color 0.2s ease);
+                }
+            }
+            
+            &.unpublished {
+                .icon.unpublished {
+                    display: block;
+                }
+            }
+            
+            &:hover {
+                &.published {
+                    background: $grey;
+                    @include transition(background 0.2s ease);
+                    
+                    .icon.published {
+                        display: none;
+                    }
+                    .icon.unpublished {
+                        display: block;
+                    }
+                }
+                
+                &.unpublished {
+                    background: $green;
+                    @include transition(background 0.2s ease);
+                    
+                    .icon.unpublished {
+                        display: none;
+                    }
+                    .icon.published {
+                        display: block;
+                        color: #fff;
+                        @include transition(color 0.2s ease);
+                    }
+                }
+            }
         }
         
+        .buttons {
+            position: absolute;
+            top: 9px;
+            left: 50px;
+            
+            .icon {
+                border-radius: 2px;
+                background: $grey;
+                padding: 12px;
+                height: 18px;
+                width: 18px;
+                font-size: 18px;
+                color: #ccc;
+                font-weight: bold;
+                float: left;
+                margin: 0 10px 0 0;
+                @include transition(color 0.2s ease);
+                
+                &.icon-screen {
+                    background: $lightred;
+                    color: #fff;
+                    @include transition(background 0.2s ease);
+                    
+                    &:hover {
+                        background: $red;
+                        color: #fff;
+                        @include transition(background 0.2s ease);
+                    }
+                }
+                
+                &:hover {
+                    color: #999;
+                    @include transition(color 0.2s ease);
+                }
+                
+                &.active {
+                    background: $blue;
+                    color: #fff;
+                }
+            }
+            
+            .separator {
+                height: 42px;
+                width: 1px;
+                background: #eee;
+                margin: 0 10px 0 0;
+                float: left;
+            }
+            
+        } 
+    }
+    
+    .version-list {
+        @include box();
+        padding: 0 0 10px 0;
+        font-size: 11px;
+        margin: 50px 0 20px 50px;
+        font-weight: normal;
+        display: none;         
+        position: relative;
+        
+        h2 {
+            font-size: 16px;
+            padding-left: 15px;
+            color: #ccc;
+            color: #333;
+            border-radius: 2px 2px 0 0;
+            margin-bottom: 10px;
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+        }
+        
+        .icon {
+            position: absolute;
+            right: 15px;
+            top: 14px;
+            cursor: pointer;
+            color: #999;
+            
+            &:hover {
+                color: #fff;
+            }
+        }
+        
+        a.version {
+            padding: 6px;
+            font-weight: normal;
+            border-radius: 2px;
+            float: left;
+            margin: 3px 10px;
+            width: 169px;
+            color: #999;
+            cursor: pointer;
+            display: block;
+            @include transition(background 0.2s ease);
+            position: relative;
+            
+            i {
+                display: block;
+                font-weight: bold;
+                color: #666;
+            }
+            
+            .icon {
+                position: absolute;
+                right: 6px;
+                top: 6px;
+                color: #000;
+                display: none;
+            }
+            
+            &:hover {
+                i {
+                    color: #000;
+                }
+            }
+            
+            &.active {
+                background: $yellow;
+                
+                i {
+                    color: #000;
+                }
+                
+                .icon {
+                    display: block;
+                }
+            }
+            
+            &.published {
+                i {
+                    color: #000;
+                }
+              
+                background: $green;
+                color: #fff;
+            }
+            
+        }
     }
     
     .editor {
         padding-top: 60px;
         
         &.page-content {
-            padding: 90px 50px 20px 50px;
+            padding: 50px 50px 20px 50px;
             background: #fff;
             position: relative;
             top: 0;
-            border-top: 4px solid #222;
             @include transition(top 0.2s ease);
         }
         
         &.page-info {
-            padding: 10px 0 0 0;
-            height: 410px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            padding: 60px 0 0 0;
             width: 860px;
+            display: none;
             
             &.show {
                 display: block;
             }
             
             .left-col {
-                width: 530px;
+                width: 520px;
                 float: left;
-                padding-left: 40px;
+                padding-left: 50px;
                 
             }
             .right-col {
@@ -150,29 +375,7 @@
                 margin: 20px 0;
             }
         }
-    }
-    
-    &.open-info {
-        .editor.page-content {
-            top: 420px;
-            @include transition(top 0.2s ease);
-        }
-    }
-    
-    .show-edit-info {
-        position: absolute;
-        height: 17px;
-        width: 98px;
-        top: 0;
-        left: 50px;
-        border-radius: 0 0 4px 4px;
-        background: #222;
-        padding: 10px;
-        font-size: 17px;
-        color: #fff;
-        font-size: 12px;
-        font-weight: bold;
-    }
+    }  
 }
 
 .white-bg {

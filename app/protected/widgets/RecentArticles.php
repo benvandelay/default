@@ -14,7 +14,7 @@ class RecentArticles extends CWidget{
         $criteria->addCondition('page_type_id = 2');
         
         $this->dataProvider = new CActiveDataProvider('Page', array(
-            
+
             'criteria'=>$criteria,
             'pagination'=>false,
 
@@ -25,6 +25,5 @@ class RecentArticles extends CWidget{
     
     public function run(){
         $this->render('recentArticles', array('dataProvider'=>$this->dataProvider));
-
     }
 }

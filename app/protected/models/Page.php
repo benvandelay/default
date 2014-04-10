@@ -36,7 +36,7 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('date, status, categories, content, title, user, slug, excerpt, updated', 'safe'),
+            array('date, published_version, categories, content, title, user, slug, excerpt, updated', 'safe'),
             array('title, slug', 'required'),
             array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
@@ -56,7 +56,8 @@ class Page extends CActiveRecord
             'categories'=>array(self::MANY_MANY, 'Category',
                 'page_category(page_id, category_id)','index'=>'id'),
             'author'=>array(self::BELONGS_TO, 'User', 'user'),
-            'content'=>array(self::BELONGS_TO, 'Version', 'version')
+            'content'=>array(self::BELONGS_TO, 'Version', 'version'),
+            'published_content'=>array(self::BELONGS_TO, 'Version', 'published_version')
             
         );
     }
@@ -101,14 +102,11 @@ class Page extends CActiveRecord
     
     public function scopes() {
         return array(
-            'all'=>array(
-                'condition'=>'t.status != 2',
-            ),
             'published'=>array(
-                'condition'=>'t.status = 1',
+                'condition'=>'t.published_version != NULL',
             ),
             'unpublished'=>array(
-                'condition'=>'t.status = 0',
+                'condition'=>'t.published_version IS NULL',
             ),
         );
     }
@@ -124,7 +122,30 @@ class Page extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('title',$this->search,true, 'OR');
-        $criteria->compare('date',$this->search,true, 'OR');
+        $criteria->limit = $limit;
+        $criteria->offset = $this->page * $limit;
+        
+        $sort = new CSort();
+        
+        $sort->defaultOrder = array(
+            'date'=>'id DESC',
+        );
+        
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'pagination' => false,
+            'sort'=>$sort,
+        ));
+    }
+
+    public function frontEndSearch($limit = 10)
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
+
+        $criteria=new CDbCriteria;
+        $criteria->compare('title',$this->search, true, 'OR');
+        $criteria->addCondition('published_version IS NOT NULL');
         $criteria->limit = $limit;
         $criteria->offset = $this->page * $limit;
         

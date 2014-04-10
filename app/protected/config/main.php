@@ -75,8 +75,10 @@ return array(
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				'/admin/page/<id:\d+>/<version_id:\d+>'=>'admin/page/update',
 				'/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',
 				'/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
+				'/admin/page/setPublishedVersion'=>'admin/page/setPublishedVersion',
 				'/admin/message/getMessagesJson/<scope:\w+>'=>'admin/message/getMessagesJson',
 				'/admin/page/create'=>'admin/page/create',
 				'/admin/image/uploadify'=>'admin/image/uploadify',

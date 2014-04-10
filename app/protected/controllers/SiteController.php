@@ -73,7 +73,7 @@ class SiteController extends Controller
         
         $model = $this->loadModelBySlug($slug); 
         
-        Yii::app()->clientScript->registerMetaTag('', 'description');
+        Yii::app()->clientScript->registerMetaTag($model->excerpt, 'description');
         Yii::app()->clientScript->registerMetaTag('', 'keywords');
         
         $this->pageTitle=Yii::app()->name . ' | ' . $model->title;
@@ -86,6 +86,34 @@ class SiteController extends Controller
   
     }
     
+    public function actionGetArticlesJson()
+    {
+        
+          
+        header('Content-type: application/json');
+         
+        $model = new Page;
+        $model->unsetAttributes();  // clear any default values
+
+            $model->search = $_GET['term'];
+            $model->page   = $_GET['page'];
+        
+        $results = array();
+        
+        foreach($model->frontEndSearch()->getData() as $i => $data){
+            //print_r($data->version); exit;
+            $results[$i]['title']  = $data->title;
+            $results[$i]['body']   = StringHelper::getExcerpt($data->published_content->body);
+            $results[$i]['image']  = $data->published_content->image ? ImageHelper::resize($data->published_content->image->filename, 'admin_thumb') : '<div class="blank"></div>';
+            $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
+            $results[$i]['date']   = StringHelper::displayDate($data->date);
+            $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;
+        }
+        
+        echo CJSON::encode($results);
+        
+        Yii::app()->end();
+    }
     
     public function loadModelBySlug($slug)
     {
@@ -108,4 +136,5 @@ class SiteController extends Controller
         Yii::app()->user->setFlash('contact','<b>Thanks!</b> We will get back to you shortly.');
     }
 	
+    
 }

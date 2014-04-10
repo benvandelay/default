@@ -11,7 +11,7 @@
 
     <?php foreach($content as $data): ?>
 
-    <div class="list-item <?php echo $data->status ? 'active' : 'inactive'; ?>">
+    <div class="list-item <?php echo $data->published_version ? 'active' : 'inactive'; ?>">
         <a href="<?php echo CHtml::normalizeUrl(array('admin/page/', 'id' => $data->id)); ?>"><?php echo $data->content->image ? ImageHelper::resize($data->content->image->filename, 'admin_thumb') : '<div class="blank"></div>'; ?></a>
         <a href="<?php echo CHtml::normalizeUrl(array('admin/page/', 'id' => $data->id)); ?>" class="title"><?php echo $data->title; ?></a>
         <div class="date"><?php echo StringHelper::displayDate($data->date); ?></div>

@@ -1,34 +1,4 @@
 /* colors */
-$background: #f2f2f2;
-
-$grey      : #eee;
-$darkgrey  : #999;
-
-$yellow    : #f8f4b1;
-$darkyellow: #f8f28a;
-
-$red       : #df6363;
-$lightred  : #f2aeae;
-$darkred   : #df6363;
-
-$green     : #57ad68;
-$lightgreen: #a3e0af;
-$darkgreen : #48a15a;
-
-$blue      : #2d6ea3;
-$darkblue  : #19598e;
-
-@mixin box(){
-    border-radius: 2px;
-    border-bottom: 2px solid $grey;
-    background: #fff;
-    box-shadow: 1px 1px 1px $grey;
-    padding: 20px;
-    
-    &:hover {
-        border-color: #ddd;
-    }
-}
 @mixin css-triangle($direction: "down", $size: 20px, $color: #000) {
     width: 0;
     height: 0;

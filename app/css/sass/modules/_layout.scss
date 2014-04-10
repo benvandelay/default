@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/book/gotham-book-webfont.eot');
+    src: url('../fonts/gotham/book/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham/book/gotham-book-webfont.woff') format('woff'),
+         url('../fonts/gotham/book/gotham-book-webfont.ttf') format('truetype'),
+         url('../fonts/gotham/book/gotham-book-webfont.svg#GothamRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot');
+    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.woff') format('woff'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.ttf') format('truetype'),
+         url('../fonts/gotham/bold/gotham-bold-webfont.svg#GothamRegular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background: #fff;
+    font-family: 'Gotham';
+}
+
+.wrap {
+    width: 800px;
+    margin: 0 auto;
+}

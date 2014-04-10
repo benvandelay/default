@@ -130,103 +130,178 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 30, ../sass/modules/_icons.scss */
-.icon-image:before {
-  font-family: 'icomoon';
-  content: "\e000";
-}
-
-/* line 34, ../sass/modules/_icons.scss */
-.icon-images:before {
-  font-family: 'icomoon';
-  content: "\e001";
-}
-
-/* line 38, ../sass/modules/_icons.scss */
 .icon-home:before {
-  content: "\e002";
+  content: "\e600";
 }
 
-/* line 41, ../sass/modules/_icons.scss */
+/* line 33, ../sass/modules/_icons.scss */
 .icon-pencil:before {
-  content: "\e003";
+  content: "\e601";
 }
 
-/* line 44, ../sass/modules/_icons.scss */
+/* line 36, ../sass/modules/_icons.scss */
+.icon-image:before {
+  content: "\e602";
+}
+
+/* line 39, ../sass/modules/_icons.scss */
+.icon-images:before {
+  content: "\e603";
+}
+
+/* line 42, ../sass/modules/_icons.scss */
 .icon-file:before {
-  font-family: 'icomoon';
-  content: "\e004";
+  content: "\e604";
+}
+
+/* line 45, ../sass/modules/_icons.scss */
+.icon-screen:before {
+  content: "\e605";
 }
 
 /* line 48, ../sass/modules/_icons.scss */
 .icon-bubbles:before {
-  content: "\e005";
+  content: "\e606";
 }
 
 /* line 51, ../sass/modules/_icons.scss */
+.icon-user:before {
+  content: "\e607";
+}
+
+/* line 54, ../sass/modules/_icons.scss */
 .icon-users:before {
-  content: "\e006";
+  content: "\e608";
 }
 
-/* line 55, ../sass/modules/_icons.scss */
-.icon-close:before,
-.ui-icon-close:before {
-  content: "\e007";
-}
-
-/* line 58, ../sass/modules/_icons.scss */
-.icon-checkmark:before {
-  content: "\e008";
-}
-
-/* line 61, ../sass/modules/_icons.scss */
-.icon-warning:before {
-  content: "\e009";
-}
-
-/* line 64, ../sass/modules/_icons.scss */
-.icon-code:before {
-  content: "\e00a";
-}
-
-/* line 67, ../sass/modules/_icons.scss */
-.icon-menu:before {
-  content: "\e00b";
-}
-
-/* line 70, ../sass/modules/_icons.scss */
-.icon-cog:before {
-  font-family: 'icomoon';
-  content: "\e00c";
-}
-
-/* line 74, ../sass/modules/_icons.scss */
+/* line 57, ../sass/modules/_icons.scss */
 .icon-search:before {
-  content: "\e00d";
+  content: "\e609";
 }
 
-/* line 77, ../sass/modules/_icons.scss */
-.icon-eye-blocked:before {
-  content: "\e00e";
+/* line 60, ../sass/modules/_icons.scss */
+.icon-expand:before {
+  content: "\e60a";
 }
 
-/* line 80, ../sass/modules/_icons.scss */
+/* line 63, ../sass/modules/_icons.scss */
+.icon-wrench:before {
+  content: "\e60b";
+}
+
+/* line 66, ../sass/modules/_icons.scss */
+.icon-cog:before {
+  content: "\e60c";
+}
+
+/* line 69, ../sass/modules/_icons.scss */
+.icon-remove:before {
+  content: "\e60d";
+}
+
+/* line 72, ../sass/modules/_icons.scss */
+.icon-attachment:before {
+  content: "\e60e";
+}
+
+/* line 75, ../sass/modules/_icons.scss */
 .icon-eye:before {
-  content: "\e00f";
+  content: "\e60f";
 }
 
-/* line 83, ../sass/modules/_icons.scss */
+/* line 78, ../sass/modules/_icons.scss */
+.icon-eye-blocked:before {
+  content: "\e610";
+}
+
+/* line 81, ../sass/modules/_icons.scss */
+.icon-star:before {
+  content: "\e611";
+}
+
+/* line 84, ../sass/modules/_icons.scss */
+.icon-warning:before {
+  content: "\e612";
+}
+
+/* line 87, ../sass/modules/_icons.scss */
+.icon-notification:before {
+  content: "\e613";
+}
+
+/* line 90, ../sass/modules/_icons.scss */
 .icon-info:before {
-  content: "\e010";
+  content: "\e614";
 }
 
-/* line 86, ../sass/modules/_icons.scss */
-.icon-move:before {
-  content: "\e011";
+/* line 93, ../sass/modules/_icons.scss */
+.icon-info2:before {
+  content: "\e615";
 }
 
-/* line 89, ../sass/modules/_icons.scss */
+/* line 96, ../sass/modules/_icons.scss */
+.icon-close:before {
+  content: "\e616";
+}
+
+/* line 99, ../sass/modules/_icons.scss */
+.icon-checkmark:before {
+  content: "\e617";
+}
+
+/* line 102, ../sass/modules/_icons.scss */
+.icon-minus:before {
+  content: "\e618";
+}
+
+/* line 105, ../sass/modules/_icons.scss */
 .icon-plus:before {
-  content: "\e012";
+  content: "\e619";
+}
+
+/* line 108, ../sass/modules/_icons.scss */
+.icon-arrow-right:before {
+  content: "\e61a";
+}
+
+/* line 111, ../sass/modules/_icons.scss */
+.icon-arrow-right2:before {
+  content: "\e61b";
+}
+
+/* line 114, ../sass/modules/_icons.scss */
+.icon-code:before {
+  content: "\e61c";
+}
+
+/* line 117, ../sass/modules/_icons.scss */
+.icon-arrow-left:before {
+  content: "\e61d";
+}
+
+/* line 120, ../sass/modules/_icons.scss */
+.icon-arrow-right3:before {
+  content: "\e61e";
+}
+
+/* line 123, ../sass/modules/_icons.scss */
+.icon-arrow-left2:before {
+  content: "\e61f";
+}
+
+/* line 126, ../sass/modules/_icons.scss */
+.icon-arrow-right4:before {
+  content: "\e620";
+}
+
+/* line 129, ../sass/modules/_icons.scss */
+.icon-arrow-left3:before {
+  content: "\e621";
+}
+
+/* line 132, ../sass/modules/_icons.scss */
+.icon-arrow-right5:before {
+  content: "\e622";
 }
 
 /* line 1, ../sass/modules/_general.scss */
@@ -269,16 +344,21 @@ h1 {
 }
 
 /* line 27, ../sass/modules/_general.scss */
+a {
+  cursor: pointer;
+}
+
+/* line 30, ../sass/modules/_general.scss */
 .left {
   float: left;
 }
 
-/* line 30, ../sass/modules/_general.scss */
+/* line 33, ../sass/modules/_general.scss */
 .right {
   float: right;
 }
 
-/* line 33, ../sass/modules/_general.scss */
+/* line 36, ../sass/modules/_general.scss */
 .btn {
   border-radius: 2px;
   padding: 8px 20px;
@@ -291,29 +371,29 @@ h1 {
   -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
-/* line 42, ../sass/modules/_general.scss */
+/* line 45, ../sass/modules/_general.scss */
 .btn.save {
   background: #57ad68;
   color: #fff;
   border-color: #48a15a;
 }
-/* line 47, ../sass/modules/_general.scss */
+/* line 50, ../sass/modules/_general.scss */
 .btn.save:hover {
   background: #48a15a;
 }
-/* line 51, ../sass/modules/_general.scss */
+/* line 54, ../sass/modules/_general.scss */
 .btn.save.disabled {
   background: #eeeeee;
   color: #999;
 }
-/* line 57, ../sass/modules/_general.scss */
+/* line 60, ../sass/modules/_general.scss */
 .btn.cancel {
   color: #333;
   background: transparent;
   border-color: transparent;
   font-size: 12px;
 }
-/* line 64, ../sass/modules/_general.scss */
+/* line 67, ../sass/modules/_general.scss */
 .btn:hover {
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
@@ -407,7 +487,7 @@ body {
   height: 60px;
   width: 200px;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   position: relative;
   letter-spacing: 1px;
   top: 0;
@@ -435,7 +515,7 @@ body {
   display: block;
   height: 39px;
   width: 133px;
-  padding: 20px 0 0 67px;
+  padding: 21px 0 0 67px;
   color: #eaeaea;
 }
 /* line 109, ../sass/modules/_layout.scss */
@@ -471,7 +551,7 @@ body {
 .main-nav li.active a {
   height: 38px;
   width: 133px;
-  padding: 20px 0 0 67px;
+  padding: 21px 0 0 67px;
 }
 /* line 143, ../sass/modules/_layout.scss */
 .main-nav li.active a .icon {
@@ -557,10 +637,10 @@ body {
 
 /* line 213, ../sass/modules/_layout.scss */
 .flash {
-  position: fixed;
-  width: 240px;
-  left: 800px;
-  top: 10px;
+  position: absolute;
+  bottom: 70px;
+  width: 160px;
+  left: 10px;
   padding: 12px 10px;
   color: #000;
   background: #f9f9f9;
@@ -569,22 +649,17 @@ body {
   font-size: 12px;
   text-align: center;
 }
-/* line 216, ../sass/modules/_layout.scss */
+/* line 226, ../sass/modules/_layout.scss */
 .flash.error {
   background: #f2aeae;
 }
-/* line 220, ../sass/modules/_layout.scss */
+/* line 230, ../sass/modules/_layout.scss */
 .flash.success {
   background: #57ad68;
   color: #fff;
 }
 
-/* line 226, ../sass/modules/_layout.scss */
-.page.update .flash {
-  left: 790px;
-}
-
-/* line 228, ../sass/modules/_layout.scss */
+/* line 236, ../sass/modules/_layout.scss */
 .error-page {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -600,13 +675,13 @@ body {
 .error-page:hover {
   border-color: #ddd;
 }
-/* line 235, ../sass/modules/_layout.scss */
+/* line 243, ../sass/modules/_layout.scss */
 .error-page h2 {
   font-size: 34px;
   font-weight: bold;
   margin: 0 0 10px 0;
 }
-/* line 241, ../sass/modules/_layout.scss */
+/* line 249, ../sass/modules/_layout.scss */
 .error-page p {
   margin: 20px 0;
 }
@@ -761,14 +836,18 @@ body {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ editor */
 /* line 2, ../sass/modules/page/_page_edit.scss */
+.update.page .content-body {
+  padding-top: 40px;
+}
+
+/* line 5, ../sass/modules/page/_page_edit.scss */
 .content-body {
   width: 860px;
   position: relative;
   left: 0px;
   margin-left: 200px;
-  padding-top: 0;
 }
-/* line 11, ../sass/modules/page/_page_edit.scss */
+/* line 13, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-form input[type="text"] {
   font-size: 38px;
   border: 0;
@@ -776,7 +855,7 @@ body {
   width: 100%;
   padding: 10px 0;
 }
-/* line 18, ../sass/modules/page/_page_edit.scss */
+/* line 20, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-form textarea.expanding {
   font-size: 38px;
   border: 0;
@@ -784,21 +863,21 @@ body {
   width: 100%;
   padding: 10px 0;
 }
-/* line 26, ../sass/modules/page/_page_edit.scss */
+/* line 28, ../sass/modules/page/_page_edit.scss */
 .content-body .byline {
   font-size: 11px;
   color: #999;
   height: 30px;
   background: #fff;
 }
-/* line 33, ../sass/modules/page/_page_edit.scss */
+/* line 35, ../sass/modules/page/_page_edit.scss */
 .content-body .header-image-wrap {
   width: 758px;
   height: 345px;
   text-align: center;
   position: relative;
 }
-/* line 39, ../sass/modules/page/_page_edit.scss */
+/* line 41, ../sass/modules/page/_page_edit.scss */
 .content-body .header-image-wrap img {
   height: 100%;
   width: auto;
@@ -806,7 +885,7 @@ body {
   top: 0;
   left: 0;
 }
-/* line 48, ../sass/modules/page/_page_edit.scss */
+/* line 50, ../sass/modules/page/_page_edit.scss */
 .content-body .row.buttons {
   position: fixed;
   bottom: 0;
@@ -818,105 +897,357 @@ body {
   border-top: 2px solid #ddd;
   z-index: 10000;
 }
-/* line 59, ../sass/modules/page/_page_edit.scss */
+/* line 61, ../sass/modules/page/_page_edit.scss */
 .content-body .row.buttons .save-wrap {
   float: right;
 }
-/* line 64, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status {
+/* line 66, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header {
+  height: 60px;
+  top: 0;
   position: fixed;
-  width: 240px;
-  left: 800px;
-  top: 10px;
-  padding: 12px 10px;
-  color: #000;
-  background: #f9f9f9;
-  border-radius: 2px;
+  width: 860px;
+  left: 200px;
+  background: #fff;
+  margin-bottom: 20px;
   z-index: 10000;
+  border-bottom: 2px solid #eeeeee;
+}
+/* line 77, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status {
+  width: 240px;
+  right: 62px;
+  color: #000;
+  border-radius: 2px;
   font-size: 12px;
   text-align: center;
-  left: 547px;
-  padding: 12px 10px;
-  top: 24px;
+  padding: 12px 0;
+  top: 10px;
   background: #f8f4b1;
   cursor: pointer;
   position: absolute;
+  font-weight: bold;
+  z-index: 10000;
 }
-/* line 73, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status .saved {
+/* line 92, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status .saved {
   display: block;
 }
-/* line 76, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status .saved em {
+/* line 95, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status .saved em {
   font-weight: normal;
 }
-/* line 80, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status .unsaved {
+/* line 99, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status .unsaved {
   display: none;
 }
-/* line 84, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status.unsaved {
+/* line 103, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status.unsaved {
   background: #df6363;
   color: #fff;
 }
-/* line 88, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status.unsaved .saved {
+/* line 107, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status.unsaved .saved {
   display: none;
 }
-/* line 91, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status.unsaved .unsaved {
+/* line 110, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status.unsaved .unsaved {
   display: block;
 }
-/* line 96, ../sass/modules/page/_page_edit.scss */
-.content-body .save-status:hover {
+/* line 115, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .save-status:hover {
   background: #f8f28a;
 }
-/* line 102, ../sass/modules/page/_page_edit.scss */
+/* line 120, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  cursor: pointer;
+  background: #eeeeee;
+  color: #ccc;
+  border-radius: 2px;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 130, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status .icon {
+  border-radius: 2px;
+  display: block;
+  padding: 12px;
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+  font-weight: bold;
+  float: left;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  display: none;
+}
+/* line 143, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status.published {
+  background: #57ad68;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 147, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status.published .icon.published {
+  display: block;
+  color: #fff;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* line 155, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status.unpublished .icon.unpublished {
+  display: block;
+}
+/* line 161, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.published {
+  background: #eeeeee;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 165, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.published .icon.published {
+  display: none;
+}
+/* line 168, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.published .icon.unpublished {
+  display: block;
+}
+/* line 173, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.unpublished {
+  background: #57ad68;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 177, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.unpublished .icon.unpublished {
+  display: none;
+}
+/* line 180, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.unpublished .icon.published {
+  display: block;
+  color: #fff;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* line 189, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons {
+  position: absolute;
+  top: 9px;
+  left: 50px;
+}
+/* line 194, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .icon {
+  border-radius: 2px;
+  background: #eeeeee;
+  padding: 12px;
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+  color: #ccc;
+  font-weight: bold;
+  float: left;
+  margin: 0 10px 0 0;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* line 207, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .icon.icon-screen {
+  background: #f2aeae;
+  color: #fff;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 212, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .icon.icon-screen:hover {
+  background: #df6363;
+  color: #fff;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 219, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .icon:hover {
+  color: #999;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* line 224, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .icon.active {
+  background: #2d6ea3;
+  color: #fff;
+}
+/* line 230, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .buttons .separator {
+  height: 42px;
+  width: 1px;
+  background: #eee;
+  margin: 0 10px 0 0;
+  float: left;
+}
+/* line 241, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list {
+  border-radius: 2px;
+  border-bottom: 2px solid #eeeeee;
+  background: #fff;
+  box-shadow: 1px 1px 1px #eeeeee;
+  padding: 20px;
+  padding: 0 0 10px 0;
+  font-size: 11px;
+  margin: 50px 0 20px 50px;
+  font-weight: normal;
+  display: none;
+  position: relative;
+}
+/* line 28, ../sass/modules/_mixins.scss */
+.content-body .version-list:hover {
+  border-color: #ddd;
+}
+/* line 250, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list h2 {
+  font-size: 16px;
+  padding-left: 15px;
+  color: #ccc;
+  color: #333;
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 10px;
+  background: #333;
+  color: #fff;
+  padding: 10px 15px;
+}
+/* line 262, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list .icon {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  cursor: pointer;
+  color: #999;
+}
+/* line 269, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list .icon:hover {
+  color: #fff;
+}
+/* line 274, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version {
+  padding: 6px;
+  font-weight: normal;
+  border-radius: 2px;
+  float: left;
+  margin: 3px 10px;
+  width: 169px;
+  color: #999;
+  cursor: pointer;
+  display: block;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  position: relative;
+}
+/* line 287, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version i {
+  display: block;
+  font-weight: bold;
+  color: #666;
+}
+/* line 293, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version .icon {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  color: #000;
+  display: none;
+}
+/* line 302, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version:hover i {
+  color: #000;
+}
+/* line 307, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version.active {
+  background: #f8f4b1;
+}
+/* line 310, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version.active i {
+  color: #000;
+}
+/* line 314, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version.active .icon {
+  display: block;
+}
+/* line 319, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version.published {
+  background: #57ad68;
+  color: #fff;
+}
+/* line 320, ../sass/modules/page/_page_edit.scss */
+.content-body .version-list a.version.published i {
+  color: #000;
+}
+/* line 331, ../sass/modules/page/_page_edit.scss */
 .content-body .editor {
   padding-top: 60px;
 }
-/* line 105, ../sass/modules/page/_page_edit.scss */
+/* line 334, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-content {
-  padding: 90px 50px 20px 50px;
+  padding: 50px 50px 20px 50px;
   background: #fff;
   position: relative;
   top: 0;
-  border-top: 4px solid #222;
   -webkit-transition: top 0.2s ease;
   -moz-transition: top 0.2s ease;
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 114, ../sass/modules/page/_page_edit.scss */
+/* line 342, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info {
-  padding: 10px 0 0 0;
-  height: 410px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 60px 0 0 0;
   width: 860px;
+  display: none;
 }
-/* line 122, ../sass/modules/page/_page_edit.scss */
+/* line 347, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info.show {
   display: block;
 }
-/* line 126, ../sass/modules/page/_page_edit.scss */
+/* line 351, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .left-col {
-  width: 530px;
+  width: 520px;
   float: left;
-  padding-left: 40px;
+  padding-left: 50px;
 }
-/* line 132, ../sass/modules/page/_page_edit.scss */
+/* line 357, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .right-col {
   width: 260px;
   float: right;
 }
-/* line 138, ../sass/modules/page/_page_edit.scss */
+/* line 363, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page {
   padding-top: 20px;
   margin: 0 10px 0 50px;
 }
-/* line 142, ../sass/modules/page/_page_edit.scss */
+/* line 367, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page .row.buttons {
   position: relative;
   bottom: auto;
@@ -927,31 +1258,8 @@ body {
   padding: 0;
   margin: 20px 0;
 }
-/* line 156, ../sass/modules/page/_page_edit.scss */
-.content-body.open-info .editor.page-content {
-  top: 420px;
-  -webkit-transition: top 0.2s ease;
-  -moz-transition: top 0.2s ease;
-  -o-transition: top 0.2s ease;
-  transition: top 0.2s ease;
-}
-/* line 162, ../sass/modules/page/_page_edit.scss */
-.content-body .show-edit-info {
-  position: absolute;
-  height: 17px;
-  width: 98px;
-  top: 0;
-  left: 50px;
-  border-radius: 0 0 4px 4px;
-  background: #222;
-  padding: 10px;
-  font-size: 17px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-}
 
-/* line 178, ../sass/modules/page/_page_edit.scss */
+/* line 381, ../sass/modules/page/_page_edit.scss */
 .white-bg {
   position: absolute;
   height: 100%;
@@ -960,12 +1268,12 @@ body {
   left: 0;
 }
 
-/* line 186, ../sass/modules/page/_page_edit.scss */
+/* line 389, ../sass/modules/page/_page_edit.scss */
 .info-buttons {
   height: 38px;
   padding: 10px;
 }
-/* line 190, ../sass/modules/page/_page_edit.scss */
+/* line 393, ../sass/modules/page/_page_edit.scss */
 .info-buttons .btn {
   float: right;
 }
@@ -1660,7 +1968,7 @@ span.required {
 .user-form .input input,
 .user-form .input textarea {
   padding: 4px 20px 10px 20px;
-  width: 490px;
+  width: 480px;
   border: 0;
   color: #202020;
   font-size: 20px;
