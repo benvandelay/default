@@ -11,7 +11,27 @@ var app = (function(){
             
             self.checkCaptchaBeforeSubmit();
             self.fadeOutFlash();
-
+            
+            $(document).pjax('a', '#response');
+            
+            $(document).on('pjax:send', function() {
+              $('#loader').show();
+              $('#response').hide();
+            });
+            
+            $(document).on('pjax:end', function() {
+              $('body').removeClass('searching');
+              $('#search').val('');
+              search.updateArticles('');
+              $('#loader').hide();
+              $('#response').fadeIn();
+              
+              if($('#blank').length){
+                  $('body').removeClass('open-article');
+              }else{
+                  $('body').addClass('open-article');
+              }
+            });
         },
 
         

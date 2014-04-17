@@ -8,18 +8,20 @@ var search = (function(){
         template,
         loadingText,
         doneText,
+        lastResult,
         mod;
 
     return {
 
         init: function(){
             
-            self      = this;
-            input     = $('input#search');
-            cont      = $('#articles');
-            page      = 0;
-            limit     = 10;
-            endScroll = false;
+            self       = this;
+            input      = $('input#search');
+            cont       = $('#articles');
+            page       = 0;
+            limit      = 5;
+            endScroll  = false;
+            lastResult = false;
             
             loadingText = 'Loading More...';
             doneText    = 'There Are No More Results';
@@ -48,6 +50,12 @@ var search = (function(){
                     self.setMod(e);
                     self.setAutoFocus(e);
                     
+                    if(e.keyCode == 8 && input.val() == ''){
+                        e.preventDefault();
+                        $('body').removeClass('searching');
+                        input.blur();
+                    }
+                    
                 },
                 keyup: function(){
                     
@@ -55,7 +63,7 @@ var search = (function(){
                     
                     searchKeyPressed = setTimeout(function(){
                         self.onKeyUp();
-                    }, 200)
+                    }, 200);
                     
                 }
                 
@@ -97,6 +105,10 @@ var search = (function(){
                     term: term
                 }
             ).done(function(r) {
+                
+                if(lastResult == JSON.stringify(r)) return;
+                
+                lastResult = JSON.stringify(r);
                 
                 endScroll = (r.length < limit);
                 //endScroll = _.isEmpty(r);
@@ -140,6 +152,7 @@ var search = (function(){
         setAutoFocus: function(e){
             if((!$('input').is(':focus') && !$('textarea').is(':focus') && !mod.cmd && !mod.alt) || input.is(':focus')){
                 if((e.keyCode > 47 && e.keyCode < 58) || (e.keyCode > 64 && e.keyCode < 90)) {
+                    $('body').addClass('searching');
                     input.focus();
                 }
             }

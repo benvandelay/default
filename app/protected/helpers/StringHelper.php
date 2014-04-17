@@ -46,5 +46,22 @@ class StringHelper {
         $status = array(0 => 'unread', 1 => 'read', 2 => 'deleted');
         return $status[$id];
     }
+    
+    public static function formatCategories($array){
+        $string = '';
+        
+        if(!empty($array)){
+            
+            $string .= '<span class="categories">';
+            
+            foreach($array as $key => $value){
+                $string .= CHtml::link($value->name, '#');   
+            }
+            
+            $string .= '</span>';
+            
+        }
+        return $string;
+    }
 }
 ?>

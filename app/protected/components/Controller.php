@@ -21,4 +21,14 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
     
+    public function init() {
+        parent::init();
+        
+        $headers = getallheaders();
+
+        if(isset($headers['X-PJAX'])){
+            $this->layout = false;
+        }  
+    
+    }
 }

@@ -1,31 +1,153 @@
-@font-face {
-    font-family: 'Gotham';
-    src: url('../fonts/gotham/book/gotham-book-webfont.eot');
-    src: url('../fonts/gotham/book/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/gotham/book/gotham-book-webfont.woff') format('woff'),
-         url('../fonts/gotham/book/gotham-book-webfont.ttf') format('truetype'),
-         url('../fonts/gotham/book/gotham-book-webfont.svg#GothamRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+h1, h2, h3 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    line-height: 1.3em;
+    color: $c1;
 }
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot');
-    src: url('../fonts/gotham/bold/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/gotham/bold/gotham-bold-webfont.woff') format('woff'),
-         url('../fonts/gotham/bold/gotham-bold-webfont.ttf') format('truetype'),
-         url('../fonts/gotham/bold/gotham-bold-webfont.svg#GothamRegular') format('svg');
-    font-weight: bold;
-    font-style: normal;
+p {
+    line-height: 30px;
+    font-size: 18px;
+    color: $c2;
+    margin: 20px 0;
 }
-
+a { 
+    text-decoration: none;
+    color: $c2; 
+    @include transition(color 0.2s ease);
+    
+    &:hover {
+        color: $linkhover;
+        @include transition(color 0.2s ease);
+    }
+}
 body {
     background: #fff;
-    font-family: 'Gotham';
+    font-family: 'Quattrocento Sans', sans-serif;
+    margin-top: 100px;
 }
 
 .wrap {
+    
+}
+
+#loader {
+    background: #000;
+    position: fixed;
+    left: 280px;
+    top: 20px; 
+}
+
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 79px;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid #f2f2f2;
+    overflow: hidden;
+    
+    .inner {
+        width: 800px;
+        margin: 0 auto;
+        position: relative;
+        
+        
+        .initials {
+            font-family: 'Bilbo Swash Caps', cursive;
+            font-size: 130px;
+            color: #60666a;
+            position: relative;
+            display: block;
+            width: 260px;
+            height: 80px;
+            
+            span {
+                position: absolute;
+                font-weight: normal;
+            }
+            
+            span.b {
+                top: -25px;
+                left: 0;
+            }
+            span.w {
+                top: 0;
+                left: 54px;
+                width: 200px;
+                font-size: 120px;
+            }
+            
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+}
+
+body.open-article {
+    margin: 0;
+    
+    .site-header {
+        width: 280px;
+        height: 60px;
+        
+        .inner {
+            width: 280px;
+            margin: 0;
+            
+            .initials {
+                font-size: 100px;
+                color: #e6eaed;
+                padding: 10px 0;
+                
+                span.w {
+                    left: 40px;
+                    font-size: 90px;
+                }
+            }
+        }
+    }
+}
+
+#search {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 800px;
-    margin: 0 auto;
+    font-size: 40px;
+    color: $c3;
+    height: 39px;
+    border: 0;
+    padding: 20px 0;
+    text-align: center;
+    background: transparent;
+}
+body.searching #search {
+    display: block;
+}
+
+.open-article {
+    #search {
+        width: 280px;
+        font-size: 30px;
+        padding: 10px 0;
+    }
+}
+
+@media only screen and (max-width : 1160px){
+    body.open-article .site-header {
+        width: 100px;
+        
+        .inner {
+            width: 100px;
+            
+            .initials {
+                display: none;
+            }
+        }
+    }
 }

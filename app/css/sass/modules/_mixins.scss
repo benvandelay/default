@@ -7,6 +7,7 @@
     border-bottom: $size solid #{setTriangleColor($direction, "bottom", $color)};
     border-top: $size solid #{setTriangleColor($direction, "top", $color)};
 }
+
 @function setTriangleColor($direction, $side, $color) {
     @if $direction == "left" and $side == "right"
     or  $direction == "right" and $side == "left"
@@ -17,9 +18,17 @@
         @return "transparent";
     }
 }
+
 @mixin transition($transitions...) {
     -webkit-transition: $transitions;
        -moz-transition: $transitions;
          -o-transition: $transitions;
             transition: $transitions;
+}
+
+@mixin opacity ( $value: 0.5 ) {
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity" $value * 100 ")";
+  filter: alpha(opacity= $value * 100 );
+  zoom: 1;
 }

@@ -2,6 +2,15 @@ html{color:#000;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fiel
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display: block;}
 *:focus,a:focus,img:focus,input:focus{outline-style:none;}
 
+//colors
+$c1 : #222528;
+$c2 : #2e3336;
+$c3 : #464c50;
+
+$blue : #5e88a3;
+
+$linkhover: #1f86c7;
+
 
 @import "compass/css3";
 
@@ -10,5 +19,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 
 //layout
 @import "modules/layout";
-
+@import "modules/article_list";
+@import "modules/article";
 //pages

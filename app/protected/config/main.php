@@ -131,9 +131,13 @@ return array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
+                //admin sizes
                 'admin_large' => array('width' => 758, 'height' => 345),
                 'admin_thumb' => array('width' => 40,  'height' => 40),
                 'admin_user'  => array('width' => 260, 'height' => 260),
+                
+                //front-end sizes
+                
             ),
         ),
         'GAVerify'=>'',
