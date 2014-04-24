@@ -20,6 +20,9 @@ a {
         @include transition(color 0.2s ease);
     }
 }
+.clb {
+    clear: both;
+}
 body {
     background: #fff;
     font-family: 'Quattrocento Sans', sans-serif;
@@ -37,6 +40,35 @@ body {
     top: 20px; 
 }
 
+.initials {
+    font-family: 'Bilbo Swash Caps', cursive;
+    font-size: 130px;
+    color: #60666a;
+    position: relative;
+    display: block;
+    width: 260px;
+    height: 80px;
+    
+    span {
+        position: absolute;
+        font-weight: normal;
+    }
+    
+    span.b {
+        top: -25px;
+        left: 0;
+    }
+    span.w {
+        top: 0;
+        left: 54px;
+        width: 200px;
+        font-size: 120px;
+    }
+    
+    &:hover {
+        color: #000;
+    }
+}
 
 .site-header {
     position: fixed;
@@ -52,36 +84,22 @@ body {
     .inner {
         width: 800px;
         margin: 0 auto;
-        position: relative;
+        position: relative; 
         
-        
-        .initials {
-            font-family: 'Bilbo Swash Caps', cursive;
-            font-size: 130px;
-            color: #60666a;
-            position: relative;
-            display: block;
-            width: 260px;
-            height: 80px;
+        .socials {
+            position: absolute;
+            right: 0;
+            top: 26px;
             
-            span {
-                position: absolute;
-                font-weight: normal;
-            }
-            
-            span.b {
-                top: -25px;
-                left: 0;
-            }
-            span.w {
-                top: 0;
-                left: 54px;
-                width: 200px;
-                font-size: 120px;
-            }
-            
-            &:hover {
-                color: #000;
+            a {
+                font-size: 27px;
+                height: 27px;
+                width: 27px;
+                color: #dadada;
+                
+                &:hover {
+                    color: $linkhover;
+                }
             }
         }
     }
@@ -91,21 +109,25 @@ body.open-article {
     margin: 0;
     
     .site-header {
-        width: 280px;
+        width: 240px;
+        margin: 0 20px;
         height: 60px;
+        border-bottom: 1px solid #f2f2f2;
+        background: #fff;
+        z-index: 20000;
         
         .inner {
-            width: 280px;
-            margin: 0;
+            width: 240px;
+            
+            .socials {
+                display: none;
+            }
             
             .initials {
-                font-size: 100px;
-                color: #e6eaed;
-                padding: 10px 0;
+                color: #f2f2f2;
                 
-                span.w {
-                    left: 40px;
-                    font-size: 90px;
+                &:hover {
+                    color: $c3;
                 }
             }
         }
@@ -140,10 +162,11 @@ body.searching #search {
 
 @media only screen and (max-width : 1160px){
     body.open-article .site-header {
-        width: 100px;
+        width: 70px;
+        margin: 0 15px;
         
         .inner {
-            width: 100px;
+            width: 70px;
             
             .initials {
                 display: none;

@@ -26,6 +26,9 @@ var app = (function(){
               $('#loader').hide();
               $('#response').fadeIn();
               
+              $('.article').removeClass('active');
+              $('.article[data-id="'+$('.article-wrap').data('id')+'"]').addClass('active');
+              
               if($('#blank').length){
                   $('body').removeClass('open-article');
               }else{

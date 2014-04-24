@@ -50,7 +50,7 @@ var search = (function(){
                     self.setMod(e);
                     self.setAutoFocus(e);
                     
-                    if(e.keyCode == 8 && input.val() == ''){
+                    if(e.keyCode == 8 && input.val() == '' && input.is(':focus')){
                         e.preventDefault();
                         $('body').removeClass('searching');
                         input.blur();

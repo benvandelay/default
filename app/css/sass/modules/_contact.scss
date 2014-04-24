@@ -1,0 +1,38 @@
+.contact-wrap {
+    margin: 0 0 0 280px;
+    position: relative;
+    background: #fff;
+    z-index: 300;
+    overflow: hidden;
+    
+    
+    .inner {
+        width: 600px;
+        padding: 40px 40px;
+        margin: 0 auto;
+    }
+}
+
+/* ~ Forms ~ */
+
+.input {
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 20px;
+    
+    input,
+    textarea {
+        border: 0;
+        border: 0;
+        padding: 10px 0;
+    }
+    
+    label {
+        color: #ccc;
+    }
+}
+.errorMessage {
+    padding: 10px 0;
+    font-size: 13px;
+    color: #FF3636;
+}

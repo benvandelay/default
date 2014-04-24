@@ -41,20 +41,20 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{   
-		$contactModel=new Contact;
-		if(isset($_POST['Contact']))
+		$model = new Message;
+		if(isset($_POST['Message']))
 		{
-			$contactModel->attributes=$_POST['Contact'];
-			if($contactModel->validate())
+			$model->attributes=$_POST['Message'];
+			if($model->validate())
 			{
-			    $contactModel->save();
-				$this->sendContactEmail($contactModel);
+			    $model->save();
+				$this->sendContactEmail($model);
 				$this->refresh();
 			}
 		}
 		$this->render('contact',
 		  array(
-		      'contactModel'=>$contactModel,
+		      'model'=>$model,
           )
         );
 	}
@@ -102,6 +102,7 @@ class SiteController extends Controller
         
         foreach($model->frontEndSearch(5)->getData() as $i => $data){
             //print_r($data->version); exit;
+            $results[$i]['id']         = $data->id;
             $results[$i]['title']      = $data->title;
             $results[$i]['body']       = StringHelper::getExcerpt($data->published_content->body);
             $results[$i]['image']      = $data->published_content->image ? ImageHelper::resize($data->published_content->image->filename, 'admin_user') : '<div class="blank"></div>';

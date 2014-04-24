@@ -15,17 +15,48 @@
             height: 220px;
             padding: 40px 20px 20px 300px;
             border-radius: 2px;
-            @include transition(background 0.2s ease);
             
-            img {
+            .overlay {
                 width: 240px;
-                height: auto;
+                height: 240px;
+                position: absolute;
+                top: 20px;
+                border-radius: 2px;
+                left: 20px;
+                background: rgba(0,0,0,0.7);
+                @include opacity(0);
+                @include transition(opacity 0.2s ease);
+                z-index: 20;
+                
+                .icon {
+                    font-size: 60px;
+                    height: 60px;
+                    width: 60px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin: -30px 0 0 -30px;
+                    color: #fff;
+                    z-index: 21;
+                    opacity: 0.7; 
+                }
+                
+            }
+            
+            img,
+            .blank {
+                width: 240px;
+                height: 240px;
                 position: absolute;
                 top: 20px;
                 border-radius: 2px;
                 left: 20px;
                 @include opacity(0.9);
                 @include transition(opacity 0.2s ease);
+            }
+            
+            .blank {
+                background: #ccc;
             }
             
             h1 {
@@ -39,11 +70,13 @@
                 line-height: 23px;
             }
             
+            .small-date {
+                display: none;
+            }
+            
             &:hover {
-                background: #f2f2f2;
-                @include transition(background 0.2s ease);
                 
-                img {
+                .overlay {
                     @include opacity(1);
                     @include transition(opacity 0.2s ease);
                 }
@@ -96,10 +129,11 @@ body.open-article {
     .article-list {
         position: fixed;
         top: 0;
-        padding-top: 62px;
+        padding-top: 60px;
         left: 0;
         height: 100%;
         width: 300px; 
+        z-index: 2000;
         overflow-y: scroll;
         overflow-x: hidden;
         -webkit-box-sizing: border-box;
@@ -123,8 +157,24 @@ body.open-article {
                     padding: 10px 10px 10px 100px;
                     border-radius: 0;
                     
-                    img {
+                    .overlay {
                         width: 70px;
+                        height: 70px;
+                        top: 10px;
+                        left: 10px;
+                        
+                        .icon {
+                            font-size: 20px;
+                            height: 20px;
+                            width: 20px;
+                            margin: -12px 0 0 -12px;
+                        }
+                    }
+                    
+                    img,
+                    .blank {
+                        width: 70px;
+                        height: 70px;
                         top: 10px;
                         left: 10px;
                     }
@@ -132,11 +182,18 @@ body.open-article {
                     h1 {
                         font-size: 14px;
                         margin: 0;
-                        color: #999;
+                        color: #666;
                     }
                     
                     p {
                         display: none;
+                    }
+                    
+                    .small-date {
+                        display: block;
+                        font-size: 12px;
+                        color: #999;
+                        margin: 8px 0;
                     }
                     
                     &:hover {
@@ -150,6 +207,13 @@ body.open-article {
                 .head {
                     display: none;
                 }
+                
+                &.active {
+                    a.main {
+                        background: #f2f2f2;
+                        border-radius: 2px;
+                    }
+                }
             }
         }
         
@@ -161,11 +225,7 @@ body.open-article {
         }
         
         .loading {
-            padding: 20px;
-            font-size: 12px;
-            width: 200px;
-            color: $c3;
-            margin: 20px 40px 20px 20px;
+            display: none;
         }
     }
 }
@@ -187,9 +247,10 @@ body.open-article {
                         padding: 10px;
                         margin: 5px;
                         
-                        h1 {
+                        h1, .date {
                             display: none;
                         }
+                        
                     }
                     
                     .head {

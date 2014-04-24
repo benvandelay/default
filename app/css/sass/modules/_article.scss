@@ -5,7 +5,8 @@
     position: relative;
     background: #fff;
     z-index: 300;
-    
+    overflow: hidden;
+
     img {
         width: 100%;
         height: auto;
@@ -28,6 +29,41 @@
         h1 {
             font-size: 40px;
             margin: 0 0 40px 0;
+        }
+    }
+    
+    .article-footer {
+        margin: 60px 0;
+        border-top: 1px solid #dadada;
+        padding: 60px 0 0 0;
+        width: 800px;
+        margin: 60px auto;
+        font-size: 14px;
+        color: $c3; 
+        
+        .text {
+            float: left;
+            
+            span {
+                color: #999;
+            }
+        }
+        
+        .socials {
+            float: right;
+            
+            .icon {
+                width: 18px;
+                height: 18px;
+                font-size: 18px;
+                margin-left: 6px;
+            }
+        }
+    }
+    
+    &.no-image {
+        .editor-content {
+            margin-top: 40px;
         }
     }
 }
@@ -54,5 +90,10 @@
                 font-size: 30px;
             }
         }
-  }
+        
+        .article-footer {
+            width: auto;
+            margin: 30px 40px;
+        }
+    }
 }
