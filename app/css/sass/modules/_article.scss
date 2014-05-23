@@ -1,23 +1,18 @@
 .article-wrap {
-    margin: 0 0 0 280px;
-    max-width: 100%;
-    min-width: 300px;
-    position: relative;
-    background: #fff;
-    z-index: 300;
-    overflow: hidden;
+    margin: 100px auto;
+    width: 800px;
 
     img {
-        width: 100%;
+        width: 800px;
         height: auto;
         display: block;
+        border-radius: 2px;
     }
     .editor-content {
-        padding: 20px 40px;
+        padding: 40px 0;
         margin: 0 auto;
         border-radius: 3px 3px 0 0;
         width: 800px;
-        margin-top: -40px;
         background: #fff;
         position: relative;
         color: #343434;
@@ -70,30 +65,47 @@
 
 @media only screen and (max-width : 1160px){
     .article-wrap {
-        margin: 0 0 0 100px;
-    }
-}
-
-@media only screen and (max-width : 970px){
-  .article-wrap {
-
-      .editor-content {
-            margin-top: 0;
-            width: auto;
-            background: transparent;
+        margin: 80px 0 0 0;
+        width: 100%;
+        
+        img {
+          width: 100%;
+          border-radius: 0;
+        }
+        
+        .editor-content {
+            margin-top: -40px;
+            padding: 20px 40px;
             
-            p {
-                font-size: 16px;
+            .date {
+                font-size: 12px;
             }
       
             h1 {
-                font-size: 30px;
+                font-size: 40px;
+                margin: 0 0 40px 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 895px){
+    .article-wrap {
+        
+        .editor-content {
+            width: auto;
+            margin: 0;
+            padding: 20px;
+            
+            h1 {
+                font-size: 28px;
             }
         }
         
         .article-footer {
             width: auto;
-            margin: 30px 40px;
+            padding: 40px 20px;
+            margin: 0;
         }
     }
 }

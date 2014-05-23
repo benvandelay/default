@@ -40,36 +40,6 @@ body {
     top: 20px; 
 }
 
-.initials {
-    font-family: 'Bilbo Swash Caps', cursive;
-    font-size: 130px;
-    color: #60666a;
-    position: relative;
-    display: block;
-    width: 260px;
-    height: 80px;
-    
-    span {
-        position: absolute;
-        font-weight: normal;
-    }
-    
-    span.b {
-        top: -25px;
-        left: 0;
-    }
-    span.w {
-        top: 0;
-        left: 54px;
-        width: 200px;
-        font-size: 120px;
-    }
-    
-    &:hover {
-        color: #000;
-    }
-}
-
 .site-header {
     position: fixed;
     top: 0;
@@ -84,7 +54,21 @@ body {
     .inner {
         width: 800px;
         margin: 0 auto;
-        position: relative; 
+        position: relative;
+       
+        .ben {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            color: #fff;
+            background: $c3;
+            display: block;
+            padding: 10px;
+            font-family: 'Asap', sans-serif;
+            font-size: 14px;
+            border-radius: 2px;
+            -webkit-font-smoothing: antialiased;
+        }
         
         .socials {
             position: absolute;
@@ -107,31 +91,6 @@ body {
 
 body.open-article {
     margin: 0;
-    
-    .site-header {
-        width: 240px;
-        margin: 0 20px;
-        height: 60px;
-        border-bottom: 1px solid #f2f2f2;
-        background: #fff;
-        z-index: 20000;
-        
-        .inner {
-            width: 240px;
-            
-            .socials {
-                display: none;
-            }
-            
-            .initials {
-                color: #f2f2f2;
-                
-                &:hover {
-                    color: $c3;
-                }
-            }
-        }
-    }
 }
 
 #search {
@@ -152,24 +111,19 @@ body.searching #search {
     display: block;
 }
 
-.open-article {
-    #search {
-        width: 280px;
-        font-size: 30px;
-        padding: 10px 0;
-    }
-}
 
-@media only screen and (max-width : 1160px){
-    body.open-article .site-header {
-        width: 70px;
-        margin: 0 15px;
+@media only screen and (max-width : 880px){
+    .site-header {
         
         .inner {
-            width: 70px;
+            width: 100%;
+           
+            .ben {
+                left: 20px;
+            }
             
-            .initials {
-                display: none;
+            .socials {
+                right: 20px;
             }
         }
     }

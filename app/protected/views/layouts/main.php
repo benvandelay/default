@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title><?php echo $this->pageTitle; ?></title>
         
-        <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Asap:700|Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Asap:700|Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
         
         <?php
             //styles
@@ -25,8 +25,11 @@
             
             <div class="site-header">
                 <div class="inner">
+                    
+                    <a href="/" class="ben">Benjamin Walker</a>
+                    
                     <input id="search" type="text" autocomplete="off" />
-                    <a href="/" class="initials"><span class="b">B</span><span class="w">W</span></span></a>
+                    
                     <div class="socials">
                         <a href="http://www.facebook.com/benvandelay" target="_blank" class="icon icon-facebook"></a>
                         <a href="http://www.github.com/benvandelay" target="_blank" class="icon icon-github"></a>
