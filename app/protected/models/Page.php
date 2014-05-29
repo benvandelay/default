@@ -3,7 +3,7 @@ class Page extends CActiveRecord
 {
     public $search;
     public $page = 0;
-    public $categoryIds;
+    public $categoryIds = false;
     
     /**
      * Returns the static model of the specified AR class.
@@ -145,7 +145,14 @@ class Page extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('title',$this->search, true, 'OR');
-        $criteria->addCondition('published_version IS NOT NULL');
+        $criteria->addCondition('t.published_version IS NOT NULL');
+        
+        if($this->categoryIds){
+            $criteria->with = array('categories', 'categories.pages');
+            $criteria->together = true;
+            $criteria->addInCondition('categories.id', $this->categoryIds);
+        }
+        
         $criteria->limit = $limit;
         $criteria->offset = $this->page * $limit;
         

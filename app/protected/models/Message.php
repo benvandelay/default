@@ -27,14 +27,14 @@ class Message extends CActiveRecord
 		return array(
 			// name, email, subject and body are required
 
-			array('name', 'required', 'message'=>'You must have at least a first name to talk to me', 'on'=>'insert'),
+			array('name', 'required', 'message'=>'You must have at least a first name', 'on'=>'insert'),
 			array('email', 'required', 'message'=>'How am I supposed to reach you? ESP?', 'on'=>'insert'),
 			array('body', 'required', 'message'=>'Nothing to say? Nothing at all?', 'on'=>'insert'),
 			// email has to be a valid email address
 			array('email', 'email', 'message'=>'You and I both know that\'s not a valid email address', 'on'=>'insert'),
 			array('phone','match','pattern'=>'^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$^', 'message'=>'umm... that\'s not a phone number..', 'on'=>'insert'),
 			// verifyCode needs to be entered correctly
-			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(), 'on'=>'insert'),
+			//array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(), 'on'=>'insert'),
 			
 		);
 	}

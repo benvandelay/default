@@ -9,10 +9,13 @@ var app = (function(){
             self = this;
             valid = [];// for validators
             
-            self.checkCaptchaBeforeSubmit();
-            self.fadeOutFlash();
+            //self.checkCaptchaBeforeSubmit();
+            self.wrapCode();
             
-            $(document).pjax('a', '#response');
+            self.fadeOutFlash();
+            //self.navFlair();
+            
+            $(document).pjax('.site-header a, .article-list a, .article-wrap A', '#response');
             
             $(document).on('pjax:send', function() {
               $('#loader').show();
@@ -28,6 +31,7 @@ var app = (function(){
               
               $('.article').removeClass('active');
               $('.article[data-id="'+$('.article-wrap').data('id')+'"]').addClass('active');
+              self.wrapCode();
               
               if($('#blank').length){
                   $('body').removeClass('open-article');
@@ -37,6 +41,12 @@ var app = (function(){
             });
         },
 
+        wrapCode: function(){
+            if($('pre').length){
+                $('pre').wrapInner('<code></code>');
+                Prism.highlightAll();
+            }
+        },
         
         afterValidateAttribute: function(form, attribute, data, hasError) {
 
@@ -49,7 +59,10 @@ var app = (function(){
             }
 
             if(valid['name'] && valid['email'] && valid['body']) {
-                $('.captcha').slideDown('fast');
+                //$('.captcha').slideDown('fast');
+                $('form#contact-form input[type=submit]').on('click', function(){
+                    $('input[name="pen15"]').val('pass');
+                });
             }
 
         },
@@ -66,6 +79,22 @@ var app = (function(){
             if($('.flash').length > 0){
                 setTimeout(function(){ $('.flash').fadeOut('slow')}, 10000);
             }
+        },
+        
+        navFlair: function(){
+            $('.ben').on({
+                'mouseenter' : function(){
+                    $('.categories li').stop().hide();
+                    $('.categories li').each(function(i){
+                        $(this).delay(i * 30).fadeIn(200);
+                    });
+                }, 
+                'mouseleave': function(){
+                    $('.categories li').stop();
+                     $($('.categories li').get().reverse()).each(function(i){
+                        $(this).delay(i * 30).fadeOut(200);
+                    });
+                }});
         }
 
 

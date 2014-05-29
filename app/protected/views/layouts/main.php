@@ -12,11 +12,14 @@
             
             //scripts
             Yii::app()->clientScript->registerCoreScript('jquery');
+            Yii::app()->clientScript->registerCoreScript('yiiactiveform');
             Yii::app()->clientScript->registerScriptFile('/js/underscore.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile('/js/jquery.pjax.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile('/js/search.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile('/js/app.js', CClientScript::POS_HEAD);
+            
         ?>
+        <script src='/js/prism.js' data-manual></script>
     
     </head>
     <body class="<?php echo $this->action->id == 'page' ? 'open-article' : ''; ?>">
@@ -26,7 +29,17 @@
             <div class="site-header">
                 <div class="inner">
                     
-                    <a href="/" class="ben">Benjamin Walker</a>
+                    <div class="ben">
+                        <span class="icon icon-arrow-right"></span>
+                        <span class="icon icon-arrow-down"></span> 
+                        <a href="/">Benjamin Walker</a>
+                        
+                        <ul class="categories">
+                            <?php foreach(CHtml::listData(PageCategory::model()->findAll(array('group'=>'t.category_id', 'distinct'=>true)), 'category_id', 'category.name') as $id => $category): ?>
+                                <li data-id="<?php echo $id; ?>" ><?php echo $category; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                     
                     <input id="search" type="text" autocomplete="off" />
                     

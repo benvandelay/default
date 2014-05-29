@@ -4,12 +4,14 @@ var search = (function(){
         input,
         cont,
         page,
+        categories,
         endScroll,
         template,
         loadingText,
         doneText,
         lastResult,
-        mod;
+        mod,
+        isFocused;
 
     return {
 
@@ -22,6 +24,7 @@ var search = (function(){
             limit      = 5;
             endScroll  = false;
             lastResult = false;
+            categories = [];
             
             loadingText = 'Loading More...';
             doneText    = 'There Are No More Results';
@@ -32,6 +35,7 @@ var search = (function(){
             
             mod       = {cmd : false, alt : false};
             
+            self.setUpCategories();
             self.updateArticles('');
             self.setupSearch();
             self.updateArticlesOnScroll();
@@ -48,7 +52,7 @@ var search = (function(){
                     
                     clearTimeout(searchKeyPressed);
                     self.setMod(e);
-                    self.setAutoFocus(e);
+                    isFocused = self.setAutoFocus(e);
                     
                     if(e.keyCode == 8 && input.val() == '' && input.is(':focus')){
                         e.preventDefault();
@@ -59,11 +63,13 @@ var search = (function(){
                 },
                 keyup: function(){
                     
-                    self.setMod(false);
+                    if(isFocused){
+                        self.setMod(false);
                     
-                    searchKeyPressed = setTimeout(function(){
-                        self.onKeyUp();
-                    }, 200);
+                        searchKeyPressed = setTimeout(function(){
+                            self.onKeyUp();
+                        }, 200);
+                    }
                     
                 }
                 
@@ -102,7 +108,8 @@ var search = (function(){
             $.getJSON('/site/getArticlesJson', 
                 {
                     page: page,
-                    term: term
+                    term: term,
+                    categories: categories
                 }
             ).done(function(r) {
                 
@@ -133,6 +140,28 @@ var search = (function(){
                 });
         },
         
+        setUpCategories: function(){
+            $('.ben a').on('click', function(){
+                categories = [];
+                $('.categories li').removeClass('active');
+                page = 0;
+                self.updateArticles(input.val());
+            });
+            $('.categories li').on('click', function(){
+                if($(this).hasClass('active')){
+                    delete categories[categories.indexOf($(this).data('id'))];
+                    $(this).removeClass('active');
+                } else {
+                    categories.push($(this).data('id'));
+                    $(this).addClass('active');
+                }
+                
+                
+                
+                page = 0;
+                self.updateArticles(input.val());
+            });    
+        },
         
         
         setMod: function(e){
@@ -154,6 +183,7 @@ var search = (function(){
                 if((e.keyCode > 47 && e.keyCode < 58) || (e.keyCode > 64 && e.keyCode < 90)) {
                     $('body').addClass('searching');
                     input.focus();
+                    return true;
                 }
             }
             

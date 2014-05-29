@@ -21,5 +21,14 @@ class PageCategory extends CActiveRecord
     {
         return 'page_category';
     }
+    
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+             'category'=>array(self::BELONGS_TO, 'Category', 'category_id')
+        );
+    }
 
 }

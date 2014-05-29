@@ -49,7 +49,6 @@ body {
     width: 100%;
     background: rgba(255,255,255,0.95);
     border-bottom: 1px solid #f2f2f2;
-    overflow: hidden;
     
     .inner {
         width: 800px;
@@ -61,13 +60,75 @@ body {
             left: 0;
             top: 20px;
             color: #fff;
-            background: $c3;
+            background: $c1;
             display: block;
-            padding: 10px;
+            padding: 10px 0 10px 35px;
             font-family: 'Asap', sans-serif;
             font-size: 14px;
             border-radius: 2px;
             -webkit-font-smoothing: antialiased;
+            
+            a {
+                color: #fff;
+                z-index: 11;
+                position: relative;
+                padding: 10px;
+            }
+            
+            span {
+                cursor: pointer;
+                color: #fff;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: $c3;
+                padding: 12px;
+                border-radius: 2px 0 0 2px;
+                font-size: 14px;
+                z-index: 11;
+                
+                &.icon-arrow-down { display: none; }
+            }
+            
+            .categories {
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0px;
+                z-index: 10;
+                border-radius: 2px;
+                background: $c1;
+                display: none;
+                padding-top: 36px;
+                
+                li {
+                    color: #fff;
+                    width: 142px;
+                    display: block;
+                    padding: 10px;
+                    font-family: 'Asap', sans-serif;
+                    font-size: 14px;
+                    -webkit-font-smoothing: antialiased;
+                    cursor: pointer;
+                    @include transition(background 0.2s ease); 
+                    border-radius: 0 0 2px 2px;
+                    //display: none;
+                    
+                    &:hover, 
+                    &.active {
+                        background: $c3;
+                        @include transition(background 0.2s ease); 
+                    }
+                }
+            }
+            
+            //dropdown
+            &:hover {
+                span.icon-arrow-down { display: block; }
+                span.icon-arrow-right { display: none; }
+                
+                .categories { display: block; }
+            }
         }
         
         .socials {
@@ -110,7 +171,6 @@ body.open-article {
 body.searching #search {
     display: block;
 }
-
 
 @media only screen and (max-width : 880px){
     .site-header {

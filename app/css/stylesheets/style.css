@@ -129,91 +129,111 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 32, ../sass/modules/_icons.scss */
+.icon-arrow-down:before {
+  content: "\e613";
+}
+
+/* line 35, ../sass/modules/_icons.scss */
+.icon-arrow-up:before {
+  content: "\e614";
+}
+
+/* line 38, ../sass/modules/_icons.scss */
 .icon-arrow-right:before {
   content: "\e60c";
 }
 
-/* line 35, ../sass/modules/_icons.scss */
+/* line 41, ../sass/modules/_icons.scss */
 .icon-arrow-left2:before {
   content: "\e60d";
 }
 
-/* line 38, ../sass/modules/_icons.scss */
+/* line 44, ../sass/modules/_icons.scss */
+.icon-arrow-down2:before {
+  content: "\e615";
+}
+
+/* line 47, ../sass/modules/_icons.scss */
+.icon-arrow-up2:before {
+  content: "\e616";
+}
+
+/* line 50, ../sass/modules/_icons.scss */
 .icon-arrow-right2:before {
   content: "\e60e";
 }
 
-/* line 41, ../sass/modules/_icons.scss */
+/* line 53, ../sass/modules/_icons.scss */
 .icon-vimeo:before {
   content: "\e600";
 }
 
-/* line 44, ../sass/modules/_icons.scss */
+/* line 56, ../sass/modules/_icons.scss */
 .icon-twitter:before {
   content: "\e601";
 }
 
-/* line 47, ../sass/modules/_icons.scss */
+/* line 59, ../sass/modules/_icons.scss */
 .icon-facebook:before {
   content: "\e602";
 }
 
-/* line 50, ../sass/modules/_icons.scss */
+/* line 62, ../sass/modules/_icons.scss */
 .icon-googleplus:before {
   content: "\e603";
 }
 
-/* line 53, ../sass/modules/_icons.scss */
+/* line 65, ../sass/modules/_icons.scss */
 .icon-pinterest:before {
   content: "\e604";
 }
 
-/* line 56, ../sass/modules/_icons.scss */
+/* line 68, ../sass/modules/_icons.scss */
 .icon-tumblr:before {
   content: "\e605";
 }
 
-/* line 59, ../sass/modules/_icons.scss */
+/* line 71, ../sass/modules/_icons.scss */
 .icon-linkedin:before {
   content: "\e606";
 }
 
-/* line 62, ../sass/modules/_icons.scss */
+/* line 74, ../sass/modules/_icons.scss */
 .icon-soundcloud:before {
   content: "\e60f";
 }
 
-/* line 65, ../sass/modules/_icons.scss */
+/* line 77, ../sass/modules/_icons.scss */
 .icon-home:before {
   content: "\e607";
 }
 
-/* line 68, ../sass/modules/_icons.scss */
+/* line 80, ../sass/modules/_icons.scss */
 .icon-search:before {
   content: "\e608";
 }
 
-/* line 71, ../sass/modules/_icons.scss */
+/* line 83, ../sass/modules/_icons.scss */
 .icon-eye:before {
   content: "\e609";
 }
 
-/* line 74, ../sass/modules/_icons.scss */
+/* line 86, ../sass/modules/_icons.scss */
 .icon-close:before {
   content: "\e610";
 }
 
-/* line 77, ../sass/modules/_icons.scss */
+/* line 89, ../sass/modules/_icons.scss */
 .icon-checkmark:before {
   content: "\e611";
 }
 
-/* line 80, ../sass/modules/_icons.scss */
+/* line 92, ../sass/modules/_icons.scss */
 .icon-play:before {
   content: "\e612";
 }
 
-/* line 83, ../sass/modules/_icons.scss */
+/* line 95, ../sass/modules/_icons.scss */
 .icon-github:before {
   content: "\e60a";
 }
@@ -282,52 +302,123 @@ body {
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #f2f2f2;
-  overflow: hidden;
 }
-/* line 54, ../sass/modules/_layout.scss */
+/* line 53, ../sass/modules/_layout.scss */
 .site-header .inner {
   width: 800px;
   margin: 0 auto;
   position: relative;
 }
-/* line 59, ../sass/modules/_layout.scss */
+/* line 58, ../sass/modules/_layout.scss */
 .site-header .inner .ben {
   position: absolute;
   left: 0;
   top: 20px;
   color: #fff;
-  background: #464c50;
+  background: #222528;
   display: block;
-  padding: 10px;
+  padding: 10px 0 10px 35px;
   font-family: 'Asap', sans-serif;
   font-size: 14px;
   border-radius: 2px;
   -webkit-font-smoothing: antialiased;
 }
-/* line 73, ../sass/modules/_layout.scss */
+/* line 71, ../sass/modules/_layout.scss */
+.site-header .inner .ben a {
+  color: #fff;
+  z-index: 11;
+  position: relative;
+  padding: 10px;
+}
+/* line 78, ../sass/modules/_layout.scss */
+.site-header .inner .ben span {
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #464c50;
+  padding: 12px;
+  border-radius: 2px 0 0 2px;
+  font-size: 14px;
+  z-index: 11;
+}
+/* line 90, ../sass/modules/_layout.scss */
+.site-header .inner .ben span.icon-arrow-down {
+  display: none;
+}
+/* line 93, ../sass/modules/_layout.scss */
+.site-header .inner .ben .categories {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  border-radius: 2px;
+  background: #222528;
+  display: none;
+  padding-top: 36px;
+}
+/* line 104, ../sass/modules/_layout.scss */
+.site-header .inner .ben .categories li {
+  color: #fff;
+  width: 142px;
+  display: block;
+  padding: 10px;
+  font-family: 'Asap', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  border-radius: 0 0 2px 2px;
+}
+/* line 118, ../sass/modules/_layout.scss */
+.site-header .inner .ben .categories li:hover, .site-header .inner .ben .categories li.active {
+  background: #464c50;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 127, ../sass/modules/_layout.scss */
+.site-header .inner .ben:hover span.icon-arrow-down {
+  display: block;
+}
+/* line 128, ../sass/modules/_layout.scss */
+.site-header .inner .ben:hover span.icon-arrow-right {
+  display: none;
+}
+/* line 130, ../sass/modules/_layout.scss */
+.site-header .inner .ben:hover .categories {
+  display: block;
+}
+/* line 134, ../sass/modules/_layout.scss */
 .site-header .inner .socials {
   position: absolute;
   right: 0;
   top: 26px;
 }
-/* line 78, ../sass/modules/_layout.scss */
+/* line 139, ../sass/modules/_layout.scss */
 .site-header .inner .socials a {
   font-size: 27px;
   height: 27px;
   width: 27px;
   color: #dadada;
 }
-/* line 84, ../sass/modules/_layout.scss */
+/* line 145, ../sass/modules/_layout.scss */
 .site-header .inner .socials a:hover {
   color: #1f86c7;
 }
 
-/* line 92, ../sass/modules/_layout.scss */
+/* line 153, ../sass/modules/_layout.scss */
 body.open-article {
   margin: 0;
 }
 
-/* line 96, ../sass/modules/_layout.scss */
+/* line 157, ../sass/modules/_layout.scss */
 #search {
   display: none;
   position: absolute;
@@ -343,21 +434,21 @@ body.open-article {
   background: transparent;
 }
 
-/* line 110, ../sass/modules/_layout.scss */
+/* line 171, ../sass/modules/_layout.scss */
 body.searching #search {
   display: block;
 }
 
 @media only screen and (max-width: 880px) {
-  /* line 118, ../sass/modules/_layout.scss */
+  /* line 178, ../sass/modules/_layout.scss */
   .site-header .inner {
     width: 100%;
   }
-  /* line 121, ../sass/modules/_layout.scss */
+  /* line 181, ../sass/modules/_layout.scss */
   .site-header .inner .ben {
     left: 20px;
   }
-  /* line 125, ../sass/modules/_layout.scss */
+  /* line 185, ../sass/modules/_layout.scss */
   .site-header .inner .socials {
     right: 20px;
   }
@@ -448,8 +539,8 @@ body.searching #search {
 }
 /* line 68, ../sass/modules/_article_list.scss */
 .articles .article a.main p {
-  font-size: 15px;
-  line-height: 23px;
+  font-size: 18px;
+  line-height: 28px;
 }
 /* line 73, ../sass/modules/_article_list.scss */
 .articles .article a.main .small-date {
@@ -623,41 +714,299 @@ body.open-article .article-list {
 }
 /* line 1, ../sass/modules/_contact.scss */
 .contact-wrap {
-  margin: 0 0 0 280px;
   position: relative;
   background: #fff;
   z-index: 300;
   overflow: hidden;
+  margin-top: 80px;
 }
 /* line 9, ../sass/modules/_contact.scss */
 .contact-wrap .inner {
-  width: 600px;
+  width: 800px;
   padding: 40px 40px;
   margin: 0 auto;
 }
+/* line 14, ../sass/modules/_contact.scss */
+.contact-wrap .inner h1 {
+  font-size: 36px;
+}
+/* line 18, ../sass/modules/_contact.scss */
+.contact-wrap .inner h2 {
+  margin: 0 0 10px 0;
+}
 
 /* ~ Forms ~ */
-/* line 18, ../sass/modules/_contact.scss */
-.input {
-  border-bottom: 3px solid #ccc;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-/* line 24, ../sass/modules/_contact.scss */
-.input input,
-.input textarea {
-  border: 0;
-  border: 0;
-  padding: 10px 0;
-}
-/* line 30, ../sass/modules/_contact.scss */
-.input label {
-  color: #ccc;
+/* line 26, ../sass/modules/_contact.scss */
+.inputs {
+  margin-bottom: 34px;
+  padding-top: 30px;
 }
 
-/* line 34, ../sass/modules/_contact.scss */
+/* line 32, ../sass/modules/_contact.scss */
+.input,
+.textarea {
+  position: relative;
+}
+/* line 36, ../sass/modules/_contact.scss */
+.input input,
+.input textarea,
+.textarea input,
+.textarea textarea {
+  border: 0;
+  padding: 20px;
+  width: 100%;
+  background: #dadee0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  color: #fff;
+  font-size: 18px;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 48, ../sass/modules/_contact.scss */
+.input input:focus,
+.input textarea:focus,
+.textarea input:focus,
+.textarea textarea:focus {
+  background: #2e3336;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 54, ../sass/modules/_contact.scss */
+.input textarea,
+.textarea textarea {
+  height: 250px;
+}
+/* line 58, ../sass/modules/_contact.scss */
+.input label,
+.textarea label {
+  display: none;
+}
+/* line 63, ../sass/modules/_contact.scss */
+.input.error input, .input.error textarea,
+.textarea.error input,
+.textarea.error textarea {
+  border-bottom: 4px solid #FF3636;
+  -webkit-transition: border 0.2s ease;
+  -moz-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  transition: border 0.2s ease;
+}
+/* line 70, ../sass/modules/_contact.scss */
+.input.success input, .input.success textarea,
+.textarea.success input,
+.textarea.success textarea {
+  background: #2e3336;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+/* line 77, ../sass/modules/_contact.scss */
+.input {
+  float: left;
+  width: 246px;
+}
+/* line 81, ../sass/modules/_contact.scss */
+.input.email {
+  margin: 0 30px;
+}
+
+/* line 87, ../sass/modules/_contact.scss */
+.buttons {
+  margin: 20px 0;
+}
+/* line 90, ../sass/modules/_contact.scss */
+.buttons input {
+  border: 3px solid #464c50;
+  color: #464c50;
+  background: #fff;
+  border-radius: 2px;
+  padding: 15px 40px;
+  font-size: 19px;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-transition: border 0.2s ease-out;
+  -moz-transition: border 0.2s ease-out;
+  -o-transition: border 0.2s ease-out;
+  transition: border 0.2s ease-out;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+/* line 102, ../sass/modules/_contact.scss */
+.buttons input:hover {
+  color: #fff;
+  background: #464c50;
+}
+
+/* line 110, ../sass/modules/_contact.scss */
+.errorSummary,
+.flash.contact {
+  margin: 30px 0;
+  font-size: 20px;
+}
+/* line 114, ../sass/modules/_contact.scss */
+.errorSummary h3,
+.flash.contact h3 {
+  font-size: 28px;
+  margin: 5px 0;
+}
+/* line 119, ../sass/modules/_contact.scss */
+.errorSummary ul,
+.flash.contact ul {
+  display: none;
+}
+
+/* line 124, ../sass/modules/_contact.scss */
 .errorMessage {
-  padding: 10px 0;
-  font-size: 13px;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
   color: #FF3636;
+}
+
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+php+scss+ruby */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/* line 9, ../sass/modules/prism.scss */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* line 31, ../sass/modules/prism.scss */
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+/* line 37, ../sass/modules/prism.scss */
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  /* line 44, ../sass/modules/prism.scss */
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+/* Code blocks */
+/* line 50, ../sass/modules/prism.scss */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+/* line 57, ../sass/modules/prism.scss */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+
+/* Inline code */
+/* line 62, ../sass/modules/prism.scss */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+/* line 70, ../sass/modules/prism.scss */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+/* line 74, ../sass/modules/prism.scss */
+.token.punctuation {
+  color: #999;
+}
+
+/* line 78, ../sass/modules/prism.scss */
+.namespace {
+  opacity: .7;
+}
+
+/* line 87, ../sass/modules/prism.scss */
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #905;
+}
+
+/* line 94, ../sass/modules/prism.scss */
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+  color: #690;
+}
+
+/* line 103, ../sass/modules/prism.scss */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* line 110, ../sass/modules/prism.scss */
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+/* line 116, ../sass/modules/prism.scss */
+.token.regex,
+.token.important {
+  color: #e90;
+}
+
+/* line 120, ../sass/modules/prism.scss */
+.token.important {
+  font-weight: bold;
+}
+
+/* line 124, ../sass/modules/prism.scss */
+.token.entity {
+  cursor: help;
 }

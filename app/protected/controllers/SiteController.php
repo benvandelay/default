@@ -5,14 +5,14 @@ class SiteController extends Controller
 
 	public function actions()
 	{
-		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
-			'captcha'=>array(
-				'class'=>'CCaptchaAction',
-				'backColor'=>0xFFFFFF,
-				'width'=>'100'
-			),
-		);
+		// return array(
+			// // captcha action renders the CAPTCHA image displayed on the contact page
+			// 'captcha'=>array(
+				// 'class'=>'CCaptchaAction',
+				// 'backColor'=>0xFFFFFF,
+				// 'width'=>'100'
+			// ),
+		// );
 	}
 
 
@@ -44,13 +44,16 @@ class SiteController extends Controller
 		$model = new Message;
 		if(isset($_POST['Message']))
 		{
-			$model->attributes=$_POST['Message'];
-			if($model->validate())
-			{
-			    $model->save();
-				$this->sendContactEmail($model);
-				$this->refresh();
-			}
+		    if(isset($_POST['pen15']) && $_POST['pen15'] == 'pass'){//ghetto spam blocker
+		        $model->attributes=$_POST['Message'];
+                if($model->validate())
+                {
+                    $model->save();
+                    $this->sendContactEmail($model);
+                    $this->refresh();
+                }
+		    }
+			
 		}
 		$this->render('contact',
 		  array(
@@ -73,8 +76,11 @@ class SiteController extends Controller
         
         $model = $this->loadModelBySlug($slug); 
         
-        Yii::app()->clientScript->registerMetaTag($model->excerpt, 'description');
-        Yii::app()->clientScript->registerMetaTag('', 'keywords');
+        if($this->layout){ //pjax request?
+            Yii::app()->clientScript->registerMetaTag($model->excerpt, 'description');
+            Yii::app()->clientScript->registerMetaTag('', 'keywords');
+        }
+        
         
         $this->pageTitle=Yii::app()->name . ' | ' . $model->title;
         
@@ -95,8 +101,10 @@ class SiteController extends Controller
         $model = new Page;
         $model->unsetAttributes();  // clear any default values
 
-            $model->search = $_GET['term'];
-            $model->page   = $_GET['page'];
+            $model->search      = $_GET['term'];
+            $model->page        = $_GET['page'];
+            $model->categoryIds = !empty($_GET['categories']) ? $_GET['categories'] : false;
+
         
         $results = array();
         
@@ -120,6 +128,7 @@ class SiteController extends Controller
     public function loadModelBySlug($slug)
     {
         $model=Page::model()->findByAttributes(array('slug'=>$slug));
+        
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
         return $model;
@@ -128,14 +137,14 @@ class SiteController extends Controller
     private function sendContactEmail($model)
     {
         $headers="From: {$model->email}\r\nReply-To: {$model->email}\r\n";
-        $headers .= 'Bcc: benvandelay@gmail.com' . "\r\n";
+        //$headers .= 'Bcc: benvandelay@gmail.com' . "\r\n"; //for client work only
         
         $emailBody = $model->name . "\r\n";
         $emailBody.= $model->phone!='' ? $model->phone . "\r\n\r\n" : "\r\n\r\n";
         $emailBody.= $model->body;
         
         mail(Yii::app()->params['adminEmail'], Yii::app()->name.' message from ' . $model->name, $emailBody, $headers);
-        Yii::app()->user->setFlash('contact','<b>Thanks!</b> We will get back to you shortly.');
+        Yii::app()->user->setFlash('contact','<b>Thanks!</b> I will get back to you shortly.');
     }
 	
     

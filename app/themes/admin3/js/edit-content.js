@@ -57,9 +57,10 @@ var editContent = (function(){
 
             $('#Version_body').redactor(
                 {
-                buttons         : ['html', 'formatting', 'bold', 'italic', 'deleted','unorderedlist', 'orderedlist', 'outdent', 'indent','image', 'video', 'table', 'link', 'alignment', 'horizontalrule'],
+                buttons         : ['html', 'formatting', 'code', 'bold', 'italic', 'deleted','unorderedlist', 'orderedlist', 'outdent', 'indent','image', 'video', 'table', 'link', 'alignment', 'horizontalrule'],
                 toolbarExternal : '.redactor-toolbar-cont',
                 minHeight       : 200,
+                plugins         : ['pre'],
                 imageUpload     : '/admin/image/redactorFileUpload',
                 imageUploadErrorCallback : function(json){
                         alert(json.error);

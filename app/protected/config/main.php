@@ -126,13 +126,14 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
-		'adminEmail'=>'admin@admin.com',
+		'adminEmail'=>'benvandelay@gmail.com',
 		'image'=>array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
                 //admin sizes
                 'admin_large' => array('width' => 758, 'height' => 345),
+                'large' => array('width' => 800, 'height' => 400),
                 'admin_thumb' => array('width' => 40,  'height' => 40),
                 'admin_user'  => array('width' => 260, 'height' => 260),
                 
