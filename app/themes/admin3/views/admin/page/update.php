@@ -10,7 +10,7 @@
         <a class="active show-page-content icon icon-file"></a>
         <a class="show-page-info icon icon-info"></a>
         <span class="separator"></span>
-        <a target="_blank" href="<?php echo CHtml::normalizeUrl(array('/site/page/','slug' => $model->slug)); ?>" class="view-preview icon icon-screen"></a>
+        <a target="_blank" href="<?php echo CHtml::normalizeUrl(array('/site/preview/','id' => $model->id, 'version_id' => $version->id)); ?>" class="view-preview icon icon-screen"></a>
     </div>
     
     <div class="save-status">

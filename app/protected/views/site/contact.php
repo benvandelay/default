@@ -15,7 +15,7 @@
                 'enableClientValidation'=>true,
                 'clientOptions'=>array(
                     'validateOnSubmit'=>true,
-                    'afterValidateAttribute' => 'js:app.afterValidateAttribute',
+                    //'afterValidateAttribute' => 'js:app.afterValidateAttribute',
                     
                 ),
                 

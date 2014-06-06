@@ -3,17 +3,30 @@
 class SiteController extends Controller
 {
 
-	public function actions()
-	{
-		// return array(
-			// // captcha action renders the CAPTCHA image displayed on the contact page
-			// 'captcha'=>array(
-				// 'class'=>'CCaptchaAction',
-				// 'backColor'=>0xFFFFFF,
-				// 'width'=>'100'
-			// ),
-		// );
-	}
+	/**
+     * @return array action filters
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+        );
+    }
+
+    /**
+     * Specifies the access control rules.
+     * This method is used by the 'accessControl' filter.
+     * @return array access control rules
+     */
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('preview'),
+                'users'=>array('?'),
+            ),
+        );
+    }
 
 
 	public function actionIndex()
@@ -65,7 +78,7 @@ class SiteController extends Controller
     
     
      /**
-     * Displays the prints page
+     * Displays any page
      */
     public function actionPage($slug)
     {
@@ -74,7 +87,7 @@ class SiteController extends Controller
         if ($slug == 'contact') 
             return $this->actionContact();
         
-        $model = $this->loadModelBySlug($slug); 
+        $model = $this->loadModelBySlug($slug);
         
         if($this->layout){ //pjax request?
             Yii::app()->clientScript->registerMetaTag($model->excerpt, 'description');
@@ -87,6 +100,25 @@ class SiteController extends Controller
         $this->render('article', 
             array(
                 'model'=>$model,
+            )
+        );
+  
+    }
+    
+    /**
+     * Displays a preview before page is published
+     */
+    public function actionPreview($id, $version_id)
+    {
+        $model   = $this->loadModel($id);
+        $version = Version::model()->findByPk($version_id);
+        
+        $this->pageTitle = Yii::app()->name . ' | ' . $model->title;
+        
+        $this->render('preview', 
+            array(
+                'model'=>$model,
+                'version'=>$version,
             )
         );
   
@@ -112,8 +144,9 @@ class SiteController extends Controller
             //print_r($data->version); exit;
             $results[$i]['id']         = $data->id;
             $results[$i]['title']      = $data->title;
-            $results[$i]['body']       = StringHelper::getExcerpt($data->published_content->body);
+            $results[$i]['body']       = $data->excerpt != '' ? $data->excerpt : StringHelper::getExcerpt($data->published_content->body);
             $results[$i]['image']      = $data->published_content->image ? ImageHelper::resize($data->published_content->image->filename, 'admin_user') : '<div class="blank"></div>';
+            $results[$i]['img_class']  = $data->published_content->image ? 'has-image' : 'no-image';
             $results[$i]['url']        = $this->createUrl('page', array('slug'=> $data->slug));
             $results[$i]['date']       = StringHelper::displayDate($data->date);
             $results[$i]['author']     = $data->author->first_name . ' ' . $data->author->last_name;
@@ -123,6 +156,14 @@ class SiteController extends Controller
         echo CJSON::encode($results);
         
         Yii::app()->end();
+    }
+    
+    public function loadModel($id)
+    {
+        $model=Page::model()->findByPk($id);
+        if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+        return $model;
     }
     
     public function loadModelBySlug($slug)

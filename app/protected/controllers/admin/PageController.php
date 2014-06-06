@@ -276,7 +276,7 @@ class PageController extends AdminController
      */
     public function loadModel($id)
     {
-        $model=Page::model()->with('content')->findByPk($id);
+        $model=Page::model()->findByPk($id);
         if($model===null)
             throw new CHttpException(404,'The requested page does not exist.');
         return $model;

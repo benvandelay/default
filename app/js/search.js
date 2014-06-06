@@ -27,7 +27,7 @@ var search = (function(){
             categories = [];
             
             loadingText = 'Loading More...';
-            doneText    = 'There Are No More Results';
+            doneText    = 'The End';
             
             template  = {
                 article : _.template($( "script#article" ).html())
@@ -52,20 +52,27 @@ var search = (function(){
                     
                     clearTimeout(searchKeyPressed);
                     self.setMod(e);
-                    isFocused = self.setAutoFocus(e);
+                    self.setAutoFocus(e);
+                    isFocused = input.is(':focus');
                     
                     if(e.keyCode == 8 && input.val() == '' && input.is(':focus')){
                         e.preventDefault();
-                        $('body').removeClass('searching');
                         input.blur();
+                        isFocused = false;
+                        $('body').removeClass('searching');
+                        
+                        if(!$('#blank').length){
+                            $('body').addClass('open-article')
+                            $('#response').fadeIn();
+                        }
                     }
                     
                 },
                 keyup: function(){
                     
                     if(isFocused){
+                        
                         self.setMod(false);
-                    
                         searchKeyPressed = setTimeout(function(){
                             self.onKeyUp();
                         }, 200);
@@ -85,6 +92,9 @@ var search = (function(){
         
         updateArticlesOnSearch: function(term){
             
+            $('body').removeClass('open-article');
+            $('#response').fadeOut();
+            
             page = 0; //reset to first page of results
             self.updateArticles(term);
             
@@ -93,7 +103,8 @@ var search = (function(){
         updateArticlesOnScroll: function(){
             
             $(window).on('scroll', _.throttle(function(){
-                if(self.isScrolledIntoView($('.article').last()) && !endScroll){
+                
+                if(self.isScrolledIntoView($('.article').last()) && !endScroll && !$('body').hasClass('open-article')){
                     page++;
                     self.updateArticles(input.val());
                 }
@@ -104,7 +115,7 @@ var search = (function(){
         //grabs articles based on page number and term 
         //and appends them to the index page
         updateArticles: function(term){
-
+            
             $.getJSON('/site/getArticlesJson', 
                 {
                     page: page,
@@ -139,15 +150,26 @@ var search = (function(){
 
                 });
         },
-        
+             
         setUpCategories: function(){
-            $('.ben a').on('click', function(){
+            
+            //go home when ben is clicked
+            $('.ben a.home').on('click', function(){
                 categories = [];
                 $('.categories li').removeClass('active');
                 page = 0;
+                
                 self.updateArticles(input.val());
             });
-            $('.categories li').on('click', function(){
+            
+            //nav category clicks
+            $('.categories li').on('click', function(e){
+
+                //go home if not already there
+                if(!$('#blank').length){
+                    $.pjax({url: '/', container: '#response'});
+                }
+
                 if($(this).hasClass('active')){
                     delete categories[categories.indexOf($(this).data('id'))];
                     $(this).removeClass('active');
@@ -155,8 +177,6 @@ var search = (function(){
                     categories.push($(this).data('id'));
                     $(this).addClass('active');
                 }
-                
-                
                 
                 page = 0;
                 self.updateArticles(input.val());
@@ -183,10 +203,15 @@ var search = (function(){
                 if((e.keyCode > 47 && e.keyCode < 58) || (e.keyCode > 64 && e.keyCode < 90)) {
                     $('body').addClass('searching');
                     input.focus();
-                    return true;
                 }
             }
             
+        },
+        
+        reset: function(){
+            $('body').removeClass('searching');
+            $('#search').val('');
+            self.updateArticles('');
         },
         
         isScrolledIntoView: function(elem)

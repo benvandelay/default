@@ -74,6 +74,7 @@ return array(
 		    'showScriptName'=>false,
 			'urlFormat'=>'path',
 			'rules'=>array(
+			    '/preview/<id:\d+>/<version_id:\d+>'=>'site/preview',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'/admin/page/<id:\d+>/<version_id:\d+>'=>'admin/page/update',
 				'/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',

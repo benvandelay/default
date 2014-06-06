@@ -22,7 +22,7 @@
         <script src='/js/prism.js' data-manual></script>
     
     </head>
-    <body class="<?php echo $this->action->id == 'page' ? 'open-article' : ''; ?>">
+    <body class="<?php echo ($this->action->id == 'page' || $this->action->id == 'preview') ? 'open-article' : ''; ?>">
         
         <div class="wrap">
             
@@ -32,7 +32,7 @@
                     <div class="ben">
                         <span class="icon icon-arrow-right"></span>
                         <span class="icon icon-arrow-down"></span> 
-                        <a href="/">Benjamin Walker</a>
+                        <a class="home" href="/">Benjamin Walker</a>
                         
                         <ul class="categories">
                             <?php foreach(CHtml::listData(PageCategory::model()->findAll(array('group'=>'t.category_id', 'distinct'=>true)), 'category_id', 'category.name') as $id => $category): ?>
@@ -40,7 +40,6 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    
                     <input id="search" type="text" autocomplete="off" />
                     
                     <div class="socials">

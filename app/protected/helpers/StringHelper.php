@@ -52,13 +52,13 @@ class StringHelper {
         
         if(!empty($array)){
             
-            $string .= '<span class="categories">';
+            $string .= '<ul class="categories">';
             
             foreach($array as $key => $value){
-                $string .= CHtml::link($value->name, '#');   
+                $string .= '<li data-id="' . $key . '">' . $value->name . '</li>';   
             }
             
-            $string .= '</span>';
+            $string .= '</ul>';
             
         }
         return $string;
