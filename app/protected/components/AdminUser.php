@@ -15,6 +15,6 @@ class AdminUser extends CWebUser
         $this->setState('permission', $user->permission);
         $this->setState('first_name', $user->first_name);
         $this->setState('last_name', $user->last_name);
-        $this->setState('avatar', $user->image->filename);
+        $this->setState('avatar', isset($user->image->filename) ? $user->image->filename : '<div class="blank"></div>');
     }
 }
