@@ -25,6 +25,13 @@
             font-size: 40px;
             margin: 0 0 40px 0;
         }
+        
+        a {
+            color: #000;
+            &:hover {
+                color: $blue; 
+            }
+        }
     }
     
     &.no-image {
