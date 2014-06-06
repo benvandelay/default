@@ -170,10 +170,19 @@ body {
             top: 26px;
             
             a {
-                font-size: 27px;
-                height: 27px;
-                width: 27px;
+                font-size: 19px;
+                height: 19px;
+                width: 19px;
                 color: #dadada;
+                position: relative;
+                top: 0;
+                
+                &.icon-mail {
+                    font-size: 23px;
+                    height: 23px;
+                    width: 23px;
+                    top: 3px;
+                }
                 
                 &:hover {
                     color: $linkhover;

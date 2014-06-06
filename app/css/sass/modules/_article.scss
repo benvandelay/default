@@ -9,7 +9,7 @@
         border-radius: 2px;
     }
     .editor-content {
-        padding: 40px 0;
+        padding: 40px 0 80px 0;
         margin: 0 auto;
         border-radius: 3px 3px 0 0;
         width: 800px;
@@ -27,38 +27,43 @@
         }
     }
     
-    .article-footer {
-        border-top: 1px solid #dadada;
-        padding: 20px 0 0 0;
-        width: 800px;
-        margin: 60px auto 0 auto;
-        font-size: 14px;
-        color: $c3; 
-        
-        .text {
-            float: left;
-            
-            span {
-                color: #ccc;
-            }
-        }
-        
-        .socials {
-            float: right;
-            margin-top: -10px;
-            
-            .icon {
-                width: 18px;
-                height: 18px;
-                font-size: 18px;
-                margin-left: 6px;
-            }
-        }
-    }
-    
     &.no-image {
         .editor-content {
             margin-top: 40px;
+        }
+    }
+    
+    .article-footer {
+        width: 800px;
+        margin: 0 auto;
+        a.back-home {
+            display: block;
+            background: #dadada;
+            width: 65px;
+            border-radius: 2px;
+            height: 28px;
+            padding: 5px;
+            @include transition(background 0.2s ease);
+            
+            .icon {
+                font-size: 26px;
+                width: 26px;
+                height: 26px;
+                color: #fff;
+                float: left;
+                
+                
+                &.icon-home {
+                    font-size: 20px;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            
+            &:hover {
+                background: $blue;
+                @include transition(background 0.2s ease);
+            }
         }
     }
 }

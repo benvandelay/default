@@ -43,6 +43,7 @@
                     <input id="search" type="text" autocomplete="off" />
                     
                     <div class="socials">
+                        <a href="/contact" target="_blank" class="icon icon-mail"></a>
                         <a href="http://www.facebook.com/benvandelay" target="_blank" class="icon icon-facebook"></a>
                         <a href="http://www.github.com/benvandelay" target="_blank" class="icon icon-github"></a>
                     </div>

@@ -26,6 +26,12 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.icon-mail:before {
+  content: "\e617";
+}
+.icon-comment:before {
+  content: "\e618";
+}
 .icon-arrow-left:before {
   content: "\e60b";
 }

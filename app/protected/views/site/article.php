@@ -13,16 +13,8 @@
     </div>
     
     <div class="article-footer">
-        
-        <div class="text">&copy; <?php echo date('Y'); ?>  Me &nbsp; <span>|</span> &nbsp; <a href="/contact">Contact Me!</a></div>
-        
-        <div class="socials">
-            <a href="http://www.facebook.com/benvandelay" target="_blank" class="icon icon-facebook"></a>
-            <a href="http://www.github.com/benvandelay" target="_blank" class="icon icon-github"></a>
-        </div>
-        
-        <div class="clb"></div>
-        
+        <a href="/" class="back-home"><span class="icon icon-arrow-left"></span><span class="icon icon-home"></span></span></a>    
     </div>
+    
     
 </div>
