@@ -86,7 +86,6 @@
         .date {
             font-size: 13px;
             color: #999;
-            width: 480px;
             z-index: 2;
             margin: 10px 0;
         }
@@ -106,5 +105,89 @@ body.open-article {
 
     .article-list {
         display: none;
+    }
+}
+
+@media only screen and (max-width : 895px){
+    
+    .articles {
+        width: auto;
+        margin: 0 20px;
+        
+        .article {
+            
+            a.main {
+                width: auto;
+                padding-left: 240px;
+                
+                .overlay {
+                    width: 200px;
+                    height: 200px;
+                    .icon {
+                        
+                    }
+                    
+                }
+                
+                img,
+                .blank {
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    
+    .loading {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width : 700px){
+    
+    .articles {
+
+        
+        .article {
+            
+            a.main {
+                padding-left: 140px;
+                height: 120px; 
+                
+                .overlay {
+                    width: 120px;
+                    height: 120px;
+                    
+                    .icon {
+                        
+                    }
+                    
+                }
+                
+                img,
+                .blank {
+                    width: 120px;
+                    height: 120px;
+                }
+                
+                h1 {
+                    font-size: 25px;
+                }
+                
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 400px){
+    .articles .article a.main h1 {
+        font-size: 20px;
     }
 }

@@ -616,12 +616,11 @@ body.searching #search {
 .articles .article .date {
   font-size: 13px;
   color: #999;
-  width: 480px;
   z-index: 2;
   margin: 10px 0;
 }
 
-/* line 96, ../sass/modules/_article_list.scss */
+/* line 95, ../sass/modules/_article_list.scss */
 .loading {
   width: 800px;
   margin: 20px auto;
@@ -631,11 +630,76 @@ body.searching #search {
   background: #f2f2f2;
 }
 
-/* line 107, ../sass/modules/_article_list.scss */
+/* line 106, ../sass/modules/_article_list.scss */
 body.open-article .article-list {
   display: none;
 }
 
+@media only screen and (max-width: 895px) {
+  /* line 113, ../sass/modules/_article_list.scss */
+  .articles {
+    width: auto;
+    margin: 0 20px;
+  }
+  /* line 119, ../sass/modules/_article_list.scss */
+  .articles .article a.main {
+    width: auto;
+    padding-left: 240px;
+  }
+  /* line 123, ../sass/modules/_article_list.scss */
+  .articles .article a.main .overlay {
+    width: 200px;
+    height: 200px;
+  }
+  /* line 133, ../sass/modules/_article_list.scss */
+  .articles .article a.main img,
+  .articles .article a.main .blank {
+    width: 200px;
+    height: 200px;
+  }
+  /* line 138, ../sass/modules/_article_list.scss */
+  .articles .article a.main p {
+    font-size: 16px;
+  }
+
+  /* line 145, ../sass/modules/_article_list.scss */
+  .loading {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  /* line 157, ../sass/modules/_article_list.scss */
+  .articles .article a.main {
+    padding-left: 140px;
+    height: 120px;
+  }
+  /* line 161, ../sass/modules/_article_list.scss */
+  .articles .article a.main .overlay {
+    width: 120px;
+    height: 120px;
+  }
+  /* line 172, ../sass/modules/_article_list.scss */
+  .articles .article a.main img,
+  .articles .article a.main .blank {
+    width: 120px;
+    height: 120px;
+  }
+  /* line 177, ../sass/modules/_article_list.scss */
+  .articles .article a.main h1 {
+    font-size: 25px;
+  }
+  /* line 181, ../sass/modules/_article_list.scss */
+  .articles .article a.main p {
+    display: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  /* line 190, ../sass/modules/_article_list.scss */
+  .articles .article a.main h1 {
+    font-size: 20px;
+  }
+}
 /* line 1, ../sass/modules/_article.scss */
 .article-wrap {
   margin: 100px auto;
