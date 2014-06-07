@@ -40,6 +40,10 @@
                 color: $blue; 
             }
         }
+
+		b, strong {
+			font-weight: bold;
+		}
     }
     
     &.no-image {
