@@ -150,7 +150,7 @@ class SiteController extends Controller
             $results[$i]['url']        = $this->createUrl('page', array('slug'=> $data->slug));
             $results[$i]['date']       = StringHelper::displayDate($data->date);
             $results[$i]['author']     = $data->author->first_name . ' ' . $data->author->last_name;
-            //$results[$i]['categories'] = StringHelper::formatCategories($data->categories);
+            $results[$i]['categories'] = StringHelper::formatCategories($data->categories);
         }
         
         echo CJSON::encode($results);
