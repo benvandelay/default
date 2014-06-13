@@ -128,7 +128,7 @@ class SiteController extends Controller
     {
         
           
-        header('Content-type: application/json');
+        //header('Content-type: application/json');
          
         $model = new Page;
         $model->unsetAttributes();  // clear any default values
