@@ -263,7 +263,7 @@ class PageController extends AdminController
                 if($model->save()){
                     echo 1;
                 }else{
-                    echo NULL;
+                    echo 0;
                 }
             }
         }

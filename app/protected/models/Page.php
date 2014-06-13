@@ -145,7 +145,7 @@ class Page extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('title',$this->search, true, 'OR');
-        $criteria->addCondition('t.published_version IS NOT NULL');
+        $criteria->addCondition('t.published_version IS NOT NULL AND t.published_version != 0');
         
         if($this->categoryIds){
             $criteria->with = array('categories', 'categories.pages');
