@@ -7,10 +7,10 @@
 // CWebApplication properties can be configured here.
 
 $db = array(
-    'host' => isset($_SERVER['DB_HOST']) ? $_SERVER['DB_HOST'] : '127.0.0.1',
-    'name' => isset($_SERVER['DB_NAME']) ? $_SERVER['DB_NAME'] : 'init',
-    'user' => isset($_SERVER['DB_USER']) ? $_SERVER['DB_USER'] : 'root',
-    'pass' => isset($_SERVER['DB_PASS']) ? $_SERVER['DB_PASS'] : 'root',
+    'host' => getenv('DB_HOST') ? : '127.0.0.1',
+    'name' => getenv('DB_NAME') ? : 'init',
+    'user' => getenv('DB_USER') ? : 'root',
+    'pass' => getenv('DB_PASS') ? : 'root',
 );
 
 return array(
