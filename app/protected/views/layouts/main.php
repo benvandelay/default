@@ -35,7 +35,8 @@
                         <a class="home" href="/"><?php echo SiteHelper::getParam('title'); ?></a>
                         
                         <ul class="categories">
-                            <?php foreach(CHtml::listData(PageCategory::model()->findAll(array('group'=>'t.category_id', 'distinct'=>true)), 'category_id', 'category.name') as $id => $category): ?>
+                            <?php $category = new Category; ?>
+                            <?php foreach(CHtml::listData($category->getActiveCategories()->getData(), 'id', 'name') as $id => $category): ?>
                                 <li data-id="<?php echo $id; ?>" ><?php echo $category; ?></li>
                             <?php endforeach; ?>
                         </ul>

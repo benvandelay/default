@@ -106,13 +106,16 @@ body {
                 z-index: 10;
                 border-radius: 2px;
                 display: none;
+                width: 100%;
                 
                 li {
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
                     position: absolute;
                     top: 0;
                     left: 0;
                     color: #ddd;
-                    width: 142px;
+                    width: 100%;
                     display: block;
                     padding: 10px;
                     font-family: 'Asap', sans-serif;

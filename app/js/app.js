@@ -72,6 +72,7 @@ var app = (function(){
         },
         
         navFlair: function(){
+            
             $('.ben').on({
                 'mouseenter' : function(){
                     $('.ben .categories li').stop();

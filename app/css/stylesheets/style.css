@@ -374,14 +374,17 @@ body {
   z-index: 10;
   border-radius: 2px;
   display: none;
+  width: 100%;
 }
-/* line 110, ../sass/modules/_layout.scss */
+/* line 111, ../sass/modules/_layout.scss */
 .site-header .inner .ben .categories li {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   color: #ddd;
-  width: 142px;
+  width: 100%;
   display: block;
   padding: 10px;
   font-family: 'Asap', sans-serif;
@@ -397,7 +400,7 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 128, ../sass/modules/_layout.scss */
+/* line 131, ../sass/modules/_layout.scss */
 .site-header .inner .ben .categories li:hover {
   background: #333;
   -webkit-transition: background 0.2s ease;
@@ -405,7 +408,7 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 132, ../sass/modules/_layout.scss */
+/* line 135, ../sass/modules/_layout.scss */
 .site-header .inner .ben .categories li.active {
   background: #5e88a3;
   -webkit-transition: background 0.2s ease;
@@ -413,41 +416,41 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 140, ../sass/modules/_layout.scss */
+/* line 143, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover {
   -webkit-border-radius: 2px 2px 0 0;
   -moz-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
 }
-/* line 145, ../sass/modules/_layout.scss */
+/* line 148, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover span.icon-arrow-down {
   display: block;
 }
-/* line 146, ../sass/modules/_layout.scss */
+/* line 149, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover span.icon-arrow-right {
   display: none;
 }
-/* line 148, ../sass/modules/_layout.scss */
+/* line 151, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover span {
   -webkit-border-radius: 2px 0 0 0;
   -moz-border-radius: 2px 0 0 0;
   border-radius: 2px 0 0 0;
 }
-/* line 155, ../sass/modules/_layout.scss */
+/* line 158, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover .categories li {
   border-radius: 0;
 }
-/* line 158, ../sass/modules/_layout.scss */
+/* line 161, ../sass/modules/_layout.scss */
 .site-header .inner .ben:hover .categories li:last-child {
   border-radius: 0 0 2px 2px;
 }
-/* line 167, ../sass/modules/_layout.scss */
+/* line 170, ../sass/modules/_layout.scss */
 .site-header .inner .socials {
   position: absolute;
   right: 0;
   top: 26px;
 }
-/* line 172, ../sass/modules/_layout.scss */
+/* line 175, ../sass/modules/_layout.scss */
 .site-header .inner .socials a {
   font-size: 19px;
   height: 19px;
@@ -456,24 +459,24 @@ body {
   position: relative;
   top: 0;
 }
-/* line 180, ../sass/modules/_layout.scss */
+/* line 183, ../sass/modules/_layout.scss */
 .site-header .inner .socials a.icon-mail {
   font-size: 23px;
   height: 23px;
   width: 23px;
   top: 3px;
 }
-/* line 187, ../sass/modules/_layout.scss */
+/* line 190, ../sass/modules/_layout.scss */
 .site-header .inner .socials a:hover {
   color: #5e88a3;
 }
 
-/* line 195, ../sass/modules/_layout.scss */
+/* line 198, ../sass/modules/_layout.scss */
 body.open-article {
   margin: 0;
 }
 
-/* line 199, ../sass/modules/_layout.scss */
+/* line 202, ../sass/modules/_layout.scss */
 #search {
   display: none;
   position: absolute;
@@ -489,21 +492,21 @@ body.open-article {
   background: transparent;
 }
 
-/* line 213, ../sass/modules/_layout.scss */
+/* line 216, ../sass/modules/_layout.scss */
 body.searching #search {
   display: block;
 }
 
 @media only screen and (max-width: 880px) {
-  /* line 220, ../sass/modules/_layout.scss */
+  /* line 223, ../sass/modules/_layout.scss */
   .site-header .inner {
     width: 100%;
   }
-  /* line 223, ../sass/modules/_layout.scss */
+  /* line 226, ../sass/modules/_layout.scss */
   .site-header .inner .ben {
     left: 20px;
   }
-  /* line 227, ../sass/modules/_layout.scss */
+  /* line 230, ../sass/modules/_layout.scss */
   .site-header .inner .socials {
     right: 20px;
   }

@@ -41,6 +41,20 @@ class Category extends CActiveRecord
         );
     }
     
+    public function getActiveCategories()
+    {
+        $criteria=new CDbCriteria;
+        $criteria->with = array('pages', 'pages.categories');
+        $criteria->addCondition('pages.published_version IS NOT NULL AND pages.published_version != 0');
+        $criteria->group = 't.name';
+        $criteria->distinct = true;
+        
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'pagination' => false,
+        ));
+    }
+    
     public function search($term, $limit = 10)
     {
 
