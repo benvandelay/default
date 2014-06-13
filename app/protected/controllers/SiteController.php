@@ -141,10 +141,10 @@ class SiteController extends Controller
         $results = array();
         
         foreach($model->frontEndSearch(5)->getData() as $i => $data){
-            //echo '<pre>';print_r($data); exit;
+            echo '<pre>';print_r($data); exit;
             $results[$i]['id']         = $data->id;
             $results[$i]['title']      = $data->title;
-            //$results[$i]['body']       = $data->excerpt != '' ? $data->excerpt : StringHelper::getExcerpt($data->published_content->body);
+            $results[$i]['body']       = $data->excerpt != '' ? $data->excerpt : StringHelper::getExcerpt($data->published_content->body);
             $results[$i]['image']      = $data->published_content->image ? ImageHelper::resize($data->published_content->image->filename, 'admin_user') : '<div class="blank"></div>';
             $results[$i]['img_class']  = $data->published_content->image ? 'has-image' : 'no-image';
             $results[$i]['url']        = $this->createUrl('page', array('slug'=> $data->slug));
