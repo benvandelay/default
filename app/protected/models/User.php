@@ -4,6 +4,7 @@ class User extends CActiveRecord
 {
     
     public $search;
+    public $password_confirm;
     
     /**
      * Returns the static model of the specified AR class.
@@ -26,10 +27,11 @@ class User extends CActiveRecord
     public function rules()
     {
         return array(
-
-            array('username, email, password, permission, first_name, last_name, active', 'required'),
+            array('password, password_confirm', 'required', 'on' => 'insert'),  
+            array('username, email, permission, first_name, last_name, active', 'required'),  
+            array('password_confirm', 'compare', 'compareAttribute'=>'password'),
             array('username', 'unique', 'attributeName' => 'username', 'className' => 'User'),
-            array('username, email, password, permission, first_name, last_name, image_id, active', 'safe'),
+            array('username, email, password, password_confirm, permission, first_name, last_name, image_id, active', 'safe'),
             
         );
     }
@@ -56,6 +58,19 @@ class User extends CActiveRecord
             'image'=>array(self::BELONGS_TO, 'Image', 'image_id')
             
         );
+    }
+
+    public function beforeSave()
+    {
+        $this->password = md5($this->password);
+        return parent::beforeSave();
+        
+        
+    }
+
+    public function afterFind()
+    {
+        
     }
     
     /**

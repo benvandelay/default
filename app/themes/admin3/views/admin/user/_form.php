@@ -5,10 +5,10 @@
         'id'=>'user-form',
         'enableAjaxValidation'=>true,
         'enableClientValidation'=>true,
-        'clientOptions' => array(
-            'validateOnChange' => true,
-            'validateOnSubmit' => true,
-        ),
+            'clientOptions' => array(
+                'validateOnChange' => true,
+                'validateOnSubmit' => true,
+            ),
         'htmlOptions' => array(
             'class' => 'user-form',
         ),
@@ -41,13 +41,19 @@
             <?php echo $form->textField($model,'username',array('size'=>40,'maxlength'=>40)); ?>
             <?php echo $form->error($model,'username'); ?>
         </div>
-    
+        
         <div class="input text">
             <?php echo $form->labelEx($model,'password'); ?>
             <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>  
             <?php echo $form->error($model,'password'); ?> 
         </div>
         
+        <div class="input text">
+            <?php echo $form->labelEx($model,'password_confirm'); ?>
+            <?php echo $form->passwordField($model,'password_confirm',array('size'=>40,'maxlength'=>40, 'autocomplete' => 'off')); ?>  
+            <?php echo $form->error($model,'password_confirm'); ?> 
+        </div>
+    
         <?php if(Yii::app()->user->isAdmin()): ?>
         
         <div class="input dropdown">

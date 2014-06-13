@@ -4,17 +4,26 @@ class CropImage
     
     public function process($file, $width, $height, $newFilename){
         $this->load($file);
-        if($width/$height > $this->getWidth()/$this->getHeight()){
+        
+        if(!$height){
             $this->resizeToWidth($width);
-            $new_height = $this->getHeight();
-            $y = ($new_height - $height)/2;
-            $this->crop($width,$height,0, $y);
         }else{
-            $this->resizeToHeight($height);
-            $new_width = $this->getWidth();
-            $x = ($new_width - $width)/2;
-            $this->crop($width,$height,$x, 0);
+            
+            if($width/$height > $this->getWidth()/$this->getHeight()){
+                $this->resizeToWidth($width);
+                $new_height = $this->getHeight();
+                $y = ($new_height - $height)/2;
+                $this->crop($width,$height,0, $y);
+            }else{
+                $this->resizeToHeight($height);
+                $new_width = $this->getWidth();
+                $x = ($new_width - $width)/2;
+                $this->crop($width,$height,$x, 0);
+            }
+            
         }
+        
+        
         
         $this->save($newFilename);
     }

@@ -240,8 +240,7 @@ class ImageController extends AdminController
 
     public function actionRedactorFileUpload() {
         $targetFolder = Yii::app()->params['image']['uploadPath']; // Relative to the root
-        $minWidth     = Yii::app()->params['image']['size']['admin_large']['width'];
-        $minHeight    = Yii::app()->params['image']['size']['admin_large']['height'];
+        $minWidth     = Yii::app()->params['image']['size']['redactor_upload']['width'];
         $maxSize      = 10; //in mb
         $error        = array();
         
@@ -266,8 +265,6 @@ class ImageController extends AdminController
                 $error[] = 'Invalid file type.';
             }elseif($width < $minWidth) {
                 $error[] = 'File must be at least ' . $minWidth . 'px wide';
-            }elseif($height < $minHeight) {
-                $error[] = 'File must be at least ' . $minHeight . 'px in height';
             }elseif($_FILES['file']['size'] > $maxSize * 1048576){
                 $error[] = 'File must be ' . $this->max_size . 'Mb or less!';
             }else{
@@ -278,7 +275,7 @@ class ImageController extends AdminController
                 //now save the image model if there are no errors yet
                 $image = new Image;
                 $image->filename = $newName;
-                $image->crop();
+                $image->crop('redactor_upload');
                 if($image->save()){}else{
                     $error[] = 'File did not save.';
                 }
@@ -286,7 +283,7 @@ class ImageController extends AdminController
             
             if(empty($error)){//no upload error
                 $json = array(
-                    'filelink' => $targetFolder . '/admin_large_' . $newName, //for redactor TODO update to filelink everywhere
+                    'filelink' => $targetFolder . '/redactor_upload_' . $newName, //for redactor TODO update to filelink everywhere
                 );
             }else{
                 $json = array(

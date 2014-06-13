@@ -22,7 +22,7 @@
         <script src='/js/prism.js' data-manual></script>
     
     </head>
-    <body class="<?php echo ($this->action->id == 'page' || $this->action->id == 'preview') ? 'open-article' : ''; ?>">
+    <body class="<?php echo ($this->action->id == 'page' || $this->action->id == 'preview' || $this->action->id == 'error') ? 'open-article' : ''; ?>">
         
         <div class="wrap">
             
@@ -32,7 +32,7 @@
                     <div class="ben">
                         <span class="icon icon-arrow-right"></span>
                         <span class="icon icon-arrow-down"></span> 
-                        <a class="home" href="/">Benjamin Walker</a>
+                        <a class="home" href="/"><?php echo SiteHelper::getParam('title'); ?></a>
                         
                         <ul class="categories">
                             <?php foreach(CHtml::listData(PageCategory::model()->findAll(array('group'=>'t.category_id', 'distinct'=>true)), 'category_id', 'category.name') as $id => $category): ?>
@@ -42,11 +42,8 @@
                     </div>
                     <input id="search" type="text" autocomplete="off" />
                     
-                    <div class="socials">
-                        <a href="/contact" target="_blank" class="icon icon-mail"></a>
-                        <a href="http://www.facebook.com/benvandelay" target="_blank" class="icon icon-facebook"></a>
-                        <a href="http://www.github.com/benvandelay" target="_blank" class="icon icon-github"></a>
-                    </div>
+                    <?php $this->renderPartial('/partials/_socials'); ?>
+                    
                 </div>
             </div>
             

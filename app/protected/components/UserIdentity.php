@@ -15,9 +15,8 @@ class UserIdentity extends CUserIdentity
         $user=User::model()->findByAttributes(array('username'=>$this->username));
         if($user===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        //use the one commented out after adding md5 to database
-        //else if($user->password!==md5($this->password))
-        else if($user->password!==$this->password)
+        else if($user->password!==md5($this->password))
+        //else if($user->password!==$this->password)
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         elseif(!$user->active)
             $this->errorCode=self::ERROR_NOT_ACTIVATED;

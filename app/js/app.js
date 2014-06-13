@@ -15,7 +15,7 @@ var app = (function(){
             self.fadeOutFlash();
             self.navFlair();
             
-            $(document).pjax('.site-header a, .article-list a, .article-wrap A', '#response');
+            $(document).pjax('.site-header a, .article-list a, .article-wrap a', '#response');
             
             $(document).on('pjax:send', function() {
               $('#loader').show();

@@ -17,7 +17,7 @@ class AdminController extends CController
     
     public function init(){
         Yii::app()->theme = 'admin3';
-        Yii::app()->errorHandler->errorAction='admin/site/error';
+        Yii::app()->errorHandler->errorAction='admin/dashboard/error';
         
         parent::init();
     }

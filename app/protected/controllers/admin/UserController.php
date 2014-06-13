@@ -86,7 +86,6 @@ class UserController extends AdminController
         
         $model=$this->loadModel($id);
 
-        // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidation($model);
 
         if(isset($_POST['User']))
@@ -98,10 +97,15 @@ class UserController extends AdminController
                     $UserIdentity = new AdminUser;
                     $UserIdentity->resetUserInfo();
                 }
+                
+                
                 Yii::app()->user->setFlash('success', "User Updated!");
             }
             
         }
+        
+        $model->password = '';
+        $model->password_confirm = '';
 
         $this->render('update',array(
             'model'=>$model,
@@ -165,6 +169,7 @@ class UserController extends AdminController
      */
     protected function performAjaxValidation($model)
     {
+        
         if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
         {
             echo CActiveForm::validate($model);

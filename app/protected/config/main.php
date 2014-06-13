@@ -8,14 +8,14 @@
 
 $db = array(
     'host' => isset($_SERVER['DB_HOST']) ? $_SERVER['DB_HOST'] : '127.0.0.1',
-    'name' => isset($_SERVER['DB_NAME']) ? $_SERVER['DB_NAME'] : 'default',
+    'name' => isset($_SERVER['DB_NAME']) ? $_SERVER['DB_NAME'] : 'init',
     'user' => isset($_SERVER['DB_USER']) ? $_SERVER['DB_USER'] : 'root',
     'pass' => isset($_SERVER['DB_PASS']) ? $_SERVER['DB_PASS'] : 'root',
 );
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Bens Website',
+	'name'=>'Website',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -32,17 +32,25 @@ return array(
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>'default',
-		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		// 'gii'=>array(
+			// 'class'=>'system.gii.GiiModule',
+			// 'password'=>'default',
+		 	// // If removed, Gii defaults to localhost only. Edit carefully to taste.
+			// 'ipFilters'=>array('127.0.0.1','::1'),
+		// ),
 		
 	),
 
 	// application components
 	'components'=>array(
+	    'customParams'=>array(
+            'class' => 'application.extensions.dbparam.XDbParam',
+            'connectionID' => 'db',//id of the connection component, just the same as with CDbCache
+        //  'preload' => 'test,test2', //comma-separated string or array of params to be loaded anyway. Other params are loaded only when requested.
+        //  'autoLoad' => true,//loads all attributes when initializing
+        //  'caseSensitive' => true, //setting to true makes all parameters case sensitive
+        ),
+    
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -127,18 +135,16 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
-		'adminEmail'=>'benvandelay@gmail.com',
 		'image'=>array(
             'uploadPath'=>'/images/uploads',
             //keep these landscape!!!
             'size'=>array(
                 //admin sizes
                 'admin_large' => array('width' => 758, 'height' => 345),
+                'redactor_upload' => array('width' => 800, 'height' => false),
                 'large' => array('width' => 800, 'height' => 400),
                 'admin_thumb' => array('width' => 40,  'height' => 40),
                 'admin_user'  => array('width' => 260, 'height' => 260),
-                
-                //front-end sizes
                 
             ),
         ),

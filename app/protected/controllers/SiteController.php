@@ -184,7 +184,7 @@ class SiteController extends Controller
         $emailBody.= $model->phone!='' ? $model->phone . "\r\n\r\n" : "\r\n\r\n";
         $emailBody.= $model->body;
         
-        mail(Yii::app()->params['adminEmail'], Yii::app()->name.' message from ' . $model->name, $emailBody, $headers);
+        mail(SiteHelper::getParam('admin_email'), SiteHelper::getParam('title').' web message from ' . $model->name, $emailBody, $headers);
         Yii::app()->user->setFlash('contact','<b>Thanks!</b> I will get back to you shortly.');
     }
 	

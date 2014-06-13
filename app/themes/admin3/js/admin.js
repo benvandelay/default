@@ -58,6 +58,10 @@ var admin = (function(){
             if($('.flash').length > 0){
                 setTimeout(function(){ $('.flash').fadeOut('fast')}, 4000);
             }
+        },
+        
+        clearPasswordFields: function(){
+            $('#User_password, #User_password_confirm').val('');
         }
 
 

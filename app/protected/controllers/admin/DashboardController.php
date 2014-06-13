@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends AdminController
+class DashboardController extends AdminController
 {
 
     public $name = 'Dashboard';

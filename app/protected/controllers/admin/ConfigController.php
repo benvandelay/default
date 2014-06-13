@@ -42,24 +42,23 @@ class ConfigController extends AdminController
     public function actionIndex()
     {
         
+        if(isset($_POST['Config'])){
+            
+            foreach($_POST['Config'] as $id => $value){
+                
+                Config::model()->updateByPk($id,array('value'=>$value));
+                
+            }
+            
+        }
+        
         $this->title = 'Config';
-
-        $this->render('index');
+        
+        $fields = Config::model()->findAll();
+        
+        $this->render('index', array('fields'=> $fields));
     }
     
-
-    /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer the ID of the model to be loaded
-     */
-    public function loadModel($id)
-    {
-        $model=Contact::model()->findByPk($id);
-        if($model===null)
-            throw new CHttpException(404,'The requested page does not exist.');
-        return $model;
-    }
 
     /**
      * Performs the AJAX validation.

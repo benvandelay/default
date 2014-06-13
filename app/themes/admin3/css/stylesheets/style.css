@@ -1842,6 +1842,21 @@ body {
   color: #df6363;
 }
 
+/* line 1, ../sass/modules/config/_config.scss */
+.config-wrap {
+  padding: 10px 10px 0 50px;
+}
+/* line 4, ../sass/modules/config/_config.scss */
+.config-wrap .buttons {
+  padding: 20px 0;
+  margin: 20px 0 0 0;
+  border-top: 3px solid #ddd;
+}
+/* line 9, ../sass/modules/config/_config.scss */
+.config-wrap .buttons .btn {
+  float: right;
+}
+
 /* line 1, ../sass/modules/_forms.scss */
 span.required {
   display: none;
