@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: init
-# Generation Time: 2014-06-13 13:57:14 +0000
+# Generation Time: 2014-06-13 14:22:43 +0000
 # ************************************************************
 
 
@@ -159,7 +159,7 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `permission`, `first_name`, `last_name`, `image_id`, `date`, `active`)
 VALUES
-	(1,'admin','admin@mywebsite.com','21232f297a57a5a743894a0e4a801fc3',0,'George','Costanza',NULL,'2014-06-13 09:53:02',0);
+	(1,'admin','admin@mywebsite.com','21232f297a57a5a743894a0e4a801fc3',0,'George','Costanza',NULL,'2014-06-13 09:53:02',1);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
