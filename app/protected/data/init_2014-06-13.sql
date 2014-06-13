@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
-# Database: default
-# Generation Time: 2014-02-28 02:11:13 +0000
+# Database: init
+# Generation Time: 2014-06-13 13:57:14 +0000
 # ************************************************************
 
 
@@ -34,18 +34,35 @@ CREATE TABLE `category` (
 
 
 
-# Dump of table gallery
+# Dump of table config
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `gallery`;
+DROP TABLE IF EXISTS `config`;
 
-CREATE TABLE `gallery` (
+CREATE TABLE `config` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `body` text,
+  `label` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `value` text,
+  `desc` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `config` WRITE;
+/*!40000 ALTER TABLE `config` DISABLE KEYS */;
+
+INSERT INTO `config` (`id`, `label`, `type`, `name`, `value`, `desc`)
+VALUES
+	(1,'Site Title','info','title','My Website',NULL),
+	(2,'Admin Email','info','admin_email','admin@mywebsite.com',NULL),
+	(3,'Github Link','social','github',NULL,NULL),
+	(4,'Facebook Link','social','facebook',NULL,NULL),
+	(5,'Twitter Link','social','twitter',NULL,NULL),
+	(6,'Vimeo Link','social','vimeo',NULL,NULL);
+
+/*!40000 ALTER TABLE `config` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table image
@@ -97,7 +114,7 @@ CREATE TABLE `page` (
   `modified` timestamp NULL DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `version` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) DEFAULT NULL,
+  `published_version` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -112,33 +129,6 @@ CREATE TABLE `page_category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `page_id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table site
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `site`;
-
-CREATE TABLE `site` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `param_name` varchar(100) NOT NULL DEFAULT '',
-  `param_value` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table status
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `status`;
-
-CREATE TABLE `status` (
-  `id` int(11) unsigned NOT NULL,
-  `status` varchar(200) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -164,9 +154,15 @@ CREATE TABLE `user` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (username, email, password, permission, first_name, last_name, image_id, active)
-VALUES ("admin", "admin@admin.com", "admin", 0, "ad", "min", 0, 1);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `permission`, `first_name`, `last_name`, `image_id`, `date`, `active`)
+VALUES
+	(1,'admin','admin@mywebsite.com','21232f297a57a5a743894a0e4a801fc3',0,'George','Costanza',NULL,'2014-06-13 09:53:02',0);
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table version
@@ -183,7 +179,7 @@ CREATE TABLE `version` (
   `image_id` int(11) DEFAULT NULL,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 

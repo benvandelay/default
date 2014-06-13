@@ -145,7 +145,6 @@ return array(
                 'large' => array('width' => 800, 'height' => 400),
                 'admin_thumb' => array('width' => 40,  'height' => 40),
                 'admin_user'  => array('width' => 260, 'height' => 260),
-                
             ),
         ),
         'GAVerify'=>'',

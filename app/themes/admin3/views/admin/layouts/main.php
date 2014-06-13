@@ -43,7 +43,11 @@
         ?>
         
         <div class="login-info">
-            <?php echo CHtml::link(CHtml::image(ImageHelper::resize(Yii::app()->user->avatar, 'admin_user', true), Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('width'=>50, 'height'=>50)), array('admin/user/update', 'id'=>Yii::app()->user->id)); ?>
+            <?php if(Yii::app()->user->avatar): ?>
+                <?php echo CHtml::link(CHtml::image(ImageHelper::resize(Yii::app()->user->avatar, 'admin_user', true), Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('width'=>50, 'height'=>50)), array('admin/user/update', 'id'=>Yii::app()->user->id)); ?>
+            <?php else: ?>
+                <img width="50" height="50" src="/images/gc.jpg" />
+            <?php endif; ?>
             <?php echo CHtml::link(Yii::app()->user->first_name . ' ' . Yii::app()->user->last_name, array('admin/user/update', 'id'=>Yii::app()->user->id), array('class'=>'name')); ?>
             <?php echo CHtml::link('logout', array('admin/user/logout'), array('class'=>'logout')); ?>
         </div>
