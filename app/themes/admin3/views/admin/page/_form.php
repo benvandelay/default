@@ -19,6 +19,7 @@
     <?php echo $form->errorSummary($version); ?>
        
     <div class="header-image-wrap<?php echo !$version->image ? ' empty-image' : ''?>">
+        <div class="icon icon-close"></div>
         <input type="file" id="uploadify" />
         <?php echo $version->image ? ImageHelper::resize($version->image->filename, 'admin_large') : ''; ?>
         <?php echo $form->hiddenField($version, 'image_id'); ?>

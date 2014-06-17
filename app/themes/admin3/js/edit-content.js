@@ -92,6 +92,11 @@ var editContent = (function(){
         },
         
         uploadify: function(){
+            $('.header-image-wrap .icon-close').on('click', function(){
+                $('.header-image-wrap').addClass('empty-image');
+                $('#Version_image_id').val('NULL');
+            });
+            
             if($('#uploadify').length > 0){
                 
                 $('#uploadify').uploadifive({

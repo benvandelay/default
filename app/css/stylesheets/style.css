@@ -528,7 +528,7 @@ body.searching #search {
 .articles .article a.main {
   position: relative;
   display: block;
-  height: 220px;
+  height: 240px;
   padding: 17px 20px 20px 300px;
   border-radius: 2px;
 }
@@ -602,9 +602,9 @@ body.searching #search {
 }
 /* line 75, ../sass/modules/_article_list.scss */
 .articles .article a.main:hover .overlay {
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity" 100 ")";
-  filter: alpha(opacity=100);
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity" 70 ")";
+  filter: alpha(opacity=70);
   zoom: 1;
   -webkit-transition: opacity 0.2s ease;
   -moz-transition: opacity 0.2s ease;
@@ -614,16 +614,26 @@ body.searching #search {
 /* line 80, ../sass/modules/_article_list.scss */
 .articles .article a.main:hover h1 {
   color: #000;
+  text-decoration: underline;
 }
-/* line 86, ../sass/modules/_article_list.scss */
+/* line 87, ../sass/modules/_article_list.scss */
 .articles .article .date {
   font-size: 13px;
   color: #999;
   z-index: 2;
   margin: 10px 0;
 }
-
 /* line 95, ../sass/modules/_article_list.scss */
+.articles .article.no-image a.main {
+  padding: 20px 0;
+  height: 150px;
+}
+/* line 99, ../sass/modules/_article_list.scss */
+.articles .article.no-image a.main .overlay, .articles .article.no-image a.main .blank {
+  display: none;
+}
+
+/* line 107, ../sass/modules/_article_list.scss */
 .loading {
   width: 800px;
   margin: 20px auto;
@@ -633,72 +643,76 @@ body.searching #search {
   background: #f2f2f2;
 }
 
-/* line 106, ../sass/modules/_article_list.scss */
+/* line 118, ../sass/modules/_article_list.scss */
 body.open-article .article-list {
   display: none;
 }
 
 @media only screen and (max-width: 895px) {
-  /* line 113, ../sass/modules/_article_list.scss */
+  /* line 125, ../sass/modules/_article_list.scss */
   .articles {
     width: auto;
     margin: 0 20px;
   }
-  /* line 119, ../sass/modules/_article_list.scss */
+  /* line 131, ../sass/modules/_article_list.scss */
   .articles .article a.main {
     width: auto;
     padding-left: 240px;
   }
-  /* line 123, ../sass/modules/_article_list.scss */
+  /* line 135, ../sass/modules/_article_list.scss */
   .articles .article a.main .overlay {
     width: 200px;
     height: 200px;
   }
-  /* line 133, ../sass/modules/_article_list.scss */
+  /* line 145, ../sass/modules/_article_list.scss */
   .articles .article a.main img,
   .articles .article a.main .blank {
     width: 200px;
     height: 200px;
   }
-  /* line 138, ../sass/modules/_article_list.scss */
+  /* line 150, ../sass/modules/_article_list.scss */
   .articles .article a.main p {
     font-size: 16px;
   }
 
-  /* line 145, ../sass/modules/_article_list.scss */
+  /* line 157, ../sass/modules/_article_list.scss */
   .loading {
     width: 100%;
     margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 157, ../sass/modules/_article_list.scss */
+  /* line 169, ../sass/modules/_article_list.scss */
   .articles .article a.main {
     padding-left: 140px;
     height: 120px;
   }
-  /* line 161, ../sass/modules/_article_list.scss */
+  /* line 173, ../sass/modules/_article_list.scss */
   .articles .article a.main .overlay {
     width: 120px;
     height: 120px;
   }
-  /* line 172, ../sass/modules/_article_list.scss */
+  /* line 184, ../sass/modules/_article_list.scss */
   .articles .article a.main img,
   .articles .article a.main .blank {
     width: 120px;
     height: 120px;
   }
-  /* line 177, ../sass/modules/_article_list.scss */
+  /* line 189, ../sass/modules/_article_list.scss */
   .articles .article a.main h1 {
     font-size: 25px;
   }
-  /* line 181, ../sass/modules/_article_list.scss */
+  /* line 193, ../sass/modules/_article_list.scss */
   .articles .article a.main p {
     display: none;
   }
+  /* line 198, ../sass/modules/_article_list.scss */
+  .articles .article.no-image a.main p {
+    display: block;
+  }
 }
 @media only screen and (max-width: 400px) {
-  /* line 190, ../sass/modules/_article_list.scss */
+  /* line 206, ../sass/modules/_article_list.scss */
   .articles .article a.main h1 {
     font-size: 20px;
   }
