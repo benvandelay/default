@@ -35,6 +35,7 @@ var app = (function(){
                   $('body').removeClass('open-article');
               }else{
                   $('body').addClass('open-article');
+                  self.lazy();
               }
             });
         },

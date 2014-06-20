@@ -177,6 +177,7 @@ class SiteController extends Controller
 
     private function sendContactEmail($model)
     {
+        
         $headers="From: {$model->email}\r\nReply-To: {$model->email}\r\n";
         //$headers .= 'Bcc: benvandelay@gmail.com' . "\r\n"; //for client work only
         

@@ -13,6 +13,7 @@
             //scripts
             Yii::app()->clientScript->registerCoreScript('jquery');
             Yii::app()->clientScript->registerCoreScript('yiiactiveform');
+            Yii::app()->clientScript->registerScriptFile('/js/lazy.js');
             Yii::app()->clientScript->registerScriptFile('/js/underscore.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile('/js/jquery.pjax.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile('/js/search.js', CClientScript::POS_HEAD);

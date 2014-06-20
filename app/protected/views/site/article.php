@@ -1,5 +1,3 @@
-<?php Yii::app()->clientScript->registerScriptFile('/js/lazy.js'); ?>
-
 <div class="article-wrap <?php echo $model->published_content->image ? 'has-image' : 'no-image'; ?>" data-id="<?php echo $model->id; ?>">
 
     <?php echo $model->published_content->image ? ImageHelper::resize($model->published_content->image->filename, 'large') : '<div class="blank-image"></div>' ?>
