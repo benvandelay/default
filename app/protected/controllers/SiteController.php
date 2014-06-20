@@ -31,7 +31,12 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-        Yii::app()->clientScript->registerMetaTag(Yii::app()->params['GAVerify'], 'google-site-verification');
+	    if(SiteHelper::getParam('google_verification_id'))
+            Yii::app()->clientScript->registerMetaTag(SiteHelper::getParam('google_verification_id'), 'google-site-verification');
+        
+        if(SiteHelper::getParam('site_description'))
+            Yii::app()->clientScript->registerMetaTag(SiteHelper::getParam('site_description'), 'description');
+        
 		$this->render('index');
 	}
 
