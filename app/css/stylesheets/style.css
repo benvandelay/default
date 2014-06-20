@@ -725,8 +725,8 @@ body.open-article .article-list {
 /* line 5, ../sass/modules/_article.scss */
 .article-wrap img {
   width: 800px;
-  height: auto;
   display: block;
+  background: #f9f9f9;
   border-radius: 2px;
 }
 /* line 11, ../sass/modules/_article.scss */
