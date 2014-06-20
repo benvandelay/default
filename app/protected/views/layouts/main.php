@@ -6,6 +6,10 @@
         
         <link href='http://fonts.googleapis.com/css?family=Asap:700|Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
         
+        <?php if(SiteHelper::getParam('google_verification_id')): ?>
+            <meta name="google-site-verification" content="<?php echo SiteHelper::getParam('google_verification_id'); ?>" />
+        <?php endif; ?>
+        
         <?php
             //styles
             Yii::app()->clientScript->registerCssFile('/css/stylesheets/style.css');
@@ -24,6 +28,8 @@
     
     </head>
     <body class="<?php echo ($this->action->id == 'page' || $this->action->id == 'preview' || $this->action->id == 'error') ? 'open-article' : ''; ?>">
+        
+        <?php $this->renderPartial('/partials/_google_analytics'); ?>
         
         <div class="wrap">
             

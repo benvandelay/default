@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: init
-# Generation Time: 2014-06-20 01:36:36 +0000
+# Generation Time: 2014-06-20 19:17:14 +0000
 # ************************************************************
 
 
@@ -54,12 +54,15 @@ LOCK TABLES `config` WRITE;
 
 INSERT INTO `config` (`id`, `label`, `type`, `name`, `value`, `desc`)
 VALUES
-	(1,'Site Title','info','title','My Website',NULL),
-	(2,'Admin Email','info','admin_email','admin@mywebsite.com',NULL),
-	(3,'Github Link','social','github',NULL,NULL),
-	(4,'Facebook Link','social','facebook',NULL,NULL),
-	(5,'Twitter Link','social','twitter',NULL,NULL),
-	(6,'Vimeo Link','social','vimeo',NULL,NULL);
+	(1,'Site Title','info','title','My Website','Keep this short. It will appear in the header of your site.'),
+	(2,'Admin Email','info','admin_email','admin@admin.com','All contact requests will be sent to this email address.'),
+	(3,'Github Link','social','github','',NULL),
+	(4,'Facebook Link','social','facebook','',NULL),
+	(5,'Twitter Link','social','twitter','',NULL),
+	(6,'Vimeo Link','social','vimeo','',NULL),
+	(7,'Site Description','info','site_description','','This will serve as the meta description on your homepage.'),
+	(8,'Verification ID','google analytics','google_verification_id','',NULL),
+	(9,'Tracking ID','google analytics','google_tracking_id','',NULL);
 
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 UNLOCK TABLES;
