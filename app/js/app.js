@@ -37,6 +37,10 @@ var app = (function(){
                   $('body').addClass('open-article');
                   self.lazy();
               }
+              
+              ga('set', 'location', window.location.href);
+              ga('send', 'pageview');
+              
             });
         },
 
