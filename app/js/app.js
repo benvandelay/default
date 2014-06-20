@@ -58,8 +58,8 @@ var app = (function(){
         },
         
         lazy: function(){
-            if($('.editor-content img').length){
-                $('.editor-content img').lazyload({
+            if($('.article-wrap img').length){
+                $('.article-wrap img').lazyload({
                     effect : 'fadeIn',
                     threshold : 100
                 });

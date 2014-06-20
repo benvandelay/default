@@ -4,6 +4,7 @@
 
     img {
         width: 800px;
+        height: 400px;
         display: block;
         background: #f9f9f9;
         border-radius: 2px;
@@ -17,6 +18,15 @@
         background: #fff;
         position: relative;
         color: #343434;
+        
+        img {
+            width: 800px;
+            display: block;
+            background: #f9f9f9;
+            height: auto;
+            border-radius: 2px;
+            border: 0;
+        }
         
         .date {
             font-size: 12px;
@@ -96,11 +106,17 @@
         img {
           width: 100%;
           border-radius: 0;
+          height: auto;
         }
         
         .editor-content {
             margin-top: -40px;
             padding: 20px 40px;
+            
+            img {
+              width: 100%;
+              border-radius: 0;
+            }
             
             .date {
                 font-size: 12px;
