@@ -37,6 +37,8 @@ class SiteController extends Controller
         if(SiteHelper::getParam('site_description'))
             Yii::app()->clientScript->registerMetaTag(SiteHelper::getParam('site_description'), 'description');
         
+        $this->pageTitle = SiteHelper::getParam('title') . ' | Home';
+        
 		$this->render('index');
 	}
 
@@ -100,7 +102,7 @@ class SiteController extends Controller
         }
         
         
-        $this->pageTitle=Yii::app()->name . ' | ' . $model->title;
+        $this->pageTitle = SiteHelper::getParam('title') . ' | ' . $model->title;
         
         $this->render('article', 
             array(
