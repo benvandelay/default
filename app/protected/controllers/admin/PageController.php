@@ -244,7 +244,7 @@ class PageController extends AdminController
             $results[$i]['body']   = StringHelper::getExcerpt($data->content->body);
             $results[$i]['image']  = $data->content->image ? ImageHelper::resize($data->content->image->filename, 'admin_thumb') : '<div class="blank"></div>';
             $results[$i]['url']    = $this->createUrl('update', array('id'=> $data->id));
-            $results[$i]['date']   = StringHelper::displayDate($data->date);
+            $results[$i]['date']   = StringHelper::displayDate($data->display_date);
             $results[$i]['author'] = $data->author->first_name . ' ' . $data->author->last_name;
             $results[$i]['status'] = $data->published_version ? ' active' : '';
         }

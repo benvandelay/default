@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: init
-# Generation Time: 2014-06-13 14:22:43 +0000
+# Generation Time: 2014-06-20 01:36:36 +0000
 # ************************************************************
 
 
@@ -112,6 +112,7 @@ CREATE TABLE `page` (
   `excerpt` text,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` timestamp NULL DEFAULT NULL,
+  `display_date` timestamp NULL DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `version` int(11) NOT NULL DEFAULT '0',
   `published_version` int(11) DEFAULT NULL,

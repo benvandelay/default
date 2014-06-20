@@ -3617,17 +3617,18 @@ body .redactor_toolbar li a.redactor_btn_pre {
   /* Old browsers */
   font-size: 12px;
   padding: 5px;
+  display: none;
   top: 489px !important;
 }
 /* line 28, ../sass/modules/_mixins.scss */
 .ui-datepicker:hover {
   border-color: #ddd;
 }
-/* line 10, ../sass/modules/_datepicker.scss */
+/* line 11, ../sass/modules/_datepicker.scss */
 .ui-datepicker table td {
   text-align: center;
 }
-/* line 12, ../sass/modules/_datepicker.scss */
+/* line 13, ../sass/modules/_datepicker.scss */
 .ui-datepicker table td a {
   color: #fff;
   width: 25px;
@@ -3638,7 +3639,7 @@ body .redactor_toolbar li a.redactor_btn_pre {
   background: #2d6ea3;
   color: #fff;
 }
-/* line 25, ../sass/modules/_datepicker.scss */
+/* line 26, ../sass/modules/_datepicker.scss */
 .ui-datepicker table td.ui-state-disabled span {
   color: #fff;
   width: 25px;
@@ -3650,18 +3651,18 @@ body .redactor_toolbar li a.redactor_btn_pre {
   color: #999;
   font-style: italic;
 }
-/* line 39, ../sass/modules/_datepicker.scss */
+/* line 40, ../sass/modules/_datepicker.scss */
 .ui-datepicker table th {
   width: 25px;
   padding: 5px 0;
   text-align: center;
 }
-/* line 46, ../sass/modules/_datepicker.scss */
+/* line 47, ../sass/modules/_datepicker.scss */
 .ui-datepicker a {
   cursor: pointer;
   text-decoration: none;
 }
-/* line 51, ../sass/modules/_datepicker.scss */
+/* line 52, ../sass/modules/_datepicker.scss */
 .ui-datepicker .ui-datepicker-prev {
   position: absolute;
   left: 5px;
@@ -3670,11 +3671,11 @@ body .redactor_toolbar li a.redactor_btn_pre {
   width: 14px;
   height: 14px;
 }
-/* line 59, ../sass/modules/_datepicker.scss */
+/* line 60, ../sass/modules/_datepicker.scss */
 .ui-datepicker .ui-datepicker-prev span {
   display: none;
 }
-/* line 63, ../sass/modules/_datepicker.scss */
+/* line 64, ../sass/modules/_datepicker.scss */
 .ui-datepicker .ui-datepicker-next {
   position: absolute;
   right: 5px;
@@ -3683,11 +3684,11 @@ body .redactor_toolbar li a.redactor_btn_pre {
   width: 14px;
   height: 14px;
 }
-/* line 71, ../sass/modules/_datepicker.scss */
+/* line 72, ../sass/modules/_datepicker.scss */
 .ui-datepicker .ui-datepicker-next span {
   display: none;
 }
-/* line 76, ../sass/modules/_datepicker.scss */
+/* line 77, ../sass/modules/_datepicker.scss */
 .ui-datepicker .ui-datepicker-title {
   text-align: center;
   font-weight: bold;

@@ -8,7 +8,7 @@
         
         <h1><?php echo $model->published_content->header; ?></h1>
         
-        <div class="date"><?php echo StringHelper::displayDate($model->date); ?> &nbsp; | &nbsp; <?php echo $model->author->first_name; ?> <?php echo $model->author->last_name; ?></div>
+        <div class="date"><?php echo StringHelper::displayDate($model->display_date); ?> &nbsp; | &nbsp; <?php echo $model->author->first_name; ?> <?php echo $model->author->last_name; ?></div>
         
         <?php echo SiteHelper::setUpLazyload($model->published_content->body); ?>
         
