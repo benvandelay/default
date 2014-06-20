@@ -9,7 +9,7 @@ class SiteHelper {
     public static function setUpLazyload($html){
         
         $search  = '<img src';
-        $replace = '<img src="" data-original';
+        $replace = '<img data-original';
         
         $newHtml = str_replace($search, $replace, $html);
         
