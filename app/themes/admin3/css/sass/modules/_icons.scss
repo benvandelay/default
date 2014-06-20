@@ -11,7 +11,7 @@
     font-style: normal;
 }
 
-.icon, .ui-icon {
+.icon, .ui-icon, .ui-datepicker-prev, .ui-datepicker-next {
     font-family: 'icomoon';
     speak: none;
     display: inline-block;
@@ -120,10 +120,10 @@
 .icon-arrow-right3:before {
   content: "\e61e";
 }
-.icon-arrow-left2:before {
+.icon-arrow-left2:before, .ui-datepicker-prev:before {
   content: "\e61f";
 }
-.icon-arrow-right4:before {
+.icon-arrow-right4:before, .ui-datepicker-next:before {
   content: "\e620";
 }
 .icon-arrow-left3:before {

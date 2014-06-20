@@ -10,9 +10,28 @@ var editInfo = (function(){
             self             = this;
             existingTags     = '';
             self.tagit();
+            self.displayDate();
         },
         
-        
+        displayDate: function(){
+            
+            $('#display_date').datepicker({
+                altField   : '#Page_display_date',
+                altFormat  : 'yy-mm-dd 12:00:00',
+                dateFormat : 'M dd yy',
+                maxDate    : 0,
+                onSelect: function(date, inst){
+                    $('.date').removeClass('active');
+                    $('.date.other').addClass('active');
+                }
+            });
+            
+            $('.dates .date').not('.other').on('click', function(){
+                $('.date').removeClass('active');
+                $(this).addClass('active');
+                $('#Page_display_date').val($(this).data('value'));
+            });
+        },
         
         tagit: function(){
             

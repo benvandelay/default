@@ -36,7 +36,7 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('date, published_version, categories, content, title, user, slug, excerpt, updated', 'safe'),
+            array('date, published_version, categories, content, title, user, slug, excerpt, updated, display_date', 'safe'),
             array('title, slug', 'required'),
             array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
@@ -74,8 +74,8 @@ class Page extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'slug'=>'Url',
-            'categoryIds'=>'Category',
+            'slug' => 'Url',
+            'categoryIds' => 'Category',
         );
     }
 
@@ -95,6 +95,10 @@ class Page extends CActiveRecord
          }
          
          $this->modified = new CDbExpression('NOW()');
+         
+         if(!$this->display_date){
+             $this->display_date =  new CDbExpression('NOW()');
+         }
          
         return true;
     } 

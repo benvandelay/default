@@ -62,6 +62,13 @@ var editContent = (function(){
                 minHeight       : 200,
                 plugins         : ['pre'],
                 imageUpload     : '/admin/image/redactorFileUpload',
+                imageUploadCallback      : function(img, json){
+                    console.log(img);
+                    console.log(json);
+                    img.attr('width', json.width).attr('height', json.height);
+                    this.sync();
+                    
+                },
                 imageUploadErrorCallback : function(json){
                         alert(json.error);
                     }

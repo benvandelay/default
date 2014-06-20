@@ -281,8 +281,13 @@ class ImageController extends AdminController
                 }
             }
             
+            $newWidth = Yii::app()->params['image']['size']['redactor_upload']['width'];
+            $newHeight = ($height *  $newWidth) / $width;
+            
             if(empty($error)){//no upload error
                 $json = array(
+                    'height' => $newHeight,
+                    'width' => $newWidth,
                     'filelink' => $targetFolder . '/redactor_upload_' . $newName, //for redactor TODO update to filelink everywhere
                 );
             }else{

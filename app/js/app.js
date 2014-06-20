@@ -11,7 +11,7 @@ var app = (function(){
             
             self.spamKiller();
             self.wrapCode();
-            
+            self.lazy();
             self.fadeOutFlash();
             self.navFlair();
             
@@ -53,8 +53,16 @@ var app = (function(){
                     $('input[name="pen15"]').val('pass');
                 });
             }
-            
 
+        },
+        
+        lazy: function(){
+            if($('.editor-content img').length){
+                $('.editor-content img').lazyload({
+                    effect : 'fadeIn',
+                    threshold : 100
+                });
+            }
         },
         
         checkCaptchaBeforeSubmit: function(){

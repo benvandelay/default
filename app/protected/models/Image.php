@@ -42,7 +42,7 @@ class Image extends CActiveRecord
 		return array(
 			array('filename, title', 'length', 'max'=>200),
 			array('filename', 'required'),
-			array('date, filename, body', 'safe'),
+			array('date, filename, body, height, width', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, filename, title, date', 'safe', 'on'=>'search'),

@@ -36,7 +36,44 @@
     <div class="input">
         <?php echo $form->labelEx($model,'excerpt'); ?>
         <?php echo $form->textArea($model,'excerpt',array('rows'=>6)); ?>
-        <?php echo $form->error($model,'slug'); ?>
+        <?php echo $form->error($model,'excerpt'); ?>
+    </div>
+    
+    <?php 
+
+        $dateClass = 'other';
+        
+        if(StringHelper::displayDate($model->display_date) == StringHelper::displayDate($model->modified)){
+            $dateClass = 'modified';
+        } 
+        
+        if(StringHelper::displayDate($model->display_date) == StringHelper::displayDate($model->date)){
+            $dateClass = 'created';
+        } 
+    ?>
+    
+    <div class="dates">
+        
+        <h3>Display Date</h3>
+        
+        <div class="date<?php echo $dateClass == 'created' ? ' active' : ''; ?>" data-date-type="created" data-value="<?php echo $model->date; ?>">
+            <div class="label">Created Date</div>
+            <span><?php echo StringHelper::displayDate($model->date); ?></span>
+        </div>
+        
+        <div class="date<?php echo $dateClass == 'modified' ? ' active' : ''; ?>" data-date-type="modified" data-value="<?php echo $model->modified; ?>">
+            <div class="label">Modified Date</div>
+            <span><?php echo StringHelper::displayDate($model->modified); ?></span>
+        </div>
+        
+        <div class="date other<?php echo $dateClass == 'other' ? ' active' : ''; ?>" data-date-type="other">
+            
+            <label for="display_date">Other</label>
+            <input type="text" name="display_date" id="display_date" value="<?php echo $dateClass == 'other' ? StringHelper::displayDate($model->display_date) : 'Select A Date'; ?>" />
+            
+            <?php echo $form->hiddenField($model,'display_date'); ?>
+        </div>
+        <div class="clb"></div>
     </div>
     
 </div> 
@@ -61,6 +98,8 @@
 </div>
 
 <div class="clb"></div>
+
+
 
 <div class="info-buttons">
     <?php echo CHtml::submitButton('Save', array('class'=>'btn save')); ?>
