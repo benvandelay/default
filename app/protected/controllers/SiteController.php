@@ -152,8 +152,8 @@ class SiteController extends Controller
             $results[$i]['id']         = $data->id;
             $results[$i]['title']      = $data->title;
             $results[$i]['body']       = $data->excerpt != '' ? $data->excerpt : StringHelper::getExcerpt($data->published_content->body);
-            $results[$i]['image']      = $data->published_content->image ? ImageHelper::resize($data->published_content->image->filename, 'admin_user') : '<div class="blank"></div>';
-            $results[$i]['img_class']  = $data->published_content->image ? 'has-image' : 'no-image';
+            $results[$i]['image']      = $data->image ? ImageHelper::resize($data->image->filename, 'admin_user') : '<div class="blank"></div>';
+            $results[$i]['img_class']  = $data->image ? 'has-image' : 'no-image';
             $results[$i]['url']        = $this->createUrl('page', array('slug'=> $data->slug));
             $results[$i]['date']       = StringHelper::displayDate($data->display_date);
             $results[$i]['author']     = $data->author->first_name . ' ' . $data->author->last_name;

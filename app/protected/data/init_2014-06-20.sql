@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: init
-# Generation Time: 2014-06-20 19:17:14 +0000
+# Generation Time: 2014-06-21 02:06:26 +0000
 # ************************************************************
 
 
@@ -116,6 +116,7 @@ CREATE TABLE `page` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` timestamp NULL DEFAULT NULL,
   `display_date` timestamp NULL DEFAULT NULL,
+  `image_id` int(11) DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `version` int(11) NOT NULL DEFAULT '0',
   `published_version` int(11) DEFAULT NULL,
