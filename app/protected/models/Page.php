@@ -154,7 +154,7 @@ class Page extends CActiveRecord
         $criteria->addCondition('t.published_version IS NOT NULL AND t.published_version != 0');
         
         if($this->categoryIds){
-            $criteria->with = array('categories', 'categories.pages');
+            $criteria->with = array('categories');
             $criteria->together = true;
             $criteria->addInCondition('categories.id', $this->categoryIds);
         }

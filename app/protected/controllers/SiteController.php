@@ -143,7 +143,6 @@ class SiteController extends Controller
             $model->search      = $_GET['term'];
             $model->page        = $_GET['page'];
             $model->categoryIds = !empty($_GET['categories']) ? $_GET['categories'] : false;
-
         
         $results = array();
         
