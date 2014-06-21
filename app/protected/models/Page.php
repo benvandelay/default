@@ -36,7 +36,7 @@ class Page extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('date, published_version, categories, content, title, user, slug, excerpt, updated, display_date', 'safe'),
+            array('date, published_version, categories, content, title, user, slug, excerpt, updated, display_date, image_id', 'safe'),
             array('title, slug', 'required'),
             array('slug', 'unique', 'allowEmpty'=>false, 'className'=> 'Page'),
             // The following rule is used by search().
@@ -57,7 +57,8 @@ class Page extends CActiveRecord
                 'page_category(page_id, category_id)','index'=>'id'),
             'author'=>array(self::BELONGS_TO, 'User', 'user'),
             'content'=>array(self::BELONGS_TO, 'Version', 'version'),
-            'published_content'=>array(self::BELONGS_TO, 'Version', 'published_version')
+            'published_content'=>array(self::BELONGS_TO, 'Version', 'published_version'),
+            'image'=>array(self::BELONGS_TO, 'Image', 'image_id')
             
         );
     }
@@ -76,6 +77,7 @@ class Page extends CActiveRecord
         return array(
             'slug' => 'Url',
             'categoryIds' => 'Category',
+            'image_id' => 'List Image'
         );
     }
 

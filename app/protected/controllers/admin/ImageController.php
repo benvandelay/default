@@ -224,6 +224,7 @@ class ImageController extends AdminController
                     'error' => 0,
                     'filename' => $newName,
                     'filepath' => $src == 'user' ? $targetFolder . '/admin_user_' . $newName : $targetFolder . '/admin_large_' . $newName,
+                    'list_filepath' => $targetFolder . '/admin_user_' . $newName,
                     'image_id' => $image->id,
                 );
             }else{

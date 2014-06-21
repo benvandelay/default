@@ -79,9 +79,8 @@ class PageController extends AdminController
     {
         $this->title = 'Update Page';
         
-        //get models
-        $model   = $this->loadModel($id);
-        //$version = Version::model()->findByPk($model->version); 
+        //get model
+        $model = $this->loadModel($id);
         
         $this->performAjaxValidation($model);
 
@@ -89,20 +88,23 @@ class PageController extends AdminController
 
         $this->saveVersion($model);
 
-        //get models again after save
-        $model      = $this->loadModel($id);
+        //get new model data
+        $model->refresh();
         
         //get the version requested here or the most recent version
         if(!$version_id){
             //get latest version
             $version_id = Version::model()->getLatestId($id);
         }
+        
         $version = Version::model()->findByPk($version_id);
         
+        //version requested doesnt exist
         if(!$version || $version->page_id != $id){
             throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
         }
         
+        //get all versions
         $versions = Version::model()->getIds($id);
 
         $this->render('update',array(
@@ -122,6 +124,11 @@ class PageController extends AdminController
             
             if($version->save()){
                 $model->version = $version->id;
+                
+                if(!$model->image_id && $version->image_id){
+                    $model->image_id = $version->image_id;
+                }
+                
                 $model->categories = -1;
                 if($model->save()){
                     Yii::app()->user->setFlash('success', "Page Updated!");
@@ -160,8 +167,6 @@ class PageController extends AdminController
             //$originalStatus = $model->status;
             
             $model->attributes = $_POST['Page'];
-
-            //$model->status = Yii::app()->user->isAdmin() ? $model->status : $originalStatus;
 
             if(isset($_POST['Page']['categoryIds'])){
                 $model->categories=$_POST['Page']['categoryIds'];

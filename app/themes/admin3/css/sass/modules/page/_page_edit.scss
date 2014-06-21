@@ -419,6 +419,8 @@
 .info-buttons {
     height: 38px;
     padding: 10px;
+    border-top: 3px solid #dadada;
+    margin: 20px 0 0 50px;
     
     .btn {
         float: right;
@@ -428,7 +430,7 @@
 .dates {
     
     h3 {
-        margin: 10px 10px 20px 0;
+        margin: 20px 10px 10px 0;
     }
     
     .date {
@@ -476,6 +478,20 @@
             
         }
     }
+}
+
+.list-image-wrap {
+    height: 260px;
+    position: relative;
+    margin: 10px 0;
     
+    img {
+        width: 100%;
+        position: absolute;
+        height: auto;
+    }
+    .empty-image-wrap {
+        
+    }
 }
 

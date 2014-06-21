@@ -16,7 +16,8 @@
     }
 }
 
-.user-image-wrap .uploadifive-button {
+.user-image-wrap .uploadifive-button,
+.list-image-wrap .uploadifive-button {
     width: 236px;
     height: 236px;
     
@@ -49,6 +50,7 @@
   font: 12px Arial, Helvetica, Sans-serif;
   margin-top: 3px;
   padding: 15px;
+  display: none;
 }
 .uploadifive-queue-item .close {
   background: url('uploadifive-cancel.png') 0 0 no-repeat;

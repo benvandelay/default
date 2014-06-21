@@ -104,16 +104,16 @@ var editContent = (function(){
                 $('#Version_image_id').val('NULL');
             });
             
-            if($('#uploadify').length > 0){
+            if($('#uploadify_main').length > 0){
                 
-                $('#uploadify').uploadifive({
+                $('#uploadify_main').uploadifive({
                     'uploadScript'  : '/admin/image/uploadify',
                     'multi'         : false,
                     'width'         : 736,
                     'height'        : 323,
                     'buttonText'    : 'Select Image',
                     'onUploadComplete' : function(file, data, response) {
-                        console.log(data);
+
                        var o = jQuery.parseJSON(data);
                        if(o.error == 0){
                            
@@ -126,6 +126,11 @@ var editContent = (function(){
                            
                            $('#Version_image_id').val(o.image_id);
                            
+                           if($('#Page_image_id').val() == ''){
+                               $('#Page_image_id').val(o.image_id);
+                           }
+                           
+                           
                        }else{
                            alert(o.error);
                        }
@@ -133,6 +138,37 @@ var editContent = (function(){
                     }
                  });
              }
+             
+             if($('#uploadify_list').length > 0){
+                 
+                 $('#uploadify_list').uploadifive({
+                    'uploadScript'  : '/admin/image/uploadify',
+                    'multi'         : false,
+                    'width'         : 236,
+                    'height'        : 236,
+                    'buttonText'    : 'Select List Image',
+                    'onUploadComplete' : function(file, data, response) {
+
+                       var o = jQuery.parseJSON(data);
+                       if(o.error == 0){
+                           
+                           if($('.empty-image').length){
+                               var uploaded_img = $('<img>', {src : o.list_filepath});
+                               $('.list-image-wrap').append(uploaded_img).removeClass('empty-image');
+                           }else{
+                               $('.list-image-wrap img').attr('src', o.list_filepath);
+                           }
+                           $('#Page_image_id').val(o.image_id);
+                           
+                       }else{
+                           alert(o.error);
+                       }
+                       
+                    }
+                 });
+                 
+             }
+             
         },
         
         viewVersions: function() {

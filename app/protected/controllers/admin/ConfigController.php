@@ -32,7 +32,7 @@ class ConfigController extends AdminController
 
             array('allow', 
                 'actions'=>array('index'),
-                'expression'=>'Yii::app()->user->isLoggedIn()',
+                'expression'=>'Yii::app()->user->isAdmin()',
             ), 
             array('deny'),    
         );
@@ -54,7 +54,7 @@ class ConfigController extends AdminController
         
         $this->title = 'Config';
         
-        $fields = Config::model()->findAll();
+        $fields = Config::model()->findAll(array('order'=>"FIELD(type, 'info', 'social', 'google analytics')"));
         
         $this->render('index', array('fields'=> $fields));
     }

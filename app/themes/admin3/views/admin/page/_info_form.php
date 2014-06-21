@@ -79,6 +79,12 @@
 </div> 
     
 <div class="right-col">
+
+    <div class="list-image-wrap<?php echo !$model->image ? ' empty-image' : ''?>">
+        <input type="file" id="uploadify_list" />
+        <?php echo $model->image ? ImageHelper::resize($model->image->filename, 'admin_user') : ''; ?>
+        <?php echo $form->hiddenField($model,'image_id'); ?>
+    </div>
     
     <div class="categories">     
         <h2>Categorize</h2>
