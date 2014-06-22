@@ -85,6 +85,7 @@ return array(
 			    '/preview/<id:\d+>/<version_id:\d+>'=>'site/preview',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'/admin/page/<id:\d+>/<version_id:\d+>'=>'admin/page/update',
+				'/admin/page/delete/<id:\d+>'=>'admin/page/delete',
 				'/admin/<controller:\w+>/<id:\d+>'=>'admin/<controller>/update',
 				'/admin/page/getArticlesJson'=>'admin/page/getArticlesJson',
 				'/admin/page/setPublishedVersion'=>'admin/page/setPublishedVersion',

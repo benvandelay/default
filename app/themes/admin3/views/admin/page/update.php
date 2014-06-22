@@ -11,6 +11,16 @@
         <a class="show-page-info icon icon-info"></a>
         <span class="separator"></span>
         <a target="_blank" href="<?php echo CHtml::normalizeUrl(array('/site/preview/','id' => $model->id, 'version_id' => $version->id)); ?>" class="view-preview icon icon-screen"></a>
+        <span class="separator"></span>
+    </div>
+    
+    <div data-version-id="<?php echo $version->id; ?>" data-model-id="<?php echo $model->id; ?>" class="published-status <?php echo $model->published_version != $version->id ? 'unpublished' : 'published' ?>">
+        <span class="status unpublished">
+            <span class="icon icon-eye-blocked"></span> Unpublished
+        </span>
+        <span class="status published">
+            <span class="icon icon-eye"></span> Published
+        </span>
     </div>
     
     <div class="save-status">
@@ -20,10 +30,7 @@
         <div class="unsaved">Version <?php echo $version->getCount() + 1; ?> | Unsaved</div>
     </div>
     
-    <div data-version-id="<?php echo $version->id; ?>" data-model-id="<?php echo $model->id; ?>" class="published-status <?php echo $model->published_version != $version->id ? 'unpublished' : 'published' ?>">
-        <span class="unpublished icon icon-eye-blocked"></span>
-        <span class="published icon icon-eye"></span>
-    </div>
+    <a href="<?php echo CHtml::normalizeUrl(array('/admin/page/delete','id' => $model->id)); ?>" id="delete-page" class="icon icon-remove"></a>
     
 </div>
 

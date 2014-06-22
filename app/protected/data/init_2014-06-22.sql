@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.68)
 # Database: init
-# Generation Time: 2014-06-21 02:06:26 +0000
+# Generation Time: 2014-06-22 14:41:27 +0000
 # ************************************************************
 
 
@@ -120,6 +120,7 @@ CREATE TABLE `page` (
   `user` int(11) DEFAULT NULL,
   `version` int(11) NOT NULL DEFAULT '0',
   `published_version` int(11) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

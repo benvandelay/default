@@ -32,7 +32,11 @@ class PageController extends AdminController
     {
         return array(
             array('allow', 
-                'actions'=>array('create','update','delete','index','GetArticlesJson', 'getCategories', 'setPublishedVersion'),
+                'actions'=>array('delete'),
+                'expression'=>'Yii::app()->user->isAdmin()',
+            ),
+            array('allow', 
+                'actions'=>array('create','update','index','GetArticlesJson', 'getCategories', 'setPublishedVersion'),
                 'expression'=>'Yii::app()->user->isLoggedIn()',
             ),
             array('deny'),    
@@ -208,17 +212,15 @@ class PageController extends AdminController
     {
         $this->title = 'Delete Page';
         
-        if(Yii::app()->request->isPostRequest)
-        {
-            // we only allow deletion via POST request
-            $this->loadModel($id)->delete();
-
-            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-            if(!isset($_GET['ajax']))
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        $model = $this->loadModel($id);
+        $model->status = 0;
+        if($model->save()){
+            Yii::app()->user->setFlash('success', "Page Deleted");
+        }else{
+            Yii::app()->user->setFlash('error', "Page Not Saved"); 
         }
-        else
-            throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+        
+        $this->redirect('/admin/page');    
     }
 
 

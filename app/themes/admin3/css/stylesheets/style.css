@@ -904,8 +904,9 @@ body {
   -moz-transition: opacity 0.2s ease;
   -o-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
+  display: none;
 }
-/* line 64, ../sass/modules/page/_page_edit.scss */
+/* line 65, ../sass/modules/page/_page_edit.scss */
 .content-body .header-image-wrap .icon:hover {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease;
@@ -913,15 +914,19 @@ body {
   -o-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
-/* line 71, ../sass/modules/page/_page_edit.scss */
+/* line 72, ../sass/modules/page/_page_edit.scss */
+.content-body .header-image-wrap:hover .icon {
+  display: block;
+}
+/* line 78, ../sass/modules/page/_page_edit.scss */
 .content-body .header-image-wrap.empty-image img {
   display: none;
 }
-/* line 74, ../sass/modules/page/_page_edit.scss */
+/* line 81, ../sass/modules/page/_page_edit.scss */
 .content-body .header-image-wrap.empty-image .icon {
   display: none;
 }
-/* line 80, ../sass/modules/page/_page_edit.scss */
+/* line 87, ../sass/modules/page/_page_edit.scss */
 .content-body .row.buttons {
   position: fixed;
   bottom: 0;
@@ -933,11 +938,11 @@ body {
   border-top: 2px solid #ddd;
   z-index: 10000;
 }
-/* line 91, ../sass/modules/page/_page_edit.scss */
+/* line 98, ../sass/modules/page/_page_edit.scss */
 .content-body .row.buttons .save-wrap {
   float: right;
 }
-/* line 96, ../sass/modules/page/_page_edit.scss */
+/* line 103, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header {
   height: 60px;
   top: 0;
@@ -949,7 +954,7 @@ body {
   z-index: 10000;
   border-bottom: 2px solid #eeeeee;
 }
-/* line 107, ../sass/modules/page/_page_edit.scss */
+/* line 114, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status {
   width: 240px;
   right: 62px;
@@ -965,40 +970,43 @@ body {
   font-weight: bold;
   z-index: 10000;
 }
-/* line 122, ../sass/modules/page/_page_edit.scss */
+/* line 129, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status .saved {
   display: block;
 }
-/* line 125, ../sass/modules/page/_page_edit.scss */
+/* line 132, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status .saved em {
   font-weight: normal;
 }
-/* line 129, ../sass/modules/page/_page_edit.scss */
+/* line 136, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status .unsaved {
   display: none;
 }
-/* line 133, ../sass/modules/page/_page_edit.scss */
+/* line 140, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status.unsaved {
   background: #df6363;
   color: #fff;
 }
-/* line 137, ../sass/modules/page/_page_edit.scss */
+/* line 144, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status.unsaved .saved {
   display: none;
 }
-/* line 140, ../sass/modules/page/_page_edit.scss */
+/* line 147, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status.unsaved .unsaved {
   display: block;
 }
-/* line 145, ../sass/modules/page/_page_edit.scss */
+/* line 152, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .save-status:hover {
   background: #f8f28a;
 }
-/* line 150, ../sass/modules/page/_page_edit.scss */
+/* line 157, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .published-status {
   position: absolute;
-  right: 10px;
+  left: 230px;
   top: 9px;
+  font-size: 12px;
+  height: 18px;
+  padding: 12px 12px 12px 40px;
   cursor: pointer;
   background: #eeeeee;
   color: #ccc;
@@ -1008,9 +1016,14 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 160, ../sass/modules/page/_page_edit.scss */
+/* line 170, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status .status {
+  display: none;
+}
+/* line 174, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .published-status .icon {
   border-radius: 2px;
+  color: #fff;
   display: block;
   padding: 12px;
   height: 18px;
@@ -1022,9 +1035,15 @@ body {
   -moz-transition: color 0.2s ease;
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-/* line 173, ../sass/modules/page/_page_edit.scss */
+/* line 190, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status .status.unpublished .icon {
+  color: #ccc;
+}
+/* line 194, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .published-status.published {
   background: #57ad68;
   -webkit-transition: background 0.2s ease;
@@ -1032,8 +1051,8 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 177, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status.published .icon.published {
+/* line 198, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status.published .status.published {
   display: block;
   color: #fff;
   -webkit-transition: color 0.2s ease;
@@ -1041,11 +1060,11 @@ body {
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
-/* line 185, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status.unpublished .icon.unpublished {
+/* line 206, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status.unpublished .status.unpublished {
   display: block;
 }
-/* line 191, ../sass/modules/page/_page_edit.scss */
+/* line 212, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .published-status:hover.published {
   background: #eeeeee;
   -webkit-transition: background 0.2s ease;
@@ -1053,15 +1072,15 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 195, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status:hover.published .icon.published {
+/* line 216, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.published .status.published {
   display: none;
 }
-/* line 198, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status:hover.published .icon.unpublished {
+/* line 219, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.published .status.unpublished {
   display: block;
 }
-/* line 203, ../sass/modules/page/_page_edit.scss */
+/* line 224, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .published-status:hover.unpublished {
   background: #57ad68;
   -webkit-transition: background 0.2s ease;
@@ -1069,12 +1088,12 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 207, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status:hover.unpublished .icon.unpublished {
+/* line 228, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.unpublished .status.unpublished {
   display: none;
 }
-/* line 210, ../sass/modules/page/_page_edit.scss */
-.content-body .editor-header .published-status:hover.unpublished .icon.published {
+/* line 231, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .published-status:hover.unpublished .status.published {
   display: block;
   color: #fff;
   -webkit-transition: color 0.2s ease;
@@ -1082,13 +1101,13 @@ body {
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
-/* line 219, ../sass/modules/page/_page_edit.scss */
+/* line 240, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons {
   position: absolute;
   top: 9px;
   left: 50px;
 }
-/* line 224, ../sass/modules/page/_page_edit.scss */
+/* line 245, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .icon {
   border-radius: 2px;
   background: #eeeeee;
@@ -1105,7 +1124,7 @@ body {
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
-/* line 237, ../sass/modules/page/_page_edit.scss */
+/* line 258, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .icon.icon-screen {
   background: #f2aeae;
   color: #fff;
@@ -1114,7 +1133,7 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 242, ../sass/modules/page/_page_edit.scss */
+/* line 263, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .icon.icon-screen:hover {
   background: #df6363;
   color: #fff;
@@ -1123,7 +1142,7 @@ body {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
 }
-/* line 249, ../sass/modules/page/_page_edit.scss */
+/* line 270, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .icon:hover {
   color: #999;
   -webkit-transition: color 0.2s ease;
@@ -1131,12 +1150,12 @@ body {
   -o-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
-/* line 254, ../sass/modules/page/_page_edit.scss */
+/* line 275, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .icon.active {
   background: #2d6ea3;
   color: #fff;
 }
-/* line 260, ../sass/modules/page/_page_edit.scss */
+/* line 281, ../sass/modules/page/_page_edit.scss */
 .content-body .editor-header .buttons .separator {
   height: 42px;
   width: 1px;
@@ -1144,7 +1163,42 @@ body {
   margin: 0 10px 0 0;
   float: left;
 }
-/* line 271, ../sass/modules/page/_page_edit.scss */
+/* line 291, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .icon-remove {
+  border-radius: 2px;
+  background: #eeeeee;
+  padding: 12px;
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+  color: #ccc;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 306, ../sass/modules/page/_page_edit.scss */
+.content-body .editor-header .icon-remove:hover {
+  color: #fff;
+  background: #df6363;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+/* line 315, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list {
   border-radius: 2px;
   border-bottom: 2px solid #eeeeee;
@@ -1162,7 +1216,7 @@ body {
 .content-body .version-list:hover {
   border-color: #ddd;
 }
-/* line 280, ../sass/modules/page/_page_edit.scss */
+/* line 324, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list h2 {
   font-size: 16px;
   padding-left: 15px;
@@ -1174,7 +1228,7 @@ body {
   color: #fff;
   padding: 10px 15px;
 }
-/* line 292, ../sass/modules/page/_page_edit.scss */
+/* line 336, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list .icon {
   position: absolute;
   right: 15px;
@@ -1182,11 +1236,11 @@ body {
   cursor: pointer;
   color: #999;
 }
-/* line 299, ../sass/modules/page/_page_edit.scss */
+/* line 343, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list .icon:hover {
   color: #fff;
 }
-/* line 304, ../sass/modules/page/_page_edit.scss */
+/* line 348, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version {
   padding: 6px;
   font-weight: normal;
@@ -1203,13 +1257,13 @@ body {
   transition: background 0.2s ease;
   position: relative;
 }
-/* line 317, ../sass/modules/page/_page_edit.scss */
+/* line 361, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version i {
   display: block;
   font-weight: bold;
   color: #666;
 }
-/* line 323, ../sass/modules/page/_page_edit.scss */
+/* line 367, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version .icon {
   position: absolute;
   right: 6px;
@@ -1217,36 +1271,36 @@ body {
   color: #000;
   display: none;
 }
-/* line 332, ../sass/modules/page/_page_edit.scss */
+/* line 376, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version:hover i {
   color: #000;
 }
-/* line 337, ../sass/modules/page/_page_edit.scss */
+/* line 381, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version.active {
   background: #f8f4b1;
 }
-/* line 340, ../sass/modules/page/_page_edit.scss */
+/* line 384, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version.active i {
   color: #000;
 }
-/* line 344, ../sass/modules/page/_page_edit.scss */
+/* line 388, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version.active .icon {
   display: block;
 }
-/* line 349, ../sass/modules/page/_page_edit.scss */
+/* line 393, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version.published {
   background: #57ad68;
   color: #fff;
 }
-/* line 350, ../sass/modules/page/_page_edit.scss */
+/* line 394, ../sass/modules/page/_page_edit.scss */
 .content-body .version-list a.version.published i {
   color: #000;
 }
-/* line 361, ../sass/modules/page/_page_edit.scss */
+/* line 405, ../sass/modules/page/_page_edit.scss */
 .content-body .editor {
   padding-top: 60px;
 }
-/* line 364, ../sass/modules/page/_page_edit.scss */
+/* line 408, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-content {
   padding: 50px 50px 20px 50px;
   background: #fff;
@@ -1257,33 +1311,33 @@ body {
   -o-transition: top 0.2s ease;
   transition: top 0.2s ease;
 }
-/* line 372, ../sass/modules/page/_page_edit.scss */
+/* line 416, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info {
   padding: 60px 0 0 0;
   width: 860px;
   display: none;
 }
-/* line 377, ../sass/modules/page/_page_edit.scss */
+/* line 421, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info.show {
   display: block;
 }
-/* line 381, ../sass/modules/page/_page_edit.scss */
+/* line 425, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .left-col {
   width: 520px;
   float: left;
   padding-left: 50px;
 }
-/* line 387, ../sass/modules/page/_page_edit.scss */
+/* line 431, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.page-info .right-col {
   width: 260px;
   float: right;
 }
-/* line 393, ../sass/modules/page/_page_edit.scss */
+/* line 437, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page {
   padding-top: 20px;
   margin: 0 10px 0 50px;
 }
-/* line 397, ../sass/modules/page/_page_edit.scss */
+/* line 441, ../sass/modules/page/_page_edit.scss */
 .content-body .editor.create-page .row.buttons {
   position: relative;
   bottom: auto;
@@ -1295,7 +1349,7 @@ body {
   margin: 20px 0;
 }
 
-/* line 411, ../sass/modules/page/_page_edit.scss */
+/* line 455, ../sass/modules/page/_page_edit.scss */
 .white-bg {
   position: absolute;
   height: 100%;
@@ -1304,23 +1358,23 @@ body {
   left: 0;
 }
 
-/* line 419, ../sass/modules/page/_page_edit.scss */
+/* line 463, ../sass/modules/page/_page_edit.scss */
 .info-buttons {
   height: 38px;
   padding: 10px;
   border-top: 3px solid #dadada;
   margin: 20px 0 0 50px;
 }
-/* line 425, ../sass/modules/page/_page_edit.scss */
+/* line 469, ../sass/modules/page/_page_edit.scss */
 .info-buttons .btn {
   float: right;
 }
 
-/* line 432, ../sass/modules/page/_page_edit.scss */
+/* line 476, ../sass/modules/page/_page_edit.scss */
 .dates h3 {
   margin: 20px 10px 10px 0;
 }
-/* line 436, ../sass/modules/page/_page_edit.scss */
+/* line 480, ../sass/modules/page/_page_edit.scss */
 .dates .date {
   float: left;
   border-radius: 2px;
@@ -1337,11 +1391,11 @@ body {
 .dates .date:hover {
   border-color: #ddd;
 }
-/* line 444, ../sass/modules/page/_page_edit.scss */
+/* line 488, ../sass/modules/page/_page_edit.scss */
 .dates .date.other {
   margin: 0;
 }
-/* line 446, ../sass/modules/page/_page_edit.scss */
+/* line 490, ../sass/modules/page/_page_edit.scss */
 .dates .date .label, .dates .date label {
   font-size: 12px;
   padding: 10px 20px 0 20px;
@@ -1350,12 +1404,12 @@ body {
   color: #999;
   cursor: pointer;
 }
-/* line 455, ../sass/modules/page/_page_edit.scss */
+/* line 499, ../sass/modules/page/_page_edit.scss */
 .dates .date span {
   display: block;
   padding: 5px 20px 10px 20px;
 }
-/* line 460, ../sass/modules/page/_page_edit.scss */
+/* line 504, ../sass/modules/page/_page_edit.scss */
 .dates .date #display_date {
   border: 0;
   padding: 5px 20px 10px 20px;
@@ -1364,27 +1418,27 @@ body {
   cursor: pointer;
   width: 126px;
 }
-/* line 469, ../sass/modules/page/_page_edit.scss */
+/* line 513, ../sass/modules/page/_page_edit.scss */
 .dates .date.active {
   background: #57ad68;
   color: #fff;
 }
-/* line 473, ../sass/modules/page/_page_edit.scss */
+/* line 517, ../sass/modules/page/_page_edit.scss */
 .dates .date.active input {
   color: #fff;
 }
-/* line 477, ../sass/modules/page/_page_edit.scss */
+/* line 521, ../sass/modules/page/_page_edit.scss */
 .dates .date.active label, .dates .date.active .label {
   color: #000;
 }
 
-/* line 483, ../sass/modules/page/_page_edit.scss */
+/* line 527, ../sass/modules/page/_page_edit.scss */
 .list-image-wrap {
   height: 260px;
   position: relative;
   margin: 10px 0;
 }
-/* line 488, ../sass/modules/page/_page_edit.scss */
+/* line 532, ../sass/modules/page/_page_edit.scss */
 .list-image-wrap img {
   width: 100%;
   position: absolute;

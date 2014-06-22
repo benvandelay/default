@@ -60,6 +60,7 @@
             opacity: 0.7;
             cursor: pointer;
             @include transition(opacity 0.2s ease);
+            display: none;
             
             &:hover {
                 opacity: 1;
@@ -67,7 +68,13 @@
             }
         }
         
-        &.empty-image {
+        &:hover {
+            .icon {
+                display: block; 
+            }
+        }
+        
+         &.empty-image {
             img {
                 display: none;
             }
@@ -149,16 +156,24 @@
         
         .published-status {
             position: absolute;
-            right: 10px;
+            left: 230px;
             top: 9px;
+            font-size: 12px;
+            height: 18px;
+            padding: 12px 12px 12px 40px;
             cursor: pointer;
             background: $grey;
             color: #ccc;
             border-radius: 2px;
             @include transition(background 0.2s ease);
             
+            .status {
+                display: none;
+            }
+            
             .icon {
                 border-radius: 2px;
+                color: #fff;
                 display: block;
                 padding: 12px;
                 height: 18px;
@@ -167,14 +182,20 @@
                 font-weight: bold;
                 float: left;
                 @include transition(color 0.2s ease);
-                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            
+            .status.unpublished .icon {
+                color: #ccc;
             }
             
             &.published {
                 background: $green;
                 @include transition(background 0.2s ease);
                 
-                .icon.published {
+                .status.published {
                     display: block;
                     color: #fff;
                     @include transition(color 0.2s ease);
@@ -182,7 +203,7 @@
             }
             
             &.unpublished {
-                .icon.unpublished {
+                .status.unpublished {
                     display: block;
                 }
             }
@@ -192,10 +213,10 @@
                     background: $grey;
                     @include transition(background 0.2s ease);
                     
-                    .icon.published {
+                    .status.published {
                         display: none;
                     }
-                    .icon.unpublished {
+                    .status.unpublished {
                         display: block;
                     }
                 }
@@ -204,10 +225,10 @@
                     background: $green;
                     @include transition(background 0.2s ease);
                     
-                    .icon.unpublished {
+                    .status.unpublished {
                         display: none;
                     }
-                    .icon.published {
+                    .status.published {
                         display: block;
                         color: #fff;
                         @include transition(color 0.2s ease);
@@ -266,6 +287,29 @@
             }
             
         } 
+        
+        .icon-remove {
+            border-radius: 2px;
+            background: $grey;
+            padding: 12px;
+            height: 18px;
+            width: 18px;
+            font-size: 18px;
+            color: #ccc;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            @include transition(color 0.2s ease);
+            @include transition(background 0.2s ease);
+            
+            &:hover {
+                color: #fff;
+                background: $red;
+                @include transition(color 0.2s ease);
+                @include transition(background 0.2s ease);
+            }
+        }
     }
     
     .version-list {

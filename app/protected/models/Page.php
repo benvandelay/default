@@ -109,10 +109,13 @@ class Page extends CActiveRecord
     public function scopes() {
         return array(
             'published'=>array(
-                'condition'=>'t.published_version != NULL',
+                'condition'=>'t.published_version IS NOT NULL AND t.status = 1',
             ),
             'unpublished'=>array(
-                'condition'=>'t.published_version IS NULL',
+                'condition'=>'t.published_version IS NULL AND t.status = 1',
+            ),
+            'deleted'=>array(
+                'condition'=>'t.status = 0',
             ),
         );
     }
@@ -127,6 +130,7 @@ class Page extends CActiveRecord
         // should not be searched.
 
         $criteria=new CDbCriteria;
+        $criteria->compare('status', 1, true);
         $criteria->compare('title',$this->search,true, 'OR');
         $criteria->limit = $limit;
         $criteria->offset = $this->page * $limit;
@@ -150,6 +154,7 @@ class Page extends CActiveRecord
         // should not be searched.
 
         $criteria=new CDbCriteria;
+        $criteria->compare('status', 1, true);
         $criteria->compare('title',$this->search, true, 'OR');
         $criteria->addCondition('t.published_version IS NOT NULL AND t.published_version != 0');
         
