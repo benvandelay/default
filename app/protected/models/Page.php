@@ -131,7 +131,7 @@ class Page extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('status', 1, true);
-        $criteria->compare('title',$this->search,true, 'OR');
+        $criteria->compare('title',$this->search,true, 'AND');
         $criteria->limit = $limit;
         $criteria->offset = $this->page * $limit;
         
@@ -155,7 +155,7 @@ class Page extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('status', 1, true);
-        $criteria->compare('title',$this->search, true, 'OR');
+        $criteria->compare('title',$this->search, true, 'AND');
         $criteria->addCondition('t.published_version IS NOT NULL AND t.published_version != 0');
         
         if($this->categoryIds){
@@ -170,7 +170,7 @@ class Page extends CActiveRecord
         $sort = new CSort();
         
         $sort->defaultOrder = array(
-            'date'=>'id DESC',
+            'display_date'=>'id DESC',
         );
         
         return new CActiveDataProvider($this, array(
